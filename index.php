@@ -1,0 +1,64 @@
+<?php
+require(__DIR__.'/src/autoload.php');
+$output = null;
+$total = null;
+if (!empty($_POST['ua'])) {
+	$ua = $_POST['ua'];
+	$time = \microtime(true);
+	$output = \hexydec\agentzero\agentzero::detect($ua);
+	$total = \microtime(true) - $time;
+} else {
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AgentZero - User Agent Information Test Page</title>
+		<style>
+			.content {
+				max-width: 1280px;
+				margin: 0 auto;
+			}
+
+			.form__control {
+				display: flex;
+				padding: 5px 0;
+			}
+
+			.form__label {
+				flex: 0 0 25%;
+				box-sizing: border-box;
+				padding-right: 10px;
+				text-align: right;
+			}
+
+			.form__input {
+				flex: 1 1 auto;
+			}
+
+			.form__submit {
+				margin-left: 25%;
+				width: 40%;
+			}
+		</style>
+	</head>
+	<body>
+		<main class="content">
+			<h1>AgentZero User Agent Information</h1>
+			<form accept-charset="<?= \htmlspecialchars(\mb_internal_encoding()); ?>" method="post">
+				<div class="form__control">
+					<label class="form__label">User Agent:</label>
+					<input type="text" class="form__input" name="ua" value="<?= \htmlspecialchars($ua); ?>" />
+				</div>
+				<div class="form__control">
+					<input type="submit" class="form__submit" value="Get Info" />
+				</div>
+				<?php if ($output !== null) { ?>
+					<pre><?= htmlspecialchars(print_r($output, true)); ?></pre>
+					<p>Generated in <?= \number_format($total, 5); ?></p>
+				<?php } ?>
+			</form>
+		</main>
+	</body>
+</html>
