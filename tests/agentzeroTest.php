@@ -639,6 +639,18 @@ final class jsliteTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '1.1',
 				'app' => 'facebookexternalhit'
 			],
+			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1)' => [
+				'appversion' => '0.1',
+				'app' => 'Applebot',
+				'type' => 'Crawler',
+				'platform' => 'Linux',
+				'os' => 'MacOS',
+				'plaformversion' => '10.10.1',
+				'browser' => 'Safari',
+				'browserversion' => '600.2.5',
+				'engine' => 'WebKit',
+				'engineversion' => '600.2.5'
+			]
 		];
 		foreach ($strings AS $ua => $item) {
 			$this->assertEquals((array) agentzero::detect($ua), $item);
