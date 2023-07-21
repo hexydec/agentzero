@@ -15,6 +15,7 @@ if (!empty($_POST['ua'])) {
 <html>
 	<head>
 		<title>AgentZero - User Agent Information Test Page</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 		<style>
 			.content {
 				max-width: 1280px;
@@ -54,11 +55,11 @@ if (!empty($_POST['ua'])) {
 				<div class="form__control">
 					<input type="submit" class="form__submit" value="Get Info" />
 				</div>
-				<?php if ($output !== null) { ?>
-					<pre><?= htmlspecialchars(print_r($output, true)); ?></pre>
-					<p>Generated in <?= \number_format($total, 5); ?></p>
-				<?php } ?>
 			</form>
+			<?php if ($output !== null) { ?>
+				<pre><?= htmlspecialchars(print_r($output, true)); ?></pre>
+				<p>Generated in <?= \number_format($total, 5); ?></p>
+			<?php } ?>
 		</main>
 	</body>
 </html>
