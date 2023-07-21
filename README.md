@@ -2,7 +2,7 @@
 A zero knowledge library for extracting information from User-Agent strings.
 
 ![Licence: MIT](https://img.shields.io/badge/Licence-MIT-lightgrey.svg)
-![Status: Stable](https://img.shields.io/badge/Status-Alpha-Red.svg)
+![Status: Alpha](https://img.shields.io/badge/Status-Alpha-red.svg)
 
 ## Description
 
