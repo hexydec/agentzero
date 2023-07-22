@@ -4,136 +4,117 @@ namespace hexydec\agentzero;
 class config {
 
 	public static function get(array $config = []) : array {
+		$fn = [
+			'url' => fn (string $value) : array => [
+				'url' => \ltrim($value, '+'),
+				'type' => 'Crawler'
+			],
+			'appslash' => function (string $value) : ?array {
+				if (!\str_starts_with($value, 'AppleWebKit')) {
+					$parts = \explode('/', $value, 2);
+					return [
+						'app' => $parts[0],
+						'appversion' => $parts[1] ?? null
+					];
+				}
+				return null;
+			},
+			'appspace' => function (string $value) : array {
+				$parts = \explode(' ', $value, 2);
+				return [
+					'app' => $parts[0],
+					'appversion' => $parts[1] ?? null
+				];
+			},
+			'crawlerslash' => function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				return [
+					'app' => $parts[0],
+					'appversion' => $parts[1] ?? null,
+					'type' => 'Crawler'
+				];
+			},
+		];
 		return \array_replace_recursive([
 			'ignore' => ['Mozilla/5.0', 'AppleWebKit/537.36', 'KHTML, like Gecko', 'Safari/537.36', 'compatible', 'Gecko/20100101'],
 			'match' => [
 
-				// type
+				// crawler url
 				'http://' => [
 					'match' => 'any',
-					'categories' => [
-						'url' => true,
-						'type' => 'Crawler'
-					]
+					'callback' => $fn['url']
 				],
 				'https://' => [
 					'match' => 'any',
-					'categories' => [
-						'url' => true,
-						'type' => 'Crawler'
-					]
+					'callback' => $fn['url']
 				],
 
 				// app
 				'com.google.android.apps.' => [
 					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
-					]
+					'callback' => $fn['appslash']
 				],
 				'Instagram' => [
 					'match' => 'any',
-					'delimit' => ' ',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
-					]
+					'callback' => $fn['appspace']
 				],
 				'GSA/' => [
 					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
-					]
+					'callback' => $fn['appslash']
 				],
 				'DuckDuckGo/' => [
 					'match' => 'start',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => 'DuckDuckGo'
-					]
-				],
-				'Yahoo! Slurp' => [
-					'match' => 'exact',
-					'categories' => [
-						'app' => 'Yahoo! Slurp'
-					]
-				],
-				'facebookexternalhit/' => [
-					'match' => 'start',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => 'facebookexternalhit'
-					]
+					'callback' => $fn['appslash']
 				],
 				'App' => [
 					'match' => 'any',
-					'ignore' => 'AppleWebKit',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
+					'callback' => $fn['appslash']
+				],
+				'facebookexternalhit/' => [
+					'match' => 'start',
+					'callback' => $fn['appslash']
+				],
+
+				// crawler
+				'Yahoo! Slurp' => [
+					'match' => 'exact',
+					'callback' => fn (string $value) : array => [
+						'app' => $value,
+						'type' => 'Crawler'
 					]
 				],
 				'Bot' => [
 					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true,
-						'type' => 'Crawler'
-					]
+					'callback' => $fn['crawlerslash']
 				],
 				'bot' => [
 					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true,
-						'type' => 'Crawler'
-					]
+					'callback' => $fn['crawlerslash']
 				],
 				'spider' => [
 					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true,
-						'type' => 'Crawler'
-					]
+					'callback' => $fn['crawlerslash']
 				],
 				'AhrefsSiteAudit/' => [
 					'match' => 'start',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => 'AhrefsSiteAudit',
-						'type' => 'Crawler'
-					]
+					'callback' => $fn['crawlerslash']
 				],
 
 				// platforms
 				'Android ' => [
 					'match' => 'start',
-					'delimit' => ' ',
-					'suffix' => 'plaformversion',
-					'categories' => [
-						'platform' => 'Linux',
-						'os' => 'Android'
-					],
-					'parser' => function (string $value, \stdClass $categories) : void {
-
+					'callback' => function (string $value) : array {
+						$parts = \explode(' ', $value, 2);
+						return [
+							'platform' => 'Linux',
+							'os' => $parts[0],
+							'osversion' => $parts[1] ?? null
+						];
 					}
 				],
 				'Windows NT ' => [
 					'match' => 'any',
-					'parser' => function (string $value, \stdClass $categories) : void {
-						$categories->platform = 'Windows NT';
-						$categories->os = 'Windows';
-						$categories->type = 'Desktop';
-						$categories->architecture = 'x86';
+					'callback' => function (string $value) : array {
 						$mapping = [
 							'5.0' => '2000',
 							'5.1' => 'XP',
@@ -145,36 +126,39 @@ class config {
 							'10.0' => '10'
 						];
 						$version = \mb_substr($value, 11);
-						$categories->osversion = $mapping[$version] ?? $version;
-					},
-					'categories' => [
-						'platform' => 'Windows NT',
-						'os' => 'Windows',
-						'type' => 'Desktop',
-						'architecture' => 'x86'
-					]
+						return [
+							'type' => 'Desktop',
+							'architecture' => 'X86',
+							'platform' => 'Windows NT',
+							'os' => 'Windows',
+							'osversion' => $mapping[$version] ?? $version
+						];
+					}
 				],
 				'Intel Mac OS X ' => [
 					'match' => 'start',
 					'delimit' => ' ',
 					'suffix' => 'plaformversion',
 					'suffixend' => ' ',
-					'categories' => [
-						'platform' => 'Linux',
-						'os' => 'MacOS',
-						'type' => 'Desktop',
-						'register' => function (string $value) : ?string {
-							$next = false;
-							foreach (\explode(' ', \str_replace('_', ' ', $value)) AS $item) {
-								if ($item === '10') {
-									$next = true;
-								} elseif ($next) {
-									return \intval($item) >= 6 ? '64 bit' : null;
-								}
+					'callback' => function (string $value) : array {
+						$register = null;
+						$next = false;
+						foreach (\explode(' ', \str_replace('_', ' ', $value)) AS $item) {
+							if ($item === '10') {
+								$next = true;
+							} elseif ($next) {
+								$register = \intval($item) >= 6 ? '64 bit' : null;
+								break;
 							}
-							return null;
 						}
-					]
+						return [
+							'platform' => 'Linux',
+							'os' => 'MacOS',
+							'architecture' => 'X86',
+							'type' => 'Desktop',
+							'register' => $register
+						];
+					}
 				],
 				'Macintosh' => [
 					'match' => 'start',
