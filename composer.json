@@ -1,0 +1,25 @@
+{
+    "name": "hexydec/agentzero",
+    "description": "A zero knowledge library for extracting information from User-Agent strings",
+    "type": "library",
+    "license": "MIT",
+	"homepage": "https://github.com/hexydec/agentzero",
+    "authors": [
+        {
+            "name": "Will Earp",
+            "email": "will@hexydec.com",
+			"homepage": "https://github.com/hexydec"
+        }
+    ],
+	"keywords": ["php", "browser", "user-agents"],
+    "minimum-stability": "beta",
+    "require": {
+        "php": ">=8.0"
+	},
+	"autoload": {
+		"classmap": ["src/"]
+	},
+    "require-dev": {
+        "phpunit/phpunit": "9.5.24"
+    }
+}

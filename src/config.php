@@ -8,6 +8,112 @@ class config {
 			'ignore' => ['Mozilla/5.0', 'AppleWebKit/537.36', 'KHTML, like Gecko', 'Safari/537.36', 'compatible', 'Gecko/20100101'],
 			'match' => [
 
+				// type
+				'http://' => [
+					'match' => 'any',
+					'categories' => [
+						'url' => true,
+						'type' => 'Crawler'
+					]
+				],
+				'https://' => [
+					'match' => 'any',
+					'categories' => [
+						'url' => true,
+						'type' => 'Crawler'
+					]
+				],
+
+				// app
+				'com.google.android.apps.' => [
+					'match' => 'any',
+					'delimit' => '/',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => true
+					]
+				],
+				'Instagram' => [
+					'match' => 'any',
+					'delimit' => ' ',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => true
+					]
+				],
+				'GSA/' => [
+					'match' => 'any',
+					'delimit' => '/',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => true
+					]
+				],
+				'DuckDuckGo/' => [
+					'match' => 'start',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => 'DuckDuckGo'
+					]
+				],
+				'Yahoo! Slurp' => [
+					'match' => 'exact',
+					'categories' => [
+						'app' => 'Yahoo! Slurp'
+					]
+				],
+				'facebookexternalhit/' => [
+					'match' => 'start',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => 'facebookexternalhit'
+					]
+				],
+				'App' => [
+					'match' => 'any',
+					'ignore' => 'AppleWebKit',
+					'delimit' => '/',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => true
+					]
+				],
+				'Bot' => [
+					'match' => 'any',
+					'delimit' => '/',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => true,
+						'type' => 'Crawler'
+					]
+				],
+				'bot' => [
+					'match' => 'any',
+					'delimit' => '/',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => true,
+						'type' => 'Crawler'
+					]
+				],
+				'spider' => [
+					'match' => 'any',
+					'delimit' => '/',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => true,
+						'type' => 'Crawler'
+					]
+				],
+				'AhrefsSiteAudit/' => [
+					'match' => 'start',
+					'suffix' => 'appversion',
+					'categories' => [
+						'app' => 'AhrefsSiteAudit',
+						'type' => 'Crawler'
+					]
+				],
+
 				// platforms
 				'Android ' => [
 					'match' => 'start',
@@ -16,7 +122,10 @@ class config {
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'Android'
-					]
+					],
+					'parser' => function (string $value, \stdClass $categories) : void {
+
+					}
 				],
 				'Windows NT ' => [
 					'match' => 'any',
@@ -49,16 +158,29 @@ class config {
 					'match' => 'start',
 					'delimit' => ' ',
 					'suffix' => 'plaformversion',
+					'suffixend' => ' ',
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'MacOS',
-						'type' => 'Desktop'
+						'type' => 'Desktop',
+						'register' => function (string $value) : ?string {
+							$next = false;
+							foreach (\explode(' ', \str_replace('_', ' ', $value)) AS $item) {
+								if ($item === '10') {
+									$next = true;
+								} elseif ($next) {
+									return \intval($item) >= 6 ? '64 bit' : null;
+								}
+							}
+							return null;
+						}
 					]
 				],
 				'Macintosh' => [
 					'match' => 'start',
 					'delimit' => ' ',
 					'suffix' => 'plaformversion',
+					'suffixend' => ' ',
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'MacOS',
@@ -69,6 +191,7 @@ class config {
 					'match' => 'start',
 					'delimit' => '/',
 					'suffix' => 'plaformversion',
+					'suffixend' => ' ',
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'Ubuntu',
@@ -79,6 +202,7 @@ class config {
 					'match' => 'start',
 					'delimit' => '/',
 					'suffix' => 'plaformversion',
+					'suffixend' => ' ',
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'Mint',
@@ -89,6 +213,7 @@ class config {
 					'match' => 'start',
 					'delimit' => '/',
 					'suffix' => 'plaformversion',
+					'suffixend' => ' ',
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'SUSE',
@@ -99,6 +224,7 @@ class config {
 					'match' => 'start',
 					'delimit' => '/',
 					'suffix' => 'plaformversion',
+					'suffixend' => ' ',
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'Red Hat',
@@ -119,6 +245,7 @@ class config {
 					'match' => 'start',
 					'delimit' => '/',
 					'suffix' => 'plaformversion',
+					'suffixend' => ' ',
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'iOS',
@@ -131,11 +258,13 @@ class config {
 				'CPU OS ' => [
 					'match' => 'start',
 					'suffix' => 'plaformversion',
+					'suffixend' => ' ',
 					'categories' => [
 						'platform' => 'Linux',
 						'os' => 'iOS',
-						'type' => 'Talbet',
-						'device' => 'iPad'
+						'type' => 'Tablet',
+						'device' => 'iPad',
+						'register' => '64 Bit'
 					]
 				],
 				'Win98' => [
@@ -165,21 +294,14 @@ class config {
 						'type' => 'Crawler'
 					]
 				],
-				'Firefox/' =>  [
-					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Firefox'
-					]
-				],
-				'Edge/' =>  [
-					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Edge'
-					]
-				],
 				'Opera/' =>  [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Opera'
+					]
+				],
+				'OPR/' =>  [
 					'match' => 'start',
 					'suffix' => 'browserversion',
 					'categories' => [
@@ -193,11 +315,111 @@ class config {
 						'browser' => 'Internet Explorer'
 					]
 				],
-				'Chrome/' => [
+				'CriOS/' => [
 					'match' => 'start',
 					'suffix' => 'browserversion',
 					'categories' => [
 						'browser' => 'Chrome'
+					]
+				],
+				'Brave/' =>  [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Brave'
+					]
+				],
+				'Vivaldi/' =>  [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Vivaldi'
+					]
+				],
+				'Maxthon/' =>  [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Maxthon'
+					]
+				],
+				'Konqueror/' =>  [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Konqueror'
+					]
+				],
+				'K-Meleon/' => [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'K-Meleon'
+					]
+				],
+				'UCBrowser/' => [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'UCBrowser'
+					]
+				],
+				'Waterfox/' =>  [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Waterfox',
+						'engine' => 'Gecko'
+					]
+				],
+				'PaleMoon/' => [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'PaleMoon'
+					]
+				],
+				'SeaMonkey/' => [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'SeaMonkey'
+					]
+				],
+				'YaBrowser/' => [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Yandex Browser'
+					]
+				],
+				'UP.Browser/' => [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'UP.Browser'
+					]
+				],
+				'Firefox/' =>  [
+					'match' => 'start',
+					'suffix' => ['browserversion', 'engineversion'],
+					'categories' => [
+						'browser' => 'Firefox',
+						'engine' => 'Gecko'
+					]
+				],
+				'Edg/' =>  [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Edge'
+					]
+				],
+				'Edge/' =>  [
+					'match' => 'start',
+					'suffix' => 'browserversion',
+					'categories' => [
+						'browser' => 'Edge'
 					]
 				],
 				'Safari/' =>  [
@@ -207,36 +429,32 @@ class config {
 						'browser' => 'Safari'
 					]
 				],
+				'Chrome/' => [
+					'match' => 'start',
+					'suffix' => ['browserversion', 'engineversion'],
+					'categories' => [
+						'browser' => 'Chrome',
+						'engine' => 'Blink'
+					]
+				],
+
+				// rendering engines
+				'AppleWebKit/' =>  [
+					'match' => 'start',
+					'suffix' => 'engineversion',
+					'categories' => [
+						'engine' => 'WebKit'
+					]
+				],
+				'Gecko/' =>  [
+					'match' => 'start',
+					'suffix' => 'engineversion',
+					'categories' => [
+						'engine' => 'Gecko'
+					]
+				],
 
 				// type
-				'http://' => [
-					'match' => 'any',
-					'categories' => [
-						'url' => true,
-						'type' => 'Crawler'
-					]
-				],
-				'https://' => [
-					'match' => 'any',
-					'categories' => [
-						'url' => true,
-						'type' => 'Crawler'
-					]
-				],
-				'+http://' => [
-					'match' => 'any',
-					'categories' => [
-						'url' => true,
-						'type' => 'Crawler'
-					]
-				],
-				'+https://' => [
-					'match' => 'any',
-					'categories' => [
-						'url' => true,
-						'type' => 'Crawler'
-					]
-				],
 				'Mobile' => [
 					'match' => 'exact',
 					'categories' => [
@@ -247,48 +465,6 @@ class config {
 					'match' => 'any',
 					'categories' => [
 						'type' => 'Tablet'
-					]
-				],
-
-				// app
-				'Browser' => [
-					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
-					]
-				],
-				'App' => [
-					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
-					]
-				],
-				'com.google.android.apps.' => [
-					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
-					]
-				],
-				'Instagram' => [
-					'match' => 'any',
-					'delimit' => ' ',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
-					]
-				],
-				'GSA/' => [
-					'match' => 'any',
-					'delimit' => '/',
-					'suffix' => 'appversion',
-					'categories' => [
-						'app' => true
 					]
 				],
 
