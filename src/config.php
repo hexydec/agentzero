@@ -105,6 +105,16 @@ class config {
 						'type' => 'Desktop'
 					]
 				],
+				'Darwin/' => [
+					'match' => 'start',
+					'delimit' => '/',
+					'suffix' => 'plaformversion',
+					'categories' => [
+						'platform' => 'Linux',
+						'os' => 'Darwin',
+						'type' => 'Desktop'
+					]
+				],
 				'CPU iPhone OS ' => [
 					'match' => 'start',
 					'delimit' => '/',
