@@ -34,6 +34,59 @@ class config {
 					'type' => 'Crawler'
 				];
 			},
+			'osspace' => function (string $value) : array {
+				$parts = \explode(' ', $value, 2);
+				return [
+					'platform' => 'Linux',
+					'os' => $parts[0],
+					'osversion' => $parts[1] ?? null
+				];
+			},
+			'oslinux' => function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				return [
+					'type' => 'Desktop',
+					'platform' => 'Linux',
+					'os' => $parts[0],
+					'osversion' => $parts[1] ?? null
+				];
+			},
+			'ios' => function (string $value, array $tokens) : array {
+				$version = null;
+				$model = null;
+				foreach ($tokens AS $item) {
+					if (\str_starts_with($item, 'Mobile/')) {
+						$model = \mb_substr($item, 7);
+					} elseif (\str_starts_with($item, 'CPU iPhone OS ')) {
+						$version = \str_replace('_', '.', \mb_substr($item, 14, \mb_strpos($item, ' ', 14)));
+					} elseif (\str_starts_with($item, 'CPU OS ')) {
+						$version = \str_replace('_', '.', \mb_substr($item, 8, \mb_strpos($item, ' ', 8)));
+					}
+				}
+				return [
+					'type' => $value === 'iPad' ? 'Tablet' : 'Mobile',
+					'architecture' => 'ARM',
+					'register' => '64 Bit',
+					'platform' => 'Linux',
+					'os' => 'iOS',
+					'osversion' => $version,
+					'device' => $value,
+					'model' => $model
+				];
+			},
+			'browserslash' => function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				$map = [
+					'OPR' => 'Opera',
+					'CriOS' => 'Chrome',
+					'YaBrowser' => 'Yandex',
+					'Edg' => 'Edge'
+				];
+				return [
+					'browser' => $map[$parts[0]] ?? $parts[0],
+					'browserversion' => $parts[1] ?? null
+				];
+			},
 		];
 		return \array_replace_recursive([
 			'ignore' => ['Mozilla/5.0', 'AppleWebKit/537.36', 'KHTML, like Gecko', 'Safari/537.36', 'compatible', 'Gecko/20100101'],
@@ -42,79 +95,72 @@ class config {
 				// crawler url
 				'http://' => [
 					'match' => 'any',
-					'callback' => $fn['url']
+					'categories' => $fn['url']
 				],
 				'https://' => [
 					'match' => 'any',
-					'callback' => $fn['url']
+					'categories' => $fn['url']
 				],
 
 				// app
 				'com.google.android.apps.' => [
 					'match' => 'any',
-					'callback' => $fn['appslash']
+					'categories' => $fn['appslash']
 				],
 				'Instagram' => [
 					'match' => 'any',
-					'callback' => $fn['appspace']
+					'categories' => $fn['appspace']
 				],
 				'GSA/' => [
 					'match' => 'any',
-					'callback' => $fn['appslash']
+					'categories' => $fn['appslash']
 				],
 				'DuckDuckGo/' => [
 					'match' => 'start',
-					'callback' => $fn['appslash']
+					'categories' => $fn['appslash']
 				],
 				'App' => [
 					'match' => 'any',
-					'callback' => $fn['appslash']
+					'categories' => $fn['appslash']
 				],
 				'facebookexternalhit/' => [
 					'match' => 'start',
-					'callback' => $fn['appslash']
+					'categories' => $fn['appslash']
 				],
 
 				// crawler
 				'Yahoo! Slurp' => [
 					'match' => 'exact',
-					'callback' => fn (string $value) : array => [
+					'categories' => fn (string $value) : array => [
 						'app' => $value,
 						'type' => 'Crawler'
 					]
 				],
 				'Bot' => [
 					'match' => 'any',
-					'callback' => $fn['crawlerslash']
+					'categories' => $fn['crawlerslash']
 				],
 				'bot' => [
 					'match' => 'any',
-					'callback' => $fn['crawlerslash']
+					'categories' => $fn['crawlerslash']
 				],
 				'spider' => [
 					'match' => 'any',
-					'callback' => $fn['crawlerslash']
+					'categories' => $fn['crawlerslash']
 				],
 				'AhrefsSiteAudit/' => [
 					'match' => 'start',
-					'callback' => $fn['crawlerslash']
+					'categories' => $fn['crawlerslash']
 				],
 
 				// platforms
 				'Android ' => [
 					'match' => 'start',
-					'callback' => function (string $value) : array {
-						$parts = \explode(' ', $value, 2);
-						return [
-							'platform' => 'Linux',
-							'os' => $parts[0],
-							'osversion' => $parts[1] ?? null
-						];
-					}
+					'categories' => $fn['osspace']
 				],
 				'Windows NT ' => [
 					'match' => 'any',
-					'callback' => function (string $value) : array {
+					'categories' => function (string $value) : array {
 						$mapping = [
 							'5.0' => '2000',
 							'5.1' => 'XP',
@@ -137,123 +183,111 @@ class config {
 				],
 				'Intel Mac OS X ' => [
 					'match' => 'start',
-					'delimit' => ' ',
-					'suffix' => 'plaformversion',
-					'suffixend' => ' ',
-					'callback' => function (string $value) : array {
-						$register = null;
-						$next = false;
-						foreach (\explode(' ', \str_replace('_', ' ', $value)) AS $item) {
-							if ($item === '10') {
-								$next = true;
-							} elseif ($next) {
-								$register = \intval($item) >= 6 ? '64 bit' : null;
-								break;
-							}
-						}
+					'categories' => function (string $value) : array {
+						$version = \str_replace('_', '.', \mb_substr($value, 15));
+						$register = \intval(\explode('.', $version)[1]) >= 6 ? '64 bit' : null;
 						return [
 							'platform' => 'Linux',
 							'os' => 'MacOS',
+							'osversion' => $version,
 							'architecture' => 'X86',
 							'type' => 'Desktop',
 							'register' => $register
 						];
 					}
 				],
+				'CrOS' => [
+					'match' => 'start',
+					'categories' => function (string $value) : array {
+						$parts = \explode(' ', $value);
+						$arch = [
+							'x86_64' => [
+								'architecture' => 'X86',
+								'register' => '64 bit'
+							],
+							'armv7l' => [
+								'architecture' => 'ARM',
+								'register' => '32 bit'
+							],
+							'aarch64' => [
+								'architecture' => 'ARM',
+								'register' => '64 bit'
+							],
+							'arm64' => [
+								'architecture' => 'ARM',
+								'register' => '64 bit'
+							]
+						];
+						return \array_merge([
+							'type' => 'Desktop',
+							'os' => 'Chrome OS',
+							'osversion' => $parts[2] ?? null
+						], $arch[$parts[1]] ?? [
+							'architecture' => $parts[1]
+						]);
+					}
+				],
 				'Macintosh' => [
 					'match' => 'start',
-					'delimit' => ' ',
-					'suffix' => 'plaformversion',
-					'suffixend' => ' ',
-					'categories' => [
-						'platform' => 'Linux',
-						'os' => 'MacOS',
-						'type' => 'Desktop'
-					]
+					'categories' => $fn['osspace']
 				],
 				'Ubuntu/' => [
 					'match' => 'start',
-					'delimit' => '/',
-					'suffix' => 'plaformversion',
-					'suffixend' => ' ',
-					'categories' => [
-						'platform' => 'Linux',
-						'os' => 'Ubuntu',
-						'type' => 'Desktop'
-					]
+					'categories' => $fn['oslinux']
 				],
 				'Mint/' => [
 					'match' => 'start',
-					'delimit' => '/',
-					'suffix' => 'plaformversion',
-					'suffixend' => ' ',
-					'categories' => [
-						'platform' => 'Linux',
-						'os' => 'Mint',
-						'type' => 'Desktop'
-					]
+					'categories' => $fn['oslinux']
 				],
 				'SUSE/' => [
 					'match' => 'start',
-					'delimit' => '/',
-					'suffix' => 'plaformversion',
-					'suffixend' => ' ',
-					'categories' => [
-						'platform' => 'Linux',
-						'os' => 'SUSE',
-						'type' => 'Desktop'
-					]
+					'categories' => $fn['oslinux']
 				],
 				'RedHat/' => [
 					'match' => 'start',
-					'delimit' => '/',
-					'suffix' => 'plaformversion',
-					'suffixend' => ' ',
-					'categories' => [
-						'platform' => 'Linux',
-						'os' => 'Red Hat',
-						'type' => 'Desktop'
-					]
+					'categories' => $fn['oslinux']
 				],
 				'Darwin/' => [
 					'match' => 'start',
-					'delimit' => '/',
-					'suffix' => 'plaformversion',
-					'categories' => [
+					'categories' => $fn['oslinux']
+				],
+				'Fedora/' => [
+					'match' => 'start',
+					'categories' => $fn['oslinux']
+				],
+				'ArchLinux' => [
+					'match' => 'exact',
+					'categories' => fn () : array => [
+						'type' => 'Desktop',
 						'platform' => 'Linux',
-						'os' => 'Darwin',
-						'type' => 'Desktop'
+						'os' => 'Arch',
 					]
 				],
-				'CPU iPhone OS ' => [
-					'match' => 'start',
-					'delimit' => '/',
-					'suffix' => 'plaformversion',
-					'suffixend' => ' ',
-					'categories' => [
+				'Arch' => [
+					'match' => 'exact',
+					'categories' => fn (string $value) : array => [
+						'type' => 'Desktop',
 						'platform' => 'Linux',
-						'os' => 'iOS',
-						'device' => 'iPhone',
-						'type' => 'Mobile',
-						'architecture' => 'ARM',
-						'register' => '64 Bit'
+						'os' => $value,
 					]
 				],
-				'CPU OS ' => [
-					'match' => 'start',
-					'suffix' => 'plaformversion',
-					'suffixend' => ' ',
-					'categories' => [
-						'platform' => 'Linux',
-						'os' => 'iOS',
-						'type' => 'Tablet',
-						'device' => 'iPad',
-						'register' => '64 Bit'
-					]
+				'iPhone' => [
+					'match' => 'exact',
+					'categories' => $fn['ios']
+				],
+				'iPad' => [
+					'match' => 'exact',
+					'categories' => $fn['ios']
+				],
+				'iPod' => [
+					'match' => 'exact',
+					'categories' => $fn['ios']
 				],
 				'Win98' => [
 					'match' => 'start',
-					'categories' => [
+					'categories' => fn () : array => [
+						'architecture' => 'X86',
+						'register' => '32 bit',
 						'platform' => 'Win32',
 						'os' => 'Windows',
 						'osversion' => '98',
@@ -261,8 +295,8 @@ class config {
 					]
 				],
 				'X11' => [
-					'match' => 'start',
-					'categories' => [
+					'match' => 'exact',
+					'categories' => fn () : array => [
 						'platform' => 'Linux',
 						'os' => 'X11',
 						'type' => 'Desktop'
@@ -280,17 +314,11 @@ class config {
 				],
 				'Opera/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Opera'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'OPR/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Opera'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'MSIE ' =>  [
 					'match' => 'start',
@@ -301,52 +329,31 @@ class config {
 				],
 				'CriOS/' => [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Chrome'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Brave/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Brave'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Vivaldi/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Vivaldi'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Maxthon/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Maxthon'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Konqueror/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Konqueror'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'K-Meleon/' => [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'K-Meleon'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'UCBrowser/' => [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'UCBrowser'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Waterfox/' =>  [
 					'match' => 'start',
@@ -365,76 +372,60 @@ class config {
 				],
 				'SeaMonkey/' => [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'SeaMonkey'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'YaBrowser/' => [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Yandex Browser'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'UP.Browser/' => [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'UP.Browser'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Firefox/' =>  [
 					'match' => 'start',
-					'suffix' => ['browserversion', 'engineversion'],
-					'categories' => [
+					'categories' => fn (string $value) : array => [
 						'browser' => 'Firefox',
-						'engine' => 'Gecko'
+						'engine' => 'Gecko',
+						'browserversion' => \mb_substr($value, 8),
+						'engineversion' => \mb_substr($value, 8)
 					]
 				],
 				'Edg/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Edge'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Edge/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Edge'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Safari/' =>  [
 					'match' => 'start',
-					'suffix' => 'browserversion',
-					'categories' => [
-						'browser' => 'Safari'
-					]
+					'categories' => $fn['browserslash']
 				],
 				'Chrome/' => [
 					'match' => 'start',
-					'suffix' => ['browserversion', 'engineversion'],
-					'categories' => [
+					'categories' => fn (string $value) : array => [
 						'browser' => 'Chrome',
-						'engine' => 'Blink'
+						'engine' => 'Blink',
+						'browserversion' => \mb_substr($value, 7),
+						'engineversion' => \mb_substr($value, 7)
 					]
 				],
 
 				// rendering engines
 				'AppleWebKit/' =>  [
 					'match' => 'start',
-					'suffix' => 'engineversion',
-					'categories' => [
-						'engine' => 'WebKit'
+					'categories' => fn (string $value) : array => [
+						'engine' => 'WebKit',
+						'engineversion' => \mb_substr($value, 12)
 					]
 				],
-				'Gecko/' =>  [
+				'Gecko/' => [
 					'match' => 'start',
-					'suffix' => 'engineversion',
-					'categories' => [
-						'engine' => 'Gecko'
+					'categories' => fn (string $value) : array => [
+						'engine' => 'Gecko',
+						'engineversion' => \mb_substr($value, 6)
 					]
 				],
 
@@ -453,52 +444,52 @@ class config {
 				],
 
 				// architecture
-				'x86_64' => [
+				'X86_64' => [
 					'match' => 'any',
 					'categories' => [
-						'architecture' => 'x86',
+						'architecture' => 'X86',
 						'register' => '64 Bit'
 					]
 				],
 				'x64' => [
 					'match' => 'exact',
 					'categories' => [
-						'architecture' => 'x86',
+						'architecture' => 'X86',
 						'register' => '64 Bit'
 					]
 				],
 				'Win64' => [
 					'match' => 'exact',
 					'categories' => [
-						'architecture' => 'x86',
+						'architecture' => 'X86',
 						'register' => '64 Bit'
 					]
 				],
 				'Win32' => [
 					'match' => 'exact',
 					'categories' => [
-						'architecture' => 'x86',
+						'architecture' => 'X86',
 						'register' => '32 Bit'
 					]
 				],
-				'x86' => [
+				'X86' => [
 					'match' => 'exact',
 					'categories' => [
-						'architecture' => 'x86',
+						'architecture' => 'X86',
 						'register' => '32 Bit'
 					]
 				],
 				'i686' => [
 					'match' => 'any',
 					'categories' => [
-						'architecture' => 'x86',
+						'architecture' => 'X86',
 						'register' => '64 Bit'
 					]
 				],
 				'i386' => [
 					'match' => 'any',
 					'categories' => [
-						'architecture' => 'x86',
+						'architecture' => 'X86',
 						'register' => '32 Bit'
 					]
 				],
@@ -520,28 +511,34 @@ class config {
 				// device
 				' Build/' => [
 					'match' => 'any',
-					'parser' => function (string $value, \stdClass $categories) : void {
+					'categories' => function (string $value) : array {
 						$parts = \explode(' Build/', $value, 2);
-						$categories->device = $parts[0];
-						$categories->build = $parts[1];
+						return [
+							'device' => $parts[0],
+							'build' => $parts[1]
+						];
 					}
 				],
 
 				// special parser for Facebook app because it is completely different to any other
 				'FBAN/FB4A' => [
 					'match' => 'any',
-					'parser' => function (string $value, \stdClass $categories) : void {
-						$categories->app = 'Facebook';
+					'categories' => function (string $value) : array {
+						$data = [
+							'app' => 'Facebook'
+						];
 						$mapping = [
 							'FBAV' => 'appversion',
 							'FBMF' => 'device',
 							'FBDV' => 'device',
 							'FBCR' => 'network',
-							'FBDM' => function (string $value, \stdClass $categories) : void {
+							'FBDM' => function (string $value, \stdClass $categories) : array {
+								$data = [];
 								foreach (explode(',', \trim($value, '{}')) AS $item) {
 									$parts = \explode('=', $item);
-									$categories->{$parts[0]} = $parts[1];
+									$data[$parts[0]] = $parts[1];
 								}
+								return $data;
 							}
 						];
 						foreach (\explode(';', $value) AS $item) {
@@ -550,18 +547,19 @@ class config {
 
 								// closure
 								if ($mapping[$parts[0]] instanceof \Closure) {
-									$mapping[$parts[0]]($parts[1], $categories);
+									$data = \array_merge($data, $mapping[$parts[0]]($parts[1]));
 
 								// no value
-								} elseif (empty($categories->{$mapping[$parts[0]]})) {
-									$categories->{$mapping[$parts[0]]} = $parts[1];
+								} elseif (empty($data[$mapping[$parts[0]]])) {
+									$data[$mapping[$parts[0]]] = $parts[1];
 
 								// append value
 								} else {
-									$categories->{$mapping[$parts[0]]} .= ' '.$parts[1];
+									$data[$mapping[$parts[0]]] .= ' '.$parts[1];
 								}
 							}
 						}
+						return $data;
 					}
 				]
 			]
