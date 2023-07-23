@@ -26,13 +26,16 @@ class config {
 					'appversion' => $parts[1] ?? null
 				];
 			},
-			'crawlerslash' => function (string $value) : array {
-				$parts = \explode('/', $value, 2);
-				return [
-					'app' => $parts[0],
-					'appversion' => $parts[1] ?? null,
-					'type' => 'Crawler'
-				];
+			'crawlerslash' => function (string $value) : ?array {
+				if (!\str_starts_with($value, '+http')) { // bot will be in the URL
+					$parts = \explode('/', $value, 2);
+					return [
+						'app' => $parts[0],
+						'appversion' => $parts[1] ?? null,
+						'type' => 'Crawler'
+					];
+				}
+				return null;
 			},
 			'osspace' => function (string $value) : array {
 				$parts = \explode(' ', $value, 2);

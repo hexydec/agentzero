@@ -241,7 +241,7 @@ final class agentzeroTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (X11; Ubuntu; Linux X86_64; rv:109.0) Gecko/20100101 Firefox/114.0' => [
 				'platform' => 'Linux',
-				'os' => 'X11',
+				'os' => 'Ubuntu',
 				'type' => 'Desktop',
 				'browser' => 'Firefox',
 				'engine' => 'Gecko',
@@ -264,7 +264,7 @@ final class agentzeroTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (X11; Ubuntu; Linux X86_64; rv:109.0) Gecko/20100101 Firefox/115.0' => [
 				'platform' => 'Linux',
-				'os' => 'X11',
+				'os' => 'Ubuntu',
 				'type' => 'Desktop',
 				'browser' => 'Firefox',
 				'engine' => 'Gecko',
@@ -369,7 +369,8 @@ final class agentzeroTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (X11; CrOS X86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
 				'platform' => 'Linux',
-				'os' => 'X11',
+				'os' => 'Chrome OS',
+				'osversion' => '14541.0.0',
 				'type' => 'Desktop',
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
@@ -641,7 +642,7 @@ final class agentzeroTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals((array) agentzero::detect($ua), $item);
+			$this->assertEquals($item, (array) agentzero::detect($ua));
 		}
 	}
 
@@ -652,6 +653,11 @@ final class agentzeroTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'Crawler',
 				'appversion' => '2.1',
 				'app' => 'Googlebot'
+			],
+			'AdsBot-Google (+http://www.google.com/adsbot.html)' => [
+				'url' => 'http://www.google.com/adsbot.html',
+				'type' => 'Crawler',
+				'app' => 'AdsBot-Google'
 			],
 			'SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)' => [
 				'url' => 'http://www.google.com/bot.html',
@@ -727,7 +733,7 @@ final class agentzeroTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals((array) agentzero::detect($ua), $item);
+			$this->assertEquals($item, (array) agentzero::detect($ua));
 		}
 	}
 }
