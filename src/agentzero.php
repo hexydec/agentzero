@@ -3,17 +3,8 @@ namespace hexydec\agentzero;
 
 class agentzero {
 
-	protected static ?array $config = null;
-
-	protected static function getConfig() {
-		if (self::$config === null) {
-			self::$config = config::get();
-		}
-		return self::$config;
-	}
-
-	protected static function getTokens(string $ua) : array|false {
-		$pattern = '/([^(]*)(?:\(([^)]++)\))?/i';
+	protected static function getTokens(string $ua, array $ignore = []) : array|false {
+		$pattern = '/([^(]*)(?:\(((?:\([^)]++\)|[^()]++)++)\))?/i';
 		if (\preg_match_all($pattern, $ua, $match, PREG_SET_ORDER)) {
 
 			// extract and clean tokens
@@ -31,41 +22,45 @@ class agentzero {
 			}
 
 			// remove generic tokens
-			$tokens = \array_diff($tokens, self::$config['ignore']);
-			return $tokens;
+			$tokens = \array_diff($tokens, $ignore);
+			return \array_values($tokens);
 		}
 		return false;
 	}
 
 	public static function detect(string $ua) : \stdClass|false {
-		$config = self::getConfig();
-		if (($tokens = self::getTokens($ua)) !== false) {
+		$config = config::get();
+		if (($tokens = self::getTokens($ua, $config['ignore'])) !== false) {
 
 			// extract UA info
 			$browser = new \stdClass();
 			foreach ($config['match'] AS $key => $item) {
-				foreach ($tokens AS $i => $part) {
+				$keylower = \mb_strtolower($key);
+				foreach ($tokens AS $i => $token) {
+					$tokenlower = \mb_strtolower($token);
+					switch ($item['match']) {
 
-					// match from start of string and extract item and version
-					if ($item['match'] === 'start') {
-						if (\str_starts_with($part, $key)) {
-							self::setProps($browser, $item['categories'], $part, $tokens);
+						// match from start of string
+						case 'start':
+							if (\str_starts_with($tokenlower, $keylower)) {
+								self::setProps($browser, $item['categories'], $token, $i, $tokens);
+							}
 							break;
-						}
 
-					// match anywhere in the string
-					} elseif ($item['match'] === 'any') {
-						if (\str_contains($part, $key)) {
-							self::setProps($browser, $item['categories'], $part, $tokens);
+						// match anywhere in the string
+						case 'any':
+							if (\str_contains($tokenlower, $keylower)) {
+								self::setProps($browser, $item['categories'], $token, $i, $tokens);
+							}
 							break;
-						}
 
-					// match anywhere in the string
-					} elseif ($item['match'] === 'exact') {
-						if ($key === $part) {
-							self::setProps($browser, $item['categories'], $part, $tokens);
+						// match anywhere in the string
+						case 'exact':
+							if ($tokenlower === $keylower) {
+								self::setProps($browser, $item['categories'], $token, $i, $tokens);
+								break; // don't match this token again
+							}
 							break;
-						}
 					}
 				}
 			}
@@ -73,13 +68,13 @@ class agentzero {
 		}
 	}
 
-	protected static function setProps(\stdClass $browser, array|\Closure $props, string $value, array $tokens) : void {
+	protected static function setProps(\stdClass $browser, array|\Closure $props, string $value, int $i, array $tokens) : void {
 		if ($props instanceof \Closure) {
-			$props = $props($value, $tokens);
+			$props = $props($value, $i, $tokens);
 		}
 		if (\is_array($props)) {
 			foreach ($props AS $key => $item) {
-				if (!isset($browser->{$key}) && $item !== null) {
+				if ($item !== null && !isset($browser->{$key})) {
 					$browser->{$key} = $item;
 				}
 			}

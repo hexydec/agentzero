@@ -14,9 +14,36 @@
     </report>
   </coverage>
   <testsuites>
-    <testsuite name="agentZeroTests">
-      <file>tests/agentzeroTest.php</file>
+    <!--<testsuite name="Apps">
+      <file>tests/appsTest.php</file>
+    </testsuite>-->
+    <testsuite name="Architecture">
+      <file>tests/architecturesTest.php</file>
     </testsuite>
+    <!--<testsuite name="Browsers">
+      <file>tests/browsersTest.php</file>
+    </testsuite>
+    <testsuite name="Categories">
+      <file>tests/categoriesTest.php</file>
+    </testsuite>-->
+    <testsuite name="Crawlers">
+      <file>tests/crawlersTest.php</file>
+    </testsuite>
+    <testsuite name="Devices">
+      <file>tests/devicesTest.php</file>
+    </testsuite>
+   <!--<testsuite name="Engines">
+      <file>tests/enginesTest.php</file>
+    </testsuite>
+    <testsuite name="Languages">
+      <file>tests/languagesTest.php</file>
+    </testsuite>-->
+    <testsuite name="Platforms">
+      <file>tests/platformsTest.php</file>
+    </testsuite>
+    <!--<testsuite name="Urls">
+      <file>tests/urlsTest.php</file>
+    </testsuite>-->
   </testsuites>
   <logging/>
 </phpunit>
