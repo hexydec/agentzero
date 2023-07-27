@@ -155,6 +155,14 @@ class platforms {
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
+			'CentOS/' => [
+				'match' => 'start',
+				'categories' => $fn['platformlinux']
+			],
+			'Rocky/' => [
+				'match' => 'start',
+				'categories' => $fn['platformlinux']
+			],
 			'ArchLinux' => [
 				'match' => 'exact',
 				'categories' => fn () : array => [

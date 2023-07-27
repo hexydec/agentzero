@@ -103,6 +103,10 @@ class devices {
 				'match' => 'exact',
 				'categories' => $fn['console']
 			],
+			'Xbox Series S' => [
+				'match' => 'exact',
+				'categories' => $fn['console']
+			],
 			'Xbox Series X' => [
 				'match' => 'exact',
 				'categories' => $fn['console']
