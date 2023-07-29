@@ -21,6 +21,20 @@ class agentzero {
 				}
 			}
 
+			// special case for 'like'
+			if (\in_array('like', $tokens)) {
+				$remove = false;
+				foreach ($tokens AS $key => $item) {
+					if ($item === 'like') {
+						$remove = true;
+					} elseif ($remove && !\str_contains($item, '/')) {
+						unset($tokens[$key]);
+					} else {
+						$remove = false;
+					}
+				}
+			}
+
 			// remove generic tokens
 			$tokens = \array_diff($tokens, $ignore);
 			return \array_values($tokens);

@@ -8,17 +8,17 @@ class config {
 	public static function get() : array {
 		if (self::$config === null) {
 			self::$config = [
-				'ignore' => ['Mozilla/5.0', 'AppleWebKit/537.36', 'KHTML, like Gecko', 'Safari/537.36', 'compatible', 'Gecko/20100101', 'U'],
+				'ignore' => ['Mozilla/5.0', 'Mozilla/5.0+', 'Mozilla/4.0', 'AppleWebKit/537.36', 'KHTML, like Gecko', 'Safari/537.36', 'compatible', 'Gecko/20100101', 'U', 'like', 'KHTML, somewhat like Gecko'],
 				'match' => \array_merge(
 					crawlers::get(),
 					urls::get(),
+					categories::get(),
 					apps::get(),
 					devices::get(),
 					platforms::get(),
 					architectures::get(),
 					engines::get(),
 					browsers::get(),
-					categories::get(),
 					languages::get()
 				)
 			];

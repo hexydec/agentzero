@@ -81,6 +81,13 @@ class apps {
 				'match' => 'start',
 				'categories' => $fn['appslash']
 			],
+			'Google-Read-Aloud' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'app' => 'Google-Read-Aloud'
+				]
+			],
 
 			// special parser for Facebook app because it is completely different to any other
 			'FBAN/FB4A' => [
@@ -94,6 +101,14 @@ class apps {
 			'FB_IAB/FB4A' => [
 				'match' => 'any',
 				'categories' => $fn['facebook']
+			],
+
+			'MAUI' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'app' => $value
+				]
 			],
 			'AppName/' => [
 				'match' => 'start',

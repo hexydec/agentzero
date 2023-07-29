@@ -375,6 +375,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
 				'kernel' => 'Linux',
 				'architecture' => 'x86',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -388,6 +389,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5.1 Safari/605.1.15' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -402,6 +404,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -416,6 +419,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/115.0' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -430,6 +434,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -444,6 +449,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -458,6 +464,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5.2 Safari/605.1.15' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -473,6 +480,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15' => [
 				'kernel' => 'Linux',
 				'platform' => 'MacOS',
+				'device' => 'Macintosh',
 				'processor' => 'Intel',
 				'type' => 'human',
 				'category' => 'desktop',
@@ -487,6 +495,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15' => [
 				'kernel' => 'Linux',
 				'platform' => 'MacOS',
+				'device' => 'Macintosh',
 				'processor' => 'Intel',
 				'type' => 'human',
 				'category' => 'desktop',
@@ -500,6 +509,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'platformversion' => '10.15.7',
@@ -514,6 +524,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -528,6 +539,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -542,6 +554,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -556,6 +569,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.1 Safari/605.1.15' => [
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'processor' => 'Intel',
 				'type' => 'human',
@@ -585,6 +599,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '108.0.0.0',
 				'engineversion' => '108.0.0.0',
+				'type' => 'human',
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; Android 12; NTH-NX9 Build/HONORNTH-N29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/396.1.0.28.104;]' => [
@@ -597,6 +612,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '108.0.5359.128',
 				'engineversion' => '108.0.5359.128',
+				'type' => 'human',
 				'category' => 'mobile',
 				'app' => 'Facebook',
 				'appversion' => '396.1.0.28.104'
@@ -610,6 +626,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '108.0.0.0',
 				'engineversion' => '108.0.0.0',
+				'type' => 'human',
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.130 Mobile Safari/537.36 (compatible; Google-AMPHTML)' => [
@@ -622,6 +639,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '108.0.5359.130',
 				'engineversion' => '108.0.5359.130',
+				'type' => 'human',
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; Android 10; ART-L29 Build/HUAWEIART-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 trill_2022707020 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/27.7.2 ByteLocale/en ByteFullLocale/en Region/IQ BytedanceWebview/d8a21c6' => [
@@ -636,6 +654,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '88.0.4324.93',
 				'engineversion' => '88.0.4324.93',
+				'type' => 'human',
 				'category' => 'mobile'
 			]
 		];
@@ -845,7 +864,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Linux',
 				'device' => 'Oculus Quest 2',
 				'type' => 'human',
-				'category' => 'desktop',
+				'category' => 'vr',
 				'browser' => 'OculusBrowser',
 				'browserversion' => '24.4.0.22.60.426469926',
 				'engine' => 'Blink',
@@ -863,7 +882,9 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '20101224',
 				'architecture' => 'x86',
 				'bits' => 64,
-				'language' => 'fr'
+				'language' => 'fr',
+				'browser' => 'Namoroka',
+				'browserversion' => '3.6.14pre'
 			],
 			'Mozilla/5.0 (X11; OpenBSD amd64; rv:28.0) Gecko/20100101 Firefox/28.0' => [
 				'kernel' => 'Linux',
@@ -900,8 +921,8 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '10.0.626.0',
 				'engine' => 'WebKit',
 				'engineversion' => '534.16',
-				'browser' => 'Safari',
-				'browserversion' => '534.16',
+				'browser' => 'Chrome',
+				'browserversion' => '10.0.626.0',
 				'architecture' => 'x86',
 				'bits' => '64',
 				'language' => 'en-US'
@@ -953,6 +974,69 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Gecko',
 				'browserversion' => '10.0.1',
 				'engineversion' => '10.0.1'
+			],
+			'Mozilla/5.0 (AmigaOS; U; AmigaOS 4.1; en-US; rv:89) Gecko/20100101 Firefox/89' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Exec',
+				'platform' => 'AmigaOS',
+				'platformversion' => '4.1',
+				'browser' => 'Firefox',
+				'engine' => 'Gecko',
+				'browserversion' => '89',
+				'engineversion' => '89',
+				'language' => 'en-US'
+			],
+			'Mozilla/5.0 (AmigaOneX1000; MC680x0; AmigaOS 4.1; PowerPC; PPC; de-DE; Firefox; rv:1.23) Gecko/20100101 Firefox/87.000101 Firefox/89' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'device' => 'AmigaOneX1000',
+				'kernel' => 'Exec',
+				'platform' => 'AmigaOS',
+				'platformversion' => '4.1',
+				'processor' => 'PowerPC',
+				'architecture' => 'PowerPC',
+				'browser' => 'Firefox',
+				'engine' => 'Gecko',
+				'browserversion' => '87.000101',
+				'engineversion' => '87.000101',
+				'language' => 'de-DE'
+			],
+			'Mozilla/5.0 (compatible; U; WebPositive/533.4; Haiku) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.55 Safari/533.4' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Haiku',
+				'platform' => 'Haiku',
+				'engine' => 'WebKit',
+				'engineversion' => '533.4',
+				'browser' => 'WebPositive',
+				'browserversion' => '533.4'
+			],
+			'Mozilla/5.0 (BeOS; Qualcomm Haiku R1 arm64) AppleWebKit/608.1.6 (KHTML, like Gecko) WebPositive/5.0 Version/11.1 Safari/608.1.6' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Haiku',
+				'platform' => 'Haiku',
+				'platformversion' => '11.1',
+				'architecture' => 'arm',
+				'bits' => '64',
+				'processor' => 'Qualcomm',
+				'engine' => 'WebKit',
+				'engineversion' => '608.1.6',
+				'browser' => 'WebPositive',
+				'browserversion' => '5.0'
+			],
+			'Mozilla/5.0 (X11; Haiku x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Falkon/3.0.0 Chrome/83.0.4103.122 Safari/537.36' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Haiku',
+				'platform' => 'Haiku',
+				'architecture' => 'x86',
+				'bits' => '64',
+				'browser' => 'Falkon',
+				'browserversion' => '3.0.0',
+				'engine' => 'Blink',
+				'engineversion' => '83.0.4103.122'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

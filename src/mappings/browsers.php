@@ -11,48 +11,51 @@ class browsers {
 					'OPR' => 'Opera',
 					'CriOS' => 'Chrome',
 					'YaBrowser' => 'Yandex',
-					'Edg' => 'Edge'
+					'Edg' => 'Edge',
+					'EdgiOS' => 'Edge'
 				];
 				return [
 					'browser' => $map[$parts[0]] ?? $parts[0],
 					'browserversion' => $parts[1] ?? null
 				];
 			},
+			'presto' => function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				return [
+					'type' => 'human',
+					'category' => $parts[0] === 'Opera Mini' ? 'mobile' : 'desktop',
+					'browser' => $parts[0],
+					'browserversion' => $parts[1] ?? null,
+					'engine' => 'Presto',
+					'engineversion' => $parts[1] ?? null
+				];
+			}
 		];
 		return [
 			'HeadlessChrome/' =>  [
 				'match' => 'start',
-				'suffix' => 'browserversion',
-				'categories' => [
+				'categories' => fn (string $value) : array => [
 					'type' => 'robot',
 					'category' => 'crawler',
-					'browser' => 'Chrome'
+					'browser' => 'HeadlessChrome',
+					'browserversion' => \mb_substr($value, 15)
 				]
 			],
 			'IEMobile/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
-			'Opera/' =>  [
+			'Opera Mini/' => [
 				'match' => 'start',
-				'categories' => function (string $value) use ($fn) : array {
-					$data = $fn['browserslash']($value);
-					return \array_merge($data, [
-						'engine' => 'Presto',
-						'engineversion' => $data['browserversion']
-					]);
-				}
+				'categories' => $fn['presto']
+			],
+			'Opera/' => [
+				'match' => 'start',
+				'categories' => $fn['presto']
 			],
 			'OPR/' =>  [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
-			],
-			'MSIE ' =>  [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'browser' => 'Internet Explorer',
-					'browserversion' => \mb_substr($value, 5)
-				]
 			],
 			'CriOS/' => [
 				'match' => 'start',
@@ -70,6 +73,13 @@ class browsers {
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
+			'Maxthon ' =>  [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'browser' => 'Maxthon',
+					'browserversion' => \mb_substr($value, 8)
+				]
+			],
 			'Konqueror/' =>  [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
@@ -84,18 +94,23 @@ class browsers {
 			],
 			'Waterfox/' =>  [
 				'match' => 'start',
-				'suffix' => 'browserversion',
-				'categories' => [
-					'browser' => 'Waterfox',
-					'engine' => 'Gecko'
-				]
+				'categories' => $fn['browserslash']
 			],
 			'PaleMoon/' => [
 				'match' => 'start',
-				'suffix' => 'browserversion',
-				'categories' => [
-					'browser' => 'PaleMoon'
-				]
+				'categories' => $fn['browserslash']
+			],
+			'Iceweasel/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'IceCat/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'Basilisk/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
 			],
 			'SeaMonkey/' => [
 				'match' => 'start',
@@ -110,6 +125,14 @@ class browsers {
 				'categories' => $fn['browserslash']
 			],
 			'Netscape/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'Thunderbird/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'Galeon/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
@@ -139,11 +162,38 @@ class browsers {
 			],
 			'Silk/' => [
 				'match' => 'start',
-				'categories' => $fn['browserslash']
+				'categories' => fn (string $value) : array => [
+					'browser' => 'Silk',
+					'browserversion' => \explode('/', $value, 2)[1] ?? null,
+					'type' => 'human',
+					'category' => 'tablet'
+				]
 			],
 			'NetFront/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
+			],
+			'Dooble/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'Falkon/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'Namoroka/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'Midori' => [
+				'match' => 'start',
+				'categories' => function (string $value, int $i, array $tokens) : array {
+					$parts = \explode('/', $value, 2);
+					return [
+						'browser' => 'Midori',
+						'browserversion' => $parts[1] ?? $tokens[++$i] ?? null
+					];
+				}
 			],
 			'Fennec/' =>  [
 				'match' => 'start',
@@ -172,16 +222,29 @@ class browsers {
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
-			'Safari/' =>  [
+			'EdgiOS/' =>  [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
-			'BOIE9' => [
-				'match' => 'exact',
-				'categories' => [
+			// 'BOIE9' => [
+			// 	'match' => 'exact',
+			// 	'categories' => [
+			// 		'browser' => 'Internet Explorer',
+			// 		'browserversion' => '9',
+			// 		'engine' => 'Trident'
+			// 	]
+			// ],
+			'MSIE ' =>  [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
 					'browser' => 'Internet Explorer',
-					'browserversion' => '9'
+					'browserversion' => \mb_substr($value, 5),
+					'engine' => 'Trident'
 				]
+			],
+			'Chromium/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
 			],
 			'Chrome/' => [
 				'match' => 'start',
@@ -192,9 +255,19 @@ class browsers {
 					'engineversion' => \mb_substr($value, 7)
 				]
 			],
+			'Safari/' =>  [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
 			'Mozilla/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
+			],
+			'rv:' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'browserversion' => \mb_substr($value, 3)
+				]
 			]
 		];
 	}

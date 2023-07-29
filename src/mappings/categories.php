@@ -5,24 +5,25 @@ class categories {
 
 	public static function get() {
 		return [
-			'mobile' => [
-				'match' => 'exact',
-				'categories' => [
-					'category' => 'mobile'
-				]
-			],
-			'tablet' => [
-				'match' => 'exact',
-				'categories' => [
-					'category' => 'tablet'
-				]
-			],
-			'GoogleTV' => [
+			'VR' => [
 				'match' => 'exact',
 				'categories' => [
 					'type' => 'human',
-					'category' => 'tv',
-					'platform' => 'GoogleTV'
+					'category' => 'vr'
+				]
+				],
+			'Mobile' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'mobile'
+				]
+			],
+			'Tablet' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'tablet'
 				]
 			],
 			'Screen' => [

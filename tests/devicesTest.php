@@ -264,22 +264,24 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '113.0.5666.197'
 			],
 			'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5666.197 Safari/537.36' => [
-				'device' => 'Nintendo WiiU',
+				'device' => 'Nintendo Wii U',
 				'type' => 'human',
 				'category' => 'console',
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '113.0.5666.197',
-				'engineversion' => '113.0.5666.197'
+				'engineversion' => '113.0.5666.197',
+				'architecture' => 'PowerPC'
 			],
 			'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.30 (KHTML, like Gecko) NX/3.0.4.2.5 NintendoBrowser/4.2.0.10990.JP' => [
-				'device' => 'Nintendo WiiU',
+				'device' => 'Nintendo Wii U',
 				'type' => 'human',
 				'category' => 'console',
 				'engine' => 'WebKit',
 				'engineversion' => '536.30',
 				'browser' => 'NintendoBrowser',
-				'browserversion' => '4.2.0.10990.JP'
+				'browserversion' => '4.2.0.10990.JP',
+				'architecture' => 'PowerPC'
 			],
 			'Mozilla/5.0 (Nintendo Wii U; WOW64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5666.197 Safari/537.36' => [
 				'device' => 'Nintendo Wii U',
@@ -290,7 +292,8 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '113.0.5666.197',
-				'engineversion' => '113.0.5666.197'
+				'engineversion' => '113.0.5666.197',
+				'architecture' => 'PowerPC'
 			],
 			'Mozilla/5.0 (Nintendo Switch; WebApplet) AppleWebKit/609.4 (KHTML, like Gecko) NF/6.0.2.21.3 NintendoBrowser/5.1.0.22474' => [
 				'app' => 'WebApplet',
@@ -468,6 +471,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '114.0.5735.196',
 				'engineversion' => '114.0.5735.196',
+				'type' => 'human',
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; Android 11; SHIELD Android TV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36' => [
@@ -479,6 +483,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '111.0.0.0',
 				'engineversion' => '111.0.0.0',
+				'type' => 'human',
 				'category' => 'mobile'
 			]
 		];

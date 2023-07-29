@@ -5,11 +5,11 @@ class engines {
 
 	public static function get() {
 		return [
-			'AppleWebKit/' =>  [
+			'Goanna/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
-					'engine' => 'WebKit',
-					'engineversion' => \mb_substr($value, 12)
+					'engine' => 'Goanna',
+					'engineversion' => \mb_substr($value, 7)
 				]
 			],
 			'Gecko/' => [
@@ -23,14 +23,22 @@ class engines {
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
 					'engine' => 'Presto',
-					'engineversion' => \mb_substr($value, 6)
+					'engineversion' => \mb_substr($value, 7)
 				]
 			],
 			'Trident/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
 					'engine' => 'Trident',
-					'engineversion' => \mb_substr($value, 8)
+					'engineversion' => \mb_substr($value, 8),
+					'browser' => 'Internet Explorer'
+				]
+			],
+			'AppleWebKit/' =>  [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'engine' => 'WebKit',
+					'engineversion' => \mb_substr($value, 12)
 				]
 			],
 		];

@@ -56,6 +56,20 @@ class architectures {
 					'bits' => 64
 				]
 			],
+			'arm_64' => [
+				'match' => 'any',
+				'categories' => [
+					'architecture' => 'arm',
+					'bits' => 64
+				]
+			],
+			'arm' => [
+				'match' => 'any',
+				'categories' => [
+					'architecture' => 'arm',
+					'bits' => 32
+				]
+			],
 			'Intel' => [
 				'match' => 'any',
 				'categories' => [
@@ -92,7 +106,7 @@ class architectures {
 				]
 			],
 			'x86' => [
-				'match' => 'exact',
+				'match' => 'end',
 				'categories' => [
 					'architecture' => 'x86',
 					'bits' => 32
@@ -112,17 +126,55 @@ class architectures {
 					'bits' => 32
 				]
 			],
-			'arm' => [
-				'match' => 'any',
-				'categories' => [
-					'architecture' => 'arm',
-					'bits' => 32
-				]
-			],
 			'Sun' => [
 				'match' => 'exact',
 				'categories' => [
 					'architecture' => 'Sun'
+				]
+			],
+			'SpreadTrum' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'mobile',
+					'processor' => 'Unisoc'
+				]
+			],
+			'sparc64' => [
+				'match' => 'any',
+				'categories' => [
+					'processor' => 'Fujitsu',
+					'architecture' => 'Spark V9',
+					'bits' => 64
+				]
+			],
+			'sun4u' => [
+				'match' => 'any',
+				'categories' => [
+					'processor' => 'UltraSPARK',
+					'architecture' => 'Spark V9',
+					'bits' => 64
+				]
+			],
+			'i86pc' => [
+				'match' => 'any',
+				'categories' => [
+					'architecture' => 'x86',
+					'bits' => 32
+				]
+			],
+			'i86xpv' => [
+				'match' => 'any',
+				'categories' => [
+					'architecture' => 'x86',
+					'virtualised' => true,
+					'bits' => 32
+				]
+			],
+			'Qualcomm' => [
+				'match' => 'any',
+				'categories' => [
+					'processor' => 'Qualcomm'
 				]
 			]
 		];

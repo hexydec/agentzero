@@ -6,8 +6,7 @@ class urls {
 	public static function get() {
 		$fn = fn (string $value) : array => [
 			'url' => \ltrim($value, '+'),
-			'type' => 'robot',
-			'category' => 'crawler'
+			'type' => 'robot'
 		];
 		return [
 			'http://' => [
@@ -17,7 +16,15 @@ class urls {
 			'https://' => [
 				'match' => 'any',
 				'categories' => $fn
-			]
+			],
+			'www.' => [
+				'match' => 'start',
+				'categories' => $fn
+			],
+			'.com' => [
+				'match' => 'any',
+				'categories' => $fn
+			],
 		];
 	}
 }

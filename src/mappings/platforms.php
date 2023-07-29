@@ -14,12 +14,18 @@ class platforms {
 			},
 			'platformlinux' => function (string $value) : array {
 				$parts = \explode('/', $value, 2);
+				if (!isset($parts[1])) {
+					$parts = \explode('-', $value, 2);
+				}
+				if (!isset($parts[1])) {
+					$parts = \explode(' ', $value, 2);
+				}
 				return [
 					'type' => 'human',
 					'category' => 'desktop',
 					'kernel' => 'Linux',
 					'platform' => $parts[0],
-					'platformversion' => $parts[1] ?? null
+					'platformversion' => isset($parts[1]) && \strspn($parts[1], '0123456789.-_') > 0 ? $parts[1] : null
 				];
 			},
 			'platformwindows' => function (string $value) : array {
@@ -72,7 +78,7 @@ class platforms {
 			],
 			'Win98' => [
 				'match' => 'start',
-				'categories' => fn () : array => [
+				'categories' => [
 					'type' => 'human',
 					'category' => 'desktop',
 					'architecture' => 'x86',
@@ -80,6 +86,18 @@ class platforms {
 					'kernel' => 'MS-DOS',
 					'platform' => 'Windows',
 					'platformversion' => '98'
+				]
+			],
+			'WinNT' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'category' => 'desktop',
+					'architecture' => 'x86',
+					'bits' => 32,
+					'kernel' => 'Windows NT',
+					'platform' => 'Windows',
+					'platformversion' => \mb_substr($value, 5)
 				]
 			],
 			'Windows' => [
@@ -122,19 +140,19 @@ class platforms {
 					'platformversion' => \mb_substr($value, 7)
 				]
 			],
-			'Macintosh' => [
-				'match' => 'start',
-				'categories' => $fn['platformspace']
-			],
-			'Ubuntu/' => [
+			'Ubuntu' => [
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
-			'Mint/' => [
+			'Kubuntu' => [
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
-			'SUSE/' => [
+			'Mint' => [
+				'match' => 'start',
+				'categories' => $fn['platformlinux']
+			],
+			'SUSE' => [
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
@@ -147,19 +165,23 @@ class platforms {
 					return null;
 				}
 			],
-			'Darwin/' => [
+			'Debian' => [
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
-			'Fedora/' => [
+			'Darwin' => [
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
-			'CentOS/' => [
+			'Fedora' => [
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
-			'Rocky/' => [
+			'CentOS' => [
+				'match' => 'start',
+				'categories' => $fn['platformlinux']
+			],
+			'Rocky' => [
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
@@ -180,6 +202,33 @@ class platforms {
 					'kernel' => 'Linux',
 					'platform' => $value,
 				]
+			],
+			'SunOS' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					return [
+						'type' => 'human',
+						'category' => 'desktop',
+						'kernel' => 'unix',
+						'platform' => 'Solaris',
+					];
+				}
+			],
+			'AmigaOS' => [
+				'match' => 'any',
+				'categories' => function (string $value) : array {
+					if (($pos = \mb_stripos($value, 'AmigaOS')) !== false) {
+						$value = \mb_substr($value, $pos);
+					}
+					$parts = \explode(' ', $value, 2);
+					return [
+						'type' => 'human',
+						'category' => 'desktop',
+						'kernel' => 'Exec',
+						'platform' => $parts[0],
+						'platformversion' => isset($parts[1]) && \strspn($parts[1], '0123456789.-_') === \strlen($parts[1]) ? $parts[1] : null
+					];
+				}
 			],
 			'Fuchsia' => [
 				'match' => 'exact',
@@ -207,23 +256,60 @@ class platforms {
 					];
 				}
 			],
+			'J2ME/MIDP' => [
+				'match' => 'exact',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'category' => 'mobile',
+					'kernel' => 'Java VM',
+					'platform' => $value
+				]
+			],
+			'Haiku' => [
+				'match' => 'any',
+				'categories' => function (string $value) : array {
+					$parts = \explode('/', $value, 2);
+					return [
+						'type' => 'human',
+						'category' => 'desktop',
+						'kernel' => 'Haiku',
+						'platform' => 'Haiku',
+						'platformversion' => $parts[1] ?? null
+					];
+				}
+			],
+			'BeOS' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					$parts = \explode('/', $value, 2);
+					return [
+						'type' => 'human',
+						'category' => 'desktop',
+						'kernel' => 'BeOS',
+						'platform' => 'BeOS',
+						'platformversion' => $parts[1] ?? null
+					];
+				}
+			],
 			'Android' => [
 				'match' => 'start',
 				'categories' => function (string $value, int $i, array $tokens) : ?array {
-					$os = \explode(' ', $value, 2);
+					$os = \explode(' ', $value, 3);
 					$device = \explode(' Build/', $tokens[++$i], 2);
 					return [
 						'platform' => $os[0],
 						'platformversion' => $os[1] ?? null,
 						'device' => $device[0] === '' ? null : $device[0],
-						'build' => $device[1] ?? null
+						'build' => $device[1] ?? $os[2] ?? null
 					];
 				}
 			],
 			'Linux' => [
-				'match' => 'start',
+				'match' => 'any',
 				'categories' => [
-					'kernel' => 'Linux'
+					'type' => 'human',
+					'kernel' => 'Linux',
+					'platform' => 'Linux'
 				]
 			],
 			'X11' => [

@@ -9,6 +9,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'platformversion' => '10.5.8',
 				'processor' => 'PowerPC',
@@ -53,7 +54,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Safari/13609.3.5.1.5 CFNetwork/902.6 Darwin/17.7.0 (x86_64)' => [
 				'type' => 'robot',
-				'category' => 'network',
+				'category' => 'feed',
 				'app' => 'CFNetwork',
 				'appversion' => '902.6',
 				'kernel' => 'Linux',
@@ -101,7 +102,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
-				'platform' => 'Gecko/20051801',
+				'platform' => 'Linux',
 				'architecture' => 'x86',
 				'bits' => 32,
 				'engine' => 'Gecko',
@@ -198,7 +199,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '7.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '9'
+				'browserversion' => '11.0'
 			],
 			'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36' => [
 				'type' => 'human',
@@ -235,7 +236,9 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'x86',
 				'bits' => 64,
 				'engine' => 'Trident',
-				'engineversion' => '7.0'
+				'engineversion' => '7.0',
+				'browser' => 'Internet Explorer',
+				'browserversion' => '11.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -268,8 +271,8 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'processor' => 'AMD',
 				'engine' => 'WebKit',
 				'engineversion' => '536.5',
-				'browser' => 'Safari',
-				'browserversion' => '536.5'
+				'browser' => 'Chrome',
+				'browserversion' => '19.0.1084.56'
 			],
 			'yacybot (/global; amd64 Windows 7 6.1; java 17.0.6; Europe/pl) http://yacy.net/bot.html' => [
 				'type' => 'robot',
@@ -393,6 +396,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'platformversion' => '10.15.7',
 				'bits' => 64,
@@ -407,6 +411,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
+				'device' => 'Macintosh',
 				'platform' => 'MacOS',
 				'platformversion' => '10.11',
 				'bits' => 64,
@@ -609,6 +614,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '108.0.0.0',
 				'engineversion' => '108.0.0.0',
+				'type' => 'human',
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaSearchBrowser/23.51.1 BroPP/1.0 YaSearchApp/23.51.1 webOmni SA/3 Mobile Safari/537.36' => [
@@ -624,6 +630,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '112.0.0.0',
 				'engineversion' => '112.0.0.0',
+				'type' => 'human',
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch)' => [
@@ -636,7 +643,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'arm',
 				'engine' => 'Trident',
 				'engineversion' => '6.0',
-				'browser' => 'IEMobile',
+				'browser' => 'Internet Explorer',
 				'browserversion' => '10.0'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; ARM; RM-1010) AppleWebKit/537.36 (KHTML like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393' => [
@@ -669,6 +676,65 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'Sun',
 				'browser' => 'Mozilla',
 				'browserversion' => '3.0'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, (array) agentzero::detect($ua), $ua);
+		}
+	}
+
+	public function testSolaris() {
+		$strings = [
+			'Mozilla/5.0 (X11; U; SunOS sun4u; pl-PL; rv:1.8.1.6) Gecko/20071217 Firefox/52.7.3' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'unix',
+				'platform' => 'Solaris',
+				'processor' => 'UltraSPARK',
+				'architecture' => 'Spark V9',
+				'bits' => 64,
+				'engine' => 'Gecko',
+				'engineversion' => '20071217',
+				'browser' => 'Firefox',
+				'browserversion' => '52.7.3',
+				'language' => 'pl-PL'
+			],
+			'Mozilla/5.0 (X11; U; SunOS i86pc; en-US; rv:1.9.1.9) Gecko/20100525 Firefox/3.5.9' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'unix',
+				'platform' => 'Solaris',
+				'architecture' => 'x86',
+				'bits' => 32,
+				'engine' => 'Gecko',
+				'engineversion' => '20100525',
+				'browser' => 'Firefox',
+				'browserversion' => '3.5.9',
+				'language' => 'en-US'
+			],
+			'Mozilla/5.0 (X11; SunOS i86pc; rv:102.0) Gecko/20100101 Thunderbird/102.6.0' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'unix',
+				'platform' => 'Solaris',
+				'architecture' => 'x86',
+				'bits' => 32,
+				'browser' => 'Thunderbird',
+				'browserversion' => '102.6.0'
+			],
+			'Mozilla/5.0 (X11; U; Linux sparc64; en-GB; rv:1.8.1.11) Gecko/20071217 Galeon/2.0.3 Firefox/2.0.0.11' => [
+				'kernel' => 'Linux',
+				'type' => 'human',
+				'category' => 'desktop',
+				'platform' => 'Linux',
+				'processor' => 'Fujitsu',
+				'architecture' => 'Spark V9',
+				'bits' => 64,
+				'engine' => 'Gecko',
+				'engineversion' => '20071217',
+				'browser' => 'Galeon',
+				'browserversion' => '2.0.3',
+				'language' => 'en-GB'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

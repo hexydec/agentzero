@@ -73,6 +73,12 @@ class devices {
 				'match' => 'exact',
 				'categories' => $fn['ios']
 			],
+			'Macintosh' => [
+				'match' => 'exact',
+				'categories' => [
+					'device' => 'Macintosh'
+				]
+			],
 			' Build/' => [
 				'match' => 'any',
 				'categories' => function (string $value) : array {
@@ -83,23 +89,37 @@ class devices {
 					];
 				}
 			],
-			'Quest 2' => [
-				'match' => 'exact',
-				'categories' => [
-					'device' => 'Oculus Quest 2',
+			'Quest' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'device' => 'Oculus '.$value,
 					'type' => 'human',
-					'category' => 'desktop'
+					'category' => 'vr'
 				]
 			],
 			'Nintendo Wii U' => [
 				'match' => 'exact',
-				'categories' => $fn['console']
+				'categories' => [
+					'device' => 'Nintendo Wii U',
+					'type' => 'human',
+					'category' => 'console',
+					'architecture' => 'PowerPC'
+				]
 			],
 			'Nintendo WiiU' => [
 				'match' => 'exact',
-				'categories' => $fn['console']
+				'categories' => [
+					'device' => 'Nintendo Wii U',
+					'type' => 'human',
+					'category' => 'console',
+					'architecture' => 'PowerPC'
+				]
 			],
 			'Nintendo Wii' => [
+				'match' => 'exact',
+				'categories' => $fn['console']
+			],
+			'Nintendo 3DS' => [
 				'match' => 'exact',
 				'categories' => $fn['console']
 			],
@@ -150,6 +170,52 @@ class devices {
 					'type' => 'human',
 					'category' => 'desktop'
 				]
+			],
+			'GoogleTV' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'tv',
+					'device' => 'GoogleTV'
+				]
+			],
+			'AmigaOneX1000' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'desktop',
+					'device' => 'AmigaOneX1000'
+				]
+			],
+			'googleweblight' => [
+				'match' => 'exact',
+				'categories' => [
+					'proxy' => 'googleweblight'
+				]
+			],
+			'SAMSUNG-' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					$parts = \explode('/', $value, 2);
+					return [
+						'device' => $parts[0],
+						'build' => $parts[1] ?? null,
+						'type' => 'human',
+						'category' => 'mobile'
+					];
+				}
+			],
+			'SonyEricsson' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					$parts = \explode('/', $value, 2);
+					return [
+						'device' => $parts[0],
+						'build' => $parts[1] ?? null,
+						'type' => 'human',
+						'category' => 'mobile'
+					];
+				}
 			]
 		];
 	}
