@@ -19,6 +19,8 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - sun
 - IA64
 - PowerPC
+- Spark64
+- Spark V9
 
 ## Platforms
 
@@ -39,6 +41,11 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - Fuchsia
 - Maemo
 - Windows Phone
+- WebOS
+- Tizen
+- Roku
+- SunOS
+- Solaris
 
 ## Browsers
 
@@ -78,6 +85,7 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - WebKit
 - Presto
 - Trident
+- Goanna
 
 ## Devices
 
@@ -86,6 +94,7 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - iPad
 - iPod
 - iPod Touch
+- Oculus Quest
 - Oculus Quest 2
 - Nintendo Wii
 - Nintendo Wii U
@@ -96,8 +105,15 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - Xbox Series X
 - Playstation 4
 - Playstation 5
+- NVIDIA Shield
 - Google Chromecast
+- Amazon Fire TV
 - Chromebooks
+- Samsung devices
+- Sony Ericsson devices
+- LG WebOS TV's
+- Sony Bravia TV's
+- Samsung Tizen TV's
 
 ## Apps
 
