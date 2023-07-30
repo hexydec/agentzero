@@ -71,6 +71,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		$strings = [
 			'Opera/9.30 (Nintendo Wii; U; ; 2047-7; en)' => [
 				'device' => 'Nintendo Wii',
+				'vendor' => 'Nintendo',
 				'type' => 'human',
 				'category' => 'console',
 				'browser' => 'Opera',
@@ -1183,6 +1184,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				 'category' => 'mobile',
 				 'platform' => 'Android',
 				 'platformversion' => '12',
+				 'vendor' => 'Samsung',
 				 'device' => 'SAMSUNG SM-S908E',
 				 'kernel' => 'Linux',
 				 'browser' => 'SamsungBrowser',
@@ -1193,6 +1195,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 8.1.0; SAMSUNG SM-A260G Build/OPR6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 SamsungBrowser/7.2 Chrome/108.0.5359.128 Mobile Safari/537.36' => [
 				'type' => 'human',
 				'category' => 'mobile',
+				'vendor' => 'Samsung',
 				'device' => 'SAMSUNG SM-A260G',
 				'build' => 'OPR6',
 				'platform' => 'Android',
@@ -1212,6 +1215,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 	public function testNintendoBrowser() {
 		$strings = [
 			'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.30 (KHTML, like Gecko) NX/3.0.4.2.12 NintendoBrowser/7.1.2.EU' => [
+				'vendor' => 'Nintendo',
 				'device' => 'Nintendo Wii U',
 				'type' => 'human',
 				'category' => 'console',
@@ -1222,6 +1226,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'PowerPC'
 			],
 			'Mozilla/5.0 (Nintendo 3DS) AppleWebKit/536.30 (KHTML, like Gecko) NX/3.0.4.2.12 NintendoBrowser/7.1.2.US' => [
+				'vendor' => 'Nintendo',
 				'device' => 'Nintendo 3DS',
 				'type' => 'human',
 				'category' => 'console',
@@ -1232,6 +1237,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Nintendo Switch; WifiWebAuthApplet) AppleWebKit/601.6 (KHTML, like Gecko) NF/4.0.0.12.4 NintendoBrowser/5.1.0.19293' => [
 				'app' => 'WifiWebAuthApplet',
+				'vendor' => 'Nintendo',
 				'device' => 'Nintendo Switch',
 				'type' => 'human',
 				'category' => 'console',
@@ -1343,6 +1349,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'SAMSUNG-SGH-A867/A867UCHJ3 SHP/VPP/R5 NetFront/35 SMM-MMS/19.2.0 profile/MIDP-2.0 configuration/CLDC-1.1 UP.Link/6.3.0.0.0' => [
 				'type' => 'human',
 				'category' => 'mobile',
+				'vendor' => 'Samsung',
 				'device' => 'SAMSUNG-SGH-A867',
 				'build' => 'A867UCHJ3',
 				'browser' => 'NetFront',
@@ -1350,6 +1357,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			],
 			'SonyEricssonK310iv/R4DA Browser/NetFront/93.3 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Link/6.3.1.13.0(Linux LLC 1.2)' => [
 				'device' => 'SonyEricssonK310iv',
+				'vendor' => 'Sony Ericsson',
 				'build' => 'R4DA',
 				'type' => 'human',
 				'category' => 'mobile',
@@ -1455,6 +1463,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'Xbox One',
 				'type' => 'human',
 				'category' => 'console',
+				'vendor' => 'Microsoft',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => '10',

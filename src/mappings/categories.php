@@ -11,7 +11,7 @@ class categories {
 					'type' => 'human',
 					'category' => 'vr'
 				]
-				],
+			],
 			'Mobile' => [
 				'match' => 'exact',
 				'categories' => [
@@ -27,6 +27,34 @@ class categories {
 				]
 			],
 			'Screen' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'tv'
+				]
+			],
+			'TV' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'tv'
+				]
+			],
+			'SmartTV' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'tv'
+				]
+			],
+			'SMART-TV' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'tv'
+				]
+			],
+			'DTV' => [
 				'match' => 'exact',
 				'categories' => [
 					'type' => 'human',

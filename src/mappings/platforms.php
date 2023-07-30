@@ -24,7 +24,7 @@ class platforms {
 					'type' => 'human',
 					'category' => 'desktop',
 					'kernel' => 'Linux',
-					'platform' => $parts[0],
+					'platform' => $parts[0] === 'Web0S' ? 'WebOS' : $parts[0],
 					'platformversion' => isset($parts[1]) && \strspn($parts[1], '0123456789.-_') > 0 ? $parts[1] : null
 				];
 			},
@@ -119,6 +119,14 @@ class platforms {
 					];
 				}
 			],
+			'AppleTV' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'tv',
+					'device' => 'AppleTV'
+				]
+			],
 			'CrOS' => [
 				'match' => 'start',
 				'categories' => function (string $value) : array {
@@ -139,6 +147,19 @@ class platforms {
 					'platform' => 'Kindle',
 					'platformversion' => \mb_substr($value, 7)
 				]
+			],
+			'Tizen' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					$parts = \explode(' ', $value, 2);
+					return [
+						'type' => 'human',
+						'category' => 'desktop',
+						'kernel' => 'Linux',
+						'platform' => $parts[0],
+						'platformversion' => $parts[1] ?? null
+					];
+				}
 			],
 			'Ubuntu' => [
 				'match' => 'start',
@@ -203,16 +224,37 @@ class platforms {
 					'platform' => $value,
 				]
 			],
+			'Web0S' => [
+				'match' => 'exact',
+				'categories' => $fn['platformlinux']
+			],
+			'webOSTV' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'tv',
+					'kernel' => 'Linux',
+					'platform' => 'WebOS'
+				]
+			],
+			'WEBOS' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'category' => 'tv',
+					'kernel' => 'Linux',
+					'platform' => 'WebOS',
+					'platformversion' => \mb_substr($value, 5)
+				]
+			],
 			'SunOS' => [
 				'match' => 'start',
-				'categories' => function (string $value) : array {
-					return [
-						'type' => 'human',
-						'category' => 'desktop',
-						'kernel' => 'unix',
-						'platform' => 'Solaris',
-					];
-				}
+				'categories' => [
+					'type' => 'human',
+					'category' => 'desktop',
+					'kernel' => 'unix',
+					'platform' => 'Solaris',
+				]
 			],
 			'AmigaOS' => [
 				'match' => 'any',
