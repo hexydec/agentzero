@@ -12,11 +12,11 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)' => [
-				
+
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::detect($ua), $ua);
+			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
 		}
 	}
 
@@ -25,7 +25,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 
 	// 	];
 	// 	foreach ($strings AS $ua => $item) {
-	// 		$this->assertEquals($item, (array) agentzero::detect($ua), $ua);
+	// 		$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
 	// 	}
 	// }
 }

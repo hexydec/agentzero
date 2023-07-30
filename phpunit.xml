@@ -25,10 +25,10 @@
     </testsuite>
     <!--<testsuite name="Categories">
       <file>tests/categoriesTest.php</file>
-    </testsuite>
+    </testsuite>-->
     <testsuite name="Crawlers">
       <file>tests/crawlersTest.php</file>
-    </testsuite>-->
+    </testsuite>
     <testsuite name="Devices">
       <file>tests/devicesTest.php</file>
     </testsuite>

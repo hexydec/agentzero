@@ -5,7 +5,7 @@ $total = null;
 if (!empty($_POST['ua'])) {
 	$ua = $_POST['ua'];
 	$time = \microtime(true);
-	$output = \hexydec\agentzero\agentzero::detect($ua);
+	$output = \hexydec\agentzero\agentzero::parse($ua);
 	$total = \microtime(true) - $time;
 } else {
 	$ua = $_SERVER['HTTP_USER_AGENT'];

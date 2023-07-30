@@ -33,7 +33,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::detect($ua), $ua);
+			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
 		}
 	}
 
@@ -89,7 +89,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::detect($ua), $ua);
+			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
 		}
 	}
 
@@ -132,7 +132,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::detect($ua), $ua);
+			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
 		}
 	}
 
@@ -184,7 +184,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::detect($ua), $ua);
+			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
 		}
 	}
 
@@ -247,7 +247,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::detect($ua), $ua);
+			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
 		}
 	}
 }

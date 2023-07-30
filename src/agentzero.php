@@ -42,7 +42,7 @@ class agentzero {
 		return false;
 	}
 
-	public static function detect(string $ua) : \stdClass|false {
+	public static function parse(string $ua) : \stdClass|false {
 		$config = config::get();
 		if (($tokens = self::getTokens($ua, $config['ignore'])) !== false) {
 

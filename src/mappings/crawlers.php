@@ -4,9 +4,25 @@ namespace hexydec\agentzero;
 class crawlers {
 
 	public static function get() {
-		$fn = function (string $value) : ?array {
-			if (!\str_contains($value, 'http')) { // bot will be in the URL
+		$fn = function (string $value, int $i, array $tokens) : ?array {
+			if (!\str_contains($value, '://')) { // bot will be in the URL
 				$parts = \explode('/', $value, 2);
+
+				// special case
+				if (\strcasecmp($parts[0], 'Spider') === 0) {
+					$ua = \implode(' ', $tokens);
+					if (\mb_stripos($ua, 'Screaming Frog SEO Spider') === 0) {
+						$parts[0] = 'Screaming Frog SEO Spider';
+					} elseif (\mb_stripos($ua, 'Sogou web spider') === 0) {
+						$parts[0] = 'Sogou web spider';
+					}
+				}
+
+				// process version
+				if (!empty($parts[1])) {
+					$parts[1] = \ltrim($parts[1], 'v');
+					$parts[1] = \substr($parts[1], 0, \strspn($parts[1], '0123456789.'));
+				}
 				$category = [
 					'yacybot' => 'search',
 					'Googlebot' => 'search',
@@ -22,17 +38,19 @@ class crawlers {
 					'Google-Site-Verification' => 'checker',
 					'GoogleOther' => 'crawler',
 					'Bingbot' => 'search',
+					'bingbot' => 'search',
 					'adidxbot' => 'ads',
 					'DuckDuckBot' => 'search',
 					'Baiduspider' => 'search',
 					'Applebot' => 'search',
 					'YandexBot' => 'search',
-					'MJ12Bot' => 'search',
+					'MJ12bot' => 'search',
 					'Mail.RU_Bot' => 'search',
 					'HaosouSpider' => 'search',
 					'360Spider' => 'search',
 					'Exabot' => 'search',
 					'Yahoo! Slurp' => 'search',
+					'Sogou web spider' => 'search',
 					'facebookexternalhit' => 'feed',
 					'FeedFetcher-Google' => 'feed',
 					'GoogleProducer' => 'feed',
@@ -48,6 +66,7 @@ class crawlers {
 					'magpie-crawler' => 'crawler',
 					'WebCrawler' => 'crawler',
 					'OnCrawl' => 'crawler',
+					'Screaming Frog SEO Spider' => 'crawler',
 					'Twitterbot' => 'feed',
 					'Xbot' => 'feed',
 					'Discordbot' => 'feed',
@@ -69,13 +88,16 @@ class crawlers {
 					'Chrome-Lighthouse' => 'checker',
 					'WordPress' => 'monitor',
 					'MBCrawler' => 'crawler',
-					'PRTG Network Monitor' => 'monitor',
+					'PRTG Network Monitor (www.paessler.com)' => 'monitor',
 					'PRTGCloudBot' => 'monitor',
 					'Site24x7' => 'monitor',
 					'Bytespider' => 'search',
 					'woorankreview' => 'crawler',
 					'adbeat.com/policy' => 'ads',
-					'Siteimprove.com' => 'crawler'
+					'Siteimprove.com' => 'crawler',
+					'PingdomTMS' => 'monitor',
+					'proximic' => 'ads',
+					'MicrosoftPreview' => 'feed'
 				];
 				return [
 					'type' => 'robot',
@@ -95,18 +117,6 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn
 			],
-			'bot' => [
-				'match' => 'any',
-				'categories' => $fn
-			],
-			'spider' => [
-				'match' => 'any',
-				'categories' => $fn
-			],
-			'crawler' => [
-				'match' => 'any',
-				'categories' => $fn
-			],
 			'AhrefsSiteAudit/' => [
 				'match' => 'start',
 				'categories' => $fn
@@ -121,6 +131,14 @@ class crawlers {
 			],
 			'Mediapartners-Google/' => [
 				'match' => 'start',
+				'categories' => $fn
+			],
+			'FeedFetcher-Google' => [
+				'match' => 'exact',
+				'categories' => $fn
+			],
+			'GoogleProducer' => [
+				'match' => 'exact',
 				'categories' => $fn
 			],
 			'CFNetwork/' => [
@@ -148,10 +166,6 @@ class crawlers {
 				'categories' => $fn
 			],
 			'Nessus' => [
-				'match' => 'start',
-				'categories' => $fn
-			],
-			'curl/' => [
 				'match' => 'start',
 				'categories' => $fn
 			],
@@ -183,7 +197,7 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn
 			],
-			'PRTG Network Monitor' => [
+			'PRTG Network Monitor (www.paessler.com)' => [
 				'match' => 'exact',
 				'categories' => $fn
 			],
@@ -197,12 +211,41 @@ class crawlers {
 			],
 			'adbeat.com' => [
 				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'robot',
+					'category' => 'ads',
+					'app' => 'Adbeat',
+					'url' => $value
+				]
+			],
+			'MicrosoftPreview/' => [
+				'match' => 'start',
 				'categories' => $fn
 			],
 			'Siteimprove.com' => [
 				'match' => 'exact',
 				'categories' => $fn
-			]
+			],
+			'OnCrawl/' => [
+				'match' => 'start',
+				'categories' => $fn
+			],
+			'curl/' => [
+				'match' => 'start',
+				'categories' => $fn
+			],
+			'spider' => [
+				'match' => 'any',
+				'categories' => $fn
+			],
+			'crawler' => [
+				'match' => 'any',
+				'categories' => $fn
+			],
+			'bot' => [
+				'match' => 'any',
+				'categories' => $fn
+			],
 		];
 	}
 }

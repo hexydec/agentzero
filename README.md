@@ -18,7 +18,7 @@ To use AgentZero:
 
 ```php
 $ua = $_SERVER['HTTP_USER_AGENT']; // or whatever UA you want
-$browser = \hexydec\agentzero\agentzero::detect($ua);
+$browser = \hexydec\agentzero\agentzero::parse($ua);
 ```
 
 ## Supported Features

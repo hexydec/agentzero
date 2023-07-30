@@ -4,10 +4,18 @@ namespace hexydec\agentzero;
 class urls {
 
 	public static function get() {
-		$fn = fn (string $value) : array => [
-			'url' => \ltrim($value, '+'),
-			'type' => 'robot'
-		];
+		$fn = function (string $value) : ?array {
+			if (($start = \stripos($value, 'http')) === false) {
+				$start = \stripos($value, 'www.');
+			}
+			if ($start !== false) {
+				return [
+					'type' => 'robot',
+					'url' => \rtrim(\substr($value, $start, \strcspn($value, '), ', $start)), '?+')
+				];
+			}
+			return null;
+		};
 		return [
 			'http://' => [
 				'match' => 'any',
