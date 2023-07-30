@@ -143,7 +143,8 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'desktop',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
-				'platform' => 'MacOS',
+				'vendor' => 'Apple',
+				'platform' => 'Mac OS X',
 				'platformversion' => '10.15.7',
 				'bits' => 64,
 				'processor' => 'Intel',
@@ -166,6 +167,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko; googleweblight) Chrome/38.0.1025.166 Mobile Safari/535.19' => [
+				'vendor' => 'Google',
 				'device' => 'Nexus 5',
 				'build' => 'JOP40D',
 				'platform' => 'Android',
@@ -219,7 +221,8 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
-				'platform' => 'MacOS',
+				'vendor' => 'Apple',
+				'platform' => 'Mac OS X',
 				'platformversion' => '10.15.7',
 				'bits' => 64,
 				'processor' => 'Intel',
@@ -232,7 +235,8 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 11; motorola one 5G ace) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36' => [
 				'platform' => 'Android',
 				'platformversion' => '11',
-				'device' => 'motorola one 5G ace',
+				'vendor' => 'Motorola',
+				'device' => 'one 5G ace',
 				'kernel' => 'Linux',
 				'browser' => 'Chrome',
 				'engine' => 'Blink',

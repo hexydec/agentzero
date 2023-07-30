@@ -80,7 +80,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'processor' => 'Intel',
 				'kernel' => 'Linux',
-				'platform' => 'MacOS',
+				'vendor' => 'Apple',
+				'platform' => 'Mac OS X',
 				'platformversion' => '10.10.1',
 				'browser' => 'Safari',
 				'browserversion' => '600.2.5',
@@ -94,7 +95,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '0.1',
 				'url' => 'http://www.apple.com/go/applebot',
 				'kernel' => 'Linux',
-				'platform' => 'MacOS',
+				'vendor' => 'Apple',
+				'platform' => 'Mac OS X',
 				'platformversion' => '10.15.5',
 				'bits' => 64,
 				'processor' => 'Intel',
@@ -277,7 +279,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) LinkCheck by Siteimprove.com' => [
-				
+
 			]
 		];
 		foreach ($strings AS $ua => $item) {

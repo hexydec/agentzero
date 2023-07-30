@@ -25,6 +25,7 @@ class devices {
 					'kernel' => 'Linux',
 					'platform' => 'iOS',
 					'platformversion' => $version,
+					'vendor' => 'Apple',
 					'device' => $value,
 					'model' => $model
 				];
@@ -78,13 +79,24 @@ class devices {
 			'Macintosh' => [
 				'match' => 'exact',
 				'categories' => [
+					'vendor' => 'Apple',
 					'device' => 'Macintosh'
 				]
 			],
 			'Quest' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
-					'device' => 'Oculus '.$value,
+					'vendor' => 'Oculus',
+					'device' => $value,
+					'type' => 'human',
+					'category' => 'vr'
+				]
+			],
+			'Pacific' => [
+				'match' => 'start',
+				'categories' => [
+					'vendor' => 'Oculus',
+					'device' => 'Go',
 					'type' => 'human',
 					'category' => 'vr'
 				]
@@ -92,7 +104,7 @@ class devices {
 			'Nintendo Wii U' => [
 				'match' => 'exact',
 				'categories' => [
-					'device' => 'Nintendo Wii U',
+					'device' => 'Wii U',
 					'type' => 'human',
 					'category' => 'console',
 					'architecture' => 'PowerPC',
@@ -102,7 +114,7 @@ class devices {
 			'Nintendo WiiU' => [
 				'match' => 'exact',
 				'categories' => [
-					'device' => 'Nintendo Wii U',
+					'device' => 'Wii U',
 					'type' => 'human',
 					'category' => 'console',
 					'architecture' => 'PowerPC',
@@ -112,7 +124,7 @@ class devices {
 			'Nintendo Wii' => [
 				'match' => 'exact',
 				'categories' => [
-					'device' => 'Nintendo Wii',
+					'device' => 'Wii',
 					'type' => 'human',
 					'category' => 'console',
 					'vendor' => 'Nintendo'
@@ -121,7 +133,7 @@ class devices {
 			'Nintendo 3DS' => [
 				'match' => 'exact',
 				'categories' => [
-					'device' => 'Nintendo 3DS',
+					'device' => '3DS',
 					'type' => 'human',
 					'category' => 'console',
 					'vendor' => 'Nintendo'
@@ -130,7 +142,7 @@ class devices {
 			'Nintendo Switch' => [
 				'match' => 'exact',
 				'categories' => [
-					'device' => 'Nintendo Switch',
+					'device' => 'Switch',
 					'type' => 'human',
 					'category' => 'console',
 					'vendor' => 'Nintendo'
@@ -170,7 +182,7 @@ class devices {
 					'type' => 'human',
 					'category' => 'console',
 					'vendor' => 'NVIDIA',
-					'device' => 'SHIELD'
+					'device' => 'Shield'
 				]
 			],
 			'CrKey/' => [
@@ -179,7 +191,7 @@ class devices {
 					'type' => 'human',
 					'category' => 'tv',
 					'vendor' => 'Google',
-					'device' => 'Google Chromecast',
+					'device' => 'Chromecast',
 					'model' => \explode(',', \mb_substr($value, 6), 2)[0]
 				]
 			],
@@ -203,7 +215,7 @@ class devices {
 				'categories' => fn (string $value) : array => [
 					'type' => 'human',
 					'category' => 'tv',
-					'device' => 'Google Chromecast',
+					'device' => 'Chromecast',
 					'vendor' => 'Google',
 					'platformversion' => \mb_substr($value, 7)
 				]
@@ -213,7 +225,7 @@ class devices {
 				'categories' => [
 					'type' => 'human',
 					'category' => 'tv',
-					'device' => 'Amazon Fire TV',
+					'device' => 'Fire TV',
 					'vendor' => 'Amazon'
 				]
 			],
@@ -249,7 +261,7 @@ class devices {
 				'categories' => function (string $value) : array {
 					$parts = \explode('/', $value, 2);
 					return [
-						'device' => $parts[0],
+						'device' => \mb_substr($parts[0], 8),
 						'build' => $parts[1] ?? null,
 						'type' => 'human',
 						'category' => 'mobile',
@@ -274,7 +286,8 @@ class devices {
 				'categories' => function (string $value) : array {
 					$parts = \explode('/', $value, 2);
 					return [
-						'device' => $parts[0],
+						'vendor' => 'Sony Ericsson',
+						'device' => \mb_substr($parts[0], 12),
 						'build' => $parts[1] ?? null,
 						'type' => 'human',
 						'category' => 'mobile',
@@ -311,17 +324,52 @@ class devices {
 				'categories' => fn (string $value) : array => [
 					'model' => \mb_substr($value, 6)
 				]
-				],
+			],
 			' Build/' => [
 				'match' => 'any',
 				'categories' => function (string $value) : array {
-					$parts = \explode(' Build/', $value, 2);
-					return [
-						'device' => $parts[0],
-						'build' => $parts[1]
-					];
+					return self::getDevice($value);
 				}
 			],
+		];
+	}
+
+	public static function getDevice(string $value) : array {
+		$device = \explode(' Build/', $value, 2);
+		$vendors = [
+			'Samsung' => 'Samsung',
+			'OnePlus' => 'OnePlus',
+			'CPH' =>'OnePlus',
+			'KB' => 'OnePlus',
+			'Pixel' => 'Google',
+			'SM-' => 'Samsung',
+			'LM-' => 'LG',
+			'LG' => 'LG',
+			'RMX' => 'RealMe',
+			'HTC' => 'HTC',
+			'Nexus' => 'Google',
+			'MI ' => 'Xiaomi',
+			'Huawei' => 'Huawei',
+			'Honor' => 'Honor',
+			'Motorola' => 'Motorola',
+			'moto' => 'Motorola',
+			'Intel' => 'Intel',
+			'SonyEricsson' => 'Sony Ericsson'
+		];
+		$vendor = null;
+		foreach ($vendors AS $key => $item) {
+			if (($pos = \mb_stripos($value, $key)) !== false) {
+				$vendor = $item;
+				if ($pos === 0 && ($key === $item || $key === 'SonyEricsson')) {
+					$device[0] = \trim(\mb_substr($device[0], \mb_strlen($key)), ' -_');
+				}
+				break;
+			}
+		}
+		return [
+			'vendor' => $vendor,
+			'device' => $device[0] === '' ? null : $device[0],
+			'build' => $device[1] ?? $os[2] ?? null
 		];
 	}
 }

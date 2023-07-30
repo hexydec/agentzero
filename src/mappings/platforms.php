@@ -113,7 +113,7 @@ class platforms {
 						'type' => 'human',
 						'category' => 'desktop',
 						'kernel' => 'Linux',
-						'platform' => 'MacOS',
+						'platform' => 'Mac OS X',
 						'platformversion' => $version,
 						'bits' => $register
 					];
@@ -337,13 +337,10 @@ class platforms {
 				'match' => 'start',
 				'categories' => function (string $value, int $i, array $tokens) : ?array {
 					$os = \explode(' ', $value, 3);
-					$device = \explode(' Build/', $tokens[++$i], 2);
-					return [
+					return \array_merge(devices::getDevice($tokens[++$i]), [
 						'platform' => $os[0],
-						'platformversion' => $os[1] ?? null,
-						'device' => $device[0] === '' ? null : $device[0],
-						'build' => $device[1] ?? $os[2] ?? null
-					];
+						'platformversion' => $os[1] ?? null
+					]);
 				}
 			],
 			'Linux' => [
