@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 class apps {
@@ -6,7 +7,7 @@ class apps {
 	public static function get() {
 		$fn = [
 			'appslash' => function (string $value) : ?array {
-				if (!\str_starts_with($value, 'AppleWebKit')) {
+				if (!\str_starts_with($value, 'AppleWebKit') && !\str_contains($value, '://')) {
 					$parts = \explode('/', $value, 2);
 					return [
 						'app' => $parts[0],
@@ -29,7 +30,7 @@ class apps {
 					'FBCR' => 'network',
 					'FBDM' => function (string $value) : array {
 						$data = [];
-						foreach (explode(',', \trim($value, '{}')) AS $item) {
+						foreach (\explode(',', \trim($value, '{}')) AS $item) {
 							$parts = \explode('=', $item);
 							$data[$parts[0]] = $parts[1];
 						}

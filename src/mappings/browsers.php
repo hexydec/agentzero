@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 class browsers {
@@ -200,7 +201,6 @@ class browsers {
 				'categories' => fn (string $value) : array => [
 					'browser' => 'Fennec',
 					'engine' => 'Gecko',
-					'category' => 'mobile',
 					'browserversion' => \mb_substr($value, 7),
 					'engineversion' => \mb_substr($value, 7)
 				]

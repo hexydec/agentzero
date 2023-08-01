@@ -21,7 +21,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -45,7 +45,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
 				'type' => 'human',
-				'category' => 'mobile',
+				'category' => 'tablet',
 				'browser' => 'Opera Mini',
 				'browserversion' => '7.7.40394/191.293',
 				'language' => 'en'
@@ -63,7 +63,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -118,7 +118,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -210,7 +210,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -281,7 +281,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -342,7 +342,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -394,7 +394,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -442,7 +442,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -497,7 +497,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -529,7 +529,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -597,7 +597,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -644,7 +644,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -694,7 +694,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -754,7 +754,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -800,7 +800,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -846,7 +846,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -892,7 +892,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -951,7 +951,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1018,7 +1018,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1058,7 +1058,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1099,7 +1099,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1145,7 +1145,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1192,7 +1192,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1227,7 +1227,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1267,7 +1267,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1314,7 +1314,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1359,7 +1359,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1385,7 +1385,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1401,7 +1401,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Gecko',
 				'engineversion' => '20110615',
 				'browser' => 'Fennec',
-				'category' => 'mobile',
+				'category' => 'tablet',
 				'browserversion' => '142'
 			],
 			'Mozilla/5.0 (Wayland; Linux i686; rv:31.0) Gecko/20100101 Fennec/31.0' => [
@@ -1412,13 +1412,12 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 32,
 				'browser' => 'Fennec',
 				'engine' => 'Gecko',
-				'category' => 'mobile',
 				'browserversion' => '31.0',
 				'engineversion' => '31.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1496,7 +1495,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1528,7 +1527,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -1587,7 +1586,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 }

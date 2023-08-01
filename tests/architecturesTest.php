@@ -22,7 +22,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -68,7 +68,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -113,7 +113,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -161,7 +161,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -183,7 +183,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -243,7 +243,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -289,7 +289,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -324,7 +324,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -387,7 +387,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -445,7 +445,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -492,7 +492,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -539,7 +539,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -573,7 +573,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -665,7 +665,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -683,7 +683,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -742,7 +742,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 }

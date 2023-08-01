@@ -1,9 +1,43 @@
 <?php
+declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 class agentzero {
 
+	private function __construct(protected \stdClass $data) {
+
+	}
+
+	public function __get(string $key) : string|int|null {
+		switch ($key) {
+			case 'host':
+				if (!empty($this->data->url)) {
+					$host = \parse_url($this->data->url, PHP_URL_HOST);
+					return \str_starts_with($host, 'www.') ? \substr($host, 4) : $host;
+				}
+				return null;
+			case 'browsermajorversion':
+			case 'enginemajorversion':
+			case 'platformmajorversion':
+			case 'appmajorversion':
+				$item = \str_replace('major', '', $key);
+				return empty($this->data->{$item}) ? null : \strspn($this->data->{$item}, '0123456789');
+		}
+		return $this->data->{$key} ?? null;
+	}
+
+	public function toArray() : array {
+		return (array) $this->data;
+	}
+
 	protected static function getTokens(string $ua, array $ignore = []) : array|false {
+
+		// check for unicode
+		if (\str_contains($ua, '\\x')) {
+			$ua = \preg_replace_callback('/\\\\x([0-9a-f]{2})/i', fn (array $chr) : string => \chr(\hexdec($chr[1])), $ua);
+		}
+
+		// split up ua string
 		$pattern = '/([^(]*)(?:\(((?:\([^)]++\)|[^()]++)++)\))?/i';
 		if (\preg_match_all($pattern, $ua, $match, PREG_SET_ORDER)) {
 
@@ -42,7 +76,7 @@ class agentzero {
 		return false;
 	}
 
-	public static function parse(string $ua) : \stdClass|false {
+	public static function parse(string $ua) : agentzero|false {
 		$config = config::get();
 		if (($tokens = self::getTokens($ua, $config['ignore'])) !== false) {
 
@@ -78,8 +112,9 @@ class agentzero {
 					}
 				}
 			}
-			return $browser;
+			return new agentzero($browser);
 		}
+		return false;
 	}
 
 	protected static function setProps(\stdClass $browser, array|\Closure $props, string $value, int $i, array $tokens) : void {

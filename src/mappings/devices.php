@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 class devices {
@@ -312,7 +313,7 @@ class devices {
 				}
 			],
 			'BRAVIA' => [
-				'match' => 'exact',
+				'match' => 'start',
 				'categories' => [
 					'type' => 'human',
 					'category' => 'tv',

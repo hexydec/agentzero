@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 class platforms {
@@ -104,17 +105,17 @@ class platforms {
 				'match' => 'any',
 				'categories' => $fn['platformwindows']
 			],
-			'Mac OS X ' => [
+			'Mac OS X' => [
 				'match' => 'any',
 				'categories' => function (string $value) : array {
 					$version = \str_replace('_', '.', \mb_substr($value, \mb_stripos($value, 'Mac OS X') + 9));
-					$register = \intval(\explode('.', $version)[1]) >= 6 ? 64 : null;
+					$register = $version && \intval(\explode('.', $version)[1]) >= 6 ? 64 : null;
 					return [
 						'type' => 'human',
 						'category' => 'desktop',
 						'kernel' => 'Linux',
 						'platform' => 'Mac OS X',
-						'platformversion' => $version,
+						'platformversion' => $version === '' ? null : $version,
 						'bits' => $register
 					];
 				}
@@ -337,7 +338,10 @@ class platforms {
 				'match' => 'start',
 				'categories' => function (string $value, int $i, array $tokens) : ?array {
 					$os = \explode(' ', $value, 3);
-					return \array_merge(devices::getDevice($tokens[++$i]), [
+					$device = empty($tokens[++$i]) ? [] : devices::getDevice($tokens[$i]);
+					return \array_merge($device, [
+						'type' => 'human',
+						'category' => 'tablet',
 						'platform' => $os[0],
 						'platformversion' => $os[1] ?? null
 					]);

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 class config {
@@ -10,6 +11,7 @@ class config {
 			self::$config = [
 				'ignore' => ['Mozilla/5.0', 'Mozilla/5.0+', 'Mozilla/4.0', 'AppleWebKit/537.36', 'KHTML, like Gecko', 'Safari/537.36', 'compatible', 'Gecko/20100101', 'U', 'like', 'KHTML, somewhat like Gecko', 'wv'],
 				'match' => \array_merge(
+					other::get(),
 					crawlers::get(),
 					urls::get(),
 					apps::get(),

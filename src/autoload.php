@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 \spl_autoload_register(function (string $class) : void {
 	$classes = [
@@ -12,6 +13,7 @@
 		'hexydec\\agentzero\\platforms' => __DIR__.'/mappings/platforms.php',
 		'hexydec\\agentzero\\categories' => __DIR__.'/mappings/categories.php',
 		'hexydec\\agentzero\\urls' => __DIR__.'/mappings/urls.php',
+		'hexydec\\agentzero\\other' => __DIR__.'/mappings/other.php',
 		'hexydec\\agentzero\\config' => __DIR__.'/config.php',
 		'hexydec\\agentzero\\agentzero' => __DIR__.'/agentzero.php'
 	];

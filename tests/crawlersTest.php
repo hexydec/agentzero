@@ -286,7 +286,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -341,7 +341,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -411,7 +411,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -419,13 +419,13 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 		$strings = [
 			'Mozilla/5.0 (compatible; Google-Site-Verification/1.0)' => [
 				'type' => 'robot',
-				'category' => 'checker',
+				'category' => 'validator',
 				'app' => 'Google-Site-Verification',
 				'appversion' => '1.0'
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -480,7 +480,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '1.0',
 				'url' => 'http://swiftype.com/swiftbot'
 			],
-			'magpie-crawler/1.1 (robots-txt-checker; +http://www.brandwatch.net)' => [
+			'magpie-crawler/1.1 (robots-txt-validator; +http://www.brandwatch.net)' => [
 				'type' => 'robot',
 				'app' => 'magpie-crawler',
 				'category' => 'crawler',
@@ -522,7 +522,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko, Google Page Speed Insights) Chrome/114.0.0.0 Safari/537.36 OPR/100.0.0.0 Chrome-Lighthouse' => [
 				'type' => 'robot',
-				'category' => 'checker',
+				'category' => 'validator',
 				'app' => 'Chrome-Lighthouse',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
@@ -561,7 +561,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -637,7 +637,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 }

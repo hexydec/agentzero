@@ -6,7 +6,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 	// public function testDevices() {
 	// 	$strings = [];
 	// 	foreach ($strings AS $ua => $item) {
-	// 		$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+	// 		$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 	// 	}
 	// }
 
@@ -64,7 +64,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -122,7 +122,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -180,7 +180,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -238,7 +238,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -348,7 +348,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -416,7 +416,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -484,7 +484,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -519,7 +519,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -623,11 +623,14 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '10',
 				'type' => 'human',
-				'kernel' => 'Linux'
+				'kernel' => 'Linux',
+				'category' => 'tv',
+				'vendor' => 'Sony'
 			],
 			'Mozilla/5.0 (Linux; Android 9; BRAVIA 4K GB ATV3 Build/PTT1.190515.001.S52; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/110.0.5481.65 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/402.1.0.24.84;]' => [
 				'type' => 'human',
-				'category' => 'mobile',
+				'category' => 'tv',
+				'vendor' => 'Sony',
 				'app' => 'Facebook',
 				'appversion' => '402.1.0.24.84',
 				'device' => 'BRAVIA 4K GB ATV3',
@@ -642,7 +645,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 
@@ -663,7 +666,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, (array) agentzero::parse($ua), $ua);
+			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
 		}
 	}
 }

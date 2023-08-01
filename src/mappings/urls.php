@@ -1,18 +1,24 @@
 <?php
+declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 class urls {
 
 	public static function get() {
-		$fn = function (string $value) : ?array {
-			if (($start = \stripos($value, 'http')) === false) {
-				$start = \stripos($value, 'www.');
+		$fn = function (string $value, int $i, array $tokens) : ?array {
+			if (($start = \stripos($value, 'http://')) === false) {
+				if (($start = \stripos($value, 'https://')) === false) {
+					$start = \stripos($value, 'www.');
+				}
 			}
 			if ($start !== false) {
-				return [
+				$url = \rtrim(\substr($value, $start, \strcspn($value, '), ', $start)), '?+');
+				$data = $i > 0 ? crawlers::getApp($tokens[--$i]) : [];
+				return \array_merge([
 					'type' => 'robot',
-					'url' => \rtrim(\substr($value, $start, \strcspn($value, '), ', $start)), '?+')
-				];
+					'url' => $url,
+					'category' => empty($data['app']) ? 'scraper' : 'crawler'
+				], $data);
 			}
 			return null;
 		};
