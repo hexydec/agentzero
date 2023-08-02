@@ -7,6 +7,9 @@ class browsers {
 	public static function get() {
 		$fn = [
 			'browserslash' => function (string $value) : array {
+				if (($browser = \mb_strrchr($value, ' ')) !== false) {
+					$value = \ltrim($browser);
+				}
 				$parts = \explode('/', $value, 2);
 				$map = [
 					'OPR' => 'Opera',
@@ -188,11 +191,11 @@ class browsers {
 			],
 			'Midori' => [
 				'match' => 'start',
-				'categories' => function (string $value, int $i, array $tokens) : array {
+				'categories' => function (string $value) : array {
 					$parts = \explode('/', $value, 2);
 					return [
 						'browser' => 'Midori',
-						'browserversion' => $parts[1] ?? $tokens[++$i] ?? null
+						'browserversion' => $parts[1] ?? \explode(' ', $value, 2)[1] ?? null
 					];
 				}
 			],

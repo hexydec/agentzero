@@ -15,47 +15,6 @@ class apps {
 					];
 				}
 				return null;
-			},
-			'facebook' => function (string $value) : array {
-				$data = [
-					'app' => 'Facebook'
-				];
-				$mapping = [
-					'FBAV' => 'appversion',
-					'FBMF' => 'device',
-					'FBMD' => 'device',
-					'FBLC' => fn (string $value) : array => [
-						'language' => \str_replace('_', '-', $value)
-					],
-					'FBCR' => 'network',
-					'FBDM' => function (string $value) : array {
-						$data = [];
-						foreach (\explode(',', \trim($value, '{}')) AS $item) {
-							$parts = \explode('=', $item);
-							$data[$parts[0]] = $parts[1];
-						}
-						return $data;
-					}
-				];
-				foreach (\explode(';', $value) AS $item) {
-					$parts = \explode('/', $item);
-					if (isset($mapping[$parts[0]])) {
-
-						// closure
-						if ($mapping[$parts[0]] instanceof \Closure) {
-							$data = \array_merge($data, $mapping[$parts[0]]($parts[1]));
-
-						// no value
-						} elseif (empty($data[$mapping[$parts[0]]])) {
-							$data[$mapping[$parts[0]]] = $parts[1];
-
-						// append value
-						} else {
-							$data[$mapping[$parts[0]]] .= ' '.$parts[1];
-						}
-					}
-				}
-				return $data;
 			}
 		];
 		return [
@@ -66,8 +25,8 @@ class apps {
 			'Instagram' => [
 				'match' => 'any',
 				'categories' => fn (string $value, int $i, array $tokens) : array => [
-					'app' => $value,
-					'appversion' => $tokens[++$i] ?? null
+					'app' => 'Instagram',
+					'appversion' => \explode(' ', $value, 3)[1] ?? null
 				]
 			],
 			'GSA/' => [
@@ -91,19 +50,55 @@ class apps {
 			],
 
 			// special parser for Facebook app because it is completely different to any other
-			'FBAN/FB4A' => [
-				'match' => 'any',
-				'categories' => $fn['facebook']
+			'FBAN/' => [
+				'match' => 'start',
+				'categories' => [
+					'app' => 'Facebook'
+				]
 			],
-			'FBAN/FBIOS' => [
-				'match' => 'any',
-				'categories' => $fn['facebook']
+			'FB_IAB/' => [
+				'match' => 'start',
+				'categories' => [
+					'app' => 'Facebook'
+				]
 			],
-			'FB_IAB/FB4A' => [
-				'match' => 'any',
-				'categories' => $fn['facebook']
+			'FBAV/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'appversion' => \mb_substr($value, 5)
+				]
+			],
+			'FBMF/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'device' => \mb_substr($value, 5)
+				]
+			],
+			// 'FBMD/' => [
+			// 	'match' => 'start',
+			// 	'categories' => fn (string $value) : array => [
+			// 		'model' => \mb_substr($value, 5)
+			// 	]
+			// ],
+			'FBLC/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'language' => \str_replace('_', '-', \mb_substr($value, 5))
+				]
+			],
+			'FBDM/' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					$data = [];
+					foreach (\explode(',', \trim($value, '{}')) AS $item) {
+						$parts = \explode('=', $item);
+						$data[$parts[0]] = $parts[1];
+					}
+					return $data;
+				}
 			],
 
+			// other
 			'MAUI' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [

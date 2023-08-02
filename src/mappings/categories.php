@@ -27,7 +27,7 @@ class categories {
 					'category' => 'tablet'
 				]
 			],
-			'Screen' => [
+			'Large Screen' => [
 				'match' => 'exact',
 				'categories' => [
 					'type' => 'human',

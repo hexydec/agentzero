@@ -14,6 +14,9 @@ class platforms {
 				];
 			},
 			'platformlinux' => function (string $value) : array {
+				if (!\str_starts_with($value, 'Red Hat/') && ($platform = \mb_strstr($value, ' ', true)) !== false) {
+					$value = $platform;
+				}
 				$parts = \explode('/', $value, 2);
 				if (!isset($parts[1])) {
 					$parts = \explode('-', $value, 2);
@@ -178,14 +181,9 @@ class platforms {
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
-			'Hat/' => [
+			'Red Hat/' => [
 				'match' => 'start',
-				'categories' => function (string $value, int $i, array $tokens) use ($fn) : ?array {
-					if ($tokens[--$i] === 'Red') {
-						return $fn['platformlinux']('Red '.$value);
-					}
-					return null;
-				}
+				'categories' => $fn['platformlinux']
 			],
 			'Debian' => [
 				'match' => 'start',

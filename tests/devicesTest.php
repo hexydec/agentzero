@@ -6,7 +6,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 	// public function testDevices() {
 	// 	$strings = [];
 	// 	foreach ($strings AS $ua => $item) {
-	// 		$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+	// 		$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 	// 	}
 	// }
 
@@ -64,7 +64,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -122,7 +122,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -180,7 +180,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -224,7 +224,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'vendor' => 'Acer',
 				'app' => 'Instagram',
 				'appversion' => '290.0.0.13.76',
-				'device' => 'Acer Chromebook 11 (C740)',
+				'device' => 'Acer Chromebook 11',
 				'build' => 'R91-13904.97.0',
 				'type' => 'human',
 				'category' => 'desktop',
@@ -238,7 +238,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -348,7 +348,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -416,7 +416,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -484,7 +484,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -519,7 +519,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -645,7 +645,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -663,10 +663,49 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'vendor' => 'Google',
 				'device' => 'Chromecast',
 				'model' => '1.56.500000'
+			],
+			'Mozilla/5.0 (Windows Phone 8.1; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 635) like Gecko' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Nokia',
+				'device' => 'Lumia 635',
+				'platform' => 'Windows Phone',
+				'platformversion' => '8.1',
+				'kernel' => 'Windows NT',
+				'architecture' => 'arm',
+				'bits' => 32,
+				'engine' => 'Trident',
+				'engineversion' => '7.0',
+				'browser' => 'Internet Explorer',
+				'browserversion' => '11.0'
+			],
+			'Mozilla/5.0 (Linux; Android 11; Nokia C01 Plus Build/RP1A.201005.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36[FBAN/EMA;FBLC/en_GB;FBAV/338.0.0.10.102;]' => [
+				'app' => 'Facebook',
+				'language' => 'en-GB',
+				'appversion' => '338.0.0.10.102',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Nokia',
+				'device' => 'C01 Plus',
+				'build' => 'RP1A.201005.001',
+				'platform' => 'Android',
+				'platformversion' => '11',
+				'kernel' => 'Linux',
+				'browser' => 'Chrome',
+				'engine' => 'Blink',
+				'browserversion' => '108.0.5359.128',
+				'engineversion' => '108.0.5359.128'
+			],
+			'Nokia6280/2.0 (03.60) Profile/MIDP-2.0 Configuration/CLDC-1.1' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Nokia',
+				'device' => '6280',
+				'build' => '2.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 }

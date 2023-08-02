@@ -15,7 +15,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 }

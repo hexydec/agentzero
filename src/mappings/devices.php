@@ -287,12 +287,11 @@ class devices {
 				'categories' => function (string $value) : array {
 					$parts = \explode('/', $value, 2);
 					return [
-						'vendor' => 'Sony Ericsson',
-						'device' => \mb_substr($parts[0], 12),
-						'build' => $parts[1] ?? null,
 						'type' => 'human',
 						'category' => 'mobile',
-						'vendor' => 'Sony Ericsson'
+						'vendor' => 'Sony Ericsson',
+						'device' => \mb_substr($parts[0], 12),
+						'build' => $parts[1] ?? null
 					];
 				}
 			],
@@ -312,6 +311,29 @@ class devices {
 					];
 				}
 			],
+			'NOKIA' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					$parts = \explode('/', $value, 2);
+					$device = \trim(\mb_substr($parts[0], 5, \str_ends_with($parts[0], ' Build') ? -6 : null));
+					return [
+						'type' => 'human',
+						'category' => 'mobile',
+						'vendor' => 'Nokia',
+						'device' => $device !== '' ? $device : null,
+						'build' => $parts[1] ?? null,
+					];
+				}
+			],
+			'Lumia' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'category' => 'mobile',
+					'vendor' => 'Nokia',
+					'device' => $value
+				]
+			],
 			'BRAVIA' => [
 				'match' => 'start',
 				'categories' => [
@@ -326,7 +348,7 @@ class devices {
 					'model' => \mb_substr($value, 6)
 				]
 			],
-			' Build/' => [
+			'Build/' => [
 				'match' => 'any',
 				'categories' => function (string $value) : array {
 					return self::getDevice($value);
@@ -336,7 +358,13 @@ class devices {
 	}
 
 	public static function getDevice(string $value) : array {
-		$device = \explode(' Build/', $value, 2);
+		foreach (['Mobile', 'Safari', 'AppleWebKit', 'Linux'] AS $item) {
+			if (\mb_stripos($value, $item) === 0) {
+				return [];
+			}
+		}
+		$device = \explode('Build/', $value, 2);
+		$device[0] = \trim($device[0]);
 		$vendors = [
 			'Samsung' => 'Samsung',
 			'OnePlus' => 'OnePlus',

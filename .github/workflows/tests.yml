@@ -1,0 +1,31 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+            path: /tmp/composer-cache
+            key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - uses: php-actions/composer@v5
+        with:
+            php_version: 8.1
+            php_extensions: mbstring xdebug
+
+      - name: PHPUnit Tests
+        run: ./vendor/bin/phpunit
+        env:
+          XDEBUG_MODE: coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+            files: ./coverage/result.xml

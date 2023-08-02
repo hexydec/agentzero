@@ -4,15 +4,62 @@ namespace hexydec\agentzero;
 
 class agentzero {
 
-	private function __construct(protected \stdClass $data) {
+	// categories
+	public readonly string $type;
+	public readonly ?string $category;
 
+	// device
+	public readonly ?string $vendor;
+	public readonly ?string $device;
+	public readonly ?string $model;
+	public readonly ?string $build;
+
+	// architecture
+	public readonly ?string $processor;
+	public readonly ?string $architecture;
+	public readonly ?int $bits;
+
+	// platform
+	public readonly ?string $kernel;
+	public readonly ?string $platform;
+	public readonly ?string $platformversion;
+
+	// browser
+	public readonly ?string $engine;
+	public readonly ?string $engineversion;
+	public readonly ?string $browser;
+	public readonly ?string $browserversion;
+	public readonly ?string $language;
+
+	// app
+	public readonly ?string $app;
+	public readonly ?string $appversion;
+	public readonly ?string $url;
+
+	// network
+	public readonly ?string $proxy;
+
+	/**
+	 * Constructs a new AgentZero object, private because it can only be created internally
+	 * 
+	 * @param \stdClass $data A stdClass object containing the UA details
+	 */
+	private function __construct(\stdClass $data) {
+		foreach (\array_keys(\get_class_vars(__CLASS__)) AS $key) {
+			$this->{$key} = $data->{$key} ?? null;
+		}
 	}
 
+	/**
+	 * Retrieves calculated properties
+	 * 
+	 * @param string $key The name of the property to retrieve
+	 * @return string|int|null The requested property or null if it doesn't exist
+	 */
 	public function __get(string $key) : string|int|null {
 		switch ($key) {
 			case 'host':
-				if (!empty($this->data->url)) {
-					$host = \parse_url($this->data->url, PHP_URL_HOST);
+				if ($this->url !== null && ($host = \parse_url($this->url, PHP_URL_HOST)) !== null) {
 					return \str_starts_with($host, 'www.') ? \substr($host, 4) : $host;
 				}
 				return null;
@@ -21,64 +68,66 @@ class agentzero {
 			case 'platformmajorversion':
 			case 'appmajorversion':
 				$item = \str_replace('major', '', $key);
-				return empty($this->data->{$item}) ? null : \strspn($this->data->{$item}, '0123456789');
+				$value = $this->{$item} ?? null;
+				return $value === null ? null : \intval(\substr($value, 0, \strspn($value, '0123456789')));
 		}
-		return $this->data->{$key} ?? null;
+		return $this->{$key} ?? null;
 	}
 
-	public function toArray() : array {
-		return (array) $this->data;
-	}
-
-	protected static function getTokens(string $ua, array $ignore = []) : array|false {
+	/**
+	 * Extracts tokens from a UA string
+	 * 
+	 * @param string $ua The User Agent string to be tokenised
+	 * @param array $config An array of configuration values
+	 * @return array|false An array of tokens, or false if no tokens could be extracted
+	 */
+	protected static function getTokens(string $ua, array $config) : array|false {
 
 		// check for unicode
 		if (\str_contains($ua, '\\x')) {
 			$ua = \preg_replace_callback('/\\\\x([0-9a-f]{2})/i', fn (array $chr) : string => \chr(\hexdec($chr[1])), $ua);
 		}
 
+		// prepare regexp
+		$single = \implode('|', \array_map('preg_quote', $config['single']));
+		$pattern = '/[^()\[\];\/ _-](?:(?<!'.$single.') (?!https?:\/\/)|[^()\[\];\/ ]*)*[^()\[\];\/ _-](?:\/[^;()\[\] ]++)?/i';
+
 		// split up ua string
-		$pattern = '/([^(]*)(?:\(((?:\([^)]++\)|[^()]++)++)\))?/i';
-		if (\preg_match_all($pattern, $ua, $match, PREG_SET_ORDER)) {
+		if (\preg_match_all($pattern, $ua, $match)) {
 
-			// extract and clean tokens
-			$tokens = [];
-			foreach ($match AS $item) {
-				for ($i = 1; $i <= 2; $i++) {
-					$item[$i] = \trim($item[$i] ?? '');
-					if ($item[$i]) {
-						$trim = function (string $value) : string {
-							return \trim($value, ' ;');
-						};
-						$tokens = \array_merge($tokens, \array_map($trim, \explode($i === 1 ? ' ' : ';', $item[$i])));
-					}
-				}
-			}
+			// remove ignore values
+			$tokens = \array_diff($match[0], $config['ignore']);
 
-			// special case for 'like'
-			if (\in_array('like', $tokens)) {
-				$remove = false;
-				foreach ($tokens AS $key => $item) {
-					if ($item === 'like') {
-						$remove = true;
-					} elseif ($remove && !\str_contains($item, '/')) {
-						unset($tokens[$key]);
+			// special case for handling like
+			foreach ($tokens AS $key => $item) {
+				if (\str_starts_with($item, 'like ')) {
+
+					// chop off words up to a useful token e.g. Platform/Version
+					if (\str_contains($item, '/') && ($pos = \mb_strrpos($item, ' ')) !== false) {
+						$tokens[$key] = \mb_substr($item, $pos + 1);
+
+					// just remove the token
 					} else {
-						$remove = false;
+						unset($tokens[$key]);
 					}
 				}
 			}
 
-			// remove generic tokens
-			$tokens = \array_diff($tokens, $ignore);
+			// rekey and return
 			return \array_values($tokens);
 		}
 		return false;
 	}
 
+	/**
+	 * Parses a User Agent string
+	 * 
+	 * @param string $ua The User Agent string to be parsed
+	 * @return agentzero|false An agentzero object containing the parsed values of the input UA, or false if it could not be parsed
+	 */
 	public static function parse(string $ua) : agentzero|false {
 		$config = config::get();
-		if (($tokens = self::getTokens($ua, $config['ignore'])) !== false) {
+		if (($tokens = self::getTokens($ua, $config)) !== false) {
 
 			// extract UA info
 			$browser = new \stdClass();
@@ -117,6 +166,16 @@ class agentzero {
 		return false;
 	}
 
+	/**
+	 * Sets parsed UA properties, and calls callbacks to generate properties and sets them to the output object
+	 * 
+	 * @param \stdClass $browser A stdClass object to which the properties will be set
+	 * @param array|\Closure $props An array of properties or a Closure to generate properties
+	 * @param string $value The current token value
+	 * @param int $i The ID of the current token
+	 * @param array $tokens The tokens array
+	 * @return void
+	 */
 	protected static function setProps(\stdClass $browser, array|\Closure $props, string $value, int $i, array $tokens) : void {
 		if ($props instanceof \Closure) {
 			$props = $props($value, $i, $tokens);

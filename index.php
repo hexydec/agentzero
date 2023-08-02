@@ -1,15 +1,14 @@
 <?php
 require(__DIR__.'/src/autoload.php');
-$output = null;
-$total = null;
+
 if (!empty($_POST['ua'])) {
 	$ua = $_POST['ua'];
-	$time = \microtime(true);
-	$output = \hexydec\agentzero\agentzero::parse($ua);
-	$total = \microtime(true) - $time;
 } else {
 	$ua = $_SERVER['HTTP_USER_AGENT'];
 }
+$time = \microtime(true);
+$output = \hexydec\agentzero\agentzero::parse($ua);
+$total = \microtime(true) - $time;
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +56,7 @@ if (!empty($_POST['ua'])) {
 				</div>
 			</form>
 			<?php if ($output !== null) { ?>
-				<pre><?= htmlspecialchars(print_r($output, true)); ?></pre>
+				<pre><?= htmlspecialchars(print_r(((array) $output), true)); ?></pre>
 				<p>Generated in <?= \number_format($total, 5); ?></p>
 			<?php } ?>
 		</main>

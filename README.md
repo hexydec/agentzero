@@ -3,6 +3,8 @@ A library for extracting information from User-Agent strings very fast.
 
 ![Licence: MIT](https://img.shields.io/badge/Licence-MIT-lightgrey.svg)
 ![Status: Alpha](https://img.shields.io/badge/Status-Alpha-red.svg)
+[![Tests Status](https://github.com/hexydec/agentzero/actions/workflows/tests.yml/badge.svg)](https://github.com/hexydec/agentzero/actions/workflows/tests.yml)
+[![Code Coverage](https://codecov.io/gh/hexydec/agentzero/branch/master/graph/badge.svg)](https://app.codecov.io/gh/hexydec/agentzero)
 
 ## Description
 
@@ -20,7 +22,13 @@ To use AgentZero:
 $ua = $_SERVER['HTTP_USER_AGENT']; // or whatever UA you want
 $browser = \hexydec\agentzero\agentzero::parse($ua);
 ```
+The returned value will be something like:
 
+```php
+
+```
+
+You can read the [full list of properties here](docs/api.md).
 ## Supported Features
 
 AgentZero supports a wide range of architectures, browsers, rendering engines, platforms, devices, languages, and crawlers. [Access the full list on the Supported Features page](docs/support.md).

@@ -99,7 +99,8 @@ class crawlers {
 						'PaperLiBot' => 'feed',
 						'bitlybot' => 'feed',
 						'TinEye-bot' => 'search',
-						'Pinterestbot' => 'feed'
+						'Pinterestbot' => 'feed',
+						'WebCrawler' => 'crawler'
 					];
 					return $map($value, [
 						'category' => $category[$parts[0]] ?? null,
@@ -143,7 +144,7 @@ class crawlers {
 				'categories' => $fn['feed']
 			],
 			'Siteimprove.com' => [
-				'match' => 'start',
+				'match' => 'any',
 				'categories' => $fn['crawler']
 			],
 			'Google Page Speed Insights' => [
@@ -194,7 +195,7 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn['monitor']
 			],
-			'PRTG Network Monitor (www.paessler.com)' => [
+			'PRTG Network Monitor' => [
 				'match' => 'exact',
 				'categories' => $fn['monitor']
 			],
@@ -246,6 +247,10 @@ class crawlers {
 			'axios/' => [
 				'match' => 'start',
 				'categories' => $fn['scraper']
+			],
+			'Rogerbot/' => [
+				'match' => 'start',
+				'categories' => $fn['crawler']
 			],
 			'Java/' => [
 				'match' => 'start',

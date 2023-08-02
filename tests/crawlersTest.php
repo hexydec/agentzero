@@ -270,7 +270,6 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'search',
 				'app' => 'Bytespider',
 				'url' => 'https://zhanzhang.toutiao.com/',
-				'device' => 'Mobile',
 				'platform' => 'Android',
 				'platformversion' => '5.0',
 				'kernel' => 'Linux'
@@ -286,7 +285,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -341,7 +340,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -411,7 +410,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -425,7 +424,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -511,7 +510,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) Probe by Siteimprove.com' => [
 				'type' => 'robot',
 				'category' => 'crawler',
-				'app' => 'Siteimprove.com',
+				'app' => 'Probe by Siteimprove.com',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => '7',
@@ -550,7 +549,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) LinkCheck by Siteimprove.com' => [
 				'type' => 'robot',
 				'category' => 'crawler',
-				'app' => 'Siteimprove.com',
+				'app' => 'LinkCheck by Siteimprove.com',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => '7',
@@ -561,7 +560,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 
@@ -606,7 +605,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (compatible; PRTG Network Monitor (www.paessler.com); Windows)' => [
 				'type' => 'robot',
 				'category' => 'monitor',
-				'app' => 'PRTG Network Monitor (www.paessler.com)',
+				'app' => 'PRTG Network Monitor',
 				'url' => 'www.paessler.com',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows'
@@ -637,7 +636,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, agentzero::parse($ua)->toArray(), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 		}
 	}
 }
