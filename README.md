@@ -25,7 +25,22 @@ $browser = \hexydec\agentzero\agentzero::parse($ua);
 The returned value will be something like:
 
 ```php
-
+\hexydec\agentzero\agentzero(
+	[type] => human
+    [category] => mobile
+    [vendor] => Honor
+    [device] => NTH-NX9
+    [build] => HONORNTH-N29
+    [kernel] => Linux
+    [platform] => Android
+    [platformversion] => 12
+    [engine] => Blink
+    [engineversion] => 108.0.5359.128
+    [browser] => Chrome
+    [browserversion] => 108.0.5359.128
+    [app] => Facebook
+    [appversion] => 396.1.0.28.104
+);
 ```
 
 You can read the [full list of properties here](docs/api.md).
