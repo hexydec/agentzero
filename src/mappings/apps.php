@@ -24,7 +24,7 @@ class apps {
 			],
 			'Instagram' => [
 				'match' => 'any',
-				'categories' => fn (string $value, int $i, array $tokens) : array => [
+				'categories' => fn (string $value) : array => [
 					'app' => 'Instagram',
 					'appversion' => \explode(' ', $value, 3)[1] ?? null
 				]
@@ -92,7 +92,7 @@ class apps {
 					$data = [];
 					foreach (\explode(',', \trim($value, '{}')) AS $item) {
 						$parts = \explode('=', $item);
-						$data[$parts[0]] = $parts[1];
+						$data[$parts[0]] = $parts[1] ?? null;
 					}
 					return $data;
 				}

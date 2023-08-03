@@ -398,7 +398,7 @@ class devices {
 		return [
 			'vendor' => $vendor,
 			'device' => $device[0] === '' ? null : $device[0],
-			'build' => $device[1] ?? $os[2] ?? null
+			'build' => $device[1] ?? null
 		];
 	}
 }

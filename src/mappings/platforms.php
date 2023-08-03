@@ -112,7 +112,7 @@ class platforms {
 				'match' => 'any',
 				'categories' => function (string $value) : array {
 					$version = \str_replace('_', '.', \mb_substr($value, \mb_stripos($value, 'Mac OS X') + 9));
-					$register = $version && \intval(\explode('.', $version)[1]) >= 6 ? 64 : null;
+					$register = $version && \intval(\explode('.', $version)[1] ?? 0) >= 6 ? 64 : null;
 					return [
 						'type' => 'human',
 						'category' => 'desktop',

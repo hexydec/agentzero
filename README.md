@@ -26,7 +26,7 @@ The returned value will be something like:
 
 ```php
 \hexydec\agentzero\agentzero(
-	[type] => human
+[type] => human
     [category] => mobile
     [vendor] => Honor
     [device] => NTH-NX9
@@ -71,7 +71,7 @@ $ vendor/bin/phpunit
 
 ## Support
 
-AgentZero supports PHP version 8.0+.
+AgentZero supports PHP version 8.1+.
 
 ## Contributing
 

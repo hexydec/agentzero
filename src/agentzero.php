@@ -5,7 +5,7 @@ namespace hexydec\agentzero;
 class agentzero {
 
 	// categories
-	public readonly string $type;
+	public readonly ?string $type;
 	public readonly ?string $category;
 
 	// device
@@ -82,11 +82,6 @@ class agentzero {
 	 * @return array|false An array of tokens, or false if no tokens could be extracted
 	 */
 	protected static function getTokens(string $ua, array $config) : array|false {
-
-		// check for unicode
-		if (\str_contains($ua, '\\x')) {
-			$ua = \preg_replace_callback('/\\\\x([0-9a-f]{2})/i', fn (array $chr) : string => \chr(\hexdec($chr[1])), $ua);
-		}
 
 		// prepare regexp
 		$single = \implode('|', \array_map('preg_quote', $config['single']));

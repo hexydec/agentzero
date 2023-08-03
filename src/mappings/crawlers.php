@@ -4,7 +4,7 @@ namespace hexydec\agentzero;
 
 class crawlers {
 
-	public static function getApp(string $value, array $data = []) : ?array {
+	public static function getApp(string $value, array $data = []) : array {
 		if (!\str_contains($value, '://')) { // bot will be in the URL
 			$parts = \explode('/', $value, 2);
 
@@ -19,36 +19,19 @@ class crawlers {
 				'appversion' => empty($parts[1]) ? null : $parts[1]
 			], $data);
 		}
-		return null;
+		return [];
 	}
 
 	public static function get() {
-		$map = function (string $value, array $data = []) : ?array {
-			if (!\str_contains($value, '://')) { // bot will be in the URL
-				$parts = \explode('/', $value, 2);
-
-				// process version
-				if (!empty($parts[1])) {
-					$parts[1] = \ltrim($parts[1], 'v');
-					$parts[1] = \substr($parts[1], 0, \strspn($parts[1], '0123456789.'));
-				}
-				return \array_merge([
-					'type' => 'robot',
-					'app' => $parts[0],
-					'appversion' => $parts[1] ?? null
-				], $data);
-			}
-			return null;
-		};
 		$fn = [
-			'search' => fn (string $value, int $i, array $tokens) : ?array => $map($value, ['category' => 'search']),
-			'ads' => fn (string $value, int $i, array $tokens) : ?array => $map($value, ['category' => 'ads']),
-			'validator' => fn (string $value, int $i, array $tokens) : ?array => $map($value, ['category' => 'validator']),
-			'feed' => fn (string $value, int $i, array $tokens) : ?array => $map($value, ['category' => 'feed']),
-			'crawler' => fn (string $value, int $i, array $tokens) : ?array => $map($value, ['category' => 'crawler']),
-			'monitor' => fn (string $value, int $i, array $tokens) : ?array => $map($value, ['category' => 'monitor']),
-			'scraper' => fn (string $value, int $i, array $tokens) : ?array => $map($value, ['category' => 'scraper']),
-			'map' => function (string $value, int $i, array $tokens) use ($map) : ?array {
+			'search' => fn (string $value) : array => self::getApp($value, ['category' => 'search']),
+			'ads' => fn (string $value) : array => self::getApp($value, ['category' => 'ads']),
+			'validator' => fn (string $value) : array => self::getApp($value, ['category' => 'validator']),
+			'feed' => fn (string $value) : array => self::getApp($value, ['category' => 'feed']),
+			'crawler' => fn (string $value) : array => self::getApp($value, ['category' => 'crawler']),
+			'monitor' => fn (string $value) : array => self::getApp($value, ['category' => 'monitor']),
+			'scraper' => fn (string $value) : array => self::getApp($value, ['category' => 'scraper']),
+			'map' => function (string $value, int $i, array $tokens) : ?array {
 				if (!\str_contains($value, '://')) { // bot will be in the URL
 					$parts = \explode('/', $value, 2);
 
@@ -102,7 +85,7 @@ class crawlers {
 						'Pinterestbot' => 'feed',
 						'WebCrawler' => 'crawler'
 					];
-					return $map($value, [
+					return self::getApp($value, [
 						'category' => $category[$parts[0]] ?? null,
 						'app' => $parts[0]
 					]);
@@ -251,6 +234,50 @@ class crawlers {
 			'Rogerbot/' => [
 				'match' => 'start',
 				'categories' => $fn['crawler']
+			],
+			'Go-http-client/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'DashLinkPreviews/' => [
+				'match' => 'start',
+				'categories' => $fn['feed']
+			],
+			'Microsoft Office' => [
+				'match' => 'start',
+				'categories' => $fn['feed']
+			],
+			'PycURL/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'lua-resty-http/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'Snapchat/' => [
+				'match' => 'start',
+				'categories' => $fn['feed']
+			],
+			'HTTPClient/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'WhatsApp/' => [
+				'match' => 'any',
+				'categories' => $fn['feed']
+			],
+			'Hootsuite-Authoring/' => [
+				'match' => 'start',
+				'categories' => $fn['feed']
+			],
+			'ApacheBench/' => [
+				'match' => 'start',
+				'categories' => $fn['validator']
+			],
+			'Asana/' => [
+				'match' => 'start',
+				'categories' => $fn['feed']
 			],
 			'Java/' => [
 				'match' => 'start',

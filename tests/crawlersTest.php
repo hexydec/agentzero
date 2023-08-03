@@ -338,6 +338,23 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'MicrosoftPreview',
 				'appversion' => '2.0'
 			],
+			'Microsoft Office Excel 2014' => [
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Microsoft Office Excel 2014'
+			],
+			'YoFMWhatsApp/2.23.1.76 A' => [
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'YoFMWhatsApp',
+				'appversion' => '2.23.1.76'
+			],
+			'PycURL/7.45.2 libcurl/7.64.0 OpenSSL/1.1.1n zlib/1.2.11 libidn2/2.0.5 libpsl/0.20.2 (+libidn2/2.0.5) libssh2/1.8.0 nghttp2/1.36.0 librtmp/2.3' => [
+				'type' => 'robot',
+				'category' => 'scraper',
+				'app' => 'PycURL',
+				'appversion' => '7.45.2'
+			]
 		];
 		foreach ($strings AS $ua => $item) {
 			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
