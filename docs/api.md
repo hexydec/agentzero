@@ -2,12 +2,12 @@
 
 User agents can be parsed using the following static function:
 
-## `parse(string $ua) : \agentzero|false`
+## `agentzero::parse(string $ua) : agentzero|false`
 
-Parses a User Agent string, and returns an `agentzero` object with the follwong properties:
+Parses a User Agent string, and returns a `\hexydec\agentzero\agentzero` object with the following properties:
 
 - `type` Indicates whether the UA string is a `human` or a `robot`
-- `category` The category of device, e.g. `desktop` or `mobile`. For robots you  will get values like `search` or `crawler`
+- `category` The category of device, e.g. `desktop` or `mobile`. For robots you will get values like `search` or `crawler`
 - `vendor` The device vendor
 - `device` The name of device
 - `model` The device model
