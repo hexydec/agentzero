@@ -202,7 +202,8 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '114.0.5735.196',
-				'engineversion' => '114.0.5735.196'
+				'engineversion' => '114.0.5735.196',
+				'language' => 'pt-BR'
 			],
 			'Mozilla/5.0 (Linux; Android 9; Samsung Chromebook 3 Build/R103-14816.131.5; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.147 Safari/537.36 Instagram 289.0.0.25.49 Android (28/9; 160dpi; 1366x688; Google/google; Samsung Chromebook 3; celes_cheets; cheets; en_US; 488780873)' => [
 				'vendor' => 'Samsung',
@@ -218,7 +219,8 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '114.0.5735.147',
-				'engineversion' => '114.0.5735.147'
+				'engineversion' => '114.0.5735.147',
+				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (Linux; Android 9; Acer Chromebook 11 (C740) Build/R91-13904.97.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Safari/537.36 Instagram 290.0.0.13.76 Android (28/9; 160dpi; 1366x688; Google/google; Acer Chromebook 11 (C740); paine_cheets; cheets; es_ES; 491057560)' => [
 				'vendor' => 'Acer',
@@ -234,7 +236,8 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '114.0.5735.196',
-				'engineversion' => '114.0.5735.196'
+				'engineversion' => '114.0.5735.196',
+				'language' => 'es-ES'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -702,6 +705,19 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'vendor' => 'Nokia',
 				'device' => '6280',
 				'build' => '2.0'
+			],
+			'Mozilla/5.0 (Linux; Android 4.0.3; KFTT) AppleWebKit/537.36 (KHTML, like Gecko) Silk/74.3.14 like Chrome/74.0.3729.157 Safari/537.36' => [
+				'type' => 'human',
+				'category' => 'table',
+				'vendor' => 'Amazon',
+				'device' => 'Fire Tablet',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '4.0.3',
+				'engine' => 'Blink',
+				'engineversion' => '74.0.3729.157',
+				'browser' => 'Silk',
+				'browserversion' => '74.3.14'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

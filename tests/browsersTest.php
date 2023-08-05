@@ -517,7 +517,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'platform' => 'Kubuntu',
 				'browser' => 'Konqueror',
-				'browserversion' => '3.5'
+				'browserversion' => '3.5',
+				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (compatible; Konqueror/3.1; i686 Linux; 20021102)' => [
 				'type' => 'human',

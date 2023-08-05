@@ -441,7 +441,8 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '114.0.5735.196',
 				'engineversion' => '114.0.5735.196',
 				'type' => 'human',
-				'category' => 'desktop'
+				'category' => 'desktop',
+				'language' => 'pt-BR'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

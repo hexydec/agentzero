@@ -221,13 +221,22 @@ class devices {
 					'platformversion' => \mb_substr($value, 7)
 				]
 			],
+			'KFT' => [
+				'match' => 'start',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'table',
+					'vendor' => 'Amazon',
+					'device' => 'Fire Tablet'
+				]
+			],
 			'AFT' => [
 				'match' => 'start',
 				'categories' => [
 					'type' => 'human',
 					'category' => 'tv',
-					'device' => 'Fire TV',
-					'vendor' => 'Amazon'
+					'vendor' => 'Amazon',
+					'device' => 'Fire TV'
 				]
 			],
 			'Roku/' => [
