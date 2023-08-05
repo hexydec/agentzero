@@ -199,6 +199,10 @@ class browsers {
 					];
 				}
 			],
+			'PrivacyBrowser/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
 			'Fennec/' =>  [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [

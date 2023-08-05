@@ -174,7 +174,7 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Windows',
 				'platformversion' => '8.1',
 				'processor' => 'Intel',
-				'architecture' => 'Itanium',
+				'architecture' => 'itanium',
 				'bits' => 64,
 				'engine' => 'Trident',
 				'engineversion' => '2.0',
@@ -442,7 +442,10 @@ final class architectureTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '114.0.5735.196',
 				'type' => 'human',
 				'category' => 'desktop',
-				'language' => 'pt-BR'
+				'language' => 'pt-BR',
+				'width' => 1366,
+				'height' => 688,
+				'dpi' => 160
 			]
 		];
 		foreach ($strings AS $ua => $item) {

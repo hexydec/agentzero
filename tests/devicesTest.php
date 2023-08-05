@@ -203,7 +203,10 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '114.0.5735.196',
 				'engineversion' => '114.0.5735.196',
-				'language' => 'pt-BR'
+				'language' => 'pt-BR',
+				'width' => 1366,
+				'height' => 688,
+				'dpi' => 160
 			],
 			'Mozilla/5.0 (Linux; Android 9; Samsung Chromebook 3 Build/R103-14816.131.5; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.147 Safari/537.36 Instagram 289.0.0.25.49 Android (28/9; 160dpi; 1366x688; Google/google; Samsung Chromebook 3; celes_cheets; cheets; en_US; 488780873)' => [
 				'vendor' => 'Samsung',
@@ -220,7 +223,10 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '114.0.5735.147',
 				'engineversion' => '114.0.5735.147',
-				'language' => 'en-US'
+				'language' => 'en-US',
+				'width' => 1366,
+				'height' => 688,
+				'dpi' => 160
 			],
 			'Mozilla/5.0 (Linux; Android 9; Acer Chromebook 11 (C740) Build/R91-13904.97.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Safari/537.36 Instagram 290.0.0.13.76 Android (28/9; 160dpi; 1366x688; Google/google; Acer Chromebook 11 (C740); paine_cheets; cheets; es_ES; 491057560)' => [
 				'vendor' => 'Acer',
@@ -237,7 +243,10 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'browserversion' => '114.0.5735.196',
 				'engineversion' => '114.0.5735.196',
-				'language' => 'es-ES'
+				'language' => 'es-ES',
+				'width' => 1366,
+				'height' => 688,
+				'dpi' => 160
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -708,7 +717,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Linux; Android 4.0.3; KFTT) AppleWebKit/537.36 (KHTML, like Gecko) Silk/74.3.14 like Chrome/74.0.3729.157 Safari/537.36' => [
 				'type' => 'human',
-				'category' => 'table',
+				'category' => 'tablet',
 				'vendor' => 'Amazon',
 				'device' => 'Fire Tablet',
 				'kernel' => 'Linux',

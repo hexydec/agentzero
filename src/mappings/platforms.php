@@ -128,7 +128,18 @@ class platforms {
 				'categories' => [
 					'type' => 'human',
 					'category' => 'tv',
-					'device' => 'AppleTV'
+					'device' => 'AppleTV',
+					'platform' => 'tvOS',
+					'bits' => 64
+				]
+			],
+			'iOS/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'category' => 'mobile',
+					'platform' => 'iOS',
+					'platformversion' => \mb_substr($value, 4)
 				]
 			],
 			'CrOS' => [

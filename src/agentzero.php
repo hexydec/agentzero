@@ -39,6 +39,12 @@ class agentzero {
 	// network
 	public readonly ?string $proxy;
 
+	// screen
+	public readonly ?int $width;
+	public readonly ?int $height;
+	public readonly ?int $dpi;
+	public readonly ?float $density;
+
 	/**
 	 * Constructs a new AgentZero object, private because it can only be created internally
 	 * 

@@ -221,11 +221,18 @@ class devices {
 					'platformversion' => \mb_substr($value, 7)
 				]
 			],
+			'Apple/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'device' => \mb_substr($value, 6)
+				]
+			],
 			'KFT' => [
 				'match' => 'start',
 				'categories' => [
 					'type' => 'human',
-					'category' => 'table',
+					'category' => 'tablet',
 					'vendor' => 'Amazon',
 					'device' => 'Fire Tablet'
 				]

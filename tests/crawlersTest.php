@@ -341,7 +341,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			'Microsoft Office Excel 2014' => [
 				'type' => 'robot',
 				'category' => 'feed',
-				'app' => 'Microsoft Office Excel 2014'
+				'app' => 'Microsoft Office Excel',
+				'appversion' => '2014'
 			],
 			'YoFMWhatsApp/2.23.1.76 A' => [
 				'type' => 'robot',
@@ -354,6 +355,31 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'scraper',
 				'app' => 'PycURL',
 				'appversion' => '7.45.2'
+			],
+			'Microsoft Office Word 2014' => [
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Microsoft Office Word',
+				'appversion' => '2014'
+			],
+			'Microsoft Office/16.0 (Windows NT 10.0; Microsoft Outlook 16.0.16130; Pro)' => [
+				'type' => 'robot',
+				'category' => 'feed',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'app' => 'Microsoft Outlook',
+				'appversion' => '16.0.16130'
+			],
+			'Microsoft Office Word/2.70.210 (iOS/16.3.1; Phone; en-GB; AppStore; Apple/iPhone13,2)' => [
+				'type' => 'robot',
+				'category' => 'feed',
+				'device' => 'iPhone13,2',
+				'platform' => 'iOS',
+				'platformversion' => '16.3.1',
+				'language' => 'en-GB',
+				'app' => 'Microsoft Office Word',
+				'appversion' => '2.70.210'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

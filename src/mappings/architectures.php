@@ -10,7 +10,7 @@ class architectures {
 				'match' => 'any',
 				'categories' => [
 					'processor' => 'Intel',
-					'architecture' => 'Itanium',
+					'architecture' => 'itanium',
 					'bits' => 64
 				]
 			],

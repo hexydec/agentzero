@@ -23,11 +23,11 @@ class config {
 					other::get(),
 					crawlers::get(),
 					urls::get(),
-					apps::get(),
 					devices::get(),
 					categories::get(),
 					platforms::get(),
 					architectures::get(),
+					apps::get(),
 					engines::get(),
 					browsers::get(),
 					languages::get()

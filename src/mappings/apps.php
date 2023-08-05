@@ -24,10 +24,22 @@ class apps {
 			],
 			'Instagram' => [
 				'match' => 'any',
-				'categories' => fn (string $value) : array => [
-					'app' => 'Instagram',
-					'appversion' => \explode(' ', $value, 3)[1] ?? null
-				]
+				'categories' => function (string $value, int $i, array $tokens) : array {
+					$data = [
+						'app' => 'Instagram',
+						'appversion' => \explode(' ', $value, 3)[1] ?? null
+					];
+					foreach (\array_slice($tokens, $i + 1) AS $item) {
+						if (\str_starts_with($item, 'scale=')) {
+							$data['density'] = \floatval(\mb_substr($item, 6));
+						} elseif (\str_ends_with($item, 'dpi')) {
+							$data['dpi'] = \intval(\mb_substr($item, 0, -3));
+						} elseif (\str_contains($item, 'x') && \strspn($item, '0123456789x') === \strlen($item)) {
+							list($data['width'], $data['height']) = \array_map('intval', \explode('x', $item, 2));
+						}
+					}
+					return $data;
+				}
 			],
 			'GSA/' => [
 				'match' => 'any',
@@ -52,9 +64,40 @@ class apps {
 			// special parser for Facebook app because it is completely different to any other
 			'FBAN/' => [
 				'match' => 'start',
-				'categories' => [
-					'app' => 'Facebook'
-				]
+				'categories' => function (string $value) : array {
+					$map = [
+						'FBAN/MessengerLiteForiOS' => [
+							'type' => 'human',
+							'app' => 'Facebook Messenger Lite',
+							'platform' => 'iOS'
+						],
+						'FBAN/FB4A' => [
+							'type' => 'human',
+							'app' => 'Facebook',
+							'platform' => 'Android'
+						],
+						'FBAN/FBIOS' => [
+							'type' => 'human',
+							'app' => 'Facebook',
+							'platform' => 'iOS'
+						],
+						'FBAN/FB4FireTV' => [
+							'type' => 'human',
+							'category' => 'tv',
+							'app' => 'Facebook',
+							'platform' => 'Android'
+						],
+						'FBAN/MessengerDesktop' => [
+							'type' => 'human',
+							'category' => 'desktop',
+							'app' => 'Facebook Messenger Desktop'
+						]
+					];
+					return $map[$value] ?? [
+						'app' => 'Facebook',
+						'type' => 'human'
+					];
+				}
 			],
 			'FB_IAB/' => [
 				'match' => 'start',
@@ -71,15 +114,21 @@ class apps {
 			'FBMF/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
+					'vendor' => \mb_substr($value, 5)
+				]
+			],
+			'FBDV/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
 					'device' => \mb_substr($value, 5)
 				]
 			],
-			// 'FBMD/' => [
-			// 	'match' => 'start',
-			// 	'categories' => fn (string $value) : array => [
-			// 		'model' => \mb_substr($value, 5)
-			// 	]
-			// ],
+			'FBMD/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'model' => \mb_substr($value, 5)
+				]
+			],
 			'FBLC/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
@@ -90,12 +139,29 @@ class apps {
 				'match' => 'start',
 				'categories' => function (string $value) : array {
 					$data = [];
-					foreach (\explode(',', \trim($value, '{}')) AS $item) {
+					foreach (\explode(',', \trim(\mb_substr($value, 5), '{}')) AS $item) {
 						$parts = \explode('=', $item);
-						$data[$parts[0]] = $parts[1] ?? null;
+						if (!empty($parts[1])) {
+							if (\is_numeric($parts[1])) {
+								$parts[1] = \str_contains($parts[1], '.') ? \floatval($parts[1]) : \intval($parts[1]);
+							}
+							$data[$parts[0]] = $parts[1];
+						}
 					}
 					return $data;
 				}
+			],
+			'FBSN/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'platform' => \mb_substr($value, 5)
+				]
+			],
+			'FBSV' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'platformversion' => \mb_substr($value, 5)
+				]
 			],
 
 			// other

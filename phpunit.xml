@@ -14,9 +14,9 @@
     </report>
   </coverage>
   <testsuites>
-    <!--<testsuite name="Apps">
+    <testsuite name="Apps">
       <file>tests/appsTest.php</file>
-    </testsuite>-->
+    </testsuite>
     <testsuite name="Architecture">
       <file>tests/architecturesTest.php</file>
     </testsuite>

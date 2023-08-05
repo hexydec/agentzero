@@ -83,7 +83,13 @@ class crawlers {
 						'bitlybot' => 'feed',
 						'TinEye-bot' => 'search',
 						'Pinterestbot' => 'feed',
-						'WebCrawler' => 'crawler'
+						'WebCrawler' => 'crawler',
+						'webprosbot' => 'crawler',
+						'GuzzleHttp' => 'scraper',
+						'TelegramBot' => 'feed',
+						'Ruby' => 'scraper',
+						'SEMrushBot' => 'crawler',
+						'Mediatoolkitbot' => 'crawler'
 					];
 					return self::getApp($value, [
 						'category' => $category[$parts[0]] ?? null,
@@ -110,7 +116,7 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn['search']
 			],
-			'Mediapartners-Google/' => [
+			'Mediapartners-Google' => [
 				'match' => 'start',
 				'categories' => $fn['search']
 			],
@@ -245,7 +251,36 @@ class crawlers {
 			],
 			'Microsoft Office' => [
 				'match' => 'start',
-				'categories' => $fn['feed']
+				'categories' => function (string $value, int $i, array $tokens) : array {
+					$data = [
+						'type' => 'robot',
+						'category' => 'feed'
+					];
+					if (\str_contains($value, '/')) {
+						foreach (\array_slice($tokens, $i + 1) AS $item) {
+							if (\str_starts_with($item, 'Microsoft ')) {
+								$parts = \explode(' ', $item);
+								$data['app'] = $parts[0].' '.$parts[1];
+								if (isset($parts[2])) {
+									$data['appversion'] = $parts[2];
+								}
+								break;
+							}
+						}
+						if (!isset($data['app'])) {
+							$parts = \explode('/', $value, 2);
+							$data['app'] = $parts[0];
+							if (!isset($data['appversion'])) {
+								$data['appversion'] = $parts[1];
+							}
+						}
+					} else {
+						$parts = \explode(' ', $value);
+						$data['app'] = $parts[0].' '.$parts[1].' '.$parts[2];
+						$data['appversion'] = $parts[3] ?? null;
+					}
+					return $data;
+				}
 			],
 			'PycURL/' => [
 				'match' => 'start',
