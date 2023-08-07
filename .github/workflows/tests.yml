@@ -21,7 +21,7 @@ jobs:
             php_extensions: mbstring xdebug
 
       - name: PHPUnit Tests
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit --coverage-clover=coverage.clover
         env:
           XDEBUG_MODE: coverage
 

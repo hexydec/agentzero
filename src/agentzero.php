@@ -127,8 +127,8 @@ class agentzero {
 	 * @return agentzero|false An agentzero object containing the parsed values of the input UA, or false if it could not be parsed
 	 */
 	public static function parse(string $ua) : agentzero|false {
-		if (($config = config::get()) === false) {
-			
+		if (($config = config::get()) === null) {
+
 		} elseif (($tokens = self::getTokens($ua, $config)) !== false) {
 
 			// extract UA info

@@ -56,7 +56,7 @@ $total = \microtime(true) - $time;
 				</div>
 			</form>
 			<?php if ($output !== null) { ?>
-				<pre><?= htmlspecialchars(print_r(\array_filter((array) $output), true)); ?></pre>
+				<pre><?= htmlspecialchars(\strval(\print_r(\array_filter((array) $output), true))); ?></pre>
 				<p>Generated in <?= \number_format($total, 5); ?></p>
 			<?php } ?>
 		</main>
