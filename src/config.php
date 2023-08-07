@@ -14,7 +14,7 @@ class config {
 	 * 
 	 * @return array An array of configuration values
 	 */
-	public static function get() : array {
+	public static function get() : ?array {
 		if (self::$config === null) {
 			self::$config = [
 				'ignore' => ['Mozilla/5.0', 'Mozilla/5.0+', 'Mozilla/4.0', 'AppleWebKit/537.36', 'KHTML, like Gecko', 'Safari/537.36', 'compatible', 'Gecko/20100101', 'U', 'like', 'KHTML, somewhat like Gecko', 'wv'], // tokens that are meaningless and should be removed before processing

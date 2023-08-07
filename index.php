@@ -46,7 +46,7 @@ $total = \microtime(true) - $time;
 	<body>
 		<main class="content">
 			<h1>AgentZero User Agent Information</h1>
-			<form accept-charset="<?= \htmlspecialchars(\mb_internal_encoding()); ?>" method="post">
+			<form accept-charset="<?= \htmlspecialchars(\strval(\mb_internal_encoding())); ?>" method="post">
 				<div class="form__control">
 					<label class="form__label">User Agent:</label>
 					<input type="text" class="form__input" name="ua" value="<?= \htmlspecialchars($ua); ?>" />
