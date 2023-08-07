@@ -15,7 +15,7 @@ jobs:
             path: /tmp/composer-cache
             key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
-      - uses: php-actions/composer@v5
+      - uses: php-actions/composer@v6
         with:
             php_version: 8.1
             php_extensions: mbstring xdebug
@@ -29,5 +29,3 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        with:
-            files: ./coverage/result.xml
