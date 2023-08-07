@@ -1,7 +1,7 @@
 <?php
 use hexydec\agentzero\agentzero;
 
-final class architectureTest extends \PHPUnit\Framework\TestCase {
+final class architecturesTest extends \PHPUnit\Framework\TestCase {
 
 	public function testPPC() {
 		$strings = [
