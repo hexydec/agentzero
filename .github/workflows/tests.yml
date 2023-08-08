@@ -23,7 +23,7 @@ jobs:
       - name: PHPUnit Tests
         run: |
             ./vendor/bin/phpunit --coverage-clover=coverage.clover
-            wget https://scutinizer-ci.com/ocular.phar
+            wget https://scrutinizer-ci.com/ocular.phar
             php ocular.phar code-coverage:upload --format=php-clover coverage.clover
         env:
           XDEBUG_MODE: coverage
