@@ -21,7 +21,10 @@ jobs:
             php_extensions: mbstring xdebug
 
       - name: PHPUnit Tests
-        run: ./vendor/bin/phpunit --coverage-clover=coverage.clover
+        run: |
+            ./vendor/bin/phpunit --coverage-clover=coverage.clover
+            wget https://scutinizer-ci.com/ocular.phar
+            php ocular.phar code-coverage:upload --format=php-clover coverage.clover
         env:
           XDEBUG_MODE: coverage
 
