@@ -2,9 +2,17 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
+/**
+ * @phpstan-import-type MatchConfig from config
+ */
 class engines {
 
-	public static function get() {
+	/**
+	 * Generates a configuration array for matching engines
+	 * 
+	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 */
+	public static function get() : array {
 		return [
 			'Goanna/' => [
 				'match' => 'start',

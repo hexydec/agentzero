@@ -3,7 +3,7 @@ use hexydec\agentzero\agentzero;
 
 final class urlsTest extends \PHPUnit\Framework\TestCase {
 
-	public function testUrls() {
+	public function testUrls() : void {
 		$strings = [
 			'LinkedInBot/1.0 (compatible; Mozilla/5.0; Apache-HttpClient +http://www.linkedin.com)' => [
 				'type' => 'robot',

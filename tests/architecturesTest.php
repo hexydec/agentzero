@@ -3,7 +3,7 @@ use hexydec\agentzero\agentzero;
 
 final class architecturesTest extends \PHPUnit\Framework\TestCase {
 
-	public function testPPC() {
+	public function testPPC() : void {
 		$strings = [
 			'Mozilla/5.0 (Macintosh; PPC Mac OS X 10_5_8) AppleWebKit/600.8.9 (KHTML, like Gecko) Version/6.2.8 Safari/537.85.17' => [
 				'type' => 'human',
@@ -26,7 +26,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testX8664() {
+	public function testX8664() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.5304.87 Safari/537.36' => [
 				'type' => 'human',
@@ -72,7 +72,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testI386() {
+	public function testI386() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; OpenBSD i386) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36' => [
 				'type' => 'human',
@@ -117,7 +117,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testI686() {
+	public function testI686() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2876.34 Safari/537.36' => [
 				'type' => 'human',
@@ -165,7 +165,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testIa64() {
+	public function testIa64() : void {
 		$strings = [
 			'Mozilla/5.0 (compatible; MSIE 2.0; Windows NT 6.3; Win64; IA64; Trident/2.0)' => [
 				'type' => 'human',
@@ -187,7 +187,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testWow64() {
+	public function testWow64() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; BOIE9;ENUSMSNIP; rv:11.0) like Gecko' => [
 				'type' => 'human',
@@ -247,7 +247,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testAmd64() {
+	public function testAmd64() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; OpenBSD amd64; rv:28.0) Gecko/20100101 Firefox/28.0' => [
 				'type' => 'human',
@@ -293,7 +293,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testArmv7l() {
+	public function testArmv7l() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; CrOS armv7l 12371.89.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36' => [
 				'type' => 'human',
@@ -328,7 +328,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testAarch64() {
+	public function testAarch64() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; CrOS aarch64 15183.69.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
 				'type' => 'human',
@@ -391,7 +391,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testIntel() {
+	public function testIntel() : void {
 		$strings = [
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.119 Safari/537.36' => [
 				'type' => 'human',
@@ -453,7 +453,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testX64() {
+	public function testX64() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
 				'type' => 'human',
@@ -500,7 +500,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testWin64() {
+	public function testWin64() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
 				'type' => 'human',
@@ -547,7 +547,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testWin32() {
+	public function testWin32() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win32; x86) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36' => [
 				'type' => 'human',
@@ -581,7 +581,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testArm() {
+	public function testArm() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; U; OpenBSD arm; en-us) AppleWebKit/531.2  (KHTML, like Gecko) Safari/531.2  Epiphany/2.30.0' => [
 				'type' => 'human',
@@ -673,7 +673,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testX86() {
+	public function testX86() : void {
 		$strings = [
 			'Mozilla/3.0 (x86 [en] Windows NT 5.1; Sun)' => [
 				'type' => 'human',
@@ -692,7 +692,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testSolaris() {
+	public function testSolaris() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; U; SunOS sun4u; pl-PL; rv:1.8.1.6) Gecko/20071217 Firefox/52.7.3' => [
 				'type' => 'human',

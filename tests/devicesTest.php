@@ -3,14 +3,14 @@ use hexydec\agentzero\agentzero;
 
 final class devicesTest extends \PHPUnit\Framework\TestCase {
 
-	// public function testDevices() {
+	// public function testDevices() : void {
 	// 	$strings = [];
 	// 	foreach ($strings AS $ua => $item) {
 	// 		$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
 	// 	}
 	// }
 
-	public function testIphone() {
+	public function testIphone() : void {
 		$strings = [
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Mobile/15E148 Safari/604.1' => [
 				'type' => 'human',
@@ -68,7 +68,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testIpad() {
+	public function testIpad() : void {
 		$strings = [
 			'Mozilla/5.0 (iPad; CPU OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/108.0.5359.112 Mobile/15E148 Safari/604.1' => [
 				'type' => 'human',
@@ -126,7 +126,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testIpod() {
+	public function testIpod() : void {
 		$strings = [
 			'Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/3A101a Safari/419.3' => [
 				'type' => 'human',
@@ -184,7 +184,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testChromebook() {
+	public function testChromebook() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 9; Intel Braswell Chromebook Build/R103-14816.131.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Safari/537.36 Instagram 290.0.0.13.76 Android (28/9; 160dpi; 1366x688; Google/google; Intel Braswell Chromebook; wizpig_cheets; cheets; pt_BR; 491057560)' => [
 				'app' => 'Instagram',
@@ -254,7 +254,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testNintendo() {
+	public function testNintendo() : void {
 		$strings = [
 			'Opera/9.30 (Nintendo Wii; U; ; 2047-7; en)' => [
 				'vendor' => 'Nintendo',
@@ -317,13 +317,12 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'Wii U',
 				'type' => 'human',
 				'category' => 'console',
-				'architecture' => 'x86',
+				'architecture' => 'PowerPC',
 				'bits' => 64,
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '113.0.5666.197',
-				'engineversion' => '113.0.5666.197',
-				'architecture' => 'PowerPC'
+				'engineversion' => '113.0.5666.197'
 			],
 			'Mozilla/5.0 (Nintendo Switch; WebApplet) AppleWebKit/609.4 (KHTML, like Gecko) NF/6.0.2.21.3 NintendoBrowser/5.1.0.22474' => [
 				'app' => 'WebApplet',
@@ -364,7 +363,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testXbox() {
+	public function testXbox() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.22621' => [
 				'vendor' => 'Microsoft',
@@ -432,7 +431,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testPlaystation() {
+	public function testPlaystation() : void {
 		$strings = [
 			'Mozilla/5.0 (PlayStation 4 2.57) AppleWebKit/537.73 (KHTML, like ED32B)' => [
 				'device' => 'PlayStation 4',
@@ -500,7 +499,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testConsoles() {
+	public function testConsoles() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 11; SHIELD Android TV Build/RQ1A.210105.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Mobile Safari/537.36' => [
 				'platform' => 'Android',
@@ -535,7 +534,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testTvs() {
+	public function testTvs() : void {
 		$strings = [
 			'Roku/DVP-12.0 (12.0.0.4186-55)' => [
 				'type' => 'human',
@@ -661,7 +660,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testOther() {
+	public function testOther() : void {
 		$strings = [
 			'Mozilla/5.0 (Fuchsia) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 CrKey/1.56.500000 Mozilla/5.0 (X11; Linux; Fuchsia; GoogleTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Large Screen Safari/537.36 GoogleTV' => [
 				'type' => 'human',

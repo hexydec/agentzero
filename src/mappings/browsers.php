@@ -2,9 +2,17 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
+/**
+ * @phpstan-import-type MatchConfig from config
+ */
 class browsers {
 
-	public static function get() {
+	/**
+	 * Generates a configuration array for matching browsers
+	 * 
+	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 */
+	public static function get() : array {
 		$fn = [
 			'browserslash' => function (string $value) : array {
 				if (($browser = \mb_strrchr($value, ' ')) !== false) {
@@ -188,6 +196,16 @@ class browsers {
 			'Namoroka/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
+			],
+			'Lynx/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'browser' => 'Lynx',
+					'browserversion' => \explode('/', $value, 2)[1] ?? null,
+					'engine' => 'Libwww',
+					'type' => 'human',
+					'category' => 'desktop'
+				]
 			],
 			'Midori' => [
 				'match' => 'start',

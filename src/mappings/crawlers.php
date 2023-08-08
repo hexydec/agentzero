@@ -2,8 +2,18 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
+/**
+ * @phpstan-import-type MatchConfig from config
+ */
 class crawlers {
 
+	/**
+	 * Extracts application and version information from a token
+	 * 
+	 * @param string $value The token to be processed
+	 * @param array<string|null> $data An array containing existing data to merge
+	 * @return array<string|int|float|null> The $data array with the processed application and version added
+	 */
 	public static function getApp(string $value, array $data = []) : array {
 		if (!\str_contains($value, '://')) { // bot will be in the URL
 			$parts = \explode('/', $value, 2);
@@ -22,7 +32,12 @@ class crawlers {
 		return [];
 	}
 
-	public static function get() {
+	/**
+	 * Generates a configuration array for matching crawlers
+	 * 
+	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 */
+	public static function get() : array {
 		$fn = [
 			'search' => fn (string $value) : array => self::getApp($value, ['category' => 'search']),
 			'ads' => fn (string $value) : array => self::getApp($value, ['category' => 'ads']),
@@ -34,16 +49,6 @@ class crawlers {
 			'map' => function (string $value, int $i, array $tokens) : ?array {
 				if (!\str_contains($value, '://')) { // bot will be in the URL
 					$parts = \explode('/', $value, 2);
-
-					// special case
-					if (\strcasecmp($parts[0], 'Spider') === 0) {
-						$ua = \implode(' ', $tokens);
-						if (\mb_stripos($ua, 'Screaming Frog SEO Spider') === 0) {
-							$parts[0] = 'Screaming Frog SEO Spider';
-						} elseif (\mb_stripos($ua, 'Sogou web spider') === 0) {
-							$parts[0] = 'Sogou web spider';
-						}
-					}
 					$category = [
 						'yacybot' => 'search',
 						'Googlebot' => 'search',
@@ -212,10 +217,6 @@ class crawlers {
 			'Expanse' => [
 				'match' => 'start',
 				'categories' => $fn['crawler']
-			],
-			'WhatsApp/' => [
-				'match' => 'start',
-				'categories' => $fn['feed']
 			],
 			'Apache-HttpClient/' => [
 				'match' => 'start',

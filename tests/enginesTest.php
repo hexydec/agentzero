@@ -3,7 +3,7 @@ use hexydec\agentzero\agentzero;
 
 final class enginesTest extends \PHPUnit\Framework\TestCase {
 
-	public function testTrident() {
+	public function testTrident() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; BOIE9;ENUSMSNIP; rv:11.0) like Gecko' => [
 				'type' => 'human',
@@ -37,7 +37,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testGecko() {
+	public function testGecko() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1b3) Gecko/20090305 Firefox/52.4.0' => [
 				'type' => 'human',
@@ -92,7 +92,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testPresto() {
+	public function testPresto() : void {
 		$strings = [
 			'Opera/9.80 (J2ME/MIDP; Opera Mini/4.2.13918/191.286; U; en) Presto/2.12.423 Version/12.16' => [
 				'type' => 'human',
@@ -135,7 +135,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testWebkit() {
+	public function testWebkit() : void {
 		$strings = [
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15' => [
 				'type' => 'human',
@@ -187,7 +187,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testBlink() {
+	public function testBlink() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
 				'type' => 'human',

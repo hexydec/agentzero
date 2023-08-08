@@ -3,14 +3,14 @@ use hexydec\agentzero\agentzero;
 
 final class appsTest extends \PHPUnit\Framework\TestCase {
 
-	public function testApps() {
+	public function testApps() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaSearchBrowser/23.51.1 BroPP/1.0 YaSearchApp/23.51.1 webOmni SA/3 Mobile Safari/537.36' => [
 				'type' => 'human',
 				'category' => 'mobile',
 				'device' => 'M2006C3MNG',
 				'architecture' => 'arm',
-				'bits' => '32',
+				'bits' => 32,
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '10',
@@ -26,7 +26,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'mobile',
 				'device' => 'M2006C3MNG',
 				'architecture' => 'arm',
-				'bits' => '32',
+				'bits' => 32,
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '10',
@@ -41,7 +41,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'architecture' => 'x86',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'engine' => 'Blink',
@@ -57,7 +57,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testFacebook() {
+	public function testFacebook() : void {
 		$strings = [
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/20B82 [FBAN/FBIOS;FBAV/343.1.0.53.117;FBBV/330408024;FBDV/iPhone12,1;FBMD/iPhone;FBSN/iOS;FBSV/16.1;FBSS/2;FBID/phone;FBLC/en_GB;FBOP/5;FBRV/334541633]' => [
 				'type' => 'human',
@@ -66,7 +66,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'iPhone',
 				'model' => '20B82',
 				'architecture' => 'arm',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'iOS',
 				'platformversion' => '16.1',
@@ -78,24 +78,10 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'[FBAN/FB4A;FBAV/302.0.0.45.119;FBBV/268946150;FBDM/{density=2.55,width=1080,height=1808};FBLC/fr_FR;FBRV/270254211;FBCR/Togocel;FBMF/HUAWEI;FBBD/HUAWEI;FBPN/com.facebook.katana;FBDV/MHA-L29;FBSV/9;FBOP/1;FBCA/armeabi-v7a:armeabi;]' => [
 				'type' => 'human',
-				'device' => 'MHA-L29',
-				'architecture' => 'arm',
-				'bits' => '32',
-				'platform' => 'Android',
-				'platformversion' => '9',
-				'language' => 'fr-FR',
-				'app' => 'Facebook',
-				'appversion' => '302.0.0.45.119',
-				'width' => 1080,
-				'height' => 1808,
-				'density' => 2.55
-			],
-			'[FBAN/FB4A;FBAV/302.0.0.45.119;FBBV/268946150;FBDM/{density=2.55,width=1080,height=1808};FBLC/fr_FR;FBRV/270254211;FBCR/Togocel;FBMF/HUAWEI;FBBD/HUAWEI;FBPN/com.facebook.katana;FBDV/MHA-L29;FBSV/9;FBOP/1;FBCA/armeabi-v7a:armeabi;]' => [
-				'type' => 'human',
 				'vendor' => 'HUAWEI',
 				'device' => 'MHA-L29',
 				'architecture' => 'arm',
-				'bits' => '32',
+				'bits' => 32,
 				'platform' => 'Android',
 				'platformversion' => '9',
 				'language' => 'fr-FR',
@@ -112,7 +98,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'Macintosh',
 				'processor' => 'Intel',
 				'architecture' => 'x86',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'Mac OS X',
 				'platformversion' => '10.14.6',
@@ -146,7 +132,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testInstagram() {
+	public function testInstagram() : void {
 		$strings = [
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 263.1.0.14.103 (iPhone14,2; iOS 16_1_1; zh_HK; zh-Hant-HK; scale=3.00; 1170x2532; 428326971) NW/3' => [
 				'type' => 'human',
@@ -155,7 +141,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'iPhone',
 				'model' => '15E148',
 				'architecture' => 'arm',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'iOS',
 				'platformversion' => '16.1.1',
@@ -195,7 +181,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'iPad',
 				'model' => '15E148',
 				'architecture' => 'arm',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'iOS',
 				'platformversion' => '15.5',

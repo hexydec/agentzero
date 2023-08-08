@@ -3,7 +3,7 @@ use hexydec\agentzero\agentzero;
 
 final class browsersTest extends \PHPUnit\Framework\TestCase {
 
-	public function testIEMobile() {
+	public function testIEMobile() : void {
 		$strings = [
 			'Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 929) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537' => [
 				'type' => 'human',
@@ -26,7 +26,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testOperaMini() {
+	public function testOperaMini() : void {
 		$strings = [
 			'Opera/9.80 (SpreadTrum; Opera Mini/4.4.33961/191.286; U; en) Presto/2.12.423 Version/12.16' => [
 				'platformversion' => '12.16',
@@ -68,7 +68,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testOpera() {
+	public function testOpera() : void {
 		$strings = [
 			'Opera/9.30 (Nintendo Wii; U; ; 2047-7; en)' => [
 				'device' => 'Wii',
@@ -123,7 +123,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testChrome() {
+	public function testChrome() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
 				'type' => 'human',
@@ -215,7 +215,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testFirefox() {
+	public function testFirefox() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0' => [
 				'type' => 'human',
@@ -286,7 +286,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testSafari() {
+	public function testSafari() : void {
 		$strings = [
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15' => [
 				'device' => 'Macintosh',
@@ -347,7 +347,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testBrave() {
+	public function testBrave() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 13 QPR5; SM-S918U1) AppleWebKit/606.2.15 (KHTML, like Gecko) Brave/113.0.5672.92 Mobile Safari/606.2.15' => [
 				'platform' => 'Android',
@@ -399,7 +399,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testVivaldi() {
+	public function testVivaldi() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Vivaldi/5.3.2679.68' => [
 				'kernel' => 'Linux',
@@ -447,7 +447,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testMaxthon() {
+	public function testMaxthon() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows; U; Windows NT 6.1; ) AppleWebKit/534.12 (KHTML, like Gecko) Maxthon/3.0 Safari/534.12' => [
 				'type' => 'human',
@@ -502,7 +502,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testKonqueror() {
+	public function testKonqueror() : void {
 		$strings = [
 			'Mozilla/5.0 (compatible; Konqueror/3; Linux)' => [
 				'type' => 'human',
@@ -535,7 +535,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testIE() {
+	public function testIE() : void {
 		$strings = [
 			'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)' => [
 				'type' => 'human',
@@ -603,7 +603,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testKmeleon() {
+	public function testKmeleon() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows; U; WinNT4.0; en-US; rv:1.8.0.5) Gecko/20060706 K-Meleon/1.0' => [
 				'type' => 'human',
@@ -650,7 +650,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testUCBrowser() {
+	public function testUCBrowser() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; U; Android 10; en-US; SCV39 Build/QP1A.190711.020) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.4.0.1306 Mobile Safari/537.36' => [
 				'device' => 'SCV39',
@@ -667,6 +667,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; HM NOTE 1W Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/11.0.5.850 U3/0.8.0 Mobile Safari/534.30' => [
+				'vendor' => 'Xiaomi',
 				'device' => 'HM NOTE 1W',
 				'build' => 'KOT49H',
 				'platform' => 'Android',
@@ -700,7 +701,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testPaleMoon() {
+	public function testPaleMoon() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:38.9) Gecko/20100101 Goanna/2.1 Firefox/38.9 PaleMoon/26.3.3' => [
 				'type' => 'human',
@@ -760,7 +761,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testBasilisk() {
+	public function testBasilisk() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:102.0) Gecko/20100101 Goanna/5.2 Firefox/102.0 Basilisk/20221104' => [
 				'type' => 'human',
@@ -806,7 +807,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testIceweasel() {
+	public function testIceweasel() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0 Iceweasel/5.0' => [
 				'type' => 'human',
@@ -852,7 +853,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testIcecat() {
+	public function testIcecat() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; U; Linux sparc64; es-PY; rv:5.0) Gecko/20100101 IceCat/5.0 (like Firefox/5.0; Debian-6.0.1)' => [
 				'type' => 'human',
@@ -900,7 +901,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testSeaMonkey() {
+	public function testSeaMonkey() : void {
 		$strings = [
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 12.6; rv:91.0) Gecko/20100101 SeaMonkey/2.53.16' => [
 				'device' => 'Macintosh',
@@ -959,7 +960,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testYaBrowser() {
+	public function testYaBrowser() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 YaBrowser/23.7.0.2564 Yowser/2.5 Safari/537.36' => [
 				'type' => 'human',
@@ -1026,7 +1027,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testNetscape() {
+	public function testNetscape() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; AmigaOS x86_64) (KHTML, somewhat like Gecko) Netscape/69.42.13' => [
 				'type' => 'human',
@@ -1066,7 +1067,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testWebPositive() {
+	public function testWebPositive() : void {
 		$strings = [
 			'Mozilla/5.0 (compatible; U; WebPositive/533.4; Haiku) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.55 Safari/533.4' => [
 				'type' => 'human',
@@ -1107,7 +1108,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testKNinja() {
+	public function testKNinja() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows; U; Win98; en-US; rv:1.8.1.4pre) Gecko/20070404 K-Ninja/2.1.3' => [
 				'type' => 'human',
@@ -1153,7 +1154,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testOculusBrowser() {
+	public function testOculusBrowser() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 10; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/13.0.0.2.16.259832224 SamsungBrowser/4.0 Chrome/87.0.4280.66 VR Safari/537.36' => [
 				'vendor' => 'Oculus',
@@ -1200,7 +1201,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testSamsungBrowser() {
+	public function testSamsungBrowser() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 12; SAMSUNG SM-S908E) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/19.0 Chrome/102.0.5005.125 Mobile Safari/537.36' => [
 				 'type' => 'human',
@@ -1235,7 +1236,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testNintendoBrowser() {
+	public function testNintendoBrowser() : void {
 		$strings = [
 			'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.30 (KHTML, like Gecko) NX/3.0.4.2.12 NintendoBrowser/7.1.2.EU' => [
 				'vendor' => 'Nintendo',
@@ -1275,7 +1276,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testEpiphany() {
+	public function testEpiphany() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Ubuntu x86_64; System76) AppleWebKit/610.4.3.1.7 (KHTML, like Gecko) Version/15.4 Safari/610.4.3.1.7 POP_OS/22.04 Epiphany/610.4.3.1.7' => [
 				'type' => 'human',
@@ -1322,7 +1323,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testSilk() {
+	public function testSilk() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 9; KFMAWI) AppleWebKit/537.36 (KHTML, like Gecko) Silk/117.0.6 like Chrome/117.0.5878.0 Safari/537.36' => [
 				'platform' => 'Android',
@@ -1367,7 +1368,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testNetFront() {
+	public function testNetFront() : void {
 		$strings = [
 			'SAMSUNG-SGH-A867/A867UCHJ3 SHP/VPP/R5 NetFront/35 SMM-MMS/19.2.0 profile/MIDP-2.0 configuration/CLDC-1.1 UP.Link/6.3.0.0.0' => [
 				'type' => 'human',
@@ -1393,7 +1394,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testFennec() {
+	public function testFennec() : void {
 		$strings = [
 			'Mozilla/5.0 (Android; Linux armv7l; rv:5.0) Gecko/20110615 Firefox/5.0 Fennec/142' => [
 				'platform' => 'Android',
@@ -1424,7 +1425,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testEdge() {
+	public function testEdge() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19582' => [
 				'type' => 'human',
@@ -1502,7 +1503,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testChromium() {
+	public function testChromium() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/64.0.3282.167 Chrome/64.0.3282.167 Safari/537.36' => [
 				'type' => 'human',
@@ -1534,7 +1535,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testOther() {
+	public function testOther() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; U; Linux i686; ja-jp) AppleWebKit/525.1+ (KHTML, like Gecko, Safari/525.1+) midori 67' => [
 				'kernel' => 'Linux',
@@ -1586,6 +1587,18 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '3.0.0',
 				'engine' => 'Blink',
 				'engineversion' => '83.0.4103.122'
+			],
+			'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Lynx/91.0.4467.0 Safari/537.36' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'browser' => 'Lynx',
+				'browserversion' => '91.0.4467.0',
+				'engine' => 'Libwww'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

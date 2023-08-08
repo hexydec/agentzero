@@ -3,7 +3,7 @@ use hexydec\agentzero\agentzero;
 
 final class crawlersTest extends \PHPUnit\Framework\TestCase {
 
-	public function testSearch() {
+	public function testSearch() : void {
 		$strings = [
 			'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' => [
 				'url' => 'http://www.google.com/bot.html',
@@ -289,7 +289,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testFeed() {
+	public function testFeed() : void {
 		$strings = [
 			'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)' => [
 				'url' => 'http://www.facebook.com/externalhit_uatext.php',
@@ -387,7 +387,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testAds() {
+	public function testAds() : void {
 		$strings = [
 			'Mozilla/5.0 (compatible; proximic; +https://www.comscore.com/Web-Crawler)' => [
 				'type' => 'robot',
@@ -457,7 +457,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testVerification() {
+	public function testVerification() : void {
 		$strings = [
 			'Mozilla/5.0 (compatible; Google-Site-Verification/1.0)' => [
 				'type' => 'robot',
@@ -471,7 +471,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testCrawlers() {
+	public function testCrawlers() : void {
 		$strings = [
 			'Mozilla/5.0 (compatible; SemrushBot/7~bl-slave; http://www.semrush.com/bot.html)' => [
 				'type' => 'robot',
@@ -607,7 +607,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testMonitors() {
+	public function testMonitors() : void {
 		$strings = [
 			'Mozilla/5.0+(compatible; UptimeRobot/2.0; http://www.uptimerobot.com/)' => [
 				'type' => 'robot',

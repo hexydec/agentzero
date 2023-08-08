@@ -2,9 +2,17 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
+/**
+ * @phpstan-import-type MatchConfig from config
+ */
 class devices {
 
-	public static function get() {
+	/**
+	 * Generates a configuration array for matching devices
+	 * 
+	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 */
+	public static function get() : array {
 		$fn = [
 			'ios' => function (string $value, int $i, array $tokens) : array {
 				$version = null;
@@ -358,6 +366,30 @@ class devices {
 					'vendor' => 'Sony'
 				]
 			],
+			'TECNO' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'category' => 'mobile',
+					'vendor' => 'Tecno',
+					'device' => \explode(' ', $value, 2)[1] ?? null
+				]
+			],
+			'ThinkPad' => [
+				'match' => 'start',
+				'categories' => function (string $value, int $i, array $tokens) : array {
+					if (\mb_strpos($tokens[++$i] ?? '', 'Build/') === 0) {
+						$device = \explode('_', \mb_substr($tokens[$i], 6));
+					}
+					return [
+						'type' => 'human',
+						'vendor' => 'Lenovo',
+						'device' => $device[0] ?? null,
+						'model' => $device[1] ?? null,
+						'build' => $device[2] ?? null
+					];
+				}
+			],
 			'Model/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
@@ -373,8 +405,14 @@ class devices {
 		];
 	}
 
+	/**
+	 * Extracts device information from a token
+	 * 
+	 * @param string $value A token expected to contain device information
+	 * @return array<string,string|null> An array containing the extracted devices information
+	 */
 	public static function getDevice(string $value) : array {
-		foreach (['Mobile', 'Safari', 'AppleWebKit', 'Linux'] AS $item) {
+		foreach (['Mobile', 'Tablet', 'Safari', 'AppleWebKit', 'Linux', 'rv:'] AS $item) {
 			if (\mb_stripos($value, $item) === 0) {
 				return [];
 			}
@@ -394,12 +432,14 @@ class devices {
 			'HTC' => 'HTC',
 			'Nexus' => 'Google',
 			'MI ' => 'Xiaomi',
+			'HM ' => 'Xiaomi',
 			'Huawei' => 'Huawei',
 			'Honor' => 'Honor',
 			'Motorola' => 'Motorola',
 			'moto' => 'Motorola',
 			'Intel' => 'Intel',
-			'SonyEricsson' => 'Sony Ericsson'
+			'SonyEricsson' => 'Sony Ericsson',
+			'Tecno' => 'Tecno'
 		];
 		$vendor = null;
 		foreach ($vendors AS $key => $item) {

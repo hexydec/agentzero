@@ -17,9 +17,9 @@
     <testsuite name="Browsers">
       <file>tests/browsersTest.php</file>
     </testsuite>
-    <!--<testsuite name="Categories">
+    <testsuite name="Categories">
       <file>tests/categoriesTest.php</file>
-    </testsuite>-->
+    </testsuite>
     <testsuite name="Crawlers">
       <file>tests/crawlersTest.php</file>
     </testsuite>
@@ -29,9 +29,9 @@
     <testsuite name="Engines">
       <file>tests/enginesTest.php</file>
     </testsuite>
-    <!--<testsuite name="Languages">
+    <testsuite name="Languages">
       <file>tests/languagesTest.php</file>
-    </testsuite>-->
+    </testsuite>
     <testsuite name="Platforms">
       <file>tests/platformsTest.php</file>
     </testsuite>

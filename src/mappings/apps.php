@@ -2,9 +2,17 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
+/**
+ * @phpstan-import-type MatchConfig from config
+ */
 class apps {
 
-	public static function get() {
+	/**
+	 * Generates a configuration array for matching apps
+	 * 
+	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 */
+	public static function get() : array {
 		$fn = [
 			'appslash' => function (string $value) : ?array {
 				if (!\str_starts_with($value, 'AppleWebKit') && !\str_contains($value, '://')) {
@@ -58,6 +66,13 @@ class apps {
 				'categories' => [
 					'type' => 'human',
 					'app' => 'Google-Read-Aloud'
+				]
+			],
+			'Zoom ' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'app' => 'Zoom',
+					'appversion' => \mb_substr($value, 5)
 				]
 			],
 

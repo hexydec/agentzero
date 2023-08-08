@@ -3,7 +3,7 @@ use hexydec\agentzero\agentzero;
 
 final class platformsTest extends \PHPUnit\Framework\TestCase {
 
-	public function testWindows() {
+	public function testWindows() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36' => [
 				'kernel' => 'Windows NT',
@@ -370,7 +370,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testMac() {
+	public function testMac() : void {
 		$strings = [
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
 				'kernel' => 'Linux',
@@ -602,7 +602,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testAndroid() {
+	public function testAndroid() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 12; SM-S134DL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36' => [
 				'kernel' => 'Linux',
@@ -682,7 +682,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testChromeOs() {
+	public function testChromeOs() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
 				'kernel' => 'Linux',
@@ -705,8 +705,6 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'x86',
 				'bits' => 64,
 				'kernel' => 'Linux',
-				'type' => 'human',
-				'category' => 'desktop',
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '112.0.5615.134',
@@ -744,7 +742,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testX11() {
+	public function testX11() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux X86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
 				'kernel' => 'Linux',
@@ -981,7 +979,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testOther() {
+	public function testOther() : void {
 		$strings = [
 			'Mozilla/5.0 (Maemo; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1' => [
 				'type' => 'human',

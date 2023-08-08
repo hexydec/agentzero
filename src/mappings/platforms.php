@@ -2,9 +2,17 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
+/**
+ * @phpstan-import-type MatchConfig from config
+ */
 class platforms {
 
-	public static function get() {
+	/**
+	 * Generates a configuration array for matching platforms
+	 * 
+	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 */
+	public static function get() : array {
 		$fn = [
 			'platformspace' => function (string $value) : array {
 				$parts = \explode(' ', $value, 2);
@@ -345,9 +353,9 @@ class platforms {
 			],
 			'Android' => [
 				'match' => 'start',
-				'categories' => function (string $value, int $i, array $tokens) : ?array {
+				'categories' => function (string $value, int $i, array $tokens) : array {
 					$os = \explode(' ', $value, 3);
-					$device = empty($tokens[++$i]) ? [] : devices::getDevice($tokens[$i]);
+					$device = empty($tokens[++$i]) || \strlen($tokens[$i]) <= 2 ? [] : devices::getDevice($tokens[$i]);
 					return \array_merge($device, [
 						'type' => 'human',
 						'category' => 'tablet',
