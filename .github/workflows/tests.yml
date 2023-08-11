@@ -15,17 +15,13 @@ jobs:
             path: /tmp/composer-cache
             key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
+      - name: Install Composer
       - uses: php-actions/composer@v6
         with:
-            php_version: 8.1
+            php_version: 8.2
             php_extensions: mbstring xdebug
 
       - name: PHPUnit Tests
       - run: ./vendor/bin/phpunit
         env:
             XDEBUG_MODE: coverage
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

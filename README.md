@@ -4,7 +4,7 @@ A library for extracting information from User-Agent strings very fast.
 ![Licence: MIT](https://img.shields.io/badge/Licence-MIT-lightgrey.svg)
 ![Status: Beta](https://img.shields.io/badge/Status-Beta-orange.svg)
 [![Tests Status](https://github.com/hexydec/agentzero/actions/workflows/tests.yml/badge.svg)](https://github.com/hexydec/agentzero/actions/workflows/tests.yml)
-[![Code Coverage](https://codecov.io/gh/hexydec/agentzero/branch/master/graph/badge.svg)](https://app.codecov.io/gh/hexydec/agentzero)
+[![Code Coverage](https://scrutinizer-ci.com/g/hexydec/agentzero/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/hexydec/agentzero/code-structure/main/code-coverage)
 
 ## Description
 
