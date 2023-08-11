@@ -21,12 +21,9 @@ jobs:
             php_extensions: mbstring xdebug
 
       - name: PHPUnit Tests
-        run: |
-            ./vendor/bin/phpunit --coverage-clover=coverage.clover
-            wget https://scrutinizer-ci.com/ocular.phar
-            php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+      - run: ./vendor/bin/phpunit
         env:
-          XDEBUG_MODE: coverage
+            XDEBUG_MODE: coverage
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
