@@ -26,7 +26,7 @@ The returned value will be something like:
 
 ```php
 \hexydec\agentzero\agentzero(
-[type] => human
+	[type] => human
     [category] => mobile
     [vendor] => Honor
     [device] => NTH-NX9
@@ -44,6 +44,8 @@ The returned value will be something like:
 ```
 
 You can read the [full list of properties here](docs/api.md).
+
+You can try out AegentZero online at [https://hexydec.com/apps/user-agent-parser/](https://hexydec.com/apps/user-agent-parser/), or run the supplied `index.php` file after installation.
 ## Supported Features
 
 AgentZero supports a wide range of architectures, browsers, rendering engines, platforms, devices, languages, and crawlers. [Access the full list on the Supported Features page](docs/support.md).

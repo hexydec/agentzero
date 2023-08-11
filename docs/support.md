@@ -77,6 +77,7 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - Silk
 - NetFront
 - Fennec
+- Lynx
 
 ## Rendering Engines
 
@@ -86,6 +87,7 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - Presto
 - Trident
 - Goanna
+- Libwww
 
 ## Devices
 
