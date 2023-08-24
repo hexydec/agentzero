@@ -14,6 +14,8 @@ Most User-Agent detection libraries rely on lists of regular expressions to matc
 
 AgentZero is a simple string matching library that splits the user agent strings up into tokens to extract information from each part, leading to more complete information, more flexibility in capturing new user agent strings, and better performance.
 
+You can try out AgentZero online at [https://hexydec.com/apps/user-agent-parser/](https://hexydec.com/apps/user-agent-parser/), or run the supplied `index.php` file after installation.
+
 ## Usage
 
 To use AgentZero:
@@ -44,8 +46,6 @@ The returned value will be something like:
 ```
 
 You can read the [full list of properties here](docs/api.md).
-
-You can try out AegentZero online at [https://hexydec.com/apps/user-agent-parser/](https://hexydec.com/apps/user-agent-parser/), or run the supplied `index.php` file after installation.
 ## Supported Features
 
 AgentZero supports a wide range of architectures, browsers, rendering engines, platforms, devices, languages, and crawlers. [Access the full list on the Supported Features page](docs/support.md).
