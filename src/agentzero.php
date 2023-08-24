@@ -133,7 +133,7 @@ class agentzero {
 
 		// prepare regexp
 		$single = \implode('|', \array_map('preg_quote', $single));
-		$pattern = '/[^()\[\];\/ _-](?:(?<!'.$single.') (?!https?:\/\/)|[^()\[\];\/ ]*)*[^()\[\];\/ _-](?:\/[^;()\[\] ]++)?/i';
+		$pattern = '/[^()\[\];,\/ _-](?:(?<!'.$single.') (?!https?:\/\/)|[^()\[\];,\/ ]*)*[^()\[\];,\/ _-](?:\/[^;,()\[\] ]++)?/i';
 
 		// split up ua string
 		if (\preg_match_all($pattern, $ua, $match)) {

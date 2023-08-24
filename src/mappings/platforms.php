@@ -375,12 +375,12 @@ class platforms {
 			'X11' => [
 				'match' => 'exact',
 				'categories' => function (string $value, int $i, array $tokens) : array {
-					$os = \explode(' ', $tokens[++$i], 2);
+					$os = \explode(' ', $tokens[++$i] ?? '', 2);
 					return [
 						'type' => 'human',
 						'category' => 'desktop',
 						'kernel' => 'Linux',
-						'platform' => $os[0],
+						'platform' => $os[0] ?: 'X11',
 						'platformversion' => isset($os[1]) && \strspn($os[1], '0123456789.-_', \strlen($os[0])) === \strlen($os[1]) ? $os[1] : null
 					];
 				}

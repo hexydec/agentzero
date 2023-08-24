@@ -166,6 +166,24 @@ class apps {
 					return $data;
 				}
 			],
+			'width=' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'width' => \intval(\mb_substr($value, 6))
+				]
+			],
+			'height=' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'height' => \intval(\mb_substr($value, 7))
+				]
+			],
+			'dpi=' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'dpi' => \mb_substr($value, 4)
+				]
+			],
 			'FBSN/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [

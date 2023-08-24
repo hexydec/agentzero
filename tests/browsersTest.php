@@ -279,6 +279,19 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Firefox',
 				'browserversion' => '52.4.1',
 				'language' => 'en-US'
+			],
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0,GingerClient/2.14.0-RELEASE' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'engine' => 'Gecko',
+				'engineversion' => '103.0',
+				'browser' => 'Firefox',
+				'browserversion' => '103.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

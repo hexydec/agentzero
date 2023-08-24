@@ -232,12 +232,13 @@ class browsers {
 			],
 			'Firefox/' =>  [
 				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'browser' => 'Firefox',
-					'engine' => 'Gecko',
-					'browserversion' => \mb_substr($value, 8),
-					'engineversion' => \mb_substr($value, 8)
-				]
+				'categories' => function (string $value) use ($fn) : array {
+					$data = $fn['browserslash']($value);
+					return \array_merge($data, [
+						'engine' => 'Gecko',
+						'engineversion' => $data['browserversion'] ?? null
+					]);
+				}
 			],
 			'Edg/' =>  [
 				'match' => 'start',

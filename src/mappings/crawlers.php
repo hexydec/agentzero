@@ -277,7 +277,7 @@ class crawlers {
 						}
 					} else {
 						$parts = \explode(' ', $value);
-						$data['app'] = $parts[0].' '.$parts[1].' '.$parts[2];
+						$data['app'] = \rtrim($parts[0].' '.($parts[1] ?? '').' '.($parts[2] ?? ''));
 						$data['appversion'] = $parts[3] ?? null;
 					}
 					return $data;
