@@ -18,16 +18,16 @@ class browsers {
 				if (($browser = \mb_strrchr($value, ' ')) !== false) {
 					$value = \ltrim($browser);
 				}
-				$parts = \explode('/', $value, 2);
+				$parts = \explode('/', $value, 3); // split more incase there are more slashes
 				$map = [
-					'OPR' => 'Opera',
-					'CriOS' => 'Chrome',
-					'YaBrowser' => 'Yandex',
-					'Edg' => 'Edge',
-					'EdgiOS' => 'Edge'
+					'opr' => 'Opera',
+					'crios' => 'Chrome',
+					'yabrowser' => 'Yandex',
+					'edg' => 'Edge',
+					'edgios' => 'Edge'
 				];
 				return [
-					'browser' => $map[$parts[0]] ?? $parts[0],
+					'browser' => $map[\mb_strtolower($parts[0])] ?? \mb_convert_case($parts[0], MB_CASE_TITLE),
 					'browserversion' => $parts[1] ?? null
 				];
 			},
