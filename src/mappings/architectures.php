@@ -25,6 +25,7 @@ class architectures {
 			'x86_64' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 64
 				]
@@ -32,6 +33,7 @@ class architectures {
 			'WOW64' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 64
 				]
@@ -39,6 +41,7 @@ class architectures {
 			'amd64' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 64,
 					'processor' => 'AMD'
@@ -82,6 +85,7 @@ class architectures {
 			'Intel' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'processor' => 'Intel',
 					'architecture' => 'x86'
 				]
@@ -89,6 +93,7 @@ class architectures {
 			'PPC' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'processor' => 'PowerPC',
 					'architecture' => 'PowerPC'
 				]
@@ -96,6 +101,7 @@ class architectures {
 			'x64' => [
 				'match' => 'exact',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 64
 				]
@@ -103,6 +109,7 @@ class architectures {
 			'Win64' => [
 				'match' => 'exact',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 64
 				]
@@ -110,6 +117,7 @@ class architectures {
 			'Win32' => [
 				'match' => 'exact',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 32
 				]
@@ -117,6 +125,7 @@ class architectures {
 			'x86' => [
 				'match' => 'end',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 32
 				]
@@ -124,6 +133,7 @@ class architectures {
 			'i686' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 32
 				]
@@ -131,6 +141,7 @@ class architectures {
 			'i386' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 32
 				]
@@ -138,6 +149,7 @@ class architectures {
 			'Sun' => [
 				'match' => 'exact',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'Sun'
 				]
 			],
@@ -168,6 +180,7 @@ class architectures {
 			'i86pc' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 32
 				]
@@ -175,6 +188,7 @@ class architectures {
 			'i86xpv' => [
 				'match' => 'any',
 				'categories' => [
+					'category' => 'desktop',
 					'architecture' => 'x86',
 					'virtualised' => true,
 					'bits' => 32

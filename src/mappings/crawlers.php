@@ -323,6 +323,18 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn['scraper']
 			],
+			'Wget/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'rest-client/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'ruby/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
 			'feed' => [
 				'match' => 'any',
 				'categories' => $fn['feed']

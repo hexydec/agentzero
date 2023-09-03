@@ -535,6 +535,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (compatible; Konqueror/3.1; i686 Linux; 20021102)' => [
 				'type' => 'human',
+				'category' => 'desktop',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'architecture' => 'x86',
@@ -643,7 +644,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'processor' => 'Intel',
 				'architecture' => 'x86',
-				'browser' => 'K-meleon',
+				'browser' => 'K-Meleon',
 				'browserversion' => '88.0'
 			],
 			'Mozilla/5.0 (Windows NT 6.1; rv:38.0) Gecko/20160222 Firefox/38.8 K-Meleon/76.0' => [
@@ -905,7 +906,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'engine' => 'Gecko',
 				'engineversion' => '20121201',
-				'browser' => 'icecat',
+				'browser' => 'IceCat',
 				'browserversion' => '17.0.1'
 			]
 		];
@@ -1423,6 +1424,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Wayland; Linux i686; rv:31.0) Gecko/20100101 Fennec/31.0' => [
 				'type' => 'human',
+				'category' => 'desktop',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'architecture' => 'x86',

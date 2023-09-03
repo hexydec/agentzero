@@ -24,9 +24,21 @@ class browsers {
 					'crios' => 'Chrome',
 					'yabrowser' => 'Yandex',
 					'edg' => 'Edge',
-					'edgios' => 'Edge'
+					'edgios' => 'Edge',
+					'webpositive' => 'WebPositive',
+					'oculusbrowser' => 'OculusBrowser',
+					'nintendobrowser' => 'NintendoBrowser',
+					'samsungbrowser' => 'SamsungBrowser',
+					'up.browser' => 'UP.Browser',
+					'ucbrowser' => 'UCBrowser',
+					'netfront' => 'NetFront',
+					'seamonkey' => 'SeaMonkey',
+					'icecat' => 'IceCat',
+					'palemoon' => 'PaleMoon',
+					'k-meleon' => 'K-Meleon'
 				];
 				return [
+					'type' => 'human',
 					'browser' => $map[\mb_strtolower($parts[0])] ?? \mb_convert_case($parts[0], MB_CASE_TITLE),
 					'browserversion' => $parts[1] ?? null
 				];
@@ -212,6 +224,7 @@ class browsers {
 				'categories' => function (string $value) : array {
 					$parts = \explode('/', $value, 2);
 					return [
+						'type' => 'human',
 						'browser' => 'Midori',
 						'browserversion' => $parts[1] ?? \explode(' ', $value, 2)[1] ?? null
 					];
@@ -224,6 +237,7 @@ class browsers {
 			'Fennec/' =>  [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
+					'type' => 'human',
 					'browser' => 'Fennec',
 					'engine' => 'Gecko',
 					'browserversion' => \mb_substr($value, 7),
@@ -263,6 +277,7 @@ class browsers {
 			'MSIE ' =>  [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
+					'type' => 'human',
 					'browser' => 'Internet Explorer',
 					'browserversion' => \mb_substr($value, 5),
 					'engine' => 'Trident'
@@ -275,6 +290,7 @@ class browsers {
 			'Chrome/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
+					'type' => 'human',
 					'browser' => 'Chrome',
 					'engine' => 'Blink',
 					'browserversion' => \mb_substr($value, 7),

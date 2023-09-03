@@ -367,7 +367,6 @@ class platforms {
 			'Linux' => [
 				'match' => 'any',
 				'categories' => [
-					'type' => 'human',
 					'kernel' => 'Linux',
 					'platform' => 'Linux'
 				]
@@ -377,13 +376,19 @@ class platforms {
 				'categories' => function (string $value, int $i, array $tokens) : array {
 					$os = \explode(' ', $tokens[++$i] ?? '', 2);
 					return [
-						'type' => 'human',
 						'category' => 'desktop',
 						'kernel' => 'Linux',
 						'platform' => $os[0] ?: 'X11',
 						'platformversion' => isset($os[1]) && \strspn($os[1], '0123456789.-_', \strlen($os[0])) === \strlen($os[1]) ? $os[1] : null
 					];
 				}
+			],
+			'OS/2' => [
+				'match' => 'exact',
+				'categories' => [
+					'category' => 'desktop',
+					'platform' => 'OS/2'
+				]
 			],
 			'Version/' => [
 				'match' => 'start',
