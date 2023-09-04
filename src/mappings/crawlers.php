@@ -82,6 +82,7 @@ class crawlers {
 						'Xbot' => 'feed',
 						'Discordbot' => 'feed',
 						'PRTGCloudBot' => 'monitor',
+						'SematextSyntheticsRobot' => 'monitor',
 						'Bytespider' => 'search',
 						'LinkedInBot' => 'feed',
 						'PaperLiBot' => 'feed',
@@ -169,6 +170,34 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn['monitor']
 			],
+			'DynGate' => [
+				'match' => 'exact',
+				'categories' => $fn['monitor']
+			],
+			'Datadog/Synthetics' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'robot',
+					'category' => 'monitor',
+					'app' => 'Datadog/Synthetics'
+				]
+			],
+			'RuxitSynthetic/' => [
+				'match' => 'start',
+				'categories' => $fn['monitor']
+			],
+			'Checkly/' => [
+				'match' => 'start',
+				'categories' => $fn['monitor']
+			],
+			'Uptime/' => [
+				'match' => 'start',
+				'categories' => $fn['monitor']
+			],
+			'HostTracker/' => [
+				'match' => 'start',
+				'categories' => $fn['monitor']
+			],
 			'Pingdom.com' => [
 				'match' => 'start',
 				'categories' => function (string $value) : array {
@@ -194,6 +223,10 @@ class crawlers {
 				'categories' => $fn['monitor']
 			],
 			'Site24x7' => [
+				'match' => 'exact',
+				'categories' => $fn['monitor']
+			],
+			'StatusCake' => [
 				'match' => 'exact',
 				'categories' => $fn['monitor']
 			],
