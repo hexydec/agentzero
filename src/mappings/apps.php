@@ -146,9 +146,13 @@ class apps {
 			],
 			'FBLC/' => [
 				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'language' => \str_replace('_', '-', \mb_substr($value, 5))
-				]
+				'categories' => function (string $value) : array {
+					$parts = \explode('-', \str_replace('_', '-', \mb_substr($value, 5)), 4);
+					$suffix = $parts[2] ?? $parts[1] ?? null;
+					return [
+						'language' => \strtolower($parts[0]).($suffix !== null ? '-'.\strtoupper($suffix) : '')
+					];
+				}
 			],
 			'FBDM/' => [
 				'match' => 'start',

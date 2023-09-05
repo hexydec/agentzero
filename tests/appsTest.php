@@ -125,6 +125,22 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.5359.128',
 				'app' => 'Facebook',
 				'appversion' => '393.0.0.18.92'
+			],
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/20C65 [FBAN/FBIOS;FBDV/iPhone12,3;FBMD/iPhone;FBSN/iOS;FBSV/16.2;FBSS/3;FBID/phone;FBLC/en_Qaau_GB;FBOP/5]' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '20C65',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '16.2',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'language' => 'en-GB',
+				'app' => 'Facebook'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
