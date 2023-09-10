@@ -66,7 +66,14 @@ class devices {
 					'architecture' => 'x86',
 					'bits' => 64
 				];
-			}
+			},
+			'firetablet' => fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'tablet',
+				'vendor' => 'Amazon',
+				'device' => 'Fire Tablet',
+				'model' => $value
+			]
 		];
 		return [
 			'iPhone' => [
@@ -238,20 +245,24 @@ class devices {
 			],
 			'KFT' => [
 				'match' => 'start',
-				'categories' => [
-					'type' => 'human',
-					'category' => 'tablet',
-					'vendor' => 'Amazon',
-					'device' => 'Fire Tablet'
-				]
+				'categories' => $fn['firetablet']
+			],
+			'KFO' => [
+				'match' => 'start',
+				'categories' => $fn['firetablet']
+			],
+			'KFM' => [
+				'match' => 'start',
+				'categories' => $fn['firetablet']
 			],
 			'AFT' => [
 				'match' => 'start',
-				'categories' => [
+				'categories' => fn (string $value) : array => [
 					'type' => 'human',
 					'category' => 'tv',
 					'vendor' => 'Amazon',
-					'device' => 'Fire TV'
+					'device' => 'Fire TV',
+					'model' => $value
 				]
 			],
 			'Roku/' => [

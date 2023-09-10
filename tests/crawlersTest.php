@@ -446,7 +446,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '5.0.2',
 				'kernel' => 'Linux',
-				'browser' => 'SamsungBrowser',
+				'browser' => 'Samsung Browser',
 				'browserversion' => '3.3',
 				'engine' => 'Blink',
 				'engineversion' => '38.0.2125.102'

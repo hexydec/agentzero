@@ -65,6 +65,15 @@ class platforms {
 					'platform' => 'Windows',
 					'platformversion' => $mapping[$version] ?? $version
 				];
+			},
+			'android' => function (string $value, int $i, array $tokens) : array {
+				$os = \explode(' ', $value, 3);
+				$device = empty($tokens[++$i]) || \strlen($tokens[$i]) <= 2 ? [] : devices::getDevice($tokens[$i]);
+				return \array_merge($device, [
+					'type' => 'human',
+					'platform' => $os[0],
+					'platformversion' => $os[1] ?? null
+				]);
 			}
 		];
 
@@ -352,17 +361,12 @@ class platforms {
 				}
 			],
 			'Android' => [
+				'match' => 'exact',
+				'categories' => $fn['android']
+			],
+			'Android ' => [
 				'match' => 'start',
-				'categories' => function (string $value, int $i, array $tokens) : array {
-					$os = \explode(' ', $value, 3);
-					$device = empty($tokens[++$i]) || \strlen($tokens[$i]) <= 2 ? [] : devices::getDevice($tokens[$i]);
-					return \array_merge($device, [
-						'type' => 'human',
-						'category' => 'tablet',
-						'platform' => $os[0],
-						'platformversion' => $os[1] ?? null
-					]);
-				}
+				'categories' => $fn['android']
 			],
 			'Linux' => [
 				'match' => 'any',

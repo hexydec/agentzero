@@ -46,7 +46,6 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
 				'type' => 'human',
-				'category' => 'tablet',
 				'browser' => 'Opera Mini',
 				'browserversion' => '7.7.40394/191.293',
 				'language' => 'en'
@@ -57,7 +56,6 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '12.16',
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
-				'category' => 'mobile',
 				'browser' => 'Opera Mini',
 				'browserversion' => '4.4.33576/191.308',
 				'language' => 'en'
@@ -1225,7 +1223,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				 'vendor' => 'Samsung',
 				 'device' => 'SM-S908E',
 				 'kernel' => 'Linux',
-				 'browser' => 'SamsungBrowser',
+				 'browser' => 'Samsung Browser',
 				 'browserversion' => '19.0',
 				 'engine' => 'Blink',
 				 'engineversion' => '102.0.5005.125'
@@ -1239,7 +1237,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '8.1.0',
 				'kernel' => 'Linux',
-				'browser' => 'SamsungBrowser',
+				'browser' => 'Samsung Browser',
 				'browserversion' => '7.2',
 				'engine' => 'Blink',
 				'engineversion' => '108.0.5359.128'
@@ -1342,7 +1340,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 9; KFMAWI) AppleWebKit/537.36 (KHTML, like Gecko) Silk/117.0.6 like Chrome/117.0.5878.0 Safari/537.36' => [
 				'platform' => 'Android',
 				'platformversion' => '9',
-				'device' => 'KFMAWI',
+				'vendor' => 'Amazon',
+				'device' => 'Fire Tablet',
+				'model' => 'KFMAWI',
 				'type' => 'human',
 				'category' => 'tablet',
 				'kernel' => 'Linux',
@@ -1354,9 +1354,11 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 9; KFONWI) AppleWebKit/537.36 (KHTML, like Gecko) Silk/117.0.6 like Chrome/117.0.5878.0 Safari/537.36' => [
 				'platform' => 'Android',
 				'platformversion' => '9',
-				'device' => 'KFONWI',
+				'vendor' => 'Amazon',
+				'device' => 'Fire Tablet',
+				'model' => 'KFONWI',
 				'type' => 'human',
-				'category' => 'tablet',	
+				'category' => 'tablet',
 				'kernel' => 'Linux',
 				'browser' => 'Silk',
 				'browserversion' => '117.0.6',
@@ -1419,7 +1421,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Gecko',
 				'engineversion' => '20110615',
 				'browser' => 'Fennec',
-				'category' => 'tablet',
+				// 'category' => 'tablet',
 				'browserversion' => '142'
 			],
 			'Mozilla/5.0 (Wayland; Linux i686; rv:31.0) Gecko/20100101 Fennec/31.0' => [

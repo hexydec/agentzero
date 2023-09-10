@@ -35,7 +35,8 @@ class browsers {
 					'seamonkey' => 'SeaMonkey',
 					'icecat' => 'IceCat',
 					'palemoon' => 'PaleMoon',
-					'k-meleon' => 'K-Meleon'
+					'k-meleon' => 'K-Meleon',
+					'samsungbrowser' => 'Samsung Browser'
 				];
 				return [
 					'type' => 'human',
@@ -47,7 +48,6 @@ class browsers {
 				$parts = \explode('/', $value, 2);
 				return [
 					'type' => 'human',
-					'category' => $parts[0] === 'Opera Mini' ? 'mobile' : 'desktop',
 					'browser' => $parts[0],
 					'browserversion' => $parts[1] ?? null,
 					'engine' => 'Presto',
@@ -186,12 +186,7 @@ class browsers {
 			],
 			'Silk/' => [
 				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'browser' => 'Silk',
-					'browserversion' => \explode('/', $value, 2)[1] ?? null,
-					'type' => 'human',
-					'category' => 'tablet'
-				]
+				'categories' => $fn['browserslash']
 			],
 			'NetFront/' => [
 				'match' => 'start',

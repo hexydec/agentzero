@@ -50,6 +50,17 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '41.0.2272.118',
 				'app' => 'Google-Read-Aloud',
 				'url' => 'https://support.google.com/webmasters/answer/1061943'
+			],
+			'AndroidDownloadManager/11 (Linux; U; Android 11; ONEPLUS A6013 Build/RKQ1.201217.002)' => [
+				'type' => 'human',
+				'vendor' => 'OnePlus',
+				'device' => 'A6013',
+				'build' => 'RKQ1.201217.002',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '11',
+				'app' => 'AndroidDownloadManager',
+				'appversion' => '11'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
