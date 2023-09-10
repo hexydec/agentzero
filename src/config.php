@@ -26,11 +26,11 @@ class config {
 					urls::get(),
 					devices::get(),
 					categories::get(),
+					engines::get(),
+					browsers::get(),
 					platforms::get(),
 					architectures::get(),
-					apps::get(),
-					engines::get(),
-					browsers::get()
+					apps::get()
 				)
 			];
 		}

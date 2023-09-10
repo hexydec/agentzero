@@ -61,6 +61,10 @@ class apps {
 				'match' => 'start',
 				'categories' => $fn['appslash']
 			],
+			'AndroidDownloadManager/' => [
+				'match' => 'start',
+				'categories' => $fn['appslash']
+			],
 			'Google-Read-Aloud' => [
 				'match' => 'exact',
 				'categories' => [

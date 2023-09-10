@@ -262,7 +262,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '5.5',
 				'engine' => 'Blink',
 				'engineversion' => '69.0.3497.106',
-				'browser' => 'SamsungBrowser',
+				'browser' => 'Samsung Browser',
 				'browserversion' => '3.0'
 			]
 		];
