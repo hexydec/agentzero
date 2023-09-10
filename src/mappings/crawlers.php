@@ -198,6 +198,10 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn['monitor']
 			],
+			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => [
+				'match' => 'exact',
+				'categories' => $fn['monitor']
+			],
 			'Pingdom.com' => [
 				'match' => 'start',
 				'categories' => function (string $value) : array {

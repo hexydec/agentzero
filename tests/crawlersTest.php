@@ -676,6 +676,11 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
 				'browserversion' => '604.1'
+			],
+			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => [
+				'type' => 'robot',
+				'category' => 'monitor',
+				'app' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
