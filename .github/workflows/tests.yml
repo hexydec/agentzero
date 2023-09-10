@@ -16,12 +16,12 @@ jobs:
             key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Install Composer
-      - uses: php-actions/composer@v6
+        uses: php-actions/composer@v6
         with:
             php_version: 8.2
             php_extensions: mbstring xdebug
 
       - name: PHPUnit Tests
-      - run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit
         env:
             XDEBUG_MODE: coverage
