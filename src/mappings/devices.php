@@ -428,7 +428,7 @@ class devices {
 				return [];
 			}
 		}
-		$device = \explode('Build/', $value, 2);
+		$device = \explode('Build/', \str_ireplace('build/', 'Build/', $value), 2);
 		$device[0] = \trim($device[0]);
 		$vendors = [
 			'Samsung' => 'Samsung',

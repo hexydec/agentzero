@@ -21,7 +21,6 @@ class config {
 				'single' => ['Mobile', 'VR', 'Large Screen', 'Smart TV', 'Tablet', 'SmartTV', 'TV', 'DTV', 'Ubuntu', 'Touch', 'Linux'], // tokens that should be matched on their own
 				'match' => \array_merge(
 					languages::get(),
-					other::get(),
 					crawlers::get(),
 					urls::get(),
 					devices::get(),
@@ -30,7 +29,8 @@ class config {
 					browsers::get(),
 					platforms::get(),
 					architectures::get(),
-					apps::get()
+					apps::get(),
+					other::get()
 				)
 			];
 		}

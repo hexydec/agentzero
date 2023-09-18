@@ -61,10 +61,46 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '11',
 				'app' => 'AndroidDownloadManager',
 				'appversion' => '11'
+			],
+			'Mozilla/5.0 (Linux; Android 13; CPH2213 Build/TP1A.220905.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/109.0.5414.117 Mobile Safari/537.36 OcIdWebView ({"os":"Android","osVersion":"33","app":"com.google.android.gms","appVersion":"219","style":2,"isDarkTheme":true})' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'OnePlus',
+				'device' => 'CPH2213',
+				'build' => 'TP1A.220905.001',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '13',
+				'engine' => 'Blink',
+				'engineversion' => '109.0.5414.117',
+				'browser' => 'Chrome',
+				'browserversion' => '109.0.5414.117',
+				'app' => 'OcIdWebView',
+				'appversion' => '219',
+				'darkmode' => true
+			],
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 BytedanceWebview/d8a21c6 musical_ly_27.9.0 JsSdk/2.0 NetType/4G Channel/App Store ByteLocale/ar Region/EG musical_ly_27.9.0 JsSdk/2.0 NetType/MOBILE Channel/App Store AppVersion/27.9.0 AppName/musical_ly Rifle_27.9.0 musical_ly_27.9.0 JsSdk/2.0 NetType/4G Channel/App Store ByteLocale/ar Region/EG ByteFullLocale/ar  isDarkMode/0 Spark/1.2.6.2-bugfix HybridTag/EF19ACC6-C9CA-4584-AC8B-8BF5F83BD352 WKWebView/1 Bullet/1 musical_ly/27.9.0 FalconTag/1CE85414-C990-4F0F-9EE7-72B1D7ED43BE' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '15E148',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '16.2',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'language' => 'ar',
+				'app' => 'musical_ly',
+				'appversion' => '27.9.0',
+				'nettype' => '4G',
+				'darkmode' => false
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -155,7 +191,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -242,7 +278,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 }

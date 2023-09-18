@@ -27,9 +27,10 @@ class other {
 							$data = \array_change_key_case((array) $data);
 							$mappings = [
 								'os' => 'platform',
-								'osversion' => 'platformversion'
+								'osversion' => 'platformversion',
+								'isdarktheme' => 'darkmode'
 							];
-							$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion'];
+							$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion', 'darkmode'];
 							$cat = [];
 							foreach ($fields AS $item) {
 								if (isset($data[$item])) {

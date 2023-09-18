@@ -61,13 +61,16 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '10',
+				'engine' => 'Blink',
+				'browser' => 'Cronet',
+				'browserversion' => 'TTNetVersion:07232c86',
 				'language' => 'en',
 				'app' => 'com.zhiliaoapp.musically',
 				'appversion' => '2022706030'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 }

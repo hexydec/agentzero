@@ -40,6 +40,7 @@ class agentzero {
 	public readonly ?string $url;
 
 	// network
+	public readonly ?string $nettype;
 	public readonly ?string $proxy;
 
 	// screen
@@ -47,6 +48,7 @@ class agentzero {
 	public readonly ?int $height;
 	public readonly ?int $dpi;
 	public readonly ?float $density;
+	public readonly ?bool $darkmode;
 
 	/**
 	 * Constructs a new AgentZero object, private because it can only be created internally
@@ -88,6 +90,7 @@ class agentzero {
 		$this->url = $data->url ?? null;
 
 		// network
+		$this->nettype = $data->nettype ?? null;
 		$this->proxy = $data->proxy ?? null;
 
 		// screen
@@ -95,6 +98,7 @@ class agentzero {
 		$this->height = $data->height ?? null;
 		$this->dpi = $data->dpi ?? null;
 		$this->density = $data->density ?? null;
+		$this->darkmode = $data->darkmode ?? null;
 	}
 
 	/**
@@ -133,7 +137,7 @@ class agentzero {
 
 		// prepare regexp
 		$single = \implode('|', \array_map('preg_quote', $single));
-		$pattern = '/[^()\[\];,\/ _-](?:(?<!'.$single.') (?!https?:\/\/)|[^()\[\];,\/ ]*)*[^()\[\];,\/ _-](?:\/[^;,()\[\] ]++)?/i';
+		$pattern = '/\{[^}]++\}|[^()\[\];,\/  _-](?:(?<!'.$single.') (?!https?:\/\/)|[^()\[\];,\/ ]*)*[^()\[\];,\/  _-](?:\/[^;,()\[\]  ]++)?/i';
 
 		// split up ua string
 		if (\preg_match_all($pattern, $ua, $match)) {

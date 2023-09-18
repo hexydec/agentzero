@@ -53,6 +53,16 @@ class browsers {
 					'engine' => 'Presto',
 					'engineversion' => $parts[1] ?? null
 				];
+			},
+			'chromium' => function (string $value) : array {
+				$parts = \explode('/', $value, 3);
+				return [
+					'type' => 'human',
+					'browser' => \mb_convert_case($parts[0], MB_CASE_TITLE),
+					'engine' => 'Blink',
+					'browserversion' => $parts[1] ?? null,
+					'engineversion' => isset($parts[1]) && \strspn($parts[1], '1234567890.') === \strlen($parts[1]) ? $parts[1] : null
+				];
 			}
 		];
 		return [
@@ -261,14 +271,6 @@ class browsers {
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
-			// 'BOIE9' => [
-			// 	'match' => 'exact',
-			// 	'categories' => [
-			// 		'browser' => 'Internet Explorer',
-			// 		'browserversion' => '9',
-			// 		'engine' => 'Trident'
-			// 	]
-			// ],
 			'MSIE ' =>  [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
@@ -278,19 +280,17 @@ class browsers {
 					'engine' => 'Trident'
 				]
 			],
+			'Cronet/' => [
+				'match' => 'start',
+				'categories' => $fn['chromium']
+			],
 			'Chromium/' => [
 				'match' => 'start',
-				'categories' => $fn['browserslash']
+				'categories' => $fn['chromium']
 			],
 			'Chrome/' => [
 				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'browser' => 'Chrome',
-					'engine' => 'Blink',
-					'browserversion' => \mb_substr($value, 7),
-					'engineversion' => \mb_substr($value, 7)
-				]
+				'categories' => $fn['chromium']
 			],
 			'Safari/' =>  [
 				'match' => 'start',

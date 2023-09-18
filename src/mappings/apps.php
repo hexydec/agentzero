@@ -14,8 +14,8 @@ class apps {
 	 */
 	public static function get() : array {
 		$fn = [
-			'appslash' => function (string $value) : ?array {
-				if (!\str_starts_with($value, 'AppleWebKit') && !\str_contains($value, '://')) {
+			'appslash' => function (string $value, int $i, array $tokens) : ?array {
+				if (\mb_stripos($value, 'AppleWebKit') !== 0 && !\str_contains($value, '://')) {
 					$parts = \explode('/', $value, 2);
 					return [
 						'app' => $parts[0],
@@ -23,9 +23,29 @@ class apps {
 					];
 				}
 				return null;
+			},
+			'langslash' => function (string $value) : array {
+				$parts = \explode('-', \str_replace('_', '-', \explode('/', $value, 2)[1]), 4);
+				$suffix = $parts[2] ?? $parts[1] ?? null;
+				return [
+					'language' => \strtolower($parts[0]).($suffix !== null ? '-'.\strtoupper($suffix) : '')
+				];
 			}
 		];
 		return [
+			'OcIdWebView' => [
+				'match' => 'exact',
+				'categories' => function (string $value, int $i, array $tokens) : array {
+					$data = [
+						'app' => $value
+					];
+					if (!empty($tokens[$i+1]) && ($json = \json_decode($tokens[$i+1], true)) !== null) {
+						$data['appversion'] = $json['appVersion'] ?? null;
+						$data['darkmode'] = isset($json['isDarkTheme']) ? \boolval($json['isDarkTheme']) : null;
+					}
+					return $data;
+				}
+			],
 			'com.google.android.apps.' => [
 				'match' => 'any',
 				'categories' => $fn['appslash']
@@ -150,13 +170,7 @@ class apps {
 			],
 			'FBLC/' => [
 				'match' => 'start',
-				'categories' => function (string $value) : array {
-					$parts = \explode('-', \str_replace('_', '-', \mb_substr($value, 5)), 4);
-					$suffix = $parts[2] ?? $parts[1] ?? null;
-					return [
-						'language' => \strtolower($parts[0]).($suffix !== null ? '-'.\strtoupper($suffix) : '')
-					];
-				}
+				'categories' => $fn['langslash']
 			],
 			'FBDM/' => [
 				'match' => 'start',
@@ -204,6 +218,25 @@ class apps {
 					'platformversion' => \mb_substr($value, 5)
 				]
 			],
+			'isDarkMode/' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					$mode = \mb_substr($value, 11);
+					return [
+						'darkmode' => \in_array($mode, ['0', '1'], true) ? \boolval($mode) : null
+					];
+				}
+			],
+			'ByteFullLocale/' => [
+				'match' => 'start',
+				'categories' => $fn['langslash']
+			],
+			'NetType/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'nettype' => \mb_convert_case(\mb_substr($value, 8), MB_CASE_UPPER)
+				]
+			],
 
 			// other
 			'MAUI' => [
@@ -217,6 +250,12 @@ class apps {
 				'match' => 'start',
 				'categories' => fn(string $value) : array => [
 					'app' => \mb_substr($value, 8)
+				]
+			],
+			'AppVersion/' => [
+				'match' => 'any',
+				'categories' => fn(string $value) : array => [
+					'appversion' => \explode('/', $value, 2)[1]
 				]
 			],
 			'app_version/' => [

@@ -68,7 +68,12 @@ class platforms {
 			},
 			'android' => function (string $value, int $i, array $tokens) : array {
 				$os = \explode(' ', $value, 3);
-				$device = empty($tokens[++$i]) || \strlen($tokens[$i]) <= 2 ? [] : devices::getDevice($tokens[$i]);
+
+				// skip language
+				if (!empty($tokens[++$i]) && \strlen($tokens[$i]) === 5 && \mb_strpos($tokens[$i], '_') === 2) {
+					$i++;
+				}
+				$device = empty($tokens[$i]) || \strlen($tokens[$i]) <= 2 ? [] : devices::getDevice($tokens[$i]);
 				return \array_merge($device, [
 					'type' => 'human',
 					'platform' => $os[0],

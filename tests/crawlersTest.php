@@ -196,8 +196,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
-				'browserversion' => '80.0.345.0 Mobile',
-				'engineversion' => '80.0.345.0 Mobile'
+				'browserversion' => '80.0.345.0',
+				'engineversion' => '80.0.345.0'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)' => [
 				'type' => 'robot',
@@ -285,7 +285,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -383,7 +383,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -453,7 +453,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -467,7 +467,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -603,7 +603,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -684,7 +684,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 }

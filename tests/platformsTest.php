@@ -366,7 +366,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -598,7 +598,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -674,11 +674,26 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '88.0.4324.93',
 				'engineversion' => '88.0.4324.93',
 				'type' => 'human',
-				'category' => 'mobile'
+				'category' => 'mobile',
+				'language' => 'en',
+				'nettype' => 'WIFI'
+			],
+			'Mozilla/5.0 (linux; u; android 9; zh-cn; v1816a build/pkq1.180819.001) applewebkit/537.36 (khtml, like gecko) version/4.0 chrome/57' => [
+				'type' => 'human',
+				'device' => 'v1816a',
+				'build' => 'pkq1.180819.001',
+				'kernel' => 'Linux',
+				'platform' => 'android',
+				'platformversion' => '9',
+				'engine' => 'WebKit',
+				'engineversion' => '537.36',
+				'browser' => 'Chrome',
+				'browserversion' => '57',
+				'language' => 'zh-CN'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -738,7 +753,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -975,7 +990,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 
@@ -1058,7 +1073,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua)), $ua);
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
 }
