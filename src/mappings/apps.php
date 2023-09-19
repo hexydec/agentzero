@@ -14,13 +14,30 @@ class apps {
 	 */
 	public static function get() : array {
 		$fn = [
-			'appslash' => function (string $value, int $i, array $tokens) : ?array {
+			'appslash' => function (string $value, int $i, array $tokens, string $match) : ?array {
 				if (\mb_stripos($value, 'AppleWebKit') !== 0 && !\str_contains($value, '://')) {
-					$parts = \explode('/', $value, 2);
-					return [
-						'app' => $parts[0],
-						'appversion' => $parts[1] ?? null
+					$parts = \explode('/', $value, 4);
+					$offset = isset($parts[2]) ? 1 : 0;
+					$map = [
+						'YaApp_iOS' => 'Yandex',
+						'YaApp_Android' => 'Yandex',
+						'YaSearchApp' => 'Yandex',
+						'LinkedInApp' => 'LinkedIn',
+						'[LinkedInApp]' => 'LinkedIn',
+						'GoogleApp' => 'Google',
+						'com.zhiliaoapp.musically' => 'TikTok',
+						'com.google.android.apps.searchlite' => 'Google (Lite)',
+						'com.google.photos' => 'Google Photos',
+						'com.google.ios.youtube' => 'YouTube',
+						'AlohaBrowserApp' => 'Aloha'
 					];
+					$app = $parts[0 + $offset];
+					if (\mb_stripos($app, \rtrim($match, '/')) !== false) { // check the match is before the slash
+						return [
+							'app' => $map[$app] ?? $app,
+							'appversion' => $parts[1 + $offset] ?? null
+						];
+					}
 				}
 				return null;
 			},
@@ -71,7 +88,10 @@ class apps {
 			],
 			'GSA/' => [
 				'match' => 'any',
-				'categories' => $fn['appslash']
+				'categories' => fn (string $value) : array => [
+					'app' => 'Google',
+					'appversion' => \mb_substr($value, 4)
+				]
 			],
 			'DuckDuckGo/' => [
 				'match' => 'start',
@@ -102,7 +122,7 @@ class apps {
 
 			// special parser for Facebook app because it is completely different to any other
 			'FBAN/' => [
-				'match' => 'start',
+				'match' => 'any',
 				'categories' => function (string $value) : array {
 					$map = [
 						'FBAN/MessengerLiteForiOS' => [
@@ -130,6 +150,12 @@ class apps {
 							'type' => 'human',
 							'category' => 'desktop',
 							'app' => 'Facebook Messenger Desktop'
+						],
+						'FacebookCanvasDesktop FBAN/GamesWindowsDesktopApp' => [
+							'type' => 'human',
+							'platform' => 'Windows',
+							'category' => 'desktop',
+							'app' => 'Facebook Gamesroom'
 						]
 					];
 					return $map[$value] ?? [
@@ -246,10 +272,18 @@ class apps {
 					'app' => $value
 				]
 			],
+
+			// TikTok
 			'AppName/' => [
 				'match' => 'start',
 				'categories' => fn(string $value) : array => [
-					'app' => \mb_substr($value, 8)
+					'app' => $value === 'AppName/musical_ly' ? 'TikTok' : \mb_substr($value, 8)
+				]
+			],
+			'app_version/' => [
+				'match' => 'start',
+				'categories' => fn(string $value) : array => [
+					'appversion' => \mb_substr($value, 12)
 				]
 			],
 			'AppVersion/' => [
@@ -258,10 +292,11 @@ class apps {
 					'appversion' => \explode('/', $value, 2)[1]
 				]
 			],
-			'app_version/' => [
+			'musical_ly' => [
 				'match' => 'start',
 				'categories' => fn(string $value) : array => [
-					'appversion' => \mb_substr($value, 12)
+					'app' => 'TikTok',
+					'appversion' => \str_replace('_', '.', \mb_substr(\explode(' ', $value, 2)[0], 11))
 				]
 			],
 				

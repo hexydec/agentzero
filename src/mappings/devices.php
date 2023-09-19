@@ -450,7 +450,8 @@ class devices {
 			'moto' => 'Motorola',
 			'Intel' => 'Intel',
 			'SonyEricsson' => 'Sony Ericsson',
-			'Tecno' => 'Tecno'
+			'Tecno' => 'Tecno',
+			'Vivo' => 'Vivo'
 		];
 		$vendor = null;
 		foreach ($vendors AS $key => $item) {

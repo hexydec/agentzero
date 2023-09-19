@@ -65,7 +65,7 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Cronet',
 				'browserversion' => 'TTNetVersion:07232c86',
 				'language' => 'en',
-				'app' => 'com.zhiliaoapp.musically',
+				'app' => 'TikTok',
 				'appversion' => '2022706030'
 			]
 		];

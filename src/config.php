@@ -29,8 +29,8 @@ class config {
 					browsers::get(),
 					platforms::get(),
 					architectures::get(),
-					apps::get(),
-					other::get()
+					other::get(),
+					apps::get()
 				)
 			];
 		}

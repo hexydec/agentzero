@@ -661,7 +661,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; Android 10; ART-L29 Build/HUAWEIART-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 trill_2022707020 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/27.7.2 ByteLocale/en ByteFullLocale/en Region/IQ BytedanceWebview/d8a21c6' => [
-				'app' => 'musical_ly',
+				'app' => 'TikTok',
 				'appversion' => '27.7.2',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -987,6 +987,20 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'x86',
 				'bits' => 32,
 				'language' => 'en-US'
+			],
+			'Mozilla/5.0 (X11; U; Linux i686; sv-SE; rv:1.8.0.5) Gecko/20060731 Ubuntu/dapper-security Firefox/52.7.3' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 32,
+				'kernel' => 'Linux',
+				'platform' => 'Ubuntu',
+				'platformversion' => 'dapper-security',
+				'engine' => 'Gecko',
+				'engineversion' => '20060731',
+				'browser' => 'Firefox',
+				'browserversion' => '52.7.3',
+				'language' => 'sv-SE'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

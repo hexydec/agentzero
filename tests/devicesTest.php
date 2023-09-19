@@ -29,7 +29,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '604.1'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/243.0.495136164 Mobile/15E148 Safari/604.1' => [
-				'app' => 'GSA',
+				'app' => 'Google',
 				'appversion' => '243.0.495136164',
 				'type' => 'human',
 				'category' => 'mobile',

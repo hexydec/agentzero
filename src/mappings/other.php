@@ -25,16 +25,24 @@ class other {
 						// decode JSON
 						if (($data = \json_decode($json, true)) !== null) {
 							$data = \array_change_key_case((array) $data);
-							$mappings = [
+							$map = [
 								'os' => 'platform',
 								'osversion' => 'platformversion',
 								'isdarktheme' => 'darkmode'
 							];
 							$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion', 'darkmode'];
+							$values = [
+								'com.google.GoogleMobile' => 'Google',
+								'com.google.android.gms' => 'Google',
+								'com.google.chrome.ios' => 'Chrome',
+								'com.google.Gmail' => 'Gmail',
+								'com.google.photos' => 'Google Photos',
+								'com.google.ios.youtube' => 'YouTube',
+							];
 							$cat = [];
 							foreach ($fields AS $item) {
 								if (isset($data[$item])) {
-									$cat[$mappings[$item] ?? $item] = $data[$item];
+									$cat[$map[$item] ?? $item] = $values[$data[$item]] ?? $data[$item];
 								}
 							}
 							return $cat;

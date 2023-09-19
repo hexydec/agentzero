@@ -18,7 +18,7 @@ class browsers {
 				if (($browser = \mb_strrchr($value, ' ')) !== false) {
 					$value = \ltrim($browser);
 				}
-				$parts = \explode('/', $value, 3); // split more incase there are more slashes
+				$parts = \explode('/', $value); // split more incase there are more slashes
 				$map = [
 					'opr' => 'Opera',
 					'crios' => 'Chrome',
@@ -38,11 +38,17 @@ class browsers {
 					'k-meleon' => 'K-Meleon',
 					'samsungbrowser' => 'Samsung Browser'
 				];
-				return [
-					'type' => 'human',
-					'browser' => $map[\mb_strtolower($parts[0])] ?? \mb_convert_case($parts[0], MB_CASE_TITLE),
-					'browserversion' => $parts[1] ?? null
-				];
+				$data = ['type' => 'human'];
+				$browser = \mb_strtolower(\array_shift($parts));
+				$data['browser'] = $map[$browser] ?? \mb_convert_case($browser, MB_CASE_TITLE);
+				$data['browserversion'] = null;
+				foreach ($parts AS $item) {
+					if (\strpbrk($item, '1234567890') !== false) {
+						$data['browserversion'] = $item;
+						break;
+					}
+				}
+				return $data;
 			},
 			'presto' => function (string $value) : array {
 				$parts = \explode('/', $value, 2);

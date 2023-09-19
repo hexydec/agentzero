@@ -37,7 +37,7 @@ class platforms {
 					'category' => 'desktop',
 					'kernel' => 'Linux',
 					'platform' => $parts[0] === 'Web0S' ? 'WebOS' : $parts[0],
-					'platformversion' => isset($parts[1]) && \strspn($parts[1], '0123456789.-_') > 0 ? $parts[1] : null
+					'platformversion' => $parts[1] ?? null
 				];
 			},
 			'platformwindows' => function (string $value) : array {

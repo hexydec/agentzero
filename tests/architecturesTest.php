@@ -610,7 +610,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '46.0.2486.0'
 			],
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 YaApp_Android/23.12.1 YaSearchBrowser/23.12.1 BroPP/1.0 SA/3 Mobile Safari/537.36' => [
-				'app' => 'YaApp_Android',
+				'app' => 'Yandex',
 				'appversion' => '23.12.1',
 				'platform' => 'Android',
 				'platformversion' => '10',
@@ -626,7 +626,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaSearchBrowser/23.51.1 BroPP/1.0 YaSearchApp/23.51.1 webOmni SA/3 Mobile Safari/537.36' => [
-				'app' => 'YaSearchApp',
+				'app' => 'Yandex',
 				'appversion' => '23.51.1',
 				'platform' => 'Android',
 				'platformversion' => '10',
