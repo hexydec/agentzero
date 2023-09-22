@@ -127,7 +127,7 @@ class apps {
 					$map = [
 						'FBAN/MessengerLiteForiOS' => [
 							'type' => 'human',
-							'app' => 'Facebook Messenger Lite',
+							'app' => 'Facebook Messenger',
 							'platform' => 'iOS'
 						],
 						'FBAN/FB4A' => [
@@ -149,7 +149,7 @@ class apps {
 						'FBAN/MessengerDesktop' => [
 							'type' => 'human',
 							'category' => 'desktop',
-							'app' => 'Facebook Messenger Desktop'
+							'app' => 'Facebook Messenger'
 						],
 						'FacebookCanvasDesktop FBAN/GamesWindowsDesktopApp' => [
 							'type' => 'human',
@@ -179,7 +179,7 @@ class apps {
 			'FBMF/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
-					'vendor' => \mb_substr($value, 5)
+					'vendor' => devices::getVendor(\mb_substr($value, 5))
 				]
 			],
 			'FBDV/' => [

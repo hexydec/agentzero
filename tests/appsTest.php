@@ -157,7 +157,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'[FBAN/FB4A;FBAV/302.0.0.45.119;FBBV/268946150;FBDM/{density=2.55,width=1080,height=1808};FBLC/fr_FR;FBRV/270254211;FBCR/Togocel;FBMF/HUAWEI;FBBD/HUAWEI;FBPN/com.facebook.katana;FBDV/MHA-L29;FBSV/9;FBOP/1;FBCA/armeabi-v7a:armeabi;]' => [
 				'type' => 'human',
-				'vendor' => 'HUAWEI',
+				'vendor' => 'Huawei',
 				'device' => 'MHA-L29',
 				'architecture' => 'arm',
 				'bits' => 32,
@@ -186,7 +186,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '83.0.4103.122',
 				'language' => 'fr-FR',
-				'app' => 'Facebook Messenger Desktop',
+				'app' => 'Facebook Messenger',
 				'appversion' => '97.11.116'
 			],
 			'Mozilla/5.0 (Linux; Android 10; SM-G9600 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/393.0.0.18.92;FB_FW/2;FBAN/FB4A]' => [

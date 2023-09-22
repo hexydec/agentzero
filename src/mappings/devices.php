@@ -451,7 +451,12 @@ class devices {
 			'Intel' => 'Intel',
 			'SonyEricsson' => 'Sony Ericsson',
 			'Tecno' => 'Tecno',
-			'Vivo' => 'Vivo'
+			'Vivo' => 'Vivo',
+			'Huawei' => 'Huawei',
+			'Oppo' => 'Oppo',
+			'Asus' => 'Asus',
+			'Alcatel' => 'Alcatel',
+			'Oppo' => 'Oppo'
 		];
 		$vendor = null;
 		foreach ($vendors AS $key => $item) {
@@ -464,9 +469,26 @@ class devices {
 			}
 		}
 		return [
-			'vendor' => $vendor,
+			'vendor' => $vendor === null ? null : self::getVendor($vendor),
 			'device' => $device[0] === '' ? null : $device[0],
 			'build' => $device[1] ?? null
 		];
+	}
+
+	public static function getVendor(string $value) : string {
+		$map = [
+			'oneplus' => 'OnePlus',
+			'lg' => 'LG',
+			'lge' => 'LG',
+			'realme' => 'RealMe',
+			'htc' => 'HTC',
+			'sonyericsson' => 'Sony Ericsson',
+			'tcl' => 'TCL',
+			'zte' => 'ZTE',
+			'hmd' => 'HMD',
+			'lt' => 'LT'
+		];
+		$value = \mb_strtolower($value);
+		return $map[$value] ?? \mb_convert_case($value, MB_CASE_TITLE);
 	}
 }
