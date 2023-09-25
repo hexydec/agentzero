@@ -14,13 +14,6 @@ class platforms {
 	 */
 	public static function get() : array {
 		$fn = [
-			'platformspace' => function (string $value) : array {
-				$parts = \explode(' ', $value, 2);
-				return [
-					'platform' => $parts[0],
-					'platformversion' => $parts[1] ?? null
-				];
-			},
 			'platformlinux' => function (string $value) : array {
 				if (!\str_starts_with($value, 'Red Hat/') && ($platform = \mb_strstr($value, ' ', true)) !== false) {
 					$value = $platform;
@@ -36,7 +29,7 @@ class platforms {
 					'type' => 'human',
 					'category' => 'desktop',
 					'kernel' => 'Linux',
-					'platform' => $parts[0] === 'Web0S' ? 'WebOS' : $parts[0],
+					'platform' => self::getPlatform($parts[0]),
 					'platformversion' => $parts[1] ?? null
 				];
 			},
@@ -76,7 +69,7 @@ class platforms {
 				$device = empty($tokens[$i]) || \strlen($tokens[$i]) <= 2 ? [] : devices::getDevice($tokens[$i]);
 				return \array_merge($device, [
 					'type' => 'human',
-					'platform' => $os[0],
+					'platform' => 'Android',
 					'platformversion' => $os[1] ?? null
 				]);
 			}
@@ -193,7 +186,7 @@ class platforms {
 						'type' => 'human',
 						'category' => 'desktop',
 						'kernel' => 'Linux',
-						'platform' => $parts[0],
+						'platform' => 'Tizen',
 						'platformversion' => $parts[1] ?? null
 					];
 				}
@@ -253,7 +246,7 @@ class platforms {
 					'type' => 'human',
 					'category' => 'desktop',
 					'kernel' => 'Linux',
-					'platform' => $value,
+					'platform' => 'Arch',
 				]
 			],
 			'Web0S' => [
@@ -299,7 +292,7 @@ class platforms {
 						'type' => 'human',
 						'category' => 'desktop',
 						'kernel' => 'Exec',
-						'platform' => $parts[0],
+						'platform' => 'AmigaOS',
 						'platformversion' => isset($parts[1]) && \strspn($parts[1], '0123456789.-_') === \strlen($parts[1]) ? $parts[1] : null
 					];
 				}
@@ -312,7 +305,7 @@ class platforms {
 						'type' => 'human',
 						'category' => 'mobile',
 						'kernel' => 'Zircon',
-						'platform' => $value,
+						'platform' => 'Fuchsia',
 						'platformversion' => isset($os[1]) && \strspn($os[1], '0123456789.-_', \strlen($os[0])) === \strlen($os[1]) ? $os[1] : null
 					];
 				}
@@ -325,7 +318,7 @@ class platforms {
 						'type' => 'human',
 						'category' => 'mobile',
 						'kernel' => 'Linux',
-						'platform' => $value,
+						'platform' => 'Maemo',
 						'platformversion' => isset($os[1]) && \strspn($os[1], '0123456789.-_', \strlen($os[0])) === \strlen($os[1]) ? $os[1] : null
 					];
 				}
@@ -406,5 +399,19 @@ class platforms {
 				]
 			]
 		];
+	}
+
+	protected static function getPlatform(string $value) : string {
+		$map = [
+			'webos' => 'WebOS',
+			'j2me/midp' => 'J2ME/MIDP',
+			'centos' => 'CentOS',
+			'suse' => 'SUSE',
+			'freebsd' => 'FreeBSD',
+			'openbsd' => 'OpenBSD',
+			'netbsd' => 'NetBSD'
+		];
+		$value = \mb_strtolower($value);
+		return $map[$value] ?? \mb_convert_case($value, MB_CASE_TITLE);
 	}
 }
