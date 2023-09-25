@@ -404,6 +404,7 @@ class platforms {
 	protected static function getPlatform(string $value) : string {
 		$map = [
 			'webos' => 'WebOS',
+			'web0s' => 'WebOS',
 			'j2me/midp' => 'J2ME/MIDP',
 			'centos' => 'CentOS',
 			'suse' => 'SUSE',

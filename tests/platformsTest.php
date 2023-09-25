@@ -683,7 +683,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'v1816a',
 				'build' => 'pkq1.180819.001',
 				'kernel' => 'Linux',
-				'platform' => 'android',
+				'platform' => 'Android',
 				'platformversion' => '9',
 				'engine' => 'WebKit',
 				'engineversion' => '537.36',
