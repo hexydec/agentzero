@@ -638,7 +638,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '11',
 				'vendor' => 'Motorola',
-				'device' => 'one 5G ace',
+				'device' => 'One 5G Ace',
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '108.0.0.0',
@@ -680,7 +680,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (linux; u; android 9; zh-cn; v1816a build/pkq1.180819.001) applewebkit/537.36 (khtml, like gecko) version/4.0 chrome/57' => [
 				'type' => 'human',
-				'device' => 'v1816a',
+				'device' => 'V1816a',
 				'build' => 'pkq1.180819.001',
 				'kernel' => 'Linux',
 				'platform' => 'Android',

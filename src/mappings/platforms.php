@@ -401,7 +401,7 @@ class platforms {
 		];
 	}
 
-	protected static function getPlatform(string $value) : string {
+	public static function getPlatform(string $value) : string {
 		$map = [
 			'webos' => 'WebOS',
 			'web0s' => 'WebOS',

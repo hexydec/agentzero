@@ -433,12 +433,14 @@ class devices {
 		$vendors = [
 			'Samsung' => 'Samsung',
 			'OnePlus' => 'OnePlus',
+			'Oppo' => 'Oppo',
 			'CPH' =>'OnePlus',
 			'KB' => 'OnePlus',
 			'Pixel' => 'Google',
 			'SM-' => 'Samsung',
 			'LM-' => 'LG',
 			'LG' => 'LG',
+			'RealMe' => 'RealMe',
 			'RMX' => 'RealMe',
 			'HTC' => 'HTC',
 			'Nexus' => 'Google',
@@ -456,21 +458,23 @@ class devices {
 			'Oppo' => 'Oppo',
 			'Asus' => 'Asus',
 			'Alcatel' => 'Alcatel',
-			'Oppo' => 'Oppo'
+			'Xiaomi' => 'Xiaomi',
+			'Infinix' => 'Infinix',
+			'Poco' => 'Poco'
 		];
 		$vendor = null;
 		foreach ($vendors AS $key => $item) {
 			if (($pos = \mb_stripos($value, $key)) !== false) {
 				$vendor = $item;
 				if ($pos === 0 && ($key === $item || $key === 'SonyEricsson')) {
-					$device[0] = \trim(\mb_substr($device[0], \mb_strlen($key)), ' -_');
+					$device[0] = \trim(\mb_substr($device[0], \mb_strlen($key)), ' -_/');
 				}
 				break;
 			}
 		}
 		return [
 			'vendor' => $vendor === null ? null : self::getVendor($vendor),
-			'device' => $device[0] === '' ? null : $device[0],
+			'device' => $device[0] === '' ? null : \ucwords($device[0]),
 			'build' => $device[1] ?? null
 		];
 	}

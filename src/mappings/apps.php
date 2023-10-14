@@ -70,17 +70,42 @@ class apps {
 			'Instagram' => [
 				'match' => 'any',
 				'categories' => function (string $value, int $i, array $tokens) : array {
+					$parts = \explode(' ', $value, 4);
 					$data = [
+						'type' => 'human',
 						'app' => 'Instagram',
-						'appversion' => \explode(' ', $value, 3)[1] ?? null
+						'appversion' => $parts[1] ?? null,
+						'platform' => empty($parts[2]) ? null : platforms::getPlatform($parts[2])
 					];
-					foreach (\array_slice($tokens, $i + 1) AS $item) {
-						if (\str_starts_with($item, 'scale=')) {
+					foreach (\array_slice($tokens, $i + 1) AS $key => $item) {
+						if (($ipados = \str_starts_with($item, 'iPadOS')) || \str_starts_with($item, 'iOS ')) {
+							$data['kernel'] = 'Linux';
+							$data['platform'] = 'iOS';
+							$data['platformversion'] = \str_replace('_', '.', \mb_substr($item, $ipados ? 7 : 4));
+							$data['density'] = \floatval(\mb_substr($item, 6));
+						} elseif (($iphone = \str_starts_with($item, 'iPhone')) || ($ipad = \str_starts_with($item, 'iPad')) || \str_starts_with($item, 'iPod')) {
+							$data['vendor'] = 'Apple';
+							$data['category'] = empty($ipad) ? 'mobile' : 'tablet';
+							$data['device'] = $iphone ? 'iPhone' : ($ipad ? 'iPad' : 'iPod');
+							$data['model'] = \str_replace(',', '.', \mb_substr($item, $iphone ? 6 : 4));
+							$data['architecture'] = 'arm';
+							$data['bits'] = 64;
+						} elseif (\str_starts_with($item, 'scale=')) {
 							$data['density'] = \floatval(\mb_substr($item, 6));
 						} elseif (\str_ends_with($item, 'dpi')) {
 							$data['dpi'] = \intval(\mb_substr($item, 0, -3));
 						} elseif (\str_contains($item, 'x') && \strspn($item, '0123456789x') === \strlen($item)) {
 							list($data['width'], $data['height']) = \array_map('intval', \explode('x', $item, 2));
+
+							// get device when the UA string starts with "Instagram"
+							if ($i === 0 && !isset($data['vendor'])) {
+								$device = [
+									\trim(\mb_strstr($tokens[$key + 2] ?? '', '/') ?: $tokens[$key + 2] ?? '', '/ '), // sometimes the vendor name has a / with the correct name after
+									$tokens[$key + 3] ?? null
+								];
+								$data = \array_merge($data, devices::getDevice(\implode(' ', \array_filter($device))));
+								break;
+							}
 						}
 					}
 					return $data;

@@ -64,7 +64,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Motorola',
-				'device' => 'moto e5 play',
+				'device' => 'Moto E5 Play',
 				'build' => 'ODPS27.91-121-2',
 				'kernel' => 'Linux',
 				'platform' => 'Android',

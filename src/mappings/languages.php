@@ -133,7 +133,8 @@ class languages {
 			'cy' => 'Welsh',
 			'xh' => 'Xhosa',
 			'ji' => 'Yiddish',
-			'zu' => 'Zulu'
+			'zu' => 'Zulu',
+			'in' => 'India'
 		];
 		$fn = [
 			'match' => 'start',

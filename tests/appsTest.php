@@ -318,7 +318,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '264.3.0.19.104',
 				'width' => 1334,
 				'height' => 750,
-				'density' => 2
+				'density' => 2.0
 			],
 			'Mozilla/5.0 (Linux; Android 12; 2109119DG Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 Instagram 264.0.0.22.106 Android (31/12; 440dpi; 1080x2166; Xiaomi; 2109119DG; lisa; qcom; zh_CN; 430370703)' => [
 				'type' => 'human',
@@ -338,6 +338,95 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'width' => 1080,
 				'height' => 2166,
 				'dpi' => 440
+			],
+			'Instagram 301.1.0.33.110 Android (31/12; 480dpi; 1080x2156; TECNO; TECNO KH7; TECNO-KH7; mt6769; ar_EG; 517986598)' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Tecno',
+				'device' => 'KH7',
+				'platform' => 'Android',
+				'language' => 'ar-EG',
+				'app' => 'Instagram',
+				'appversion' => '301.1.0.33.110',
+				'width' => 1080,
+				'height' => 2156,
+				'dpi' => 480
+			],
+			'Instagram 302.0.0.34.111 Android (30/11; 320dpi; 720x1448; realme; RMX3501; RE549C; ums9230_nico; en_US; 520175232)' => [
+				'type' => 'human',
+				'vendor' => 'RealMe',
+				'device' => 'RMX3501',
+				'platform' => 'Android',
+				'language' => 'en-US',
+				'app' => 'Instagram',
+				'appversion' => '302.0.0.34.111',
+				'width' => 720,
+				'height' => 1448,
+				'dpi' => 320
+			],
+			'Instagram 301.1.0.24.111 (iPhone12,5; iOS 16_6_1; en_US; en; scale=3.00; 1242x2688; 518059364) AppleWebKit/420+' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '12',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '16.6.1',
+				'engine' => 'WebKit',
+				'engineversion' => '420+',
+				'language' => 'en-US',
+				'app' => 'Instagram',
+				'appversion' => '301.1.0.24.111',
+				'width' => 1242,
+				'height' => 2688,
+				'density' => 3.0
+			],
+			'Instagram 300.0.0.15.103 (iPad8,11; iPadOS 17_0; en_HK; en; scale=2.00; 780x1688; 514327624) AppleWebKit/420+' => [
+				'type' => 'human',
+				'category' => 'tablet',
+				'vendor' => 'Apple',
+				'device' => 'iPad',
+				'model' => '8',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '17.0',
+				'engine' => 'WebKit',
+				'engineversion' => '420+',
+				'language' => 'en-HK',
+				'app' => 'Instagram',
+				'appversion' => '300.0.0.15.103',
+				'width' => 780,
+				'height' => 1688,
+				'density' => 2.0
+			],
+			'Instagram 301.1.0.33.110 Android (33/13; 480dpi; 1080x2167; Xiaomi/POCO; M2102J20SG; vayu; qcom; in_ID; 517986598)' => [
+				'type' => 'human',
+				'vendor' => 'Poco',
+				'device' => 'M2102J20SG',
+				'platform' => 'Android',
+				'language' => 'in-ID',
+				'app' => 'Instagram',
+				'appversion' => '301.1.0.33.110',
+				'width' => 1080,
+				'height' => 2167,
+				'dpi' => 480
+			],
+			'Instagram 301.1.0.33.110 Android (29/10; 320dpi; 720x1464; INFINIX MOBILITY LIMITED/Infinix; Infinix X692; Infinix-X692; mt6769; ar_EG; 517986700)' => [
+				'type' => 'human',
+				'vendor' => 'Infinix',
+				'device' => 'Infinix X692',
+				'platform' => 'Android',
+				'language' => 'ar-EG',
+				'app' => 'Instagram',
+				'appversion' => '301.1.0.33.110',
+				'width' => 720,
+				'height' => 1464,
+				'dpi' => 320
 			]
 		];
 		foreach ($strings AS $ua => $item) {

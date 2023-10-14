@@ -372,6 +372,10 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn['scraper']
 			],
+			'libcurl/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
 			'feed' => [
 				'match' => 'any',
 				'categories' => $fn['feed']

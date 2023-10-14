@@ -235,7 +235,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '11',
 				'vendor' => 'Motorola',
-				'device' => 'one 5G ace',
+				'device' => 'One 5G Ace',
 				'kernel' => 'Linux',
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
