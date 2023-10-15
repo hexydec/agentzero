@@ -22,6 +22,7 @@ class apps {
 						'YaApp_iOS' => 'Yandex',
 						'YaApp_Android' => 'Yandex',
 						'YaSearchApp' => 'Yandex',
+						'YaBrowser' => 'Yandex',
 						'LinkedInApp' => 'LinkedIn',
 						'[LinkedInApp]' => 'LinkedIn',
 						'GoogleApp' => 'Google',
@@ -29,11 +30,13 @@ class apps {
 						'com.google.android.apps.searchlite' => 'Google (Lite)',
 						'com.google.photos' => 'Google Photos',
 						'com.google.ios.youtube' => 'YouTube',
+						'com.google.GoogleMobile' => 'Google',
 						'AlohaBrowserApp' => 'Aloha'
 					];
 					$app = $parts[0 + $offset];
 					if (\mb_stripos($app, \rtrim($match, '/')) !== false) { // check the match is before the slash
 						return [
+							'type' => 'human',
 							'app' => $map[$app] ?? $app,
 							'appversion' => $parts[1 + $offset] ?? null
 						];
@@ -63,8 +66,16 @@ class apps {
 					return $data;
 				}
 			],
-			'com.google.android.apps.' => [
-				'match' => 'any',
+			'com.google.GoogleMobile/' => [
+				'match' => 'start',
+				'categories' => function (string $value, int $i, array $tokens, string $match) use ($fn) : array {
+					return \array_merge($fn['appslash']($value, $i, $tokens, $match), [
+						'category' => 'mobile'
+					]);
+				}
+			],
+			'com.google.' => [
+				'match' => 'start',
 				'categories' => $fn['appslash']
 			],
 			'Instagram' => [
@@ -126,6 +137,10 @@ class apps {
 				'match' => 'start',
 				'categories' => $fn['appslash']
 			],
+			'Emacs/' => [
+				'match' => 'start',
+				'categories' => $fn['appslash']
+			],
 			'AndroidDownloadManager/' => [
 				'match' => 'start',
 				'categories' => $fn['appslash']
@@ -142,6 +157,30 @@ class apps {
 				'categories' => fn (string $value) : array => [
 					'app' => 'Zoom',
 					'appversion' => \mb_substr($value, 5)
+				]
+			],
+			'OculusBrowser/' => [
+				'match' => 'start',
+				'categories' => $fn['appslash']
+			],
+			'YaBrowser/' => [
+				'match' => 'start',
+				'categories' => $fn['appslash']
+			],
+			'choqok/' => [
+				'match' => 'start',
+				'categories' => $fn['appslash']
+			],
+			'PowerShell/' => [
+				'match' => 'start',
+				'categories' => $fn['appslash']
+			],
+			'Quora ' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'type' => 'human',
+					'app' => 'Quora',
+					'appversion' => \explode(' ', $value, 3)[1]
 				]
 			],
 

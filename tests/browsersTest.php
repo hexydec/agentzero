@@ -828,7 +828,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Linux',
 				'architecture' => 'x86',
 				'bits' => 64,
-				'browser' => 'Iceweasel',
+				'browser' => 'IceWeasel',
 				'browserversion' => '5.0',
 				'engine' => 'Gecko',
 				'engineversion' => '5.0'
@@ -843,7 +843,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 32,
 				'engine' => 'Gecko',
 				'engineversion' => '20061024',
-				'browser' => 'Iceweasel',
+				'browser' => 'IceWeasel',
 				'browserversion' => '2.0',
 				'language' => 'en-US'
 			],
@@ -854,7 +854,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Linux',
 				'architecture' => 'x86',
 				'bits' => 64,
-				'browser' => 'Iceweasel',
+				'browser' => 'IceWeasel',
 				'browserversion' => '009654',
 				'engine' => 'Gecko',
 				'engineversion' => '38.0'
@@ -972,73 +972,6 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testYaBrowser() : void {
-		$strings = [
-			'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 YaBrowser/23.7.0.2564 Yowser/2.5 Safari/537.36' => [
-				'type' => 'human',
-				'category' => 'desktop',
-				'kernel' => 'Windows NT',
-				'platform' => 'Windows',
-				'platformversion' => '10',
-				'architecture' => 'x86',
-				'bits' => 64,
-				'browser' => 'Yandex',
-				'browserversion' => '23.7.0.2564',
-				'engine' => 'Blink',
-				'engineversion' => '115.0.0.0'
-			],
-			'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 YaBrowser/23.7.0.2564 Yowser/2.5 Safari/537.36' => [
-				'device' => 'Macintosh',
-				'type' => 'human',
-				'category' => 'desktop',
-				'kernel' => 'Linux',
-				'vendor' => 'Apple',
-				'platform' => 'Mac OS X',
-				'platformversion' => '13.5',
-				'processor' => 'Intel',
-				'architecture' => 'x86',
-				'browser' => 'Yandex',
-				'browserversion' => '23.7.0.2564',
-				'engine' => 'Blink',
-				'engineversion' => '115.0.0.0'
-			],
-			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 YaBrowser/23.7.4.478 Mobile/15E148 Safari/604.1' => [
-				'type' => 'human',
-				'category' => 'mobile',
-				'architecture' => 'arm',
-				'bits' => 64,
-				'kernel' => 'Linux',
-				'platform' => 'iOS',
-				'platformversion' => '16.6',
-				'vendor' => 'Apple',
-				'device' => 'iPhone',
-				'model' => '15E148',
-				'engine' => 'WebKit',
-				'engineversion' => '605.1.15',
-				'browser' => 'Yandex',
-				'browserversion' => '23.7.4.478'
-			],
-			'Mozilla/5.0 (Linux; arm_64; Android 13; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.136 YaBrowser/21.3.4.59 Mobile Safari/537.36' => [
-				'type' => 'human',
-				'category' => 'mobile',
-				'platform' => 'Android',
-				'platformversion' => '13',
-				'vendor' =>'Samsung',
-				'device' => 'SM-G965F',
-				'kernel' => 'Linux',
-				'architecture' => 'arm',
-				'bits' => 64,
-				'browser' => 'Yandex',
-				'browserversion' => '21.3.4.59',
-				'engine' => 'Blink',
-				'engineversion' => '115.0.5790.136'
-			]
-		];
-		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
-		}
-	}
-
 	public function testNetscape() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; AmigaOS x86_64) (KHTML, somewhat like Gecko) Netscape/69.42.13' => [
@@ -1106,6 +1039,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Haiku',
+				'architecture' => 'x86',
+				'bits' => 32,
 				'platform' => 'Haiku',
 				'platformversion' => 'R1',
 				'engine' => 'WebKit',
@@ -1176,8 +1111,10 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '10',
 				'kernel' => 'Linux',
-				'browser' => 'OculusBrowser',
-				'browserversion' => '13.0.0.2.16.259832224',
+				'browser' => 'Samsung Browser',
+				'browserversion' => '4.0',
+				'app' => 'OculusBrowser',
+				'appversion' => '13.0.0.2.16.259832224',
 				'engine' => 'Blink',
 				'engineversion' => '87.0.4280.66'
 			],
@@ -1189,8 +1126,10 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '10',
 				'kernel' => 'Linux',
-				'browser' => 'OculusBrowser',
-				'browserversion' => '19.1.0.1.50.350517500',
+				'browser' => 'Samsung Browser',
+				'browserversion' => '4.0',
+				'app' => 'OculusBrowser',
+				'appversion' => '19.1.0.1.50.350517500',
 				'engine' => 'Blink',
 				'engineversion' => '96.0.4664.174'
 			],
@@ -1202,8 +1141,10 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'vendor' => 'Oculus',
 				'device' => 'Go',
 				'kernel' => 'Linux',
-				'browser' => 'OculusBrowser',
-				'browserversion' => '9.2.0.2.122.217074189',
+				'browser' => 'Samsung Browser',
+				'browserversion' => '4.0',
+				'app' => 'OculusBrowser',
+				'appversion' => '9.2.0.2.122.217074189',
 				'engine' => 'Blink',
 				'engineversion' => '81.0.4044.117'
 			]
@@ -1328,6 +1269,18 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'browser' => 'Epiphany',
 				'browserversion' => '605.1.15'
+			],
+			'Mozilla/5.0 (X11; U; Linux; i686; en-US; rv:1.6) Gecko Epiphany/1.2.5' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 32,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'browser' => 'Epiphany',
+				'browserversion' => '1.2.5',
+				'engine' => 'Gecko',
+				'language' => 'en-US'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1616,6 +1569,57 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Lynx',
 				'browserversion' => '91.0.4467.0',
 				'engine' => 'Libwww'
+			],
+			'Mozilla/5.0 (X11; U; Linux arm7tdmi; rv:1.8.1.11) Gecko/20071130 Minimo/0.025' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'arm',
+				'bits' => 32,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Gecko',
+				'engineversion' => '20071130',
+				'browser' => 'Minimo',
+				'browserversion' => '0.025'
+			],
+			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.12) Gecko/20080321 BonEcho/2.0.0.12 (SliTaz GNU/Linux)' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 32,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Gecko',
+				'engineversion' => '20080321',
+				'browser' => 'BonEcho',
+				'browserversion' => '2.0.0.12',
+				'language' => 'en-US'
+			],
+			'Links (2.3pre1; Linux 2.6.38-8-generic x86_64; 170x48)' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'platformversion' => '2.6.38-8-generic',
+				'browser' => 'Links',
+				'browserversion' => '2.3pre1',
+				'width' => 170,
+				'height' => 48
+			],
+			'ELinks (0.11.3; Linux 2.6.22-gentoo-r9 i686; 80x40)' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 32,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'platformversion' => '2.6.22-gentoo-r9',
+				'browser' => 'ELinks',
+				'browserversion' => '0.11.3',
+				'width' => 80,
+				'height' => 40
 			]
 		];
 		foreach ($strings AS $ua => $item) {

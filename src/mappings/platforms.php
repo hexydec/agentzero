@@ -107,6 +107,25 @@ class platforms {
 					'platformversion' => '98'
 				]
 			],
+			'Win32' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'desktop',
+					'architecture' => 'x86',
+					'bits' => 32,
+					'platform' => 'Windows'
+				]
+			],
+			'Win64' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'desktop',
+					'bits' => 64,
+					'platform' => 'Windows'
+				]
+			],
 			'WinNT' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
@@ -228,6 +247,18 @@ class platforms {
 				'categories' => $fn['platformlinux']
 			],
 			'Rocky' => [
+				'match' => 'start',
+				'categories' => $fn['platformlinux']
+			],
+			'Alma' => [
+				'match' => 'start',
+				'categories' => $fn['platformlinux']
+			],
+			'Gentoo' => [
+				'match' => 'start',
+				'categories' => $fn['platformlinux']
+			],
+			'Slackware' => [
 				'match' => 'start',
 				'categories' => $fn['platformlinux']
 			],
@@ -368,10 +399,13 @@ class platforms {
 			],
 			'Linux' => [
 				'match' => 'any',
-				'categories' => [
-					'kernel' => 'Linux',
-					'platform' => 'Linux'
-				]
+				'categories' => function (string $value, int $i, array $tokens) : array {
+					return [
+						'kernel' => 'Linux',
+						'platform' => 'Linux',
+						'platformversion' => \str_contains($tokens[$i + 1] ?? '', '.') && \strspn($tokens[$i + 1], '0123456789.') >= 3 ? \explode(' ', $tokens[$i + 1])[0] : null
+					];
+				}
 			],
 			'X11' => [
 				'match' => 'exact',

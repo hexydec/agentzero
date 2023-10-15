@@ -43,11 +43,24 @@ class crawlers {
 			'ads' => fn (string $value) : array => self::getApp($value, ['category' => 'ads']),
 			'validator' => fn (string $value) : array => self::getApp($value, ['category' => 'validator']),
 			'feed' => fn (string $value) : array => self::getApp($value, ['category' => 'feed']),
-			'crawler' => fn (string $value) : array => self::getApp($value, ['category' => 'crawler']),
+			'crawler' => function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				$map = [
+					'baiduspider' => 'search',
+					'haosouspider' => 'search',
+					'yisouspider' => 'search',
+					'360spider' => 'search',
+					'sogou web spider' => 'search',
+					'bytespider' => 'search',
+				];
+				return self::getApp($value, [
+					'category' => $map[\mb_strtolower($parts[0])] ?? 'crawler'
+				]);
+			},
 			'monitor' => fn (string $value) : array => self::getApp($value, ['category' => 'monitor']),
 			'scraper' => fn (string $value) : array => self::getApp($value, ['category' => 'scraper']),
 			'map' => function (string $value, int $i, array $tokens) : ?array {
-				if (!\str_contains($value, '://')) { // bot will be in the URL
+				if (!\str_contains($value, '://') && \strcasecmp('Cubot', $value) !== 0 && \strcasecmp('Power bot', $value) !== 0) { // bot will be in the URL
 					$parts = \explode('/', $value, 2);
 					$category = [
 						'yacybot' => 'search',
@@ -66,24 +79,18 @@ class crawlers {
 						'DuckDuckGo-Favicons-Bot' => 'search',
 						'coccocbot-image' => 'search',
 						'coccocbot-web' => 'search',
-						'Baiduspider' => 'search',
 						'Applebot' => 'search',
 						'YandexBot' => 'search',
 						'MJ12bot' => 'search',
 						'Mail.RU_Bot' => 'search',
-						'HaosouSpider' => 'search',
-						'360Spider' => 'search',
 						'Exabot' => 'search',
-						'Sogou web spider' => 'search',
 						'UptimeRobot' => 'monitor',
 						'PetalBot' => 'search',
-						'Screaming Frog SEO Spider' => 'crawler',
 						'Twitterbot' => 'feed',
 						'Xbot' => 'feed',
 						'Discordbot' => 'feed',
 						'PRTGCloudBot' => 'monitor',
 						'SematextSyntheticsRobot' => 'monitor',
-						'Bytespider' => 'search',
 						'LinkedInBot' => 'feed',
 						'PaperLiBot' => 'feed',
 						'bitlybot' => 'feed',
@@ -95,10 +102,11 @@ class crawlers {
 						'TelegramBot' => 'feed',
 						'Ruby' => 'scraper',
 						'SEMrushBot' => 'crawler',
-						'Mediatoolkitbot' => 'crawler'
+						'Mediatoolkitbot' => 'crawler',
+						'IPLoggerBot' => 'monitor'
 					];
 					return self::getApp($value, [
-						'category' => $category[$parts[0]] ?? null,
+						'category' => $category[$parts[0]] ?? (\mb_stripos($value, 'crawler') !== false ? 'crawler' : null),
 						'app' => $parts[0]
 					]);
 				}
@@ -134,6 +142,10 @@ class crawlers {
 				'match' => 'exact',
 				'categories' => $fn['feed']
 			],
+			'Google-adstxt' => [
+				'match' => 'exact',
+				'categories' => $fn['ads']
+			],
 			'CFNetwork/' => [
 				'match' => 'start',
 				'categories' => $fn['feed']
@@ -141,6 +153,10 @@ class crawlers {
 			'Siteimprove.com' => [
 				'match' => 'any',
 				'categories' => $fn['crawler']
+			],
+			'CyotekWebCopy' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
 			],
 			'Google Page Speed Insights' => [
 				'match' => 'exact',
@@ -158,11 +174,19 @@ class crawlers {
 				'match' => 'start',
 				'categories' => $fn['scraper']
 			],
+			'jsdom/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
 			'Nessus' => [
 				'match' => 'start',
 				'categories' => $fn['monitor']
 			],
 			'Chrome-Lighthouse' => [
+				'match' => 'start',
+				'categories' => $fn['validator']
+			],
+			'Siege/' => [
 				'match' => 'start',
 				'categories' => $fn['validator']
 			],
@@ -382,14 +406,26 @@ class crawlers {
 			],
 			'spider' => [
 				'match' => 'any',
-				'categories' => $fn['map']
+				'categories' => $fn['crawler']
 			],
 			'crawler' => [
 				'match' => 'any',
 				'categories' => $fn['map']
 			],
-			'bot' => [
+			'bot/' => [
 				'match' => 'any',
+				'categories' => $fn['map']
+			],
+			'bot-' => [
+				'match' => 'any',
+				'categories' => $fn['map']
+			],
+			' bot ' => [
+				'match' => 'any',
+				'categories' => $fn['map']
+			],
+			'bot' => [
+				'match' => 'end',
 				'categories' => $fn['map']
 			],
 		];

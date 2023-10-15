@@ -22,11 +22,9 @@ class browsers {
 				$map = [
 					'opr' => 'Opera',
 					'crios' => 'Chrome',
-					'yabrowser' => 'Yandex',
 					'edg' => 'Edge',
 					'edgios' => 'Edge',
 					'webpositive' => 'WebPositive',
-					'oculusbrowser' => 'OculusBrowser',
 					'nintendobrowser' => 'NintendoBrowser',
 					'samsungbrowser' => 'SamsungBrowser',
 					'up.browser' => 'UP.Browser',
@@ -34,6 +32,9 @@ class browsers {
 					'netfront' => 'NetFront',
 					'seamonkey' => 'SeaMonkey',
 					'icecat' => 'IceCat',
+					'iceape' => 'IceApe',
+					'iceweasel' => 'IceWeasel',
+					'bonecho' => 'BonEcho',
 					'palemoon' => 'PaleMoon',
 					'k-meleon' => 'K-Meleon',
 					'samsungbrowser' => 'Samsung Browser'
@@ -140,11 +141,15 @@ class browsers {
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
-			'Iceweasel/' => [
+			'IceWeasel/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
 			'IceCat/' => [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'IceApe/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
@@ -153,10 +158,6 @@ class browsers {
 				'categories' => $fn['browserslash']
 			],
 			'SeaMonkey/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'YaBrowser/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
@@ -181,10 +182,6 @@ class browsers {
 				'categories' => $fn['browserslash']
 			],
 			'K-Ninja/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'OculusBrowser/' => [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
@@ -264,6 +261,66 @@ class browsers {
 						'engineversion' => $data['browserversion'] ?? null
 					]);
 				}
+			],
+			' Firefox/' =>  [
+				'match' => 'any',
+				'categories' => function (string $value) use ($fn) : array {
+					$data = $fn['browserslash']($value);
+					return \array_merge($data, [
+						'engine' => 'Gecko',
+						'engineversion' => $data['browserversion'] ?? null
+					]);
+				}
+			],
+			'Firefox' =>  [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'engine' => 'Gecko',
+					'browser' => 'Firefox'
+				]
+			],
+			'Minimo/' =>  [
+				'match' => 'start',
+				'categories' => function (string $value) use ($fn) : array {
+					$data = $fn['browserslash']($value);
+					return \array_merge($data, [
+						'engine' => 'Gecko'
+					]);
+				}
+			],
+			'BonEcho/' =>  [
+				'match' => 'start',
+				'categories' => function (string $value) use ($fn) : array {
+					$data = $fn['browserslash']($value);
+					return \array_merge($data, [
+						'engine' => 'Gecko'
+					]);
+				}
+			],
+			'Links/' =>  [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'Links' =>  [
+				'match' => 'exact',
+				'categories' => fn (string $value, int $i, array $tokens) => [
+					'type' => 'human',
+					'browser' => $value,
+					'browserversion' => $tokens[$i + 1]
+				]
+			],
+			'Elinks/' =>  [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'ELinks' =>  [
+				'match' => 'exact',
+				'categories' => fn (string $value, int $i, array $tokens) => [
+					'type' => 'human',
+					'browser' => $value,
+					'browserversion' => $tokens[$i + 1]
+				]
 			],
 			'Edg/' =>  [
 				'match' => 'start',

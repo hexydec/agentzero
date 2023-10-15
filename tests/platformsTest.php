@@ -318,8 +318,10 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'desktop',
 				'architecture' => 'x86',
 				'platformversion' => '10',
-				'browser' => 'Yandex',
-				'browserversion' => '23.5.2.625',
+				'browser' => 'Chrome',
+				'browserversion' => '112.0.0.0',
+				'app' => 'Yandex',
+				'appversion' => '23.5.2.625',
 				'engine' => 'Blink',
 				'engineversion' => '112.0.0.0',
 				'bits' => 64
@@ -690,6 +692,18 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '57',
 				'language' => 'zh-CN'
+			],
+			'Mozilla/5.0 (Linux; Android 6.0; POWER BOT) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'device' => 'POWER BOT',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '6.0',
+				'engine' => 'Blink',
+				'engineversion' => '106.0.0.0',
+				'browser' => 'Chrome',
+				'browserversion' => '106.0.0.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -898,8 +912,10 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'Quest 2',
 				'type' => 'human',
 				'category' => 'vr',
-				'browser' => 'OculusBrowser',
-				'browserversion' => '24.4.0.22.60.426469926',
+				'browser' => 'Samsung Browser',
+				'browserversion' => '4.0',
+				'app' => 'OculusBrowser',
+				'appversion' => '24.4.0.22.60.426469926',
 				'engine' => 'Blink',
 				'engineversion' => '106.0.5249.181',
 				'architecture' => 'x86',
@@ -1001,6 +1017,45 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Firefox',
 				'browserversion' => '52.7.3',
 				'language' => 'sv-SE'
+			],
+			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.2) Gecko Firefox/52.7.0' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 32,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Gecko',
+				'engineversion' => '52.7.0',
+				'browser' => 'Firefox',
+				'browserversion' => '52.7.0',
+				'language' => 'en-US'
+			],
+			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.5) Gecko/2008121718 Gentoo Firefox/50.0' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 32,
+				'kernel' => 'Linux',
+				'platform' => 'Gentoo',
+				'engine' => 'Gecko',
+				'engineversion' => '2008121718',
+				'browser' => 'Firefox',
+				'browserversion' => '50.0',
+				'language' => 'en-US'
+			],
+			'Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.2) Gecko/20090803 Slackware Firefox/52.7.3' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Slackware',
+				'engine' => 'Gecko',
+				'engineversion' => '20090803',
+				'browser' => 'Firefox',
+				'browserversion' => '52.7.3',
+				'language' => 'en-US'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

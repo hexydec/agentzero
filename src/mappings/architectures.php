@@ -18,7 +18,7 @@ class architectures {
 				'match' => 'any',
 				'categories' => [
 					'processor' => 'Intel',
-					'architecture' => 'itanium',
+					'architecture' => 'Itanium',
 					'bits' => 64
 				]
 			],
@@ -83,7 +83,7 @@ class architectures {
 				]
 			],
 			'Intel' => [
-				'match' => 'any',
+				'match' => 'start',
 				'categories' => [
 					'category' => 'desktop',
 					'processor' => 'Intel',
@@ -104,22 +104,6 @@ class architectures {
 					'category' => 'desktop',
 					'architecture' => 'x86',
 					'bits' => 64
-				]
-			],
-			'Win64' => [
-				'match' => 'exact',
-				'categories' => [
-					'category' => 'desktop',
-					'architecture' => 'x86',
-					'bits' => 64
-				]
-			],
-			'Win32' => [
-				'match' => 'exact',
-				'categories' => [
-					'category' => 'desktop',
-					'architecture' => 'x86',
-					'bits' => 32
 				]
 			],
 			'x86' => [

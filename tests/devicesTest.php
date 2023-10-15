@@ -729,6 +729,25 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '74.0.3729.157',
 				'browser' => 'Silk',
 				'browserversion' => '74.3.14'
+			],
+			'Mozilla/5.0 (Linux; Android 10; X30 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 Instagram 292.0.0.31.110 Android (29/10; 480dpi; 1080x2067; CUBOT; X30; X30; mt6771; en_GB; 495673913)' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'device' => 'X30',
+				'build' => 'QP1A.190711.020',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '108.0.5359.128',
+				'browser' => 'Chrome',
+				'browserversion' => '108.0.5359.128',
+				'language' => 'en-GB',
+				'app' => 'Instagram',
+				'appversion' => '292.0.0.31.110',
+				'width' => '1080',
+				'height' => '2067',
+				'dpi' => '480'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

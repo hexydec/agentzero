@@ -457,7 +457,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
-	public function testVerification() : void {
+	public function testValidators() : void {
 		$strings = [
 			'Mozilla/5.0 (compatible; Google-Site-Verification/1.0)' => [
 				'type' => 'robot',
@@ -465,6 +465,16 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Google-Site-Verification',
 				'appversion' => '1.0'
 			],
+			'Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.1.6' => [
+				'type' => 'robot',
+				'category' => 'validator',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'app' => 'Siege',
+				'appversion' => '4.1.6'
+			]
 		];
 		foreach ($strings AS $ua => $item) {
 			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
@@ -600,6 +610,20 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '6.0',
 				'browser' => 'Internet Explorer',
 				'browserversion' => '10.0'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
+
+	public function testScrapers() : void {
+		$strings = [
+			'CyotekWebCopy/1.9 CyotekHTTP/6.4' => [
+				'type' => 'robot',
+				'category' => 'scraper',
+				'app' => 'CyotekWebCopy',
+				'appversion' => '1.9'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

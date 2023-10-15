@@ -34,6 +34,8 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 	- Darwin
 	- CentOS
 	- Rocky
+	- Gentoo
+	- Alma
 - Windows
 - Mac
 - iOS
@@ -70,7 +72,6 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - Netscape
 - WebPositive
 - K-Ninja
-- Oculus Browser
 - Samsung Browser
 - Nintendo Browser
 - Epiphany
@@ -78,6 +79,9 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - NetFront
 - Fennec
 - Lynx
+- Minimo
+- Links
+- Elinks
 
 ## Rendering Engines
 

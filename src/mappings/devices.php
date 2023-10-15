@@ -243,6 +243,24 @@ class devices {
 					'device' => \mb_substr($value, 6)
 				]
 			],
+			'iPhone/' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'platform' => 'iOS',
+					'platformversion' => \mb_substr($value, 7),
+					'vendor' => 'Apple',
+					'device' => 'iPhone'
+				]
+			],
+			'hw/iPhone' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
+					'platform' => 'iOS',
+					'vendor' => 'Apple',
+					'device' => 'iPhone',
+					'model' => \str_replace('_', '.', \mb_substr($value, 9))
+				]
+			],
 			'KFT' => [
 				'match' => 'start',
 				'categories' => $fn['firetablet']
@@ -409,10 +427,21 @@ class devices {
 			],
 			'Build/' => [
 				'match' => 'any',
-				'categories' => function (string $value) : array {
-					return self::getDevice($value);
-				}
+				'categories' => fn (string $value) : array => self::getDevice($value)
 			],
+			'x' => [
+				'match' => 'any',
+				'categories' => function (string $value) : ?array {
+					$parts = \explode('x', $value);
+					if (!isset($parts[2]) && \is_numeric($parts[0]) && \is_numeric($parts[1])) {
+						return [
+							'width' => \intval($parts[0]),
+							'height' => \intval($parts[1])
+						];
+					}
+					return null;
+				}
+			]
 		];
 	}
 
@@ -460,7 +489,8 @@ class devices {
 			'Alcatel' => 'Alcatel',
 			'Xiaomi' => 'Xiaomi',
 			'Infinix' => 'Infinix',
-			'Poco' => 'Poco'
+			'Poco' => 'Poco',
+			'Cubot' => 'Cubot'
 		];
 		$vendor = null;
 		foreach ($vendors AS $key => $item) {

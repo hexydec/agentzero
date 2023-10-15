@@ -199,6 +199,13 @@ class agentzero {
 							}
 							break;
 
+						// match end of token
+						case 'end':
+							if (\str_ends_with($tokenlower, $keylower)) {
+								self::setProps($browser, $item['categories'], $token, $i, $tokens, $key);
+							}
+							break;
+
 						// match anywhere in the string
 						case 'exact':
 							if ($tokenlower === $keylower) {

@@ -129,6 +129,28 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'app' => 'LinkedIn'
+			],
+			'URL/Emacs Emacs/28.2 (X11; x86_64-pc-linux-gnu)' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'app' => 'Emacs',
+				'appversion' => '28.2'
+			],
+			'Mozilla/5.0 (Linux; Linux 4.18.0-305.3.1.el8.x86_64 #1 SMP Tue Jun 1 16:14:33 UTC 2021; en-US) PowerShell/7.3.1' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'platformversion' => '4.18.0-305.3.1.el8.x86_64',
+				'language' => 'en-US',
+				'app' => 'PowerShell',
+				'appversion' => '7.3.1'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -526,6 +548,81 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '27.9.0',
 				'nettype' => '4G',
 				'darkmode' => false
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
+
+	public function testYaBrowser() : void {
+		$strings = [
+			'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 YaBrowser/23.7.0.2564 Yowser/2.5 Safari/537.36' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'app' => 'Yandex',
+				'appversion' => '23.7.0.2564',
+				'browser' => 'Chrome',
+				'browserversion' => '115.0.0.0',
+				'engine' => 'Blink',
+				'engineversion' => '115.0.0.0'
+			],
+			'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 YaBrowser/23.7.0.2564 Yowser/2.5 Safari/537.36' => [
+				'device' => 'Macintosh',
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Linux',
+				'vendor' => 'Apple',
+				'platform' => 'Mac OS X',
+				'platformversion' => '13.5',
+				'processor' => 'Intel',
+				'architecture' => 'x86',
+				'app' => 'Yandex',
+				'appversion' => '23.7.0.2564',
+				'browser' => 'Chrome',
+				'browserversion' => '115.0.0.0',
+				'engine' => 'Blink',
+				'engineversion' => '115.0.0.0'
+			],
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 YaBrowser/23.7.4.478 Mobile/15E148 Safari/604.1' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '16.6',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '15E148',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'app' => 'Yandex',
+				'appversion' => '23.7.4.478',
+				'browser' => 'Safari',
+				'browserversion' => '604.1'
+			],
+			'Mozilla/5.0 (Linux; arm_64; Android 13; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.136 YaBrowser/21.3.4.59 Mobile Safari/537.36' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'platform' => 'Android',
+				'platformversion' => '13',
+				'vendor' =>'Samsung',
+				'device' => 'SM-G965F',
+				'kernel' => 'Linux',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'app' => 'Yandex',
+				'appversion' => '21.3.4.59',
+				'browser' => 'Chrome',
+				'browserversion' => '115.0.5790.136',
+				'engine' => 'Blink',
+				'engineversion' => '115.0.5790.136'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

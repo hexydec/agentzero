@@ -174,7 +174,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Windows',
 				'platformversion' => '8.1',
 				'processor' => 'Intel',
-				'architecture' => 'itanium',
+				'architecture' => 'Itanium',
 				'bits' => 64,
 				'engine' => 'Trident',
 				'engineversion' => '2.0',
@@ -681,7 +681,8 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => 'XP',
-				'architecture' => 'Sun',
+				'architecture' => 'x86',
+				'bits' => 32,
 				'browser' => 'Mozilla',
 				'browserversion' => '3.0',
 				'language' => 'en'

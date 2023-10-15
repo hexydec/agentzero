@@ -159,8 +159,10 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Linux',
 				'engine' => 'Blink',
 				'engineversion' => '108.0.5359.179',
-				'browser' => 'OculusBrowser',
-				'browserversion' => '25.3.0.4.30.438623098'
+				'browser' => 'Samsung Browser',
+				'browserversion' => '4.0',
+				'app' => 'OculusBrowser',
+				'appversion' => '25.3.0.4.30.438623098'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
