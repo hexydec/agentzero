@@ -63,10 +63,12 @@ class platforms {
 				$os = \explode(' ', $value, 3);
 
 				// skip language
-				if (!empty($tokens[++$i]) && \strlen($tokens[$i]) === 5 && \mb_strpos($tokens[$i], '_') === 2) {
+				if (!empty($tokens[++$i]) && (\strlen($tokens[$i]) === 2 || (\strlen($tokens[$i]) === 5 && \mb_strpos($tokens[$i], '_') === 2))) {
 					$i++;
 				}
-				$device = empty($tokens[$i]) || \strlen($tokens[$i]) <= 2 ? [] : devices::getDevice($tokens[$i]);
+
+				// only where the token length is greater than 2, or it doesn't contain a /, or if it does it is Build/
+				$device = empty($tokens[$i]) || \strlen($tokens[$i]) <= 2 || (\str_contains($tokens[$i], '/') && \mb_stripos($tokens[$i], 'Build/') === false) ? [] : devices::getDevice($tokens[$i]);
 				return \array_merge($device, [
 					'type' => 'human',
 					'platform' => 'Android',

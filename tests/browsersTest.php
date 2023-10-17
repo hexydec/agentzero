@@ -9,7 +9,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Nokia',
-				'device' => 'Lumia 929',
+				'device' => 'Lumia',
+				'model' => '929',
 				'platform' => 'Windows Phone',
 				'platformversion' => '8.1',
 				'kernel' => 'Windows NT',
@@ -41,7 +42,6 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Opera/9.80 (Android; Opera Mini/7.7.40394/191.293; U; en) Presto/2.12.423 Version/12.16' => [
 				'platform' => 'Android',
-				'device' => 'Opera Mini/7.7.40394/191.293',
 				'platformversion' => '12.16',
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
@@ -140,7 +140,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Facebook',
 				'appversion' => '397.0.0.23.404',
 				'vendor' => 'Samsung',
-				'device' => 'SM-G770F',
+				'model' => 'SM-G770F',
 				'build' => 'QP1A.190711.020',
 				'platform' => 'Android',
 				'platformversion' => '10',
@@ -164,10 +164,11 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '44.0.2403.157'
 			],
 			'Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko; googleweblight) Chrome/38.0.1025.166 Mobile Safari/535.19' => [
-				'device' => 'Nexus 5',
+				'vendor' => 'Google',
+				'device' => 'Nexus',
+				'model' => '5',
 				'build' => 'JOP40D',
 				'proxy' => 'googleweblight',
-				'vendor' => 'Google',
 				'platform' => 'Android',
 				'platformversion' => '4.2.1',
 				'kernel' => 'Linux',
@@ -364,7 +365,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '13',
 				'vendor' =>'Samsung',
-				'device' => 'SM-S918U1',
+				'model' => 'SM-S918U1',
 				'kernel' => 'Linux',
 				'engine' => 'WebKit',
 				'engineversion' => '606.2.15',
@@ -665,7 +666,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 	public function testUCBrowser() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; U; Android 10; en-US; SCV39 Build/QP1A.190711.020) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.4.0.1306 Mobile Safari/537.36' => [
-				'device' => 'SCV39',
+				'model' => 'SCV39',
 				'build' => 'QP1A.190711.020',
 				'platform' => 'Android',
 				'platformversion' => '10',
@@ -680,7 +681,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			],
 			'Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; HM NOTE 1W Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/11.0.5.850 U3/0.8.0 Mobile Safari/534.30' => [
 				'vendor' => 'Xiaomi',
-				'device' => 'HM NOTE 1W',
+				'device' => 'HM',
+				'model' => 'NOTE 1W',
 				'build' => 'KOT49H',
 				'platform' => 'Android',
 				'platformversion' => '4.4.2',
@@ -694,7 +696,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (Linux; U; Android 12; en-US; 22041216I Build/SP1A.210812.016) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.4.0.1306 Mobile Safari/537.36' => [
-				'device' => '22041216I',
+				'model' => '22041216I',
 				'build' => 'SP1A.210812.016',
 				'platform' => 'Android',
 				'platformversion' => '12',
@@ -1105,7 +1107,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 10; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/13.0.0.2.16.259832224 SamsungBrowser/4.0 Chrome/87.0.4280.66 VR Safari/537.36' => [
 				'vendor' => 'Oculus',
-				'device' => 'Quest 2',
+				'device' => 'Quest',
+				'model' => '2',
 				'type' => 'human',
 				'category' => 'vr',
 				'platform' => 'Android',
@@ -1162,7 +1165,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				 'platform' => 'Android',
 				 'platformversion' => '12',
 				 'vendor' => 'Samsung',
-				 'device' => 'SM-S908E',
+				 'model' => 'SM-S908E',
 				 'kernel' => 'Linux',
 				 'browser' => 'Samsung Browser',
 				 'browserversion' => '19.0',
@@ -1173,7 +1176,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Samsung',
-				'device' => 'SM-A260G',
+				'model' => 'SM-A260G',
 				'build' => 'OPR6',
 				'platform' => 'Android',
 				'platformversion' => '8.1.0',
@@ -1343,13 +1346,13 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Samsung',
-				'device' => 'SGH-A867',
+				'model' => 'SGH-A867',
 				'build' => 'A867UCHJ3',
 				'browser' => 'NetFront',
 				'browserversion' => '35'
 			],
 			'SonyEricssonK310iv/R4DA Browser/NetFront/93.3 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Link/6.3.1.13.0(Linux LLC 1.2)' => [
-				'device' => 'K310iv',
+				'model' => 'K310iv',
 				'vendor' => 'Sony Ericsson',
 				'build' => 'R4DA',
 				'type' => 'human',
@@ -1453,7 +1456,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.1462.62'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.22621' => [
-				'device' => 'Xbox One',
+				'device' => 'Xbox',
+				'model' => 'One',
 				'type' => 'human',
 				'category' => 'console',
 				'vendor' => 'Microsoft',

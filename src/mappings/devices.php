@@ -40,10 +40,11 @@ class devices {
 				];
 			},
 			'xbox' => fn (string $value) : array => [
-				'device' => $value,
 				'type' => 'human',
 				'category' => 'console',
 				'vendor' => 'Microsoft',
+				'device' => 'Xbox',
+				'model' => ($model = \mb_substr($value, 5)) === '' ? null : $model
 			],
 			'playstation' => function (string $value) : array {
 				$parts = \explode(' ', $value);
@@ -55,7 +56,8 @@ class devices {
 					5 => 'FreeBSD'
 				];
 				return [
-					'device' => $parts[0].' '.$parts[1],
+					'device' => $parts[0],
+					'model' => $parts[1] ?? null,
 					'kernel' => 'Linux',
 					'platform' => $platform[\intval($parts[1])] ?? null,
 					'platformversion' => $parts[2] ?? null,
@@ -103,7 +105,8 @@ class devices {
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
 					'vendor' => 'Oculus',
-					'device' => $value,
+					'device' => 'Quest',
+					'model' => ($model = \mb_substr($value, 6)) === '' ? null : $model,
 					'type' => 'human',
 					'category' => 'vr'
 				]
@@ -117,51 +120,61 @@ class devices {
 					'category' => 'vr'
 				]
 			],
-			'Nintendo Wii U' => [
-				'match' => 'exact',
-				'categories' => [
-					'device' => 'Wii U',
+			// 'Nintendo Wii U' => [
+			// 	'match' => 'exact',
+			// 	'categories' => [
+			// 		'device' => 'Wii U',
+			// 		'type' => 'human',
+			// 		'category' => 'console',
+			// 		'architecture' => 'PowerPC',
+			// 		'vendor' => 'Nintendo'
+			// 	]
+			// ],
+			// 'Nintendo WiiU' => [
+			// 	'match' => 'exact',
+			// 	'categories' => [
+			// 		'device' => 'Wii U',
+			// 		'type' => 'human',
+			// 		'category' => 'console',
+			// 		'architecture' => 'PowerPC',
+			// 		'vendor' => 'Nintendo'
+			// 	]
+			// ],
+			// 'Nintendo Wii' => [
+			// 	'match' => 'exact',
+			// 	'categories' => [
+			// 		'device' => 'Wii',
+			// 		'type' => 'human',
+			// 		'category' => 'console',
+			// 		'vendor' => 'Nintendo'
+			// 	]
+			// ],
+			// 'Nintendo 3DS' => [
+			// 	'match' => 'exact',
+			// 	'categories' => [
+			// 		'device' => '3DS',
+			// 		'type' => 'human',
+			// 		'category' => 'console',
+			// 		'vendor' => 'Nintendo'
+			// 	]
+			// ],
+			// 'Nintendo Switch' => [
+			// 	'match' => 'exact',
+			// 	'categories' => [
+			// 		'device' => 'Switch',
+			// 		'type' => 'human',
+			// 		'category' => 'console',
+			// 		'vendor' => 'Nintendo'
+			// 	]
+			// ],
+			'Nintendo' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
 					'type' => 'human',
 					'category' => 'console',
-					'architecture' => 'PowerPC',
-					'vendor' => 'Nintendo'
-				]
-			],
-			'Nintendo WiiU' => [
-				'match' => 'exact',
-				'categories' => [
-					'device' => 'Wii U',
-					'type' => 'human',
-					'category' => 'console',
-					'architecture' => 'PowerPC',
-					'vendor' => 'Nintendo'
-				]
-			],
-			'Nintendo Wii' => [
-				'match' => 'exact',
-				'categories' => [
-					'device' => 'Wii',
-					'type' => 'human',
-					'category' => 'console',
-					'vendor' => 'Nintendo'
-				]
-			],
-			'Nintendo 3DS' => [
-				'match' => 'exact',
-				'categories' => [
-					'device' => '3DS',
-					'type' => 'human',
-					'category' => 'console',
-					'vendor' => 'Nintendo'
-				]
-			],
-			'Nintendo Switch' => [
-				'match' => 'exact',
-				'categories' => [
-					'device' => 'Switch',
-					'type' => 'human',
-					'category' => 'console',
-					'vendor' => 'Nintendo'
+					'vendor' => 'Nintendo',
+					'device' => $value === 'Nintendo WiiU' ? 'Wii U' : \mb_substr($value, 9),
+					'architecture' => \str_ends_with($value, 'U') ? 'PowerPC' : null
 				]
 			],
 			'Xbox Series S' => [
@@ -206,9 +219,8 @@ class devices {
 				'categories' => fn (string $value) : array => [
 					'type' => 'human',
 					'category' => 'tv',
-					'vendor' => 'Google',
-					'device' => 'Chromecast',
-					'model' => \explode(',', \mb_substr($value, 6), 2)[0]
+					'app' => 'Chromecast',
+					'appversion' => \explode(',', \mb_substr($value, 6), 2)[0]
 				]
 			],
 			'ChromeBook' => [
@@ -238,10 +250,18 @@ class devices {
 			],
 			'Apple/' => [
 				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'device' => \mb_substr($value, 6)
-				]
+				'categories' => function (string $value) : array {
+					$value = \mb_substr($value, 6);
+					$split = \strcspn($value, '0123456789');
+					$device = \mb_substr($value, 0, $split);
+					return [
+						'type' => 'human',
+						'category' => $device === 'iPad' ? 'tablet' : 'mobile',
+						'vendor' => 'Apple',
+						'device' => $device,
+						'model' => \mb_substr($value, $split) ?: null
+					];
+				}
 			],
 			'iPhone/' => [
 				'match' => 'start',
@@ -296,12 +316,14 @@ class devices {
 					'build' => $tokens[++$i] ?? null
 				]
 			],
-			'AmigaOneX1000' => [
-				'match' => 'exact',
-				'categories' => [
+			'AmigaOneX' => [
+				'match' => 'start',
+				'categories' => fn (string $value) : array => [
 					'type' => 'human',
 					'category' => 'desktop',
-					'device' => 'AmigaOneX1000'
+					'vendor' => 'A-Eon Technology',
+					'device' => 'AmigaOne',
+					'model' => \mb_substr($value, 8)
 				]
 			],
 			'googleweblight' => [
@@ -315,11 +337,11 @@ class devices {
 				'categories' => function (string $value) : array {
 					$parts = \explode('/', $value, 2);
 					return [
-						'device' => \mb_substr($parts[0], 8),
-						'build' => $parts[1] ?? null,
 						'type' => 'human',
 						'category' => 'mobile',
-						'vendor' => 'Samsung'
+						'vendor' => 'Samsung',
+						'model' => \mb_substr($parts[0], 8),
+						'build' => $parts[1] ?? null,
 					];
 				}
 			],
@@ -343,7 +365,7 @@ class devices {
 						'type' => 'human',
 						'category' => 'mobile',
 						'vendor' => 'Sony Ericsson',
-						'device' => \mb_substr($parts[0], 12),
+						'model' => \mb_substr($parts[0], 12),
 						'build' => $parts[1] ?? null
 					];
 				}
@@ -352,12 +374,12 @@ class devices {
 				'match' => 'exact',
 				'categories' => function (string $value, int $i, array $tokens) : array {
 					$device = $tokens[++$i] ?? null;
-					$platformversion = $tokens[++$i] ?? null;
+					$platformversion = empty($tokens[++$i]) ? null : \mb_substr(\explode(' ', $tokens[$i])[0], 5);
 					$build = $tokens[++$i] ?? null;
 					return [
 						'type' => 'human',
 						'category' => 'tv',
-						'device' => $device,
+						'model' => $device,
 						'build' => $build,
 						'platformversion' => $platformversion,
 						'vendor' => 'LG'
@@ -367,41 +389,37 @@ class devices {
 			'NOKIA' => [
 				'match' => 'start',
 				'categories' => function (string $value) : array {
-					$parts = \explode('/', $value, 2);
-					$device = \trim(\mb_substr($parts[0], 5, \str_ends_with($parts[0], ' Build') ? -6 : null));
-					return [
+					return \array_merge(devices::getDevice($value), [
 						'type' => 'human',
 						'category' => 'mobile',
 						'vendor' => 'Nokia',
-						'device' => $device !== '' ? $device : null,
-						'build' => $parts[1] ?? null,
-					];
+					]);
 				}
 			],
 			'Lumia' => [
 				'match' => 'start',
-				'categories' => fn (string $value) : array => [
+				'categories' => fn (string $value) : array => \array_merge(devices::getDevice($value), [
 					'type' => 'human',
 					'category' => 'mobile',
-					'vendor' => 'Nokia',
-					'device' => $value
-				]
+					'vendor' => 'Nokia'
+				])
 			],
 			'BRAVIA' => [
 				'match' => 'start',
 				'categories' => [
 					'type' => 'human',
 					'category' => 'tv',
-					'vendor' => 'Sony'
+					'vendor' => 'Sony',
+					'device' => 'Bravia'
 				]
 			],
 			'TECNO' => [
 				'match' => 'start',
-				'categories' => fn (string $value) : array => [
+				'categories' => fn (string $value) : array =>  [
 					'type' => 'human',
 					'category' => 'mobile',
 					'vendor' => 'Tecno',
-					'device' => \explode(' ', $value, 2)[1] ?? null
+					'model' => \explode(' ', \str_replace('-', ' ', $value), 2)[1] ?? null
 				]
 			],
 			'ThinkPad' => [
@@ -457,8 +475,9 @@ class devices {
 				return [];
 			}
 		}
-		$device = \explode('Build/', \str_ireplace('build/', 'Build/', $value), 2);
-		$device[0] = \trim($device[0]);
+		$parts = \explode('Build/', \str_ireplace('build/', 'Build/', $value), 2);
+		$parts[0] = \trim($parts[0]);
+		$build = $parts[1] ?? null;
 		$vendors = [
 			'Samsung' => 'Samsung',
 			'OnePlus' => 'OnePlus',
@@ -486,26 +505,48 @@ class devices {
 			'Huawei' => 'Huawei',
 			'Oppo' => 'Oppo',
 			'Asus' => 'Asus',
+			'Acer' => 'Acer',
 			'Alcatel' => 'Alcatel',
 			'Xiaomi' => 'Xiaomi',
 			'Infinix' => 'Infinix',
 			'Poco' => 'Poco',
-			'Cubot' => 'Cubot'
+			'Cubot' => 'Cubot',
+			'Nokia' => 'Nokia'
 		];
+
+		// find vendor
 		$vendor = null;
 		foreach ($vendors AS $key => $item) {
 			if (($pos = \mb_stripos($value, $key)) !== false) {
 				$vendor = $item;
+
+				// remove vendor name
 				if ($pos === 0 && ($key === $item || $key === 'SonyEricsson')) {
-					$device[0] = \trim(\mb_substr($device[0], \mb_strlen($key)), ' -_/');
+					$parts[0] = \trim(\mb_substr($parts[0], \mb_strlen($key)), ' -_/');
 				}
 				break;
 			}
 		}
+		$model = \explode(' ', $parts[0], 2);
+		$device = $model[0] !== '' && \ctype_alpha($model[0]) ? \ucfirst($model[0]) : null; // device name if only letters
+		$model = $device === null ? \implode(' ', $model) : ($model[1] ?? null); // reconstruct remainder of device name
+
+		// remove everything after a slash
+		if ($build === null && \str_contains($model ?? '', '/')) {
+			$model = \mb_strstr($model, '/', true);
+		}
+
+		// special case for SMART TV
+		if (\strcasecmp($device.$model, 'smarttv') === 0) {
+			$device = 'Smart TV';
+			$model = null;
+		}
+		// var_dump($value, $parts, $device, $model);
 		return [
 			'vendor' => $vendor === null ? null : self::getVendor($vendor),
-			'device' => $device[0] === '' ? null : \ucwords($device[0]),
-			'build' => $device[1] ?? null
+			'device' => $device,
+			'model' => $model ? \ucwords($model) : null,
+			'build' => $build
 		];
 	}
 

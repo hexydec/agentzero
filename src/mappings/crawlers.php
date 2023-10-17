@@ -315,8 +315,7 @@ class crawlers {
 				'match' => 'start',
 				'categories' => function (string $value, int $i, array $tokens) : array {
 					$data = [
-						'type' => 'robot',
-						'category' => 'feed'
+						'type' => 'human'
 					];
 					if (\str_contains($value, '/')) {
 						foreach (\array_slice($tokens, $i + 1) AS $item) {

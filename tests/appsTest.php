@@ -8,7 +8,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaSearchBrowser/23.51.1 BroPP/1.0 YaSearchApp/23.51.1 webOmni SA/3 Mobile Safari/537.36' => [
 				'type' => 'human',
 				'category' => 'mobile',
-				'device' => 'M2006C3MNG',
+				'model' => 'M2006C3MNG',
 				'architecture' => 'arm',
 				'bits' => 32,
 				'kernel' => 'Linux',
@@ -24,7 +24,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 YaApp_Android/23.12.1 YaSearchBrowser/23.12.1 BroPP/1.0 SA/3 Mobile Safari/537.36' => [
 				'type' => 'human',
 				'category' => 'mobile',
-				'device' => 'M2006C3MNG',
+				'model' => 'M2006C3MNG',
 				'architecture' => 'arm',
 				'bits' => 32,
 				'kernel' => 'Linux',
@@ -54,7 +54,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'AndroidDownloadManager/11 (Linux; U; Android 11; ONEPLUS A6013 Build/RKQ1.201217.002)' => [
 				'type' => 'human',
 				'vendor' => 'OnePlus',
-				'device' => 'A6013',
+				'model' => 'A6013',
 				'build' => 'RKQ1.201217.002',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -66,7 +66,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'OnePlus',
-				'device' => 'CPH2213',
+				'model' => 'CPH2213',
 				'build' => 'TP1A.220905.001',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -101,7 +101,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Samsung',
-				'device' => 'SM-A520F',
+				'model' => 'SM-A520F',
 				'build' => 'R16NW',
 				'architecture' => 'arm',
 				'bits' => 64,
@@ -180,7 +180,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'[FBAN/FB4A;FBAV/302.0.0.45.119;FBBV/268946150;FBDM/{density=2.55,width=1080,height=1808};FBLC/fr_FR;FBRV/270254211;FBCR/Togocel;FBMF/HUAWEI;FBBD/HUAWEI;FBPN/com.facebook.katana;FBDV/MHA-L29;FBSV/9;FBOP/1;FBCA/armeabi-v7a:armeabi;]' => [
 				'type' => 'human',
 				'vendor' => 'Huawei',
-				'device' => 'MHA-L29',
+				'model' => 'MHA-L29',
 				'architecture' => 'arm',
 				'bits' => 32,
 				'platform' => 'Android',
@@ -215,7 +215,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Samsung',
-				'device' => 'SM-G9600',
+				'model' => 'SM-G9600',
 				'build' => 'QP1A.190711.020',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -247,7 +247,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Samsung',
-				'device' => 'SM-G930F',
+				'model' => 'SM-G930F',
 				'build' => 'NRD90M',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -306,7 +306,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Samsung',
-				'device' => 'SM-N986U',
+				'model' => 'SM-N986U',
 				'build' => 'RP1A.200720.012',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -345,7 +345,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 12; 2109119DG Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 Instagram 264.0.0.22.106 Android (31/12; 440dpi; 1080x2166; Xiaomi; 2109119DG; lisa; qcom; zh_CN; 430370703)' => [
 				'type' => 'human',
 				'category' => 'mobile',
-				'device' => '2109119DG',
+				'model' => '2109119DG',
 				'build' => 'SKQ1.211006.001',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -365,7 +365,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Tecno',
-				'device' => 'KH7',
+				'model' => 'KH7',
 				'platform' => 'Android',
 				'language' => 'ar-EG',
 				'app' => 'Instagram',
@@ -377,7 +377,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'Instagram 302.0.0.34.111 Android (30/11; 320dpi; 720x1448; realme; RMX3501; RE549C; ums9230_nico; en_US; 520175232)' => [
 				'type' => 'human',
 				'vendor' => 'RealMe',
-				'device' => 'RMX3501',
+				'model' => 'RMX3501',
 				'platform' => 'Android',
 				'language' => 'en-US',
 				'app' => 'Instagram',
@@ -429,7 +429,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'Instagram 301.1.0.33.110 Android (33/13; 480dpi; 1080x2167; Xiaomi/POCO; M2102J20SG; vayu; qcom; in_ID; 517986598)' => [
 				'type' => 'human',
 				'vendor' => 'Poco',
-				'device' => 'M2102J20SG',
+				'model' => 'M2102J20SG',
 				'platform' => 'Android',
 				'language' => 'in-ID',
 				'app' => 'Instagram',
@@ -441,7 +441,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'Instagram 301.1.0.33.110 Android (29/10; 320dpi; 720x1464; INFINIX MOBILITY LIMITED/Infinix; Infinix X692; Infinix-X692; mt6769; ar_EG; 517986700)' => [
 				'type' => 'human',
 				'vendor' => 'Infinix',
-				'device' => 'Infinix X692',
+				'model' => 'X692',
 				'platform' => 'Android',
 				'language' => 'ar-EG',
 				'app' => 'Instagram',
@@ -480,7 +480,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'musical_ly_2022706030 AppVersion/2022706030 JsSdk/2.0 NetType/WIFI Channel/googleplay ByteLocale/en Webcast_ByteLocale/en Region/NP App/musical_ly WebcastSDK/2670 Mozilla/5.0 (Linux; Android 10; M2004J19C Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 musical_ly_2022706030 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/27.6.3 ByteLocale/en ByteFullLocale/en Region/NP Spark/1.2.5.3-bugfix AppVersion/27.6.3 PIA/1.5.10 BytedanceWebview/d8a21c6' => [
 				'type' => 'human',
 				'category' => 'mobile',
-				'device' => 'M2004J19C',
+				'model' => 'M2004J19C',
 				'build' => 'QP1A.190711.020',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -498,7 +498,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Vivo',
-				'device' => 'Y85A',
+				'model' => 'Y85A',
 				'build' => 'OPM1.171019.011',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -516,7 +516,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Samsung',
-				'device' => 'SM-A725F',
+				'model' => 'SM-A725F',
 				'build' => 'TP1A.220624.014',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -613,7 +613,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '13',
 				'vendor' =>'Samsung',
-				'device' => 'SM-G965F',
+				'model' => 'SM-G965F',
 				'kernel' => 'Linux',
 				'architecture' => 'arm',
 				'bits' => 64,
@@ -623,6 +623,45 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '115.0.5790.136',
 				'engine' => 'Blink',
 				'engineversion' => '115.0.5790.136'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
+
+	public function testOffice() {
+		$strings = [
+			'Microsoft Office Excel 2014' => [
+				'type' => 'human',
+				'app' => 'Microsoft Office Excel',
+				'appversion' => '2014'
+			],
+			'Microsoft Office Word 2014' => [
+				'type' => 'human',
+				'app' => 'Microsoft Office Word',
+				'appversion' => '2014'
+			],
+			'Microsoft Office/16.0 (Windows NT 10.0; Microsoft Outlook 16.0.16130; Pro)' => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'app' => 'Microsoft Outlook',
+				'appversion' => '16.0.16130'
+			],
+			'Microsoft Office Word/2.70.210 (iOS/16.3.1; Phone; en-GB; AppStore; Apple/iPhone13,2)' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '13',
+				'platform' => 'iOS',
+				'platformversion' => '16.3.1',
+				'language' => 'en-GB',
+				'app' => 'Microsoft Office Word',
+				'appversion' => '2.70.210'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

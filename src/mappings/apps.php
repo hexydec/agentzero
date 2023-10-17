@@ -114,6 +114,11 @@ class apps {
 									\trim(\mb_strstr($tokens[$key + 2] ?? '', '/') ?: $tokens[$key + 2] ?? '', '/ '), // sometimes the vendor name has a / with the correct name after
 									$tokens[$key + 3] ?? null
 								];
+
+								// remove duplicated name
+								if ($device[1] !== null && \mb_stripos($device[1], $device[0]) === 0) {
+									unset($device[0]);
+								}
 								$data = \array_merge($data, devices::getDevice(\implode(' ', \array_filter($device))));
 								break;
 							}
@@ -248,9 +253,7 @@ class apps {
 			],
 			'FBDV/' => [
 				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'device' => \mb_substr($value, 5)
-				]
+				'categories' => fn (string $value) : array => devices::getDevice(\mb_substr($value, 5))
 			],
 			'FBMD/' => [
 				'match' => 'start',

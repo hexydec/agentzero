@@ -20,7 +20,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '6.2.3.3.c.1.101',
 				'appversion' => '2.1',
 				'app' => 'Googlebot-Mobile',
-				'device' => 'SGH-E250',
+				'model' => 'SGH-E250',
 				'build' => '1.0',
 				'vendor' => 'Samsung'
 			],
@@ -38,7 +38,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Googlebot',
 				'appversion' => '2.1',
 				'vendor' => 'Google',
-				'device' => 'Nexus 5X',
+				'device' => 'Nexus',
+				'model' => '5X',
 				'build' => 'MMB29P'
 			],
 			'Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)' => [
@@ -161,7 +162,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Storebot-Google',
 				'appversion' => '1.0',
 				'vendor' => 'Google',
-				'device' => 'Pixel 2',
+				'device' => 'Pixel',
+				'model' => '2',
 				'build' => 'OPD3.170816.012',
 				'platform' => 'Android',
 				'platformversion' => '8.0',
@@ -189,7 +191,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '2.0',
 				'url' => 'http://www.bing.com/bingbot.htm',
 				'vendor' => 'Google',
-				'device' => 'Nexus 5X',
+				'device' => 'Nexus',
+				'model' => '5X',
 				'build' => 'MMB29P',
 				'platform' => 'Android',
 				'platformversion' => '6.0.1',
@@ -255,7 +258,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '2.0',
 				'url' => 'http://www.bing.com/bingbot.htm',
 				'vendor' => 'Google',
-				'device' => 'Nexus 5X',
+				'device' => 'Nexus',
+				'model' => '5X',
 				'build' => 'MMB29P',
 				'platform' => 'Android',
 				'platformversion' => '6.0.1',
@@ -326,7 +330,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'feed',
 				'vendor' => 'Google',
-				'device' => 'Nexus 5X',
+				'device' => 'Nexus',
+				'model' => '5X',
 				'build' => 'MMB29P',
 				'platform' => 'Android',
 				'platformversion' => '6.0.1',
@@ -337,12 +342,6 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '80.0.345.0',
 				'app' => 'MicrosoftPreview',
 				'appversion' => '2.0'
-			],
-			'Microsoft Office Excel 2014' => [
-				'type' => 'robot',
-				'category' => 'feed',
-				'app' => 'Microsoft Office Excel',
-				'appversion' => '2014'
 			],
 			'YoFMWhatsApp/2.23.1.76 A' => [
 				'type' => 'robot',
@@ -355,31 +354,6 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'scraper',
 				'app' => 'PycURL',
 				'appversion' => '7.45.2'
-			],
-			'Microsoft Office Word 2014' => [
-				'type' => 'robot',
-				'category' => 'feed',
-				'app' => 'Microsoft Office Word',
-				'appversion' => '2014'
-			],
-			'Microsoft Office/16.0 (Windows NT 10.0; Microsoft Outlook 16.0.16130; Pro)' => [
-				'type' => 'robot',
-				'category' => 'feed',
-				'kernel' => 'Windows NT',
-				'platform' => 'Windows',
-				'platformversion' => '10',
-				'app' => 'Microsoft Outlook',
-				'appversion' => '16.0.16130'
-			],
-			'Microsoft Office Word/2.70.210 (iOS/16.3.1; Phone; en-GB; AppStore; Apple/iPhone13,2)' => [
-				'type' => 'robot',
-				'category' => 'feed',
-				'device' => 'iPhone13',
-				'platform' => 'iOS',
-				'platformversion' => '16.3.1',
-				'language' => 'en-GB',
-				'app' => 'Microsoft Office Word',
-				'appversion' => '2.70.210'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -407,7 +381,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'AdsBot-Google-Mobile',
 				'url' => 'http://www.google.com/mobile/adsbot.html',
 				'vendor' => 'Google',
-				'device' => 'Nexus 5X',
+				'device' => 'Nexus',
+				'model' => '5X',
 				'build' => 'MMB29P',
 				'platform' => 'Android',
 				'platformversion' => '6.0.1',
@@ -441,7 +416,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Adbeat',
 				'url' => 'adbeat.com/policy',
 				'vendor' => 'Samsung',
-				'device' => 'SM-T550',
+				'model' => 'SM-T550',
 				'build' => 'LRX22G',
 				'platform' => 'Android',
 				'platformversion' => '5.0.2',
