@@ -28,6 +28,7 @@ class apps {
 						'GoogleApp' => 'Google',
 						'com.zhiliaoapp.musically' => 'TikTok',
 						'com.google.android.apps.searchlite' => 'Google (Lite)',
+						'com.google.android.googlequicksearchbox' => 'Google (Quick Search Box)',
 						'com.google.photos' => 'Google Photos',
 						'com.google.ios.youtube' => 'YouTube',
 						'com.google.GoogleMobile' => 'Google',
@@ -59,10 +60,6 @@ class apps {
 					$data = [
 						'app' => $value
 					];
-					if (!empty($tokens[$i+1]) && ($json = \json_decode($tokens[$i+1], true)) !== null) {
-						$data['appversion'] = $json['appVersion'] ?? null;
-						$data['darkmode'] = isset($json['isDarkTheme']) ? \boolval($json['isDarkTheme']) : null;
-					}
 					return $data;
 				}
 			],
@@ -127,6 +124,20 @@ class apps {
 					return $data;
 				}
 			],
+			'imoAndroid/' => [
+				'match' => 'start',
+				'categories' => fn (string $value, int $i, array $tokens) : array => \array_merge(
+					isset($tokens[$i + 3]) ? devices::getDevice($tokens[$i + 3]) : [],
+					[
+						'app' => 'imo',
+						'appversion' => \ltrim(\mb_strstr($value, '/'), '/'),
+						'platform' => 'Android',
+						'platformversion' => $tokens[$i + 1] ?? null,
+						'cpu' => $tokens[$i + 11] ?? null,
+						'vendor' => isset($tokens[$i + 4]) ? devices::getVendor($tokens[$i + 4]) : null
+					]
+				)
+			],
 			'GSA/' => [
 				'match' => 'any',
 				'categories' => fn (string $value) : array => [
@@ -187,6 +198,14 @@ class apps {
 					'app' => 'Quora',
 					'appversion' => \explode(' ', $value, 3)[1]
 				]
+			],
+			'AmazonKidsBrowser/' => [
+				'match' => 'start',
+				'categories' => $fn['appslash']
+			],
+			'Viber/' => [
+				'match' => 'start',
+				'categories' => $fn['appslash']
 			],
 
 			// special parser for Facebook app because it is completely different to any other

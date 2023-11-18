@@ -72,7 +72,7 @@ class platforms {
 				return \array_merge($device, [
 					'type' => 'human',
 					'platform' => 'Android',
-					'platformversion' => $os[1] ?? null
+					'platformversion' => isset($os[1]) ? \explode('/', $os[1])[0] : null
 				]);
 			}
 		];

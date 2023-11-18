@@ -183,6 +183,12 @@ class architectures {
 				'categories' => [
 					'processor' => 'Qualcomm'
 				]
+			],
+			'Mhz' => [
+				'match' => 'end',
+				'categories' => fn (string $value) : array => [
+					'cpuclock' => \intval(\mb_substr($value, 0, -3))
+				]
 			]
 		];
 	}

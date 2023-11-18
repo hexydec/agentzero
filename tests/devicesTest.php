@@ -760,6 +760,14 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'width' => '1080',
 				'height' => '2067',
 				'dpi' => '480'
+			],
+			'BlackBerry8320/4.2.2 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/100' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Blackberry',
+				'device' => '8320',
+				'platform' => 'Blackberry OS',
+				'platformversion' => '4.2.2'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

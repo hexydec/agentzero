@@ -16,11 +16,14 @@ class agentzero {
 	public readonly ?string $device;
 	public readonly ?string $model;
 	public readonly ?string $build;
+	public readonly ?int $ram;
 
 	// architecture
 	public readonly ?string $processor;
 	public readonly ?string $architecture;
 	public readonly ?int $bits;
+	public readonly ?string $cpu;
+	public readonly ?int $cpuclock;
 
 	// platform
 	public readonly ?string $kernel;
@@ -66,11 +69,14 @@ class agentzero {
 		$this->device = $data->device ?? null;
 		$this->model = $data->model ?? null;
 		$this->build = $data->build ?? null;
+		$this->ram = $data->ram ?? null;
 
 		// architecture
 		$this->processor = $data->processor ?? null;
 		$this->architecture = $data->architecture ?? null;
 		$this->bits = $data->bits ?? null;
+		$this->cpu = $data->cpu ?? null;
+		$this->cpuclock = $data->cpuclock ?? null;
 
 		// platform
 		$this->kernel = $data->kernel ?? null;
@@ -137,7 +143,7 @@ class agentzero {
 
 		// prepare regexp
 		$single = \implode('|', \array_map('preg_quote', $single));
-		$pattern = '/\{[^}]++\}|[^()\[\];,\/  _-](?:(?<!'.$single.') (?!https?:\/\/)|(?<=[a-z])\([^)]+\)|[^()\[\];,\/ ]*)*[^()\[\];,\/  _-](?:\/[^;,()\[\]  ]++)?/i';
+		$pattern = '/\{[^}]++\}|[^()\[\];,\/  _-](?:(?<!'.$single.') (?!https?:\/\/)|(?<=[a-z])\([^)]+\)|[^()\[\];,\/ ]*)*[^()\[\];,\/  _-](?:\/[^;,()\[\]  ]++)?|[0-9]/i';
 
 		// split up ua string
 		if (\preg_match_all($pattern, $ua, $match)) {

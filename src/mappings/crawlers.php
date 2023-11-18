@@ -15,7 +15,7 @@ class crawlers {
 	 * @return array<string|int|float|null> The $data array with the processed application and version added
 	 */
 	public static function getApp(string $value, array $data = []) : array {
-		if (!\str_contains($value, '://')) { // bot will be in the URL
+		if (!\str_contains($value, '://') && !\str_starts_with($value, 'Chrome/')) { // bot will be in the URL
 			$parts = \explode('/', $value, 2);
 
 			// process version
@@ -396,6 +396,42 @@ class crawlers {
 				'categories' => $fn['scraper']
 			],
 			'libcurl/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'Bun/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'CakePHP' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'cpp-httplib/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'Dart/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'Deno/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'libwww-perl/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'GuzzleHttp/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'Cpanel-HTTP-Client/' => [
+				'match' => 'start',
+				'categories' => $fn['scraper']
+			],
+			'akka-http/' => [
 				'match' => 'start',
 				'categories' => $fn['scraper']
 			],

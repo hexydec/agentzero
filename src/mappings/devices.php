@@ -69,13 +69,19 @@ class devices {
 					'bits' => 64
 				];
 			},
-			'firetablet' => fn (string $value) : array => [
-				'type' => 'human',
-				'category' => 'tablet',
-				'vendor' => 'Amazon',
-				'device' => 'Fire Tablet',
-				'model' => $value
-			]
+			'firetablet' => function (string $value) : ?array {
+				$model = \explode(' ', $value)[0];
+				if (\ctype_alpha($model) && \mb_strlen($model) <= 7) {
+					return [
+						'type' => 'human',
+						'category' => 'tablet',
+						'vendor' => 'Amazon',
+						'device' => 'Fire Tablet',
+						'model' => $model
+					];
+				}
+				return null;
+			}
 		];
 		return [
 			'iPhone' => [
@@ -120,53 +126,6 @@ class devices {
 					'category' => 'vr'
 				]
 			],
-			// 'Nintendo Wii U' => [
-			// 	'match' => 'exact',
-			// 	'categories' => [
-			// 		'device' => 'Wii U',
-			// 		'type' => 'human',
-			// 		'category' => 'console',
-			// 		'architecture' => 'PowerPC',
-			// 		'vendor' => 'Nintendo'
-			// 	]
-			// ],
-			// 'Nintendo WiiU' => [
-			// 	'match' => 'exact',
-			// 	'categories' => [
-			// 		'device' => 'Wii U',
-			// 		'type' => 'human',
-			// 		'category' => 'console',
-			// 		'architecture' => 'PowerPC',
-			// 		'vendor' => 'Nintendo'
-			// 	]
-			// ],
-			// 'Nintendo Wii' => [
-			// 	'match' => 'exact',
-			// 	'categories' => [
-			// 		'device' => 'Wii',
-			// 		'type' => 'human',
-			// 		'category' => 'console',
-			// 		'vendor' => 'Nintendo'
-			// 	]
-			// ],
-			// 'Nintendo 3DS' => [
-			// 	'match' => 'exact',
-			// 	'categories' => [
-			// 		'device' => '3DS',
-			// 		'type' => 'human',
-			// 		'category' => 'console',
-			// 		'vendor' => 'Nintendo'
-			// 	]
-			// ],
-			// 'Nintendo Switch' => [
-			// 	'match' => 'exact',
-			// 	'categories' => [
-			// 		'device' => 'Switch',
-			// 		'type' => 'human',
-			// 		'category' => 'console',
-			// 		'vendor' => 'Nintendo'
-			// 	]
-			// ],
 			'Nintendo' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
@@ -281,15 +240,7 @@ class devices {
 					'model' => \str_replace('_', '.', \mb_substr($value, 9))
 				]
 			],
-			'KFT' => [
-				'match' => 'start',
-				'categories' => $fn['firetablet']
-			],
-			'KFO' => [
-				'match' => 'start',
-				'categories' => $fn['firetablet']
-			],
-			'KFM' => [
+			'KF' => [
 				'match' => 'start',
 				'categories' => $fn['firetablet']
 			],
@@ -350,6 +301,17 @@ class devices {
 				'categories' => fn (string $value) : ?array => \str_starts_with($value, 'SamsungBrowser') ? null : [
 					'vendor' => 'Samsung'
 				]
+			],
+			'SM-' => [
+				'match' => 'start',
+				'categories' => function (string $value) : ?array {
+					$parts = \explode('.', \explode(' ', $value)[0]);
+					return [
+						'vendor' => 'Samsung',
+						'model' => $parts[0],
+						'build' => $parts[1] ?? null
+					];
+				}
 			],
 			'Acer' => [
 				'match' => 'start',
@@ -437,6 +399,20 @@ class devices {
 					];
 				}
 			],
+			'BlackBerry' => [
+				'match' => 'start',
+				'categories' => function (string $value) : array {
+					$parts = \explode('/', $value);
+					return [
+						'type' => 'human',
+						'category' => 'mobile',
+						'vendor' => 'Blackberry',
+						'device' => \mb_substr($parts[0], 10) ?: null,
+						'platform' => 'Blackberry OS',
+						'platformversion' => $parts[1] ?? null
+					];
+				}
+			],
 			'Model/' => [
 				'match' => 'start',
 				'categories' => fn (string $value) : array => [
@@ -459,6 +435,12 @@ class devices {
 					}
 					return null;
 				}
+			],
+			'MB' => [
+				'match' => 'end',
+				'categories' => fn (string $value) : array => [
+					'ram' => \intval(\mb_substr($value, 0, -2))
+				]
 			]
 		];
 	}
@@ -492,8 +474,10 @@ class devices {
 			'RMX' => 'RealMe',
 			'HTC' => 'HTC',
 			'Nexus' => 'Google',
+			'Redmi' => 'Redmi', // must be above 'MI '
 			'MI ' => 'Xiaomi',
 			'HM ' => 'Xiaomi',
+			'Xiaomi' => 'Xiaomi',
 			'Huawei' => 'Huawei',
 			'Honor' => 'Honor',
 			'Motorola' => 'Motorola',
@@ -507,7 +491,6 @@ class devices {
 			'Asus' => 'Asus',
 			'Acer' => 'Acer',
 			'Alcatel' => 'Alcatel',
-			'Xiaomi' => 'Xiaomi',
 			'Infinix' => 'Infinix',
 			'Poco' => 'Poco',
 			'Cubot' => 'Cubot',
@@ -518,7 +501,7 @@ class devices {
 		$vendor = null;
 		foreach ($vendors AS $key => $item) {
 			if (($pos = \mb_stripos($value, $key)) !== false) {
-				$vendor = $item;
+				$vendor = self::getVendor($item);
 
 				// remove vendor name
 				if ($pos === 0 && ($key === $item || $key === 'SonyEricsson')) {
@@ -543,7 +526,7 @@ class devices {
 		}
 		// var_dump($value, $parts, $device, $model);
 		return [
-			'vendor' => $vendor === null ? null : self::getVendor($vendor),
+			'vendor' => $vendor,
 			'device' => $device,
 			'model' => $model ? \ucwords($model) : null,
 			'build' => $build

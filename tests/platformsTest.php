@@ -689,8 +689,8 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '9',
-				'engine' => 'WebKit',
-				'engineversion' => '537.36',
+				'engine' => 'Blink',
+				'engineversion' => '57',
 				'browser' => 'Chrome',
 				'browserversion' => '57',
 				'language' => 'zh-CN'

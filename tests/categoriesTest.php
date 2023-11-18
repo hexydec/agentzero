@@ -33,9 +33,9 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 7.0; Redmi Note 4 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.141 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/396.0.0.21.104;]' => [
 				'type' => 'human',
 				'category' => 'mobile',
-				'vendor' => 'Xiaomi',
-				'device' => 'Redmi',
-				'model' => 'Note 4',
+				'vendor' => 'Redmi',
+				'device' => 'Note',
+				'model' => '4',
 				'build' => 'NRD90M',
 				'kernel' => 'Linux',
 				'platform' => 'Android',

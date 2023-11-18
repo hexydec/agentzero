@@ -24,22 +24,30 @@ class other {
 
 						// decode JSON
 						if (($data = \json_decode($json, true)) !== null) {
+							$cat = [];
 							$data = \array_change_key_case((array) $data);
+
+							// special case for chrome - browser
+							if ($data['app'] === 'com.google.chrome.ios') {
+								$cat['browser'] = 'Chrome';
+								$cat['browserversion'] = $data['appversion'] ?? null;
+								unset($data['app'], $data['appversion']);
+							}
+
+							// map values
 							$map = [
 								'os' => 'platform',
 								'osversion' => 'platformversion',
 								'isdarktheme' => 'darkmode'
 							];
-							$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion', 'darkmode'];
+							$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion', 'isdarktheme'];
 							$values = [
 								'com.google.GoogleMobile' => 'Google',
 								'com.google.android.gms' => 'Google',
-								'com.google.chrome.ios' => 'Chrome',
 								'com.google.Gmail' => 'Gmail',
 								'com.google.photos' => 'Google Photos',
-								'com.google.ios.youtube' => 'YouTube',
+								'com.google.ios.youtube' => 'YouTube'
 							];
-							$cat = [];
 							foreach ($fields AS $item) {
 								if (isset($data[$item])) {
 									$cat[$map[$item] ?? $item] = $values[$data[$item]] ?? $data[$item];

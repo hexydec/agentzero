@@ -151,6 +151,53 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US',
 				'app' => 'PowerShell',
 				'appversion' => '7.3.1'
+			],
+			'imoAndroid/2023.05.1071; 12; REL; Redmi Note 9 Pro Max; Redmi; play; phone; arm64-v8a; excalibur; 2323MHz; 5580MB; SM7125; 8' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Redmi',
+				'device' => 'Note',
+				'model' => '9 Pro Max',
+				'ram' => 5580,
+				'architecture' => 'arm',
+				'bits' => 64,
+				'cpu' => 'SM7125',
+				'cpuclock' => 2323,
+				'platform' => 'Android',
+				'platformversion' => '12',
+				'app' => 'imo',
+				'appversion' => '2023.05.1071'
+			],
+			'imoAndroid/2022.11.1051; 9; REL; TA-1032; Nokia; play; phone; arm64-v8a; MT6737; 1248MHz; 1865MB; MT6737; 4' => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Nokia',
+				'model' => 'TA-1032',
+				'ram' => 1865,
+				'architecture' => 'arm',
+				'bits' => 64,
+				'cpu' => 'MT6737',
+				'cpuclock' => 1248,
+				'platform' => 'Android',
+				'platformversion' => '9',
+				'app' => 'imo',
+				'appversion' => '2022.11.1051'
+			],
+			'com.google.android.googlequicksearchbox/301265987 (Linux; U; Android 13; en_GB; SM-A245F; Build/TP1A.220624.014; Cronet/114.0.5735.84)' => [
+				'type' => 'human',
+				'vendor' => 'Samsung',
+				'model' => 'SM-A245F',
+				'build' => 'TP1A.220624.014',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '13',
+				'engine' => 'Blink',
+				'engineversion' => '114.0.5735.84',
+				'browser' => 'Cronet',
+				'browserversion' => '114.0.5735.84',
+				'language' => 'en-GB',
+				'app' => 'Google (Quick Search Box)',
+				'appversion' => '301265987'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

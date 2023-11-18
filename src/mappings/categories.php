@@ -28,6 +28,13 @@ class categories {
 					'category' => 'mobile'
 				]
 			],
+			'Phone' => [
+				'match' => 'exact',
+				'categories' => [
+					'type' => 'human',
+					'category' => 'mobile'
+				]
+			],
 			'Tablet' => [
 				'match' => 'exact',
 				'categories' => [

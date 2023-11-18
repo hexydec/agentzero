@@ -24,6 +24,7 @@ class browsers {
 					'crios' => 'Chrome',
 					'edg' => 'Edge',
 					'edgios' => 'Edge',
+					'edga' => 'Edge',
 					'webpositive' => 'WebPositive',
 					'nintendobrowser' => 'NintendoBrowser',
 					'samsungbrowser' => 'SamsungBrowser',
@@ -323,6 +324,10 @@ class browsers {
 				]
 			],
 			'Edg/' =>  [
+				'match' => 'start',
+				'categories' => $fn['browserslash']
+			],
+			'EdgA/' =>  [
 				'match' => 'start',
 				'categories' => $fn['browserslash']
 			],
