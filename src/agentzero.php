@@ -232,7 +232,7 @@ class agentzero {
 	 * Sets parsed UA properties, and calls callbacks to generate properties and sets them to the output object
 	 * 
 	 * @param \stdClass $browser A stdClass object to which the properties will be set
-	 * @param MatchValue $props An array of properties or a Closure to generate properties
+	 * @param MatchValue|\Closure $props An array of properties or a Closure to generate properties
 	 * @param string $value The current token value
 	 * @param int $i The ID of the current token
 	 * @param array<string> &$tokens The tokens array

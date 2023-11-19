@@ -14,7 +14,7 @@ class apps {
 	 */
 	public static function get() : array {
 		$fn = [
-			'appslash' => function (string $value, int $i, array $tokens, string $match) : ?array {
+			'appslash' => function (string $value, int $i, array $tokens, string $match) : array {
 				if (\mb_stripos($value, 'AppleWebKit') !== 0 && !\str_contains($value, '://')) {
 					$parts = \explode('/', $value, 4);
 					$offset = isset($parts[2]) ? 1 : 0;
@@ -43,7 +43,7 @@ class apps {
 						];
 					}
 				}
-				return null;
+				return [];
 			},
 			'langslash' => function (string $value) : array {
 				$parts = \explode('-', \str_replace('_', '-', \explode('/', $value, 2)[1]), 4);
@@ -56,7 +56,7 @@ class apps {
 		return [
 			'OcIdWebView' => [
 				'match' => 'exact',
-				'categories' => function (string $value, int $i, array $tokens) : array {
+				'categories' => function (string $value) : array {
 					$data = [
 						'app' => $value
 					];
@@ -86,6 +86,7 @@ class apps {
 						'platform' => empty($parts[2]) ? null : platforms::getPlatform($parts[2])
 					];
 					foreach (\array_slice($tokens, $i + 1) AS $key => $item) {
+						$ipad = null;
 						if (($ipados = \str_starts_with($item, 'iPadOS')) || \str_starts_with($item, 'iOS ')) {
 							$data['kernel'] = 'Linux';
 							$data['platform'] = 'iOS';
@@ -93,7 +94,7 @@ class apps {
 							$data['density'] = \floatval(\mb_substr($item, 6));
 						} elseif (($iphone = \str_starts_with($item, 'iPhone')) || ($ipad = \str_starts_with($item, 'iPad')) || \str_starts_with($item, 'iPod')) {
 							$data['vendor'] = 'Apple';
-							$data['category'] = empty($ipad) ? 'mobile' : 'tablet';
+							$data['category'] = $ipad ? 'tablet' : 'mobile';
 							$data['device'] = $iphone ? 'iPhone' : ($ipad ? 'iPad' : 'iPod');
 							$data['model'] = \str_replace(',', '.', \mb_substr($item, $iphone ? 6 : 4));
 							$data['architecture'] = 'arm';
@@ -130,7 +131,7 @@ class apps {
 					isset($tokens[$i + 3]) ? devices::getDevice($tokens[$i + 3]) : [],
 					[
 						'app' => 'imo',
-						'appversion' => \ltrim(\mb_strstr($value, '/'), '/'),
+						'appversion' => ($ver = \mb_strstr($value, '/')) === false ? $value : \ltrim($ver, '/'),
 						'platform' => 'Android',
 						'platformversion' => $tokens[$i + 1] ?? null,
 						'cpu' => $tokens[$i + 11] ?? null,

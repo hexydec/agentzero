@@ -27,7 +27,6 @@ class browsers {
 					'edga' => 'Edge',
 					'webpositive' => 'WebPositive',
 					'nintendobrowser' => 'NintendoBrowser',
-					'samsungbrowser' => 'SamsungBrowser',
 					'up.browser' => 'UP.Browser',
 					'ucbrowser' => 'UCBrowser',
 					'netfront' => 'NetFront',

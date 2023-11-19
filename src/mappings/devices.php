@@ -304,7 +304,7 @@ class devices {
 			],
 			'SM-' => [
 				'match' => 'start',
-				'categories' => function (string $value) : ?array {
+				'categories' => function (string $value) : array {
 					$parts = \explode('.', \explode(' ', $value)[0]);
 					return [
 						'vendor' => 'Samsung',
@@ -463,7 +463,6 @@ class devices {
 		$vendors = [
 			'Samsung' => 'Samsung',
 			'OnePlus' => 'OnePlus',
-			'Oppo' => 'Oppo',
 			'CPH' =>'OnePlus',
 			'KB' => 'OnePlus',
 			'Pixel' => 'Google',
@@ -486,7 +485,6 @@ class devices {
 			'SonyEricsson' => 'Sony Ericsson',
 			'Tecno' => 'Tecno',
 			'Vivo' => 'Vivo',
-			'Huawei' => 'Huawei',
 			'Oppo' => 'Oppo',
 			'Asus' => 'Asus',
 			'Acer' => 'Acer',

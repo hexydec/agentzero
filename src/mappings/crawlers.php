@@ -59,7 +59,7 @@ class crawlers {
 			},
 			'monitor' => fn (string $value) : array => self::getApp($value, ['category' => 'monitor']),
 			'scraper' => fn (string $value) : array => self::getApp($value, ['category' => 'scraper']),
-			'map' => function (string $value, int $i, array $tokens) : ?array {
+			'map' => function (string $value) : ?array {
 				if (!\str_contains($value, '://') && \strcasecmp('Cubot', $value) !== 0 && \strcasecmp('Power bot', $value) !== 0) { // bot will be in the URL
 					$parts = \explode('/', $value, 2);
 					$category = [
