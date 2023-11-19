@@ -3,14 +3,14 @@ declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 /**
- * @phpstan-import-type MatchConfig from config
+ * @phpstan-import-type props from config
  */
 class devices {
 
 	/**
 	 * Generates a configuration array for matching devices
 	 * 
-	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 * @return props An array with keys representing the string to match, and a value of an array containing parsing and output settings
 	 */
 	public static function get() : array {
 		$fn = [
@@ -84,364 +84,232 @@ class devices {
 			}
 		];
 		return [
-			'iPhone' => [
-				'match' => 'exact',
-				'categories' => $fn['ios']
-			],
-			'iPad' => [
-				'match' => 'exact',
-				'categories' => $fn['ios']
-			],
-			'iPod' => [
-				'match' => 'exact',
-				'categories' => $fn['ios']
-			],
-			'iPod touch' => [
-				'match' => 'exact',
-				'categories' => $fn['ios']
-			],
-			'Macintosh' => [
-				'match' => 'exact',
-				'categories' => [
+			'iPhone' => new props('exact', $fn['ios']),
+			'iPad' => new props('exact', $fn['ios']),
+			'iPod' => new props('exact', $fn['ios']),
+			'iPod touch' => new props('exact', $fn['ios']),
+			'Macintosh' => new props('exact', [
+				'vendor' => 'Apple',
+				'device' => 'Macintosh'
+			]),
+			'Quest' => new props('start', fn (string $value) : array => [
+				'vendor' => 'Oculus',
+				'device' => 'Quest',
+				'model' => ($model = \mb_substr($value, 6)) === '' ? null : $model,
+				'type' => 'human',
+				'category' => 'vr'
+			]),
+			'Pacific' => new props('start', [
+				'vendor' => 'Oculus',
+				'device' => 'Go',
+				'type' => 'human',
+				'category' => 'vr'
+			]),
+			'Nintendo' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'console',
+				'vendor' => 'Nintendo',
+				'device' => $value === 'Nintendo WiiU' ? 'Wii U' : \mb_substr($value, 9),
+				'architecture' => \str_ends_with($value, 'U') ? 'PowerPC' : null
+			]),
+			'Xbox Series S' => new props('exact', $fn['xbox']),
+			'Xbox Series X' => new props('exact', $fn['xbox']),
+			'Xbox One' => new props('exact', $fn['xbox']),
+			'Xbox 360' => new props('exact', $fn['xbox']),
+			'Xbox' => new props('exact', $fn['xbox']),
+			'Playstation 4' => new props('start', $fn['playstation']),
+			'Playstation 5' => new props('start', $fn['playstation']),
+			'SHIELD Android TV' => new props('start', [
+				'type' => 'human',
+				'category' => 'console',
+				'vendor' => 'NVIDIA',
+				'device' => 'Shield'
+			]),
+			'CrKey/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'tv',
+				'app' => 'Chromecast',
+				'appversion' => \explode(',', \mb_substr($value, 6), 2)[0]
+			]),
+			'ChromeBook' => new props('any', [
+				'type' => 'human',
+				'category' => 'desktop'
+			]),
+			'GoogleTV' => new props('exact', [
+				'type' => 'human',
+				'category' => 'tv',
+				'device' => 'GoogleTV'
+			]),
+			'CriKey/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'tv',
+				'device' => 'Chromecast',
+				'vendor' => 'Google',
+				'platformversion' => \mb_substr($value, 7)
+			]),
+			'Apple/' => new props('start', function (string $value) : array {
+				$value = \mb_substr($value, 6);
+				$split = \strcspn($value, '0123456789');
+				$device = \mb_substr($value, 0, $split);
+				return [
+					'type' => 'human',
+					'category' => $device === 'iPad' ? 'tablet' : 'mobile',
 					'vendor' => 'Apple',
-					'device' => 'Macintosh'
-				]
-			],
-			'Quest' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'vendor' => 'Oculus',
-					'device' => 'Quest',
-					'model' => ($model = \mb_substr($value, 6)) === '' ? null : $model,
-					'type' => 'human',
-					'category' => 'vr'
-				]
-			],
-			'Pacific' => [
-				'match' => 'start',
-				'categories' => [
-					'vendor' => 'Oculus',
-					'device' => 'Go',
-					'type' => 'human',
-					'category' => 'vr'
-				]
-			],
-			'Nintendo' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'category' => 'console',
-					'vendor' => 'Nintendo',
-					'device' => $value === 'Nintendo WiiU' ? 'Wii U' : \mb_substr($value, 9),
-					'architecture' => \str_ends_with($value, 'U') ? 'PowerPC' : null
-				]
-			],
-			'Xbox Series S' => [
-				'match' => 'exact',
-				'categories' => $fn['xbox']
-			],
-			'Xbox Series X' => [
-				'match' => 'exact',
-				'categories' => $fn['xbox']
-			],
-			'Xbox One' => [
-				'match' => 'exact',
-				'categories' => $fn['xbox']
-			],
-			'Xbox 360' => [
-				'match' => 'exact',
-				'categories' => $fn['xbox']
-			],
-			'Xbox' => [
-				'match' => 'exact',
-				'categories' => $fn['xbox']
-			],
-			'Playstation 4' => [
-				'match' => 'start',
-				'categories' => $fn['playstation']
-			],
-			'Playstation 5' => [
-				'match' => 'start',
-				'categories' => $fn['playstation']
-			],
-			'SHIELD Android TV' => [
-				'match' => 'start',
-				'categories' => [
-					'type' => 'human',
-					'category' => 'console',
-					'vendor' => 'NVIDIA',
-					'device' => 'Shield'
-				]
-			],
-			'CrKey/' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'category' => 'tv',
-					'app' => 'Chromecast',
-					'appversion' => \explode(',', \mb_substr($value, 6), 2)[0]
-				]
-			],
-			'ChromeBook' => [
-				'match' => 'any',
-				'categories' => [
-					'type' => 'human',
-					'category' => 'desktop'
-				]
-			],
-			'GoogleTV' => [
-				'match' => 'exact',
-				'categories' => [
-					'type' => 'human',
-					'category' => 'tv',
-					'device' => 'GoogleTV'
-				]
-			],
-			'CriKey/' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'category' => 'tv',
-					'device' => 'Chromecast',
-					'vendor' => 'Google',
-					'platformversion' => \mb_substr($value, 7)
-				]
-			],
-			'Apple/' => [
-				'match' => 'start',
-				'categories' => function (string $value) : array {
-					$value = \mb_substr($value, 6);
-					$split = \strcspn($value, '0123456789');
-					$device = \mb_substr($value, 0, $split);
-					return [
-						'type' => 'human',
-						'category' => $device === 'iPad' ? 'tablet' : 'mobile',
-						'vendor' => 'Apple',
-						'device' => $device,
-						'model' => \mb_substr($value, $split) ?: null
-					];
-				}
-			],
-			'iPhone/' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'platform' => 'iOS',
-					'platformversion' => \mb_substr($value, 7),
-					'vendor' => 'Apple',
-					'device' => 'iPhone'
-				]
-			],
-			'hw/iPhone' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'platform' => 'iOS',
-					'vendor' => 'Apple',
-					'device' => 'iPhone',
-					'model' => \str_replace('_', '.', \mb_substr($value, 9))
-				]
-			],
-			'KF' => [
-				'match' => 'start',
-				'categories' => $fn['firetablet']
-			],
-			'AFT' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'category' => 'tv',
-					'vendor' => 'Amazon',
-					'device' => 'Fire TV',
-					'model' => $value
-				]
-			],
-			'Roku/' => [
-				'match' => 'start',
-				'categories' => fn (string $value, int $i, array $tokens) : array => [
-					'type' => 'human',
-					'category' => 'tv',
-					'kernel' => 'Linux',
-					'platform' => 'Roku OS',
-					'platformversion' => \mb_substr($value, 5),
-					'vendor' => 'Roku',
-					'device' => 'Roku',
-					'build' => $tokens[++$i] ?? null
-				]
-			],
-			'AmigaOneX' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'category' => 'desktop',
-					'vendor' => 'A-Eon Technology',
-					'device' => 'AmigaOne',
-					'model' => \mb_substr($value, 8)
-				]
-			],
-			'googleweblight' => [
-				'match' => 'exact',
-				'categories' => [
-					'proxy' => 'googleweblight'
-				]
-			],
-			'SAMSUNG-' => [
-				'match' => 'start',
-				'categories' => function (string $value) : array {
-					$parts = \explode('/', $value, 2);
-					return [
-						'type' => 'human',
-						'category' => 'mobile',
-						'vendor' => 'Samsung',
-						'model' => \mb_substr($parts[0], 8),
-						'build' => $parts[1] ?? null,
-					];
-				}
-			],
-			'Samsung' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : ?array => \str_starts_with($value, 'SamsungBrowser') ? null : [
-					'vendor' => 'Samsung'
-				]
-			],
-			'SM-' => [
-				'match' => 'start',
-				'categories' => function (string $value) : array {
-					$parts = \explode('.', \explode(' ', $value)[0]);
-					return [
-						'vendor' => 'Samsung',
-						'model' => $parts[0],
-						'build' => $parts[1] ?? null
-					];
-				}
-			],
-			'Acer' => [
-				'match' => 'start',
-				'categories' => [
-					'vendor' => 'Acer'
-				]
-			],
-			'SonyEricsson' => [
-				'match' => 'start',
-				'categories' => function (string $value) : array {
-					$parts = \explode('/', $value, 2);
-					return [
-						'type' => 'human',
-						'category' => 'mobile',
-						'vendor' => 'Sony Ericsson',
-						'model' => \mb_substr($parts[0], 12),
-						'build' => $parts[1] ?? null
-					];
-				}
-			],
-			'LGE' => [
-				'match' => 'exact',
-				'categories' => function (string $value, int $i, array $tokens) : array {
-					$device = $tokens[++$i] ?? null;
-					$platformversion = empty($tokens[++$i]) ? null : \mb_substr(\explode(' ', $tokens[$i])[0], 5);
-					$build = $tokens[++$i] ?? null;
-					return [
-						'type' => 'human',
-						'category' => 'tv',
-						'model' => $device,
-						'build' => $build,
-						'platformversion' => $platformversion,
-						'vendor' => 'LG'
-					];
-				}
-			],
-			'NOKIA' => [
-				'match' => 'start',
-				'categories' => function (string $value) : array {
-					return \array_merge(devices::getDevice($value), [
-						'type' => 'human',
-						'category' => 'mobile',
-						'vendor' => 'Nokia',
-					]);
-				}
-			],
-			'Lumia' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => \array_merge(devices::getDevice($value), [
+					'device' => $device,
+					'model' => \mb_substr($value, $split) ?: null
+				];
+			}),
+			'iPhone/' => new props('start', fn (string $value) : array => [
+				'platform' => 'iOS',
+				'platformversion' => \mb_substr($value, 7),
+				'vendor' => 'Apple',
+				'device' => 'iPhone'
+			]),
+			'hw/iPhone' => new props('start', fn (string $value) : array => [
+				'platform' => 'iOS',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => \str_replace('_', '.', \mb_substr($value, 9))
+			]),
+			'KF' => new props('start', $fn['firetablet']),
+			'AFT' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'tv',
+				'vendor' => 'Amazon',
+				'device' => 'Fire TV',
+				'model' => $value
+			]),
+			'Roku/' => new props('start', fn (string $value, int $i, array $tokens) : array => [
+				'type' => 'human',
+				'category' => 'tv',
+				'kernel' => 'Linux',
+				'platform' => 'Roku OS',
+				'platformversion' => \mb_substr($value, 5),
+				'vendor' => 'Roku',
+				'device' => 'Roku',
+				'build' => $tokens[++$i] ?? null
+			]),
+			'AmigaOneX' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'vendor' => 'A-Eon Technology',
+				'device' => 'AmigaOne',
+				'model' => \mb_substr($value, 8)
+			]),
+			'googleweblight' => new props('exact', [
+				'proxy' => 'googleweblight'
+			]),
+			'SAMSUNG-' => new props('start', function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				return [
 					'type' => 'human',
 					'category' => 'mobile',
-					'vendor' => 'Nokia'
-				])
-			],
-			'BRAVIA' => [
-				'match' => 'start',
-				'categories' => [
-					'type' => 'human',
-					'category' => 'tv',
-					'vendor' => 'Sony',
-					'device' => 'Bravia'
-				]
-			],
-			'TECNO' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array =>  [
+					'vendor' => 'Samsung',
+					'model' => \mb_substr($parts[0], 8),
+					'build' => $parts[1] ?? null,
+				];
+			}),
+			'Samsung' => new props('start', fn (string $value) : ?array => \str_starts_with($value, 'SamsungBrowser') ? null : [
+				'vendor' => 'Samsung'
+			]),
+			'SM-' => new props('start', function (string $value) : array {
+				$parts = \explode('.', \explode(' ', $value)[0]);
+				return [
+					'vendor' => 'Samsung',
+					'model' => $parts[0],
+					'build' => $parts[1] ?? null
+				];
+			}),
+			'Acer' => new props('start', [
+				'vendor' => 'Acer'
+			]),
+			'SonyEricsson' => new props('start', function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				return [
 					'type' => 'human',
 					'category' => 'mobile',
-					'vendor' => 'Tecno',
-					'model' => \explode(' ', \str_replace('-', ' ', $value), 2)[1] ?? null
-				]
-			],
-			'ThinkPad' => [
-				'match' => 'start',
-				'categories' => function (string $value, int $i, array $tokens) : array {
-					if (\mb_strpos($tokens[++$i] ?? '', 'Build/') === 0) {
-						$device = \explode('_', \mb_substr($tokens[$i], 6));
-					}
+					'vendor' => 'Sony Ericsson',
+					'model' => \mb_substr($parts[0], 12),
+					'build' => $parts[1] ?? null
+				];
+			}),
+			'LGE' => new props('exact', function (string $value, int $i, array $tokens) : array {
+				$device = $tokens[++$i] ?? null;
+				$platformversion = empty($tokens[++$i]) ? null : \mb_substr(\explode(' ', $tokens[$i])[0], 5);
+				$build = $tokens[++$i] ?? null;
+				return [
+					'type' => 'human',
+					'category' => 'tv',
+					'model' => $device,
+					'build' => $build,
+					'platformversion' => $platformversion,
+					'vendor' => 'LG'
+				];
+			}),
+			'NOKIA' => new props('start', function (string $value) : array {
+				return \array_merge(devices::getDevice($value), [
+					'type' => 'human',
+					'category' => 'mobile',
+					'vendor' => 'Nokia',
+				]);
+			}),
+			'Lumia' => new props('start', fn (string $value) : array => \array_merge(devices::getDevice($value), [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Nokia'
+			])),
+			'BRAVIA' => new props('start', [
+				'type' => 'human',
+				'category' => 'tv',
+				'vendor' => 'Sony',
+				'device' => 'Bravia'
+			]),
+			'TECNO' => new props('start', fn (string $value) : array =>  [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Tecno',
+				'model' => \explode(' ', \str_replace('-', ' ', $value), 2)[1] ?? null
+			]),
+			'ThinkPad' => new props('start', function (string $value, int $i, array $tokens) : array {
+				if (\mb_strpos($tokens[++$i] ?? '', 'Build/') === 0) {
+					$device = \explode('_', \mb_substr($tokens[$i], 6));
+				}
+				return [
+					'type' => 'human',
+					'vendor' => 'Lenovo',
+					'device' => $device[0] ?? null,
+					'model' => $device[1] ?? null,
+					'build' => $device[2] ?? null
+				];
+			}),
+			'BlackBerry' => new props('start', function (string $value) : array {
+				$parts = \explode('/', $value);
+				return [
+					'type' => 'human',
+					'category' => 'mobile',
+					'vendor' => 'Blackberry',
+					'device' => \mb_substr($parts[0], 10) ?: null,
+					'platform' => 'Blackberry OS',
+					'platformversion' => $parts[1] ?? null
+				];
+			}),
+			'Model/' => new props('start', fn (string $value) : array => [
+				'model' => \mb_substr($value, 6)
+			]),
+			'Build/' => new props('any', fn (string $value) : array => self::getDevice($value)),
+			'x' => new props('any', function (string $value) : ?array {
+				$parts = \explode('x', $value);
+				if (!isset($parts[2]) && \is_numeric($parts[0]) && \is_numeric($parts[1])) {
 					return [
-						'type' => 'human',
-						'vendor' => 'Lenovo',
-						'device' => $device[0] ?? null,
-						'model' => $device[1] ?? null,
-						'build' => $device[2] ?? null
+						'width' => \intval($parts[0]),
+						'height' => \intval($parts[1])
 					];
 				}
-			],
-			'BlackBerry' => [
-				'match' => 'start',
-				'categories' => function (string $value) : array {
-					$parts = \explode('/', $value);
-					return [
-						'type' => 'human',
-						'category' => 'mobile',
-						'vendor' => 'Blackberry',
-						'device' => \mb_substr($parts[0], 10) ?: null,
-						'platform' => 'Blackberry OS',
-						'platformversion' => $parts[1] ?? null
-					];
-				}
-			],
-			'Model/' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'model' => \mb_substr($value, 6)
-				]
-			],
-			'Build/' => [
-				'match' => 'any',
-				'categories' => fn (string $value) : array => self::getDevice($value)
-			],
-			'x' => [
-				'match' => 'any',
-				'categories' => function (string $value) : ?array {
-					$parts = \explode('x', $value);
-					if (!isset($parts[2]) && \is_numeric($parts[0]) && \is_numeric($parts[1])) {
-						return [
-							'width' => \intval($parts[0]),
-							'height' => \intval($parts[1])
-						];
-					}
-					return null;
-				}
-			],
-			'MB' => [
-				'match' => 'end',
-				'categories' => fn (string $value) : array => [
-					'ram' => \intval(\mb_substr($value, 0, -2))
-				]
-			]
+				return null;
+			}),
+			'MB' => new props('end', fn (string $value) : array => [
+				'ram' => \intval(\mb_substr($value, 0, -2))
+			])
 		];
 	}
 

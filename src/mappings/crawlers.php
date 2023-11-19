@@ -3,7 +3,7 @@ declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 /**
- * @phpstan-import-type MatchConfig from config
+ * @phpstan-import-type props from config
  */
 class crawlers {
 
@@ -35,7 +35,7 @@ class crawlers {
 	/**
 	 * Generates a configuration array for matching crawlers
 	 * 
-	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 * @return props An array with keys representing the string to match, and a value of an array containing parsing and output settings
 	 */
 	public static function get() : array {
 		$fn = [
@@ -114,355 +114,127 @@ class crawlers {
 			}
 		];
 		return [
-			'Yahoo! Slurp' => [
-				'match' => 'exact',
-				'categories' => $fn['search']
-			],
-			'facebookexternalhit/' => [
-				'match' => 'start',
-				'categories' => $fn['feed']
-			],
-			'Google-Site-Verification/' => [
-				'match' => 'start',
-				'categories' => $fn['validator']
-			],
-			'Google-InspectionTool/' => [
-				'match' => 'start',
-				'categories' => $fn['search']
-			],
-			'Mediapartners-Google' => [
-				'match' => 'start',
-				'categories' => $fn['search']
-			],
-			'FeedFetcher-Google' => [
-				'match' => 'exact',
-				'categories' => $fn['feed']
-			],
-			'GoogleProducer' => [
-				'match' => 'exact',
-				'categories' => $fn['feed']
-			],
-			'Google-adstxt' => [
-				'match' => 'exact',
-				'categories' => $fn['ads']
-			],
-			'CFNetwork/' => [
-				'match' => 'start',
-				'categories' => $fn['feed']
-			],
-			'Siteimprove.com' => [
-				'match' => 'any',
-				'categories' => $fn['crawler']
-			],
-			'CyotekWebCopy' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Google Page Speed Insights' => [
-				'match' => 'exact',
-				'categories' => $fn['validator']
-			],
-			'Qwantify' => [
-				'match' => 'start',
-				'categories' => $fn['search']
-			],
-			'okhttp' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'python' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'jsdom/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Nessus' => [
-				'match' => 'start',
-				'categories' => $fn['monitor']
-			],
-			'Chrome-Lighthouse' => [
-				'match' => 'start',
-				'categories' => $fn['validator']
-			],
-			'Siege/' => [
-				'match' => 'start',
-				'categories' => $fn['validator']
-			],
-			'PingdomTMS/' => [
-				'match' => 'start',
-				'categories' => $fn['monitor']
-			],
-			'DynGate' => [
-				'match' => 'exact',
-				'categories' => $fn['monitor']
-			],
-			'Datadog/Synthetics' => [
-				'match' => 'exact',
-				'categories' => [
+			'Yahoo! Slurp' => new props('exact', $fn['search']),
+			'facebookexternalhit/' => new props('start', $fn['feed']),
+			'Google-Site-Verification/' => new props('start', $fn['validator']),
+			'Google-InspectionTool/' => new props('start', $fn['search']),
+			'Mediapartners-Google' => new props('start', $fn['search']),
+			'FeedFetcher-Google' => new props('exact', $fn['feed']),
+			'GoogleProducer' => new props('exact', $fn['feed']),
+			'Google-adstxt' => new props('exact', $fn['ads']),
+			'CFNetwork/' => new props('start', $fn['feed']),
+			'Siteimprove.com' => new props('any', $fn['crawler']),
+			'CyotekWebCopy' => new props('start', $fn['scraper']),
+			'Google Page Speed Insights' => new props('exact', $fn['validator']),
+			'Qwantify' => new props('start', $fn['search']),
+			'okhttp' => new props('start', $fn['scraper']),
+			'python' => new props('start', $fn['scraper']),
+			'jsdom/' => new props('start', $fn['scraper']),
+			'Nessus' => new props('start', $fn['monitor']),
+			'Chrome-Lighthouse' => new props('start', $fn['validator']),
+			'Siege/' => new props('start', $fn['validator']),
+			'PingdomTMS/' => new props('start', $fn['monitor']),
+			'DynGate' => new props('exact', $fn['monitor']),
+			'Datadog/Synthetics' => new props('exact', [
+				'type' => 'robot',
+				'category' => 'monitor',
+				'app' => 'Datadog/Synthetics'
+			]),
+			'RuxitSynthetic/' => new props('start', $fn['monitor']),
+			'Checkly/' => new props('start', $fn['monitor']),
+			'Uptime/' => new props('start', $fn['monitor']),
+			'HostTracker/' => new props('start', $fn['monitor']),
+			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => new props('exact', $fn['monitor']),
+			'Pingdom.com' => new props('start', function (string $value) : array {
+				$version = \explode('_', \trim($value, '_'));
+				return [
 					'type' => 'robot',
 					'category' => 'monitor',
-					'app' => 'Datadog/Synthetics'
-				]
-			],
-			'RuxitSynthetic/' => [
-				'match' => 'start',
-				'categories' => $fn['monitor']
-			],
-			'Checkly/' => [
-				'match' => 'start',
-				'categories' => $fn['monitor']
-			],
-			'Uptime/' => [
-				'match' => 'start',
-				'categories' => $fn['monitor']
-			],
-			'HostTracker/' => [
-				'match' => 'start',
-				'categories' => $fn['monitor']
-			],
-			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => [
-				'match' => 'exact',
-				'categories' => $fn['monitor']
-			],
-			'Pingdom.com' => [
-				'match' => 'start',
-				'categories' => function (string $value) : array {
-					$version = \explode('_', \trim($value, '_'));
-					return [
-						'type' => 'robot',
-						'category' => 'monitor',
-						'app' => 'Pingdom.com Bot',
-						'appversion' => \end($version)
-					];
-				}
-			],
-			'proximic' => [
-				'match' => 'exact',
-				'categories' => $fn['ads']
-			],
-			'WordPress' => [
-				'match' => 'start',
-				'categories' => $fn['monitor']
-			],
-			'PRTG Network Monitor' => [
-				'match' => 'exact',
-				'categories' => $fn['monitor']
-			],
-			'Site24x7' => [
-				'match' => 'exact',
-				'categories' => $fn['monitor']
-			],
-			'StatusCake' => [
-				'match' => 'exact',
-				'categories' => $fn['monitor']
-			],
-			'adbeat.com' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'robot',
-					'category' => 'ads',
-					'app' => 'Adbeat',
-					'url' => $value
-				]
-			],
-			'MicrosoftPreview/' => [
-				'match' => 'start',
-				'categories' => $fn['feed']
-			],
-			'Let\'s Encrypt validation server' => [
-				'match' => 'exact',
-				'categories' => $fn['validator']
-			],
-			'Expanse' => [
-				'match' => 'start',
-				'categories' => $fn['crawler']
-			],
-			'Apache-HttpClient/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'eCairn-Grabber/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'SEOkicks' => [
-				'match' => 'exact',
-				'categories' => $fn['crawler']
-			],
-			'PostmanRuntime/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'axios/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Rogerbot/' => [
-				'match' => 'start',
-				'categories' => $fn['crawler']
-			],
-			'Go-http-client/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'DashLinkPreviews/' => [
-				'match' => 'start',
-				'categories' => $fn['feed']
-			],
-			'Microsoft Office' => [
-				'match' => 'start',
-				'categories' => function (string $value, int $i, array $tokens) : array {
-					$data = [
-						'type' => 'human'
-					];
-					if (\str_contains($value, '/')) {
-						foreach (\array_slice($tokens, $i + 1) AS $item) {
-							if (\str_starts_with($item, 'Microsoft ')) {
-								$parts = \explode(' ', $item);
-								$data['app'] = $parts[0].' '.$parts[1];
-								if (isset($parts[2])) {
-									$data['appversion'] = $parts[2];
-								}
-								break;
-							}
+					'app' => 'Pingdom.com Bot',
+					'appversion' => \end($version)
+				];
+			}),
+			'proximic' => new props('exact', $fn['ads']),
+			'WordPress' => new props('start', $fn['monitor']),
+			'PRTG Network Monitor' => new props('exact', $fn['monitor']),
+			'Site24x7' => new props('exact', $fn['monitor']),
+			'StatusCake' => new props('exact', $fn['monitor']),
+			'adbeat.com' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'ads',
+				'app' => 'Adbeat',
+				'url' => $value
+			]),
+			'MicrosoftPreview/' => new props('start', $fn['feed']),
+			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
+			'Expanse' => new props('start', $fn['crawler']),
+			'Apache-HttpClient/' => new props('start', $fn['scraper']),
+			'eCairn-Grabber/' => new props('start', $fn['scraper']),
+			'SEOkicks' => new props('exact', $fn['crawler']),
+			'PostmanRuntime/' => new props('start', $fn['scraper']),
+			'axios/' => new props('start', $fn['scraper']),
+			'Rogerbot/' => new props('start', $fn['crawler']),
+			'Go-http-client/' => new props('start', $fn['scraper']),
+			'DashLinkPreviews/' => new props('start', $fn['feed']),
+			'Microsoft Office' => new props('start', function (string $value, int $i, array $tokens) : array {
+				$data = [
+					'type' => 'human'
+				];
+				if (\str_contains($value, '/')) {
+					foreach (\array_slice($tokens, $i + 1) AS $item) {
+						if (\str_starts_with($item, 'Microsoft ')) {
+						$parts = \explode(' ', $item);
+						$data['app'] = $parts[0].' '.$parts[1];
+						if (isset($parts[2])) {
+							$data['appversion'] = $parts[2];
 						}
-						if (!isset($data['app'])) {
-							$parts = \explode('/', $value, 2);
-							$data['app'] = $parts[0];
-							if (!isset($data['appversion'])) {
-								$data['appversion'] = $parts[1];
-							}
+						break;
 						}
-					} else {
-						$parts = \explode(' ', $value);
-						$data['app'] = \rtrim($parts[0].' '.($parts[1] ?? '').' '.($parts[2] ?? ''));
-						$data['appversion'] = $parts[3] ?? null;
 					}
-					return $data;
+					if (!isset($data['app'])) {
+						$parts = \explode('/', $value, 2);
+						$data['app'] = $parts[0];
+						if (!isset($data['appversion'])) {
+						$data['appversion'] = $parts[1];
+						}
+					}
+				} else {
+					$parts = \explode(' ', $value);
+					$data['app'] = \rtrim($parts[0].' '.($parts[1] ?? '').' '.($parts[2] ?? ''));
+					$data['appversion'] = $parts[3] ?? null;
 				}
-			],
-			'PycURL/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'lua-resty-http/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Snapchat/' => [
-				'match' => 'start',
-				'categories' => $fn['feed']
-			],
-			'HTTPClient/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'WhatsApp/' => [
-				'match' => 'any',
-				'categories' => $fn['feed']
-			],
-			'Hootsuite-Authoring/' => [
-				'match' => 'start',
-				'categories' => $fn['feed']
-			],
-			'ApacheBench/' => [
-				'match' => 'start',
-				'categories' => $fn['validator']
-			],
-			'Asana/' => [
-				'match' => 'start',
-				'categories' => $fn['feed']
-			],
-			'Java/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'curl/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Wget/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'rest-client/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'ruby/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'libcurl/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Bun/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'CakePHP' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'cpp-httplib/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Dart/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Deno/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'libwww-perl/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'GuzzleHttp/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'Cpanel-HTTP-Client/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'akka-http/' => [
-				'match' => 'start',
-				'categories' => $fn['scraper']
-			],
-			'feed' => [
-				'match' => 'any',
-				'categories' => $fn['feed']
-			],
-			'spider' => [
-				'match' => 'any',
-				'categories' => $fn['crawler']
-			],
-			'crawler' => [
-				'match' => 'any',
-				'categories' => $fn['map']
-			],
-			'bot/' => [
-				'match' => 'any',
-				'categories' => $fn['map']
-			],
-			'bot-' => [
-				'match' => 'any',
-				'categories' => $fn['map']
-			],
-			' bot ' => [
-				'match' => 'any',
-				'categories' => $fn['map']
-			],
-			'bot' => [
-				'match' => 'end',
-				'categories' => $fn['map']
-			],
+				return $data;
+			}),
+			'PycURL/' => new props('start', $fn['scraper']),
+			'lua-resty-http/' => new props('start', $fn['scraper']),
+			'Snapchat/' => new props('start', $fn['feed']),
+			'HTTPClient/' => new props('start', $fn['scraper']),
+			'WhatsApp/' => new props('any', $fn['feed']),
+			'Hootsuite-Authoring/' => new props('start', $fn['feed']),
+			'ApacheBench/' => new props('start', $fn['validator']),
+			'Asana/' => new props('start', $fn['feed']),
+			'Java/' => new props('start', $fn['scraper']),
+			'curl/' => new props('start', $fn['scraper']),
+			'Wget/' => new props('start', $fn['scraper']),
+			'rest-client/' => new props('start', $fn['scraper']),
+			'ruby/' => new props('start', $fn['scraper']),
+			'libcurl/' => new props('start', $fn['scraper']),
+			'Bun/' => new props('start', $fn['scraper']),
+			'CakePHP' => new props('start', $fn['scraper']),
+			'cpp-httplib/' => new props('start', $fn['scraper']),
+			'Dart/' => new props('start', $fn['scraper']),
+			'Deno/' => new props('start', $fn['scraper']),
+			'libwww-perl/' => new props('start', $fn['scraper']),
+			'GuzzleHttp/' => new props('start', $fn['scraper']),
+			'Cpanel-HTTP-Client/' => new props('start', $fn['scraper']),
+			'akka-http/' => new props('start', $fn['scraper']),
+			'feed' => new props('any', $fn['feed']),
+			'spider' => new props('any', $fn['crawler']),
+			'crawler' => new props('any', $fn['map']),
+			'bot/' => new props('any', $fn['map']),
+			'bot-' => new props('any', $fn['map']),
+			' bot ' => new props('any', $fn['map']),
+			'bot' => new props('end', $fn['map']),
 		];
 	}
 }

@@ -186,68 +186,10 @@ class agentzero {
 			// extract UA info
 			$browser = new \stdClass();
 			foreach ($config['match'] AS $key => $item) {
-				$keylower = \mb_strtolower($key);
-				foreach ($tokens AS $i => $token) {
-					$tokenlower = \mb_strtolower($token);
-					switch ($item['match']) {
-
-						// match from start of string
-						case 'start':
-							if (\str_starts_with($tokenlower, $keylower)) {
-								self::setProps($browser, $item['categories'], $token, $i, $tokens, $key);
-							}
-							break;
-
-						// match anywhere in the string
-						case 'any':
-							if (\str_contains($tokenlower, $keylower)) {
-								self::setProps($browser, $item['categories'], $token, $i, $tokens, $key);
-							}
-							break;
-
-						// match end of token
-						case 'end':
-							if (\str_ends_with($tokenlower, $keylower)) {
-								self::setProps($browser, $item['categories'], $token, $i, $tokens, $key);
-							}
-							break;
-
-						// match anywhere in the string
-						case 'exact':
-							if ($tokenlower === $keylower) {
-								self::setProps($browser, $item['categories'], $token, $i, $tokens, $key);
-								break 2;
-							} else {
-								break;
-							}
-					}
-				}
+				$item->match($browser, $key, $tokens);
 			}
 			return new agentzero($browser);
 		}
 		return false;
-	}
-
-	/**
-	 * Sets parsed UA properties, and calls callbacks to generate properties and sets them to the output object
-	 * 
-	 * @param \stdClass $browser A stdClass object to which the properties will be set
-	 * @param MatchValue|\Closure $props An array of properties or a Closure to generate properties
-	 * @param string $value The current token value
-	 * @param int $i The ID of the current token
-	 * @param array<string> &$tokens The tokens array
-	 * @return void
-	 */
-	protected static function setProps(\stdClass $browser, array|\Closure $props, string $value, int $i, array $tokens, string $key) : void {
-		if ($props instanceof \Closure) {
-			$props = $props($value, $i, $tokens, $key);
-		}
-		if (\is_array($props)) {
-			foreach ($props AS $key => $item) {
-				if ($item !== null && !isset($browser->{$key})) {
-					$browser->{$key} = $item;
-				}
-			}
-		}
 	}
 }

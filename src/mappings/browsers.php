@@ -3,14 +3,14 @@ declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 /**
- * @phpstan-import-type MatchConfig from config
+ * @phpstan-import-type props from config
  */
 class browsers {
 
 	/**
 	 * Generates a configuration array for matching browsers
 	 * 
-	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 * @return props An array with keys representing the string to match, and a value of an array containing parsing and output settings
 	 */
 	public static function get() : array {
 		$fn = [
@@ -73,306 +73,132 @@ class browsers {
 			}
 		];
 		return [
-			'HeadlessChrome/' =>  [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'robot',
-					'category' => 'crawler',
-					'browser' => 'HeadlessChrome',
-					'browserversion' => \mb_substr($value, 15)
-				]
-			],
-			'IEMobile/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Opera Mini/' => [
-				'match' => 'start',
-				'categories' => $fn['presto']
-			],
-			'Opera/' => [
-				'match' => 'start',
-				'categories' => $fn['presto']
-			],
-			'OPR/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'CriOS/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Brave/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Vivaldi/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Maxthon/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Maxthon ' =>  [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'browser' => 'Maxthon',
-					'browserversion' => \mb_substr($value, 8)
-				]
-			],
-			'Konqueror/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'K-Meleon/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'UCBrowser/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Waterfox/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'PaleMoon/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'IceWeasel/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'IceCat/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'IceApe/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Basilisk/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'SeaMonkey/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'UP.Browser/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Netscape/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Thunderbird/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Galeon/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'WebPositive/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'K-Ninja/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'SamsungBrowser/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'NintendoBrowser/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Epiphany/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Silk/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'NetFront/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Dooble/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Falkon/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Namoroka/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Lynx/' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'browser' => 'Lynx',
-					'browserversion' => \explode('/', $value, 2)[1] ?? null,
-					'engine' => 'Libwww',
+			'HeadlessChrome/' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'crawler',
+				'browser' => 'HeadlessChrome',
+				'browserversion' => \mb_substr($value, 15)
+			]),
+			'IEMobile/' => new props('start', $fn['browserslash']),
+			'Opera Mini/' => new props('start', $fn['presto']),
+			'Opera/' => new props('start', $fn['presto']),
+			'OPR/' => new props('start', $fn['browserslash']),
+			'CriOS/' => new props('start', $fn['browserslash']),
+			'Brave/' => new props('start', $fn['browserslash']),
+			'Vivaldi/' => new props('start', $fn['browserslash']),
+			'Maxthon/' => new props('start', $fn['browserslash']),
+			'Maxthon ' => new props('start', fn (string $value) : array => [
+				'browser' => 'Maxthon',
+				'browserversion' => \mb_substr($value, 8)
+			]),
+			'Konqueror/' => new props('start', $fn['browserslash']),
+			'K-Meleon/' => new props('start', $fn['browserslash']),
+			'UCBrowser/' => new props('start', $fn['browserslash']),
+			'Waterfox/' => new props('start', $fn['browserslash']),
+			'PaleMoon/' => new props('start', $fn['browserslash']),
+			'IceWeasel/' => new props('start', $fn['browserslash']),
+			'IceCat/' => new props('start', $fn['browserslash']),
+			'IceApe/' => new props('start', $fn['browserslash']),
+			'Basilisk/' => new props('start', $fn['browserslash']),
+			'SeaMonkey/' => new props('start', $fn['browserslash']),
+			'UP.Browser/' => new props('start', $fn['browserslash']),
+			'Netscape/' => new props('start', $fn['browserslash']),
+			'Thunderbird/' => new props('start', $fn['browserslash']),
+			'Galeon/' => new props('start', $fn['browserslash']),
+			'WebPositive/' => new props('start', $fn['browserslash']),
+			'K-Ninja/' => new props('start', $fn['browserslash']),
+			'SamsungBrowser/' => new props('start', $fn['browserslash']),
+			'NintendoBrowser/' => new props('start', $fn['browserslash']),
+			'Epiphany/' => new props('start', $fn['browserslash']),
+			'Silk/' => new props('start', $fn['browserslash']),
+			'NetFront/' => new props('start', $fn['browserslash']),
+			'Dooble/' => new props('start', $fn['browserslash']),
+			'Falkon/' => new props('start', $fn['browserslash']),
+			'Namoroka/' => new props('start', $fn['browserslash']),
+			'Lynx/' => new props('start', fn (string $value) : array => [
+				'browser' => 'Lynx',
+				'browserversion' => \explode('/', $value, 2)[1] ?? null,
+				'engine' => 'Libwww',
+				'type' => 'human',
+				'category' => 'desktop'
+			]),
+			'Midori' => new props('start', function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				return [
 					'type' => 'human',
-					'category' => 'desktop'
-				]
-			],
-			'Midori' => [
-				'match' => 'start',
-				'categories' => function (string $value) : array {
-					$parts = \explode('/', $value, 2);
-					return [
-						'type' => 'human',
-						'browser' => 'Midori',
-						'browserversion' => $parts[1] ?? \explode(' ', $value, 2)[1] ?? null
-					];
-				}
-			],
-			'PrivacyBrowser/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Fennec/' =>  [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'browser' => 'Fennec',
+					'browser' => 'Midori',
+					'browserversion' => $parts[1] ?? \explode(' ', $value, 2)[1] ?? null
+				];
+			}),
+			'PrivacyBrowser/' => new props('start', $fn['browserslash']),
+			'Fennec/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'browser' => 'Fennec',
+				'engine' => 'Gecko',
+				'browserversion' => \mb_substr($value, 7),
+				'engineversion' => \mb_substr($value, 7)
+			]),
+			'Firefox/' => new props('start', function (string $value) use ($fn) : array {
+				$data = $fn['browserslash']($value);
+				return \array_merge($data, [
 					'engine' => 'Gecko',
-					'browserversion' => \mb_substr($value, 7),
-					'engineversion' => \mb_substr($value, 7)
-				]
-			],
-			'Firefox/' =>  [
-				'match' => 'start',
-				'categories' => function (string $value) use ($fn) : array {
-					$data = $fn['browserslash']($value);
-					return \array_merge($data, [
-						'engine' => 'Gecko',
-						'engineversion' => $data['browserversion'] ?? null
-					]);
-				}
-			],
-			' Firefox/' =>  [
-				'match' => 'any',
-				'categories' => function (string $value) use ($fn) : array {
-					$data = $fn['browserslash']($value);
-					return \array_merge($data, [
-						'engine' => 'Gecko',
-						'engineversion' => $data['browserversion'] ?? null
-					]);
-				}
-			],
-			'Firefox' =>  [
-				'match' => 'exact',
-				'categories' => [
-					'type' => 'human',
+					'engineversion' => $data['browserversion'] ?? null
+				]);
+			}),
+			' Firefox/' => new props('any', function (string $value) use ($fn) : array {
+				$data = $fn['browserslash']($value);
+				return \array_merge($data, [
 					'engine' => 'Gecko',
-					'browser' => 'Firefox'
-				]
-			],
-			'Minimo/' =>  [
-				'match' => 'start',
-				'categories' => function (string $value) use ($fn) : array {
-					$data = $fn['browserslash']($value);
-					return \array_merge($data, [
-						'engine' => 'Gecko'
-					]);
-				}
-			],
-			'BonEcho/' =>  [
-				'match' => 'start',
-				'categories' => function (string $value) use ($fn) : array {
-					$data = $fn['browserslash']($value);
-					return \array_merge($data, [
-						'engine' => 'Gecko'
-					]);
-				}
-			],
-			'Links/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Links' =>  [
-				'match' => 'exact',
-				'categories' => fn (string $value, int $i, array $tokens) => [
-					'type' => 'human',
-					'browser' => $value,
-					'browserversion' => $tokens[$i + 1]
-				]
-			],
-			'Elinks/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'ELinks' =>  [
-				'match' => 'exact',
-				'categories' => fn (string $value, int $i, array $tokens) => [
-					'type' => 'human',
-					'browser' => $value,
-					'browserversion' => $tokens[$i + 1]
-				]
-			],
-			'Edg/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'EdgA/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Edge/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'EdgiOS/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'MSIE ' =>  [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'type' => 'human',
-					'browser' => 'Internet Explorer',
-					'browserversion' => \mb_substr($value, 5),
-					'engine' => 'Trident'
-				]
-			],
-			'Cronet/' => [
-				'match' => 'start',
-				'categories' => $fn['chromium']
-			],
-			'Chromium/' => [
-				'match' => 'start',
-				'categories' => $fn['chromium']
-			],
-			'Chrome/' => [
-				'match' => 'start',
-				'categories' => $fn['chromium']
-			],
-			'Safari/' =>  [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'Mozilla/' => [
-				'match' => 'start',
-				'categories' => $fn['browserslash']
-			],
-			'rv:' => [
-				'match' => 'start',
-				'categories' => fn (string $value) : array => [
-					'browserversion' => \mb_substr($value, 3)
-				]
-			]
+					'engineversion' => $data['browserversion'] ?? null
+				]);
+			}),
+			'Firefox' => new props('exact', [
+				'type' => 'human',
+				'engine' => 'Gecko',
+				'browser' => 'Firefox'
+			]),
+			'Minimo/' => new props('start', function (string $value) use ($fn) : array {
+				$data = $fn['browserslash']($value);
+				return \array_merge($data, [
+					'engine' => 'Gecko'
+				]);
+			}),
+			'BonEcho/' => new props('start', function (string $value) use ($fn) : array {
+				$data = $fn['browserslash']($value);
+				return \array_merge($data, [
+					'engine' => 'Gecko'
+				]);
+			}),
+			'Links/' => new props('start', $fn['browserslash']),
+			'Links' => new props('exact', fn (string $value, int $i, array $tokens) => [
+				'type' => 'human',
+				'browser' => $value,
+				'browserversion' => $tokens[$i + 1]
+			]),
+			'Elinks/' => new props('start', $fn['browserslash']),
+			'ELinks' => new props('exact', fn (string $value, int $i, array $tokens) => [
+				'type' => 'human',
+				'browser' => $value,
+				'browserversion' => $tokens[$i + 1]
+			]),
+			'Edg/' => new props('start', $fn['browserslash']),
+			'EdgA/' => new props('start', $fn['browserslash']),
+			'Edge/' => new props('start', $fn['browserslash']),
+			'EdgiOS/' => new props('start', $fn['browserslash']),
+			'MSIE ' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'browser' => 'Internet Explorer',
+				'browserversion' => \mb_substr($value, 5),
+				'engine' => 'Trident'
+			]),
+			'Cronet/' => new props('start', $fn['chromium']),
+			'Chromium/' => new props('start', $fn['chromium']),
+			'Chrome/' => new props('start', $fn['chromium']),
+			'Safari/' => new props('start', $fn['browserslash']),
+			'Mozilla/' => new props('start', $fn['browserslash']),
+			'rv:' => new props('start', fn (string $value) : array => [
+				'browserversion' => \mb_substr($value, 3)
+			])
 		];
 	}
 }

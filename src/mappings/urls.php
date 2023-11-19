@@ -3,14 +3,14 @@ declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 /**
- * @phpstan-import-type MatchConfig from config
+ * @phpstan-import-type props from config
  */
 class urls {
 
 	/**
 	 * Generates a configuration array for matching URL's
 	 * 
-	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 * @return props An array with keys representing the string to match, and a value of an array containing parsing and output settings
 	 */
 	public static function get() : array {
 		$fn = function (string $value, int $i, array $tokens) : ?array {
@@ -31,22 +31,10 @@ class urls {
 			return null;
 		};
 		return [
-			'http://' => [
-				'match' => 'any',
-				'categories' => $fn
-			],
-			'https://' => [
-				'match' => 'any',
-				'categories' => $fn
-			],
-			'www.' => [
-				'match' => 'start',
-				'categories' => $fn
-			],
-			'.com' => [
-				'match' => 'any',
-				'categories' => $fn
-			],
+			'http://' => new props('any', $fn),
+			'https://' => new props('any', $fn),
+			'www.' => new props('start', $fn),
+			'.com' => new props('any', $fn),
 		];
 	}
 }

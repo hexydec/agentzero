@@ -3,14 +3,14 @@ declare(strict_types = 1);
 namespace hexydec\agentzero;
 
 /**
- * @phpstan-import-type MatchConfig from config
+ * @phpstan-import-type props from config
  */
 class languages {
 
 	/**
 	 * Generates a configuration array for matching languages
 	 * 
-	 * @return MatchConfig An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 * @return props An array with keys representing the string to match, and a value of an array containing parsing and output settings
 	 */
 	public static function get() : array {
 		$languages = [
@@ -136,25 +136,22 @@ class languages {
 			'zu' => 'Zulu',
 			'in' => 'India'
 		];
-		$fn = [
-			'match' => 'start',
-			'categories' => function (string $value, int $i , array $tokens, string $match) : ?array {
-				if ($value === $match) {
-					return ['language' => $value];
-				} else {
-					$len = \strlen($match);
-					$value = \str_replace('_', '-', $value);
-					$letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-					if (\str_starts_with($value, $match.'-') && \strlen($value) === $len + 3 && \strspn($value, $letters, $len + 1, 2) === 2) {
-						return ['language' => $match.'-'.\strtoupper(\substr($value, $len + 1, 2))];
-					}
+		$fn = function (string $value, int $i, array $tokens, string $match) : ?array {
+			if ($value === $match) {
+				return ['language' => $value];
+			} else {
+				$len = \strlen($match);
+				$value = \str_replace('_', '-', $value);
+				$letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+				if (\str_starts_with($value, $match.'-') && \strlen($value) === $len + 3 && \strspn($value, $letters, $len + 1, 2) === 2) {
+					return ['language' => $match.'-'.\strtoupper(\substr($value, $len + 1, 2))];
 				}
-				return null;
 			}
-		];
+			return null;
+		};
 		$config = [];
 		foreach (\array_keys($languages) AS $key) {
-			$config[$key] = $fn;
+			$config[$key] = new props('start', $fn);
 		}
 		return $config;
 	}
