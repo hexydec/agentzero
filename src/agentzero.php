@@ -7,6 +7,9 @@ namespace hexydec\agentzero;
  */
 class agentzero {
 
+	// ua string
+	public readonly string $string;
+
 	// categories
 	public readonly ?string $type;
 	public readonly ?string $category;
@@ -58,7 +61,8 @@ class agentzero {
 	 * 
 	 * @param \stdClass $data A stdClass object containing the UA details
 	 */
-	private function __construct(\stdClass $data) {
+	private function __construct(string $ua, \stdClass $data) {
+		$this->string = $ua;
 
 		// categories
 		$this->type = $data->type ?? null;
@@ -188,7 +192,7 @@ class agentzero {
 			foreach ($config['match'] AS $key => $item) {
 				$item->match($browser, $key, $tokens);
 			}
-			return new agentzero($browser);
+			return new agentzero($ua, $browser);
 		}
 		return false;
 	}
