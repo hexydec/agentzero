@@ -6,6 +6,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 	public function testUrls() : void {
 		$strings = [
 			'LinkedInBot/1.0 (compatible; Mozilla/5.0; Apache-HttpClient +http://www.linkedin.com)' => [
+				'string' => 'LinkedInBot/1.0 (compatible; Mozilla/5.0; Apache-HttpClient +http://www.linkedin.com)',
 				'type' => 'robot',
 				'category' => 'feed',
 				'app' => 'LinkedInBot',

@@ -6,6 +6,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 	public function testWindows() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -19,6 +20,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -32,6 +34,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -45,6 +48,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -58,6 +62,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -71,6 +76,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.58' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.58',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -84,6 +90,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/99.0.0.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/99.0.0.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -97,6 +104,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.82' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.82',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -110,6 +118,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -123,6 +132,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/115.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/115.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -134,6 +144,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '115.0'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.67' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.67',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -147,6 +158,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; rv:114.0) Gecko/20100101 Firefox/114.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; rv:114.0) Gecko/20100101 Firefox/114.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -158,6 +170,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '114.0'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -171,6 +184,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -184,6 +198,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -197,6 +212,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.79' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.79',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -210,6 +226,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -221,6 +238,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '102.0'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -234,6 +252,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -247,6 +266,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -260,6 +280,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.0.0'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -273,6 +294,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -286,6 +308,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; WOW64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5666.197 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5666.197 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -299,6 +322,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -312,6 +336,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaBrowser/23.5.2.625 Yowser/2.5 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaBrowser/23.5.2.625 Yowser/2.5 Safari/537.36',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -327,6 +352,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -340,6 +366,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'type' => 'human',
@@ -353,6 +380,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (Windows; U; Win98; en-US; rv:1.8.0.7) Gecko/20060917 K-Ninja/2.0.4' => [
+				'string' => 'Mozilla/5.0 (Windows; U; Win98; en-US; rv:1.8.0.7) Gecko/20060917 K-Ninja/2.0.4',
 				'type' => 'human',
 				'category' => 'desktop',
 				'architecture' => 'x86',
@@ -375,6 +403,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 	public function testMac() : void {
 		$strings = [
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'architecture' => 'x86',
 				'device' => 'Macintosh',
@@ -391,6 +420,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '114.0.0.0'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5.1 Safari/605.1.15' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5.1 Safari/605.1.15',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -407,6 +437,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/114.0',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -423,6 +454,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '114.0'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/115.0' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/115.0',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -439,6 +471,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '115.0'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -455,6 +488,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '113.0.0.0'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -471,6 +505,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5.2 Safari/605.1.15' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5.2 Safari/605.1.15',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -487,6 +522,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15',
 				'kernel' => 'Linux',
 				'vendor' => 'Apple',
 				'platform' => 'Mac OS X',
@@ -503,6 +539,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15',
 				'kernel' => 'Linux',
 				'vendor' => 'Apple',
 				'platform' => 'Mac OS X',
@@ -519,6 +556,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -535,6 +573,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '112.0.0.0'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -551,6 +590,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '115.0.0.0'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -567,6 +607,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '79.0.3945.88'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -583,6 +624,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.0.0'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.1 Safari/605.1.15' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.1 Safari/605.1.15',
 				'kernel' => 'Linux',
 				'device' => 'Macintosh',
 				'vendor' => 'Apple',
@@ -607,6 +649,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 	public function testAndroid() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 12; SM-S134DL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 12; SM-S134DL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '12',
@@ -620,6 +663,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; Android 12; NTH-NX9 Build/HONORNTH-N29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/396.1.0.28.104;]' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 12; NTH-NX9 Build/HONORNTH-N29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/396.1.0.28.104;]',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '12',
@@ -636,6 +680,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '396.1.0.28.104'
 			],
 			'Mozilla/5.0 (Linux; Android 11; motorola one 5G ace) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 11; motorola one 5G ace) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '11',
@@ -650,6 +695,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.130 Mobile Safari/537.36 (compatible; Google-AMPHTML)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.130 Mobile Safari/537.36 (compatible; Google-AMPHTML)',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '6.0.1',
@@ -665,6 +711,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Linux; Android 10; ART-L29 Build/HUAWEIART-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 trill_2022707020 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/27.7.2 ByteLocale/en ByteFullLocale/en Region/IQ BytedanceWebview/d8a21c6' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10; ART-L29 Build/HUAWEIART-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 trill_2022707020 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/27.7.2 ByteLocale/en ByteFullLocale/en Region/IQ BytedanceWebview/d8a21c6',
 				'app' => 'TikTok',
 				'appversion' => '27.7.2',
 				'kernel' => 'Linux',
@@ -683,6 +730,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'nettype' => 'WIFI'
 			],
 			'Mozilla/5.0 (linux; u; android 9; zh-cn; v1816a build/pkq1.180819.001) applewebkit/537.36 (khtml, like gecko) version/4.0 chrome/57' => [
+				'string' => 'Mozilla/5.0 (linux; u; android 9; zh-cn; v1816a build/pkq1.180819.001) applewebkit/537.36 (khtml, like gecko) version/4.0 chrome/57',
 				'type' => 'human',
 				'model' => 'V1816a',
 				'build' => 'pkq1.180819.001',
@@ -696,6 +744,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'zh-CN'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0; POWER BOT) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 6.0; POWER BOT) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36',
 				'type' => 'human',
 				'category' => 'mobile',
 				'device' => 'POWER',
@@ -717,6 +766,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 	public function testChromeOs() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Chrome OS',
 				'platformversion' => '14541.0.0',
@@ -730,6 +780,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; CrOS x86_64 15359.58.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.134 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; CrOS x86_64 15359.58.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.134 Safari/537.36',
 				'type' => 'human',
 				'category' => 'desktop',
 				'platform' => 'Chrome OS',
@@ -743,6 +794,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '112.0.5615.134'
 			],
 			'Mozilla/5.0 (X11; CrOS armv7l 12371.89.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; CrOS armv7l 12371.89.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36',
 				'type' => 'human',
 				'category' => 'desktop',
 				'platform' => 'Chrome OS',
@@ -756,6 +808,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '77.0.3865.120'
 			],
 			'Mozilla/5.0 (X11; CrOS aarch64 15183.69.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; CrOS aarch64 15183.69.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
 				'type' => 'human',
 				'category' => 'desktop',
 				'platform' => 'Chrome OS',
@@ -777,6 +830,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 	public function testX11() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux X86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Linux X86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -789,6 +843,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux X86_64; rv:109.0) Gecko/20100101 Firefox/114.0' => [
+				'string' => 'Mozilla/5.0 (X11; Linux X86_64; rv:109.0) Gecko/20100101 Firefox/114.0',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -801,6 +856,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux X86_64; rv:109.0) Gecko/20100101 Firefox/115.0' => [
+				'string' => 'Mozilla/5.0 (X11; Linux X86_64; rv:109.0) Gecko/20100101 Firefox/115.0',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -813,6 +869,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -825,6 +882,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0' => [
+				'string' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0',
 				'kernel' => 'Linux',
 				'platform' => 'Ubuntu',
 				'type' => 'human',
@@ -837,6 +895,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0' => [
+				'string' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0',
 				'kernel' => 'Linux',
 				'platform' => 'Ubuntu',
 				'type' => 'human',
@@ -849,6 +908,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -861,6 +921,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -873,6 +934,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -885,6 +947,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -897,6 +960,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux X86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Linux X86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'type' => 'human',
@@ -909,6 +973,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; Linux x86_64; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/24.4.0.22.60.426469926 SamsungBrowser/4.0 Chrome/106.0.5249.181 VR Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/24.4.0.22.60.426469926 SamsungBrowser/4.0 Chrome/106.0.5249.181 VR Safari/537.36',
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'vendor' => 'Oculus',
@@ -926,6 +991,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64
 			],
 			'Mozilla/5.0 (X11; U; Linux x86_64; fr; rv:1.9.2.14pre) Gecko/20101224 Ubuntu/10.04 (lucid) Namoroka/3.6.14pre' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux x86_64; fr; rv:1.9.2.14pre) Gecko/20101224 Ubuntu/10.04 (lucid) Namoroka/3.6.14pre',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
@@ -940,6 +1006,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '3.6.14pre'
 			],
 			'Mozilla/5.0 (X11; OpenBSD amd64; rv:28.0) Gecko/20100101 Firefox/28.0' => [
+				'string' => 'Mozilla/5.0 (X11; OpenBSD amd64; rv:28.0) Gecko/20100101 Firefox/28.0',
 				'kernel' => 'Linux',
 				'platform' => 'OpenBSD',
 				'type' => 'human',
@@ -953,6 +1020,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'processor' => 'AMD'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.8) Gecko/20060911 SUSE/1.5.0.8-0.2 Firefox/52.7.3' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.8) Gecko/20060911 SUSE/1.5.0.8-0.2 Firefox/52.7.3',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
@@ -967,6 +1035,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.16 SUSE/10.0.626.0 (KHTML, like Gecko) Chrome/10.0.626.0 Safari/534.16' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.16 SUSE/10.0.626.0 (KHTML, like Gecko) Chrome/10.0.626.0 Safari/534.16',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
@@ -981,6 +1050,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.2) Gecko/2008091816 Red Hat/3.0.2-3.el5 Firefox/3.0.2' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.2) Gecko/2008091816 Red Hat/3.0.2-3.el5 Firefox/3.0.2',
 				'kernel' => 'Linux',
 				'platform' => 'Red Hat',
 				'platformversion' => '3.0.2-3.el5',
@@ -995,6 +1065,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.6) Gecko/20060808 Fedora/1.5.0.6-2.fc5 Firefox/52.4.1' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.6) Gecko/20060808 Fedora/1.5.0.6-2.fc5 Firefox/52.4.1',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
@@ -1009,6 +1080,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; sv-SE; rv:1.8.0.5) Gecko/20060731 Ubuntu/dapper-security Firefox/52.7.3' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux i686; sv-SE; rv:1.8.0.5) Gecko/20060731 Ubuntu/dapper-security Firefox/52.7.3',
 				'type' => 'human',
 				'category' => 'desktop',
 				'architecture' => 'x86',
@@ -1023,6 +1095,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'sv-SE'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.2) Gecko Firefox/52.7.0' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.2) Gecko Firefox/52.7.0',
 				'type' => 'human',
 				'category' => 'desktop',
 				'architecture' => 'x86',
@@ -1036,6 +1109,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.5) Gecko/2008121718 Gentoo Firefox/50.0' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.5) Gecko/2008121718 Gentoo Firefox/50.0',
 				'type' => 'human',
 				'category' => 'desktop',
 				'architecture' => 'x86',
@@ -1049,6 +1123,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.2) Gecko/20090803 Slackware Firefox/52.7.3' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.2) Gecko/20090803 Slackware Firefox/52.7.3',
 				'type' => 'human',
 				'category' => 'desktop',
 				'architecture' => 'x86',
@@ -1070,6 +1145,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 	public function testOther() : void {
 		$strings = [
 			'Mozilla/5.0 (Maemo; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1' => [
+				'string' => 'Mozilla/5.0 (Maemo; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1',
 				'type' => 'human',
 				'category' => 'mobile',
 				'kernel' => 'Linux',
@@ -1082,6 +1158,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '10.0.1'
 			],
 			'Mozilla/5.0 (AmigaOS; U; AmigaOS 4.1; en-US; rv:89) Gecko/20100101 Firefox/89' => [
+				'string' => 'Mozilla/5.0 (AmigaOS; U; AmigaOS 4.1; en-US; rv:89) Gecko/20100101 Firefox/89',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Exec',
@@ -1094,6 +1171,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (AmigaOneX1000; MC680x0; AmigaOS 4.1; PowerPC; PPC; de-DE; Firefox; rv:1.23) Gecko/20100101 Firefox/87.000101 Firefox/89' => [
+				'string' => 'Mozilla/5.0 (AmigaOneX1000; MC680x0; AmigaOS 4.1; PowerPC; PPC; de-DE; Firefox; rv:1.23) Gecko/20100101 Firefox/87.000101 Firefox/89',
 				'type' => 'human',
 				'category' => 'desktop',
 				'vendor' => 'A-Eon Technology',
@@ -1111,6 +1189,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'de-DE'
 			],
 			'Mozilla/5.0 (compatible; U; WebPositive/533.4; Haiku) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.55 Safari/533.4' => [
+				'string' => 'Mozilla/5.0 (compatible; U; WebPositive/533.4; Haiku) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.55 Safari/533.4',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Haiku',
@@ -1121,6 +1200,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '533.4'
 			],
 			'Mozilla/5.0 (BeOS; Qualcomm Haiku R1 arm64) AppleWebKit/608.1.6 (KHTML, like Gecko) WebPositive/5.0 Version/11.1 Safari/608.1.6' => [
+				'string' => 'Mozilla/5.0 (BeOS; Qualcomm Haiku R1 arm64) AppleWebKit/608.1.6 (KHTML, like Gecko) WebPositive/5.0 Version/11.1 Safari/608.1.6',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Haiku',
@@ -1135,6 +1215,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '5.0'
 			],
 			'Mozilla/5.0 (X11; Haiku x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Falkon/3.0.0 Chrome/83.0.4103.122 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Haiku x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Falkon/3.0.0 Chrome/83.0.4103.122 Safari/537.36',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Haiku',

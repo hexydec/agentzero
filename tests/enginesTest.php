@@ -6,6 +6,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 	public function testTrident() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; BOIE9;ENUSMSNIP; rv:11.0) like Gecko' => [
+				'string' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; BOIE9;ENUSMSNIP; rv:11.0) like Gecko',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -19,6 +20,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '11.0'
 			],
 			'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729)' => [
+				'string' => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729)',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -40,6 +42,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 	public function testGecko() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1b3) Gecko/20090305 Firefox/52.4.0' => [
+				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1b3) Gecko/20090305 Firefox/52.4.0',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -52,6 +55,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1b2) Gecko/20060821 Firefox/2.0b2' => [
+				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1b2) Gecko/20060821 Firefox/2.0b2',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -64,6 +68,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-GB'
 			],
 			'Mozilla/5.0 (Android 11; Mobile; rv:108.0) Gecko/108.0 Firefox/108.0' => [
+				'string' => 'Mozilla/5.0 (Android 11; Mobile; rv:108.0) Gecko/108.0 Firefox/108.0',
 				'type' => 'human',
 				'platform' => 'Android',
 				'platformversion' => '11',
@@ -74,6 +79,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'mobile'
 			],
 			'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -95,6 +101,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 	public function testPresto() : void {
 		$strings = [
 			'Opera/9.80 (J2ME/MIDP; Opera Mini/4.2.13918/191.286; U; en) Presto/2.12.423 Version/12.16' => [
+				'string' => 'Opera/9.80 (J2ME/MIDP; Opera Mini/4.2.13918/191.286; U; en) Presto/2.12.423 Version/12.16',
 				'type' => 'human',
 				'category' => 'mobile',
 				'kernel' => 'Java VM',
@@ -107,6 +114,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en'
 			],
 			'Opera/9.80 (Windows NT 6.1; U; en-GB) Presto/2.7.62 Version/11.00' => [
+				'string' => 'Opera/9.80 (Windows NT 6.1; U; en-GB) Presto/2.7.62 Version/11.00',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -119,6 +127,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-GB'
 			],
 			'Opera/9.80 (SpreadTrum; Opera Mini/4.4.32739/191.293; U; en) Presto/2.12.423 Version/12.16' => [
+				'string' => 'Opera/9.80 (SpreadTrum; Opera Mini/4.4.32739/191.293; U; en) Presto/2.12.423 Version/12.16',
 				'platformversion' => '12.16',
 				'type' => 'human',
 				'category' => 'mobile',
@@ -138,6 +147,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 	public function testWebkit() : void {
 		$strings = [
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
@@ -154,6 +164,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '605.1.15'
 			],
 			'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.28.3 (KHTML, like Gecko) Version/3.2.3 ChromePlus/4.0.222.3 Chrome/4.0.222.3 Safari/525.28.3' => [
+				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.28.3 (KHTML, like Gecko) Version/3.2.3 ChromePlus/4.0.222.3 Chrome/4.0.222.3 Safari/525.28.3',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -166,6 +177,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko; googleweblight) Chrome/38.0.1025.166 Mobile Safari/535.19' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko; googleweblight) Chrome/38.0.1025.166 Mobile Safari/535.19',
 				'vendor' => 'Google',
 				'device' => 'Nexus',
 				'model' => '5',
@@ -191,6 +203,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 	public function testBlink() : void {
 		$strings = [
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -204,6 +217,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '108.0.0.0'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Windows NT',
@@ -217,6 +231,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '67.0.3396.99'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.119 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.119 Safari/537.36',
 				'device' => 'Macintosh',
 				'type' => 'human',
 				'category' => 'desktop',
@@ -233,6 +248,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '106.0.5249.119'
 			],
 			'Mozilla/5.0 (Linux; Android 11; motorola one 5G ace) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 11; motorola one 5G ace) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36',
 				'platform' => 'Android',
 				'platformversion' => '11',
 				'vendor' => 'Motorola',

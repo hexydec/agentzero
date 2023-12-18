@@ -6,6 +6,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 	public function testMobile() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA308239) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.1296.98 Mobile Safari/537.3' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA308239) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.1296.98 Mobile Safari/537.3',
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'HTC',
@@ -21,6 +22,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '52.0.1296.98'
 			],
 			'Mozilla/5.0 (Android 13; Mobile; rv:108.0) Gecko/108.0 Firefox/108.0' => [
+				'string' => 'Mozilla/5.0 (Android 13; Mobile; rv:108.0) Gecko/108.0 Firefox/108.0',
 				'type' => 'human',
 				'category' => 'mobile',
 				'platform' => 'Android',
@@ -31,6 +33,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0'
 			],
 			'Mozilla/5.0 (Linux; Android 7.0; Redmi Note 4 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.141 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/396.0.0.21.104;]' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 7.0; Redmi Note 4 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.141 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/396.0.0.21.104;]',
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Redmi',
@@ -48,6 +51,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '396.0.0.21.104'
 			],
 			'Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; HM NOTE 1W Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/11.0.5.850 U3/0.8.0 Mobile Safari/534.30' => [
+				'string' => 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; HM NOTE 1W Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/11.0.5.850 U3/0.8.0 Mobile Safari/534.30',
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Xiaomi',
@@ -64,6 +68,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (Linux; Android 8.0.0; moto e5 play Build/ODPS27.91-121-2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.79 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 8.0.0; moto e5 play Build/ODPS27.91-121-2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.79 Mobile Safari/537.36',
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Motorola',
@@ -87,6 +92,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 	public function testTablet() : void {
 		$strings = [
 			'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; Tablet PC 2.0; wbx 1.0.0; ms-office)' => [
+				'string' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; Tablet PC 2.0; wbx 1.0.0; ms-office)',
 				'type' => 'human',
 				'category' => 'tablet',
 				'architecture' => 'x86',
@@ -100,6 +106,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '7.0'
 			],
 			'Mozilla/5.0 (Windows; U; Windows NT 5.1 ; en-us; ThinkPad Tablet Build/ThinkPadTablet_A310_02) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13' => [
+				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1 ; en-us; ThinkPad Tablet Build/ThinkPadTablet_A310_02) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
 				'type' => 'human',
 				'category' => 'desktop',
 				'vendor' => 'Lenovo',
@@ -116,6 +123,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; Win64; x64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0; HCTE; Zoom 3.6.0; ms-office; MSOffice 16)' => [
+				'string' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; Win64; x64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0; HCTE; Zoom 3.6.0; ms-office; MSOffice 16)',
 				'type' => 'human',
 				'category' => 'tablet',
 				'architecture' => 'x86',
@@ -131,6 +139,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '3.6.0'
 			],
 			'Mozilla/5.0 (Linux; Android 10.0; tablet Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.130 Safari/537.36 [FB_IAB/FB4A;FBAV/419.0.0.37.71;]' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10.0; tablet Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.130 Safari/537.36 [FB_IAB/FB4A;FBAV/419.0.0.37.71;]',
 				'type' => 'human',
 				'category' => 'tablet',
 				'build' => 'O11019',
@@ -153,6 +162,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 	public function testVr() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux x86_64; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/25.3.0.4.30.438623098 SamsungBrowser/4.0 Chrome/108.0.5359.179 VR Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64; Quest 2) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/25.3.0.4.30.438623098 SamsungBrowser/4.0 Chrome/108.0.5359.179 VR Safari/537.36',
 				'type' => 'human',
 				'category' => 'vr',
 				'vendor' => 'Oculus',
@@ -178,6 +188,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 	public function testLargeScreen() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/90.0.4430.212 Large Screen Safari/534.24 GoogleTV/092754' => [
+				'string' => 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/90.0.4430.212 Large Screen Safari/534.24 GoogleTV/092754',
 				'type' => 'human',
 				'category' => 'tv',
 				'architecture' => 'x86',
@@ -190,6 +201,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '90.0.4430.212'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 OPR/89.0.4447.64 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 OPR/89.0.4447.64 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671',
 				'type' => 'human',
 				'category' => 'tv',
 				'device' => 'GoogleTV',
@@ -205,6 +217,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671' => [
+				'string' => 'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671',
 				'type' => 'human',
 				'category' => 'tv',
 				'device' => 'GoogleTV',
@@ -227,6 +240,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 	public function testTv() : void {
 		$strings = [
 			'Mozilla/5.0 (Linux; Android 11; SMART TV Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.120 Safari/537.36 Instagram 288.1.0.22.66 Android (30/11; 240dpi; 1920x1080; MediaTek; SMART TV; m7332; m7332; tr_TR; 487359057)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 11; SMART TV Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.120 Safari/537.36 Instagram 288.1.0.22.66 Android (30/11; 240dpi; 1920x1080; MediaTek; SMART TV; m7332; m7332; tr_TR; 487359057)',
 				'type' => 'human',
 				'category' => 'tv',
 				'device' => 'Smart TV',
@@ -246,6 +260,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'dpi' => 240
 			],
 			'Mozilla/5.0 (Linux; Android 9; SMART TV Build/PPR2.180905.006.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.158 Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/340.0.0.9.76;]' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 9; SMART TV Build/PPR2.180905.006.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.158 Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/340.0.0.9.76;]',
 				'type' => 'human',
 				'category' => 'tv',
 				'device' => 'Smart TV',
@@ -262,6 +277,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '340.0.0.9.76'
 			],
 			'Mozilla/5.0 (SMART-TV; Linux; Tizen 5.5) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.0 Chrome/69.0.3497.106 TV Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (SMART-TV; Linux; Tizen 5.5) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.0 Chrome/69.0.3497.106 TV Safari/537.36',
 				'type' => 'human',
 				'category' => 'tv',
 				'kernel' => 'Linux',
