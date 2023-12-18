@@ -211,6 +211,7 @@ class crawlers {
 			'HTTPClient/' => new props('start', $fn['scraper']),
 			'WhatsApp/' => new props('any', $fn['feed']),
 			'Hootsuite-Authoring/' => new props('start', $fn['feed']),
+			'Snap URL Preview Service' => new props('exact', $fn['feed']),
 			'ApacheBench/' => new props('start', $fn['validator']),
 			'Asana/' => new props('start', $fn['feed']),
 			'Java/' => new props('start', $fn['scraper']),
