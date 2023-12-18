@@ -28,7 +28,9 @@ $browser = \hexydec\agentzero\agentzero::parse($ua);
 The returned value will be something like:
 
 ```php
-\hexydec\agentzero\agentzero(
+\hexydec\agentzero\agentzero (
+
+	public readonly string 'string' => string 'Mozilla/5.0 (Linux; Android 13; Pixel 7 Pro Build/TD1A.220804.031; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 301.1.0.33.110 Android (33/13; 420dpi; 1080x2116; Google/google; Pixel 7 Pro; cheetah; cheetah; en_GB; 517986703)';
 
 	// categories
 	public readonly ?string 'type' => string 'human';
