@@ -20,7 +20,8 @@ class apps {
 					$offset = isset($parts[2]) ? 1 : 0;
 					$map = [
 						'YaApp_iOS' => 'Yandex',
-						'YaApp_Android' => 'Yandex',
+						'YaApp_Android' => 'Yandex Start',
+                        			'YaSearchBrowser' => 'Yandex Alice',
 						'YaSearchApp' => 'Yandex',
 						'YaBrowser' => 'Yandex',
 						'LinkedInApp' => 'LinkedIn',
@@ -141,6 +142,8 @@ class apps {
 				'appversion' => \mb_substr($value, 5)
 			]),
 			'OculusBrowser/' => new props('start', $fn['appslash']),
+			'YaApp_Android/' => new props('start', $fn['appslash']),
+            		'YaSearchBrowser/' => new props('start', $fn['appslash']),
 			'YaBrowser/' => new props('start', $fn['appslash']),
 			'choqok/' => new props('start', $fn['appslash']),
 			'PowerShell/' => new props('start', $fn['appslash']),
