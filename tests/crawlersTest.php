@@ -11,7 +11,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'appversion' => '2.1',
-				'app' => 'Googlebot'
+				'app' => 'GoogleBot',
+				'appname' => 'Googlebot'
 			],
 			'SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)' => [
 				'string' => 'SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googlebot-Mobile/2.1; +http://www.google.com/bot.html)',
@@ -21,7 +22,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'UP.Browser',
 				'browserversion' => '6.2.3.3.c.1.101',
 				'appversion' => '2.1',
-				'app' => 'Googlebot-Mobile',
+				'app' => 'GoogleBot',
+				'appname' => 'Googlebot-Mobile',
 				'model' => 'SGH-E250',
 				'build' => '1.0',
 				'vendor' => 'Samsung'
@@ -38,7 +40,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '41.0.2272.96',
 				'engine' => 'Blink',
 				'engineversion' => '41.0.2272.96',
-				'app' => 'Googlebot',
+				'app' => 'GoogleBot',
+				'appname' => 'Googlebot',
 				'appversion' => '2.1',
 				'vendor' => 'Google',
 				'device' => 'Nexus',
@@ -51,14 +54,16 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'appversion' => '2.0',
-				'app' => 'Bingbot'
+				'app' => 'BingBot',
+				'appname' => 'Bingbot'
 			],
 			'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)' => [
 				'string' => 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)',
 				'url' => 'http://help.yahoo.com/help/us/ysearch/slurp',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'Yahoo! Slurp'
+				'app' => 'Yahoo! Slurp',
+				'appname' => 'Yahoo! Slurp'
 			],
 			'DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)' => [
 				'string' => 'DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)',
@@ -66,7 +71,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'appversion' => '1.0',
-				'app' => 'DuckDuckBot'
+				'app' => 'DuckDuckBot',
+				'appname' => 'DuckDuckBot'
 			],
 			'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)' => [
 				'string' => 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)',
@@ -74,7 +80,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'appversion' => '2.0',
-				'app' => 'Baiduspider'
+				'app' => 'Baiduspider',
+				'appname' => 'Baiduspider'
 			],
 			'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)' => [
 				'string' => 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)',
@@ -82,11 +89,13 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'appversion' => '3.0',
-				'app' => 'YandexBot'
+				'app' => 'YandexBot',
+				'appname' => 'YandexBot'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1)' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1)',
-				'app' => 'Applebot',
+				'app' => 'AppleBot',
+				'appname' => 'Applebot',
 				'appversion' => '0.1',
 				'type' => 'robot',
 				'category' => 'search',
@@ -107,7 +116,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'Applebot',
+				'app' => 'AppleBot',
+				'appname' => 'Applebot',
 				'appversion' => '0.1',
 				'url' => 'http://www.apple.com/go/applebot',
 				'kernel' => 'Linux',
@@ -127,7 +137,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +https://help.mail.ru/webmaster/indexing/robots)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'Mail.RU_Bot',
+				'app' => 'Mail.ru Bot',
+				'appname' => 'Mail.RU_Bot',
 				'appversion' => '2.0',
 				'url' => 'https://help.mail.ru/webmaster/indexing/robots',
 				'kernel' => 'Linux',
@@ -140,6 +151,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'app' => '360Spider',
+				'appname' => '360Spider',
 				'url' => 'http://www.haosoucom/help/help_3_2.html',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
@@ -154,6 +166,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'app' => 'Sogou web spider',
+				'appname' => 'Sogou web spider',
 				'appversion' => '4.0',
 				'url' => 'http://www.sogou.com/docs/help/webmasters.htm#07'
 			],
@@ -161,21 +174,24 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Googlebot-Image/1.0',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'Googlebot-Image',
+				'app' => 'GoogleBot',
+				'appname' => 'Googlebot-Image',
 				'appversion' => '1.0'
 			],
 			'Googlebot-Video/1.0' => [
 				'string' => 'Googlebot-Video/1.0',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'Googlebot-Video',
+				'app' => 'GoogleBot',
+				'appname' => 'Googlebot-Video',
 				'appversion' => '1.0'
 			],
 			'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012; Storebot-Google/1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012; Storebot-Google/1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'Storebot-Google',
+				'app' => 'GoogleBot',
+				'appname' => 'Storebot-Google',
 				'appversion' => '1.0',
 				'vendor' => 'Google',
 				'device' => 'Pixel',
@@ -193,7 +209,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/103.0.5060.134 Safari/537.36',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'bingbot',
+				'app' => 'BingBot',
+				'appname' => 'bingbot',
 				'appversion' => '2.0',
 				'url' => 'http://www.bing.com/bingbot.htm',
 				'browser' => 'Chrome',
@@ -205,7 +222,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'bingbot',
+				'app' => 'BingBot',
+				'appname' => 'bingbot',
 				'appversion' => '2.0',
 				'url' => 'http://www.bing.com/bingbot.htm',
 				'vendor' => 'Google',
@@ -223,7 +241,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
 				'type' => 'robot',
-				'app' => 'bingbot',
+				'app' => 'BingBot',
+				'appname' => 'bingbot',
 				'appversion' => '2.0',
 				'url' => 'http://www.bing.com/bingbot.htm',
 				'category' => 'search',
@@ -244,7 +263,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)',
 				'type' => 'robot',
 				'category' => 'ads',
-				'app' => 'adidxbot',
+				'app' => 'AdidxBot',
+				'appname' => 'adidxbot',
 				'appversion' => '2.0',
 				'url' => 'http://www.bing.com/bingbot.htm',
 				'architecture' => 'arm',
@@ -264,7 +284,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/80.0.345.0 Safari/537.36',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'bingbot',
+				'app' => 'BingBot',
+				'appname' => 'bingbot',
 				'appversion' => '2.0',
 				'url' => 'http://www.bing.com/bingbot.htm',
 				'browser' => 'Chrome',
@@ -276,7 +297,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'bingbot',
+				'app' => 'BingBot',
+				'appname' => 'bingbot',
 				'appversion' => '2.0',
 				'url' => 'http://www.bing.com/bingbot.htm',
 				'vendor' => 'Google',
@@ -296,6 +318,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'app' => 'Bytespider',
+				'appname' => 'Bytespider',
 				'url' => 'https://zhanzhang.toutiao.com/',
 				'platform' => 'Android',
 				'platformversion' => '5.0',
@@ -306,6 +329,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'app' => 'PetalBot',
+				'appname' => 'PetalBot',
 				'url' => 'https://webmaster.petalsearch.com/site/petalbot',
 				'platform' => 'Android',
 				'platformversion' => '7.0',
@@ -325,13 +349,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'feed',
 				'appversion' => '1.1',
-				'app' => 'facebookexternalhit'
+				'app' => 'Facebook URL Preview',
+				'appname' => 'facebookexternalhit'
 			],
 			'FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)' => [
 				'string' => 'FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)',
 				'url' => 'http://www.google.com/feedfetcher.html',
 				'type' => 'robot',
 				'app' => 'FeedFetcher-Google',
+				'appname' => 'FeedFetcher-Google',
 				'category' => 'feed'
 			],
 			'GoogleProducer; (+http://goo.gl/7y4SX)' => [
@@ -339,6 +365,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'url' => 'http://goo.gl/7y4SX',
 				'type' => 'robot',
 				'app' => 'GoogleProducer',
+				'appname' => 'GoogleProducer',
 				'category' => 'feed'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MicrosoftPreview/2.0; +https://aka.ms/MicrosoftPreview) Chrome/80.0.345.0 Safari/537.36' => [
@@ -351,6 +378,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '80.0.345.0',
 				'engineversion' => '80.0.345.0',
 				'app' => 'MicrosoftPreview',
+				'appname' => 'MicrosoftPreview',
 				'appversion' => '2.0'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; MicrosoftPreview/2.0; +https://aka.ms/MicrosoftPreview)' => [
@@ -370,13 +398,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '80.0.345.0',
 				'engineversion' => '80.0.345.0',
 				'app' => 'MicrosoftPreview',
+				'appname' => 'MicrosoftPreview',
 				'appversion' => '2.0'
 			],
 			'YoFMWhatsApp/2.23.1.76 A' => [
 				'string' => 'YoFMWhatsApp/2.23.1.76 A',
 				'type' => 'robot',
 				'category' => 'feed',
-				'app' => 'YoFMWhatsApp',
+				'app' => 'WhatsApp',
+				'appname' => 'YoFMWhatsApp',
 				'appversion' => '2.23.1.76'
 			],
 			'PycURL/7.45.2 libcurl/7.64.0 OpenSSL/1.1.1n zlib/1.2.11 libidn2/2.0.5 libpsl/0.20.2 (+libidn2/2.0.5) libssh2/1.8.0 nghttp2/1.36.0 librtmp/2.3' => [
@@ -384,6 +414,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'scraper',
 				'app' => 'PycURL',
+				'appname' => 'PycURL',
 				'appversion' => '7.45.2'
 			]
 		];
@@ -399,6 +430,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'ads',
 				'app' => 'proximic',
+				'appname' => 'proximic',
 				'url' => 'https://www.comscore.com/Web-Crawler'
 			],
 			'AdsBot-Google (+http://www.google.com/adsbot.html)' => [
@@ -406,13 +438,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'url' => 'http://www.google.com/adsbot.html',
 				'type' => 'robot',
 				'category' => 'ads',
-				'app' => 'AdsBot-Google'
+				'app' => 'GoogleBot',
+				'appname' => 'AdsBot-Google'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36 (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36 (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)',
 				'type' => 'robot',
 				'category' => 'ads',
-				'app' => 'AdsBot-Google-Mobile',
+				'app' => 'GoogleBot',
+				'appname' => 'AdsBot-Google-Mobile',
 				'url' => 'http://www.google.com/mobile/adsbot.html',
 				'vendor' => 'Google',
 				'device' => 'Nexus',
@@ -430,7 +464,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1 (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)',
 				'type' => 'robot',
 				'category' => 'ads',
-				'app' => 'AdsBot-Google-Mobile',
+				'app' => 'GoogleBot',
+				'appname' => 'AdsBot-Google-Mobile',
 				'url' => 'http://www.google.com/mobile/adsbot.html',
 				'architecture' => 'arm',
 				'bits' => 64,
@@ -450,7 +485,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'ads',
 				'app' => 'Adbeat',
-				'url' => 'adbeat.com/policy',
+				'appname' => 'Adbeat',
+				'url' => 'https://adbeat.com/policy',
 				'vendor' => 'Samsung',
 				'model' => 'SM-T550',
 				'build' => 'LRX22G',
@@ -474,7 +510,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; Google-Site-Verification/1.0)',
 				'type' => 'robot',
 				'category' => 'validator',
-				'app' => 'Google-Site-Verification',
+				'app' => 'Google Site Verification',
+				'appname' => 'Google-Site-Verification',
 				'appversion' => '1.0'
 			],
 			'Mozilla/5.0 (pc-x86_64-linux-gnu) Siege/4.1.6' => [
@@ -486,6 +523,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'app' => 'Siege',
+				'appname' => 'Siege',
 				'appversion' => '4.1.6'
 			]
 		];
@@ -501,6 +539,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'SemrushBot',
+				'appname' => 'SemrushBot',
 				'appversion' => '7',
 				'url' => 'http://www.semrush.com/bot.html'
 			],
@@ -509,6 +548,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'AhrefsBot',
+				'appname' => 'AhrefsBot',
 				'appversion' => '7.0',
 				'url' => 'http://ahrefs.com/robot/'
 			],
@@ -516,7 +556,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'MJ12bot/v1.1.2 (http://majestic12.co.uk/bot.php?+)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'MJ12bot',
+				'app' => 'MJ12 Bot',
+				'appname' => 'MJ12bot',
 				'appversion' => '1.1.2',
 				'url' => 'http://majestic12.co.uk/bot.php'
 			],
@@ -524,7 +565,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; MJ12bot/v1.4.8; http://mj12bot.com/)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'MJ12bot',
+				'app' => 'MJ12 Bot',
+				'appname' => 'MJ12bot',
 				'appversion' => '1.4.8',
 				'url' => 'http://mj12bot.com/'
 			],
@@ -532,7 +574,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; MJ12bot/v1.4.8 (domain ownership verifier); http://mj12bot.com)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'MJ12bot',
+				'app' => 'MJ12 Bot',
+				'appname' => 'MJ12bot',
 				'appversion' => '1.4.8',
 				'url' => 'http://mj12bot.com'
 			],
@@ -541,6 +584,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'CCBot',
+				'appname' => 'CCBot',
 				'appversion' => '2.0',
 				'url' => 'https://commoncrawl.org/faq/'
 			],
@@ -549,6 +593,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'Swiftbot',
+				'appname' => 'Swiftbot',
 				'appversion' => '1.0',
 				'url' => 'http://swiftype.com/swiftbot'
 			],
@@ -556,6 +601,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'magpie-crawler/1.1 (robots-txt-validator; +http://www.brandwatch.net)',
 				'type' => 'robot',
 				'app' => 'magpie-crawler',
+				'appname' => 'magpie-crawler',
 				'category' => 'crawler',
 				'appversion' => '1.1',
 				'url' => 'http://www.brandwatch.net'
@@ -565,6 +611,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'WebCrawler',
+				'appname' => 'WebCrawler',
 				'url' => 'http://cognitiveseo.com/bot.html',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
@@ -581,6 +628,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'OnCrawl',
+				'appname' => 'OnCrawl',
 				'appversion' => '1.0'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) Probe by Siteimprove.com' => [
@@ -588,6 +636,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'Probe by Siteimprove.com',
+				'appname' => 'Probe by Siteimprove.com',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => '7',
@@ -601,6 +650,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'validator',
 				'app' => 'Google Page Speed Insights',
+				'appname' => 'Google Page Speed Insights',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => '10',
@@ -616,6 +666,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'Screaming Frog SEO Spider',
+				'appname' => 'Screaming Frog SEO Spider',
 				'appversion' => '19.0'
 			],
 			'rogerbot/1.2 (https://moz.com/help/guides/moz-procedures/what-is-rogerbot, rogerbot-crawler aardwolf-production-crawler-53@moz.com)' => [
@@ -623,6 +674,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'rogerbot',
+				'appname' => 'rogerbot',
 				'appversion' => '1.2',
 				'url' => 'https://moz.com/help/guides/moz-procedures/what-is-rogerbot'
 			],
@@ -631,6 +683,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'LinkCheck by Siteimprove.com',
+				'appname' => 'LinkCheck by Siteimprove.com',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => '7',
@@ -652,6 +705,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'scraper',
 				'app' => 'CyotekWebCopy',
+				'appname' => 'CyotekWebCopy',
 				'appversion' => '1.9'
 			]
 		];
@@ -667,13 +721,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'monitor',
 				'app' => 'UptimeRobot',
+				'appname' => 'UptimeRobot',
 				'appversion' => '2.0',
 				'url' => 'http://www.uptimerobot.com/'
 			],
 			'Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)' => [
 				'string' => 'Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)',
 				'type' => 'robot',
-				'app' => 'Pingdom.com Bot',
+				'app' => 'Pingdom.com',
+				'appname' => 'Pingdom.com_bot_version_1.4',
 				'category' => 'monitor',
 				'appversion' => '1.4',
 				'url' => 'http://www.pingdom.com/'
@@ -681,7 +737,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) browser/22.1.0 Chrome/108.0.5359.179 Electron/22.1.0 Safari/537.36 PingdomTMS/22.1' => [
 				'string' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) browser/22.1.0 Chrome/108.0.5359.179 Electron/22.1.0 Safari/537.36 PingdomTMS/22.1',
 				'type' => 'robot',
-				'app' => 'PingdomTMS',
+				'app' => 'Pingdom.com',
+				'appname' => 'PingdomTMS',
 				'appversion' => '22.1',
 				'category' => 'monitor',
 				'kernel' => 'Windows NT',
@@ -699,6 +756,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'monitor',
 				'app' => 'WordPress',
+				'appname' => 'WordPress',
 				'appversion' => '6.1.1',
 				'url' => 'https://www.getsafeonline.org'
 			],
@@ -707,6 +765,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'monitor',
 				'app' => 'PRTG Network Monitor',
+				'appname' => 'PRTG Network Monitor',
 				'url' => 'www.paessler.com',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows'
@@ -716,6 +775,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'monitor',
 				'app' => 'PRTGCloudBot',
+				'appname' => 'PRTGCloudBot',
 				'appversion' => '1.0',
 				'url' => 'https://www.paessler.com/prtgcloudbot'
 			],
@@ -724,6 +784,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'monitor',
 				'app' => 'Site24x7',
+				'appname' => 'Site24x7',
 				'architecture' => 'arm',
 				'bits' => 64,
 				'kernel' => 'Linux',
@@ -741,7 +802,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk',
 				'type' => 'robot',
 				'category' => 'monitor',
-				'app' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk'
+				'app' => 'NCSC Web Check',
+				'appname' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

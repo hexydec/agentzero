@@ -102,11 +102,15 @@ The browser version number
 
 ### `language`
 
-The language code, e.g. `en` or `en-GB`
+The language code, e.g. `en` or `en-GB`, this will be normalised with lowercase, dash, uppercase format
 
 ### `app`
 
-The name of the app, e.g. `Facebook` or `YaSearchBrowser`. For robots it will be the name of the robot, e.g. `GoogleBot`
+The name of the app (Normalised), e.g. `Facebook` or `YaSearchBrowser`. For robots it will be the name of the robot, e.g. `GoogleBot`
+
+### `appname`
+
+The name of the app or robot as it is written in the User-Agent string
 
 ### `appversion`
 

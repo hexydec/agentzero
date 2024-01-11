@@ -21,6 +21,7 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'language' => 'en-HK',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '264.1.0.18.104',
 				'width' => 750,
 				'height' => 1334,
@@ -71,6 +72,7 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => 'TTNetVersion:07232c86',
 				'language' => 'en',
 				'app' => 'TikTok',
+				'appname' => 'com.zhiliaoapp.musically',
 				'appversion' => '2022706030'
 			]
 		];

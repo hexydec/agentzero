@@ -42,6 +42,7 @@ class agentzero {
 
 	// app
 	public readonly ?string $app;
+	public readonly ?string $appname;
 	public readonly ?string $appversion;
 	public readonly ?string $url;
 
@@ -96,6 +97,7 @@ class agentzero {
 
 		// app
 		$this->app = $data->app ?? null;
+		$this->appname = $data->appname ?? null;
 		$this->appversion = $data->appversion ?? null;
 		$this->url = $data->url ?? null;
 

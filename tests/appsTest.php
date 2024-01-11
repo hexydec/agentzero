@@ -20,6 +20,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '112.0.0.0',
 				'app' => 'Yandex',
+				'appname' => 'YaSearchApp',
 				'appversion' => '23.51.1'
 			],
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 YaApp_Android/23.12.1 YaSearchBrowser/23.12.1 BroPP/1.0 SA/3 Mobile Safari/537.36' => [
@@ -37,6 +38,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '108.0.0.0',
 				'app' => 'Yandex',
+				'appname' => 'YaApp_Android',
 				'appversion' => '23.12.1'
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)' => [
@@ -52,6 +54,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '41.0.2272.118',
 				'app' => 'Google-Read-Aloud',
+				'appname' => 'Google-Read-Aloud',
 				'url' => 'https://support.google.com/webmasters/answer/1061943'
 			],
 			'AndroidDownloadManager/11 (Linux; U; Android 11; ONEPLUS A6013 Build/RKQ1.201217.002)' => [
@@ -63,7 +66,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '11',
-				'app' => 'AndroidDownloadManager',
+				'app' => 'Android Download Manager',
+				'appname' => 'AndroidDownloadManager',
 				'appversion' => '11'
 			],
 			'Mozilla/5.0 (Linux; Android 13; CPH2213 Build/TP1A.220905.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/109.0.5414.117 Mobile Safari/537.36 OcIdWebView ({"os":"Android","osVersion":"33","app":"com.google.android.gms","appVersion":"219","style":2,"isDarkTheme":true})' => [
@@ -81,6 +85,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '109.0.5414.117',
 				'app' => 'Google',
+				'appname' => 'com.google.android.gms',
 				'appversion' => '219',
 				'darkmode' => true
 			],
@@ -101,6 +106,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Safari',
 				'browserversion' => '604.1',
 				'app' => 'Google',
+				'appname' => 'GSA',
 				'appversion' => '242.1.493995244'
 			],
 			'Mozilla/5.0 (Linux; Android 8.0.0; SM-A520F Build/R16NW; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/109.0.5414.118 Mobile Safari/537.36 GoogleApp/14.4.6.26.arm64' => [
@@ -120,6 +126,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '109.0.5414.118',
 				'app' => 'Google',
+				'appname' => 'GoogleApp',
 				'appversion' => '14.4.6.26.arm64'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [LinkedInApp]/9.25.1981' => [
@@ -136,7 +143,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '16.0',
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
-				'app' => 'LinkedIn'
+				'app' => 'LinkedIn',
+				'appname' => 'LinkedInApp'
 			],
 			'URL/Emacs Emacs/28.2 (X11; x86_64-pc-linux-gnu)' => [
 				'string' => 'URL/Emacs Emacs/28.2 (X11; x86_64-pc-linux-gnu)',
@@ -147,6 +155,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'platform' => 'Linux',
 				'app' => 'Emacs',
+				'appname' => 'Emacs',
 				'appversion' => '28.2'
 			],
 			'Mozilla/5.0 (Linux; Linux 4.18.0-305.3.1.el8.x86_64 #1 SMP Tue Jun 1 16:14:33 UTC 2021; en-US) PowerShell/7.3.1' => [
@@ -160,6 +169,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '4.18.0-305.3.1.el8.x86_64',
 				'language' => 'en-US',
 				'app' => 'PowerShell',
+				'appname' => 'PowerShell',
 				'appversion' => '7.3.1'
 			],
 			'imoAndroid/2023.05.1071; 12; REL; Redmi Note 9 Pro Max; Redmi; play; phone; arm64-v8a; excalibur; 2323MHz; 5580MB; SM7125; 8' => [
@@ -177,6 +187,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '12',
 				'app' => 'imo',
+				'appname' => 'imoAndroid',
 				'appversion' => '2023.05.1071'
 			],
 			'imoAndroid/2022.11.1051; 9; REL; TA-1032; Nokia; play; phone; arm64-v8a; MT6737; 1248MHz; 1865MB; MT6737; 4' => [
@@ -193,6 +204,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '9',
 				'app' => 'imo',
+				'appname' => 'imoAndroid',
 				'appversion' => '2022.11.1051'
 			],
 			'com.google.android.googlequicksearchbox/301265987 (Linux; U; Android 13; en_GB; SM-A245F; Build/TP1A.220624.014; Cronet/114.0.5735.84)' => [
@@ -209,7 +221,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Cronet',
 				'browserversion' => '114.0.5735.84',
 				'language' => 'en-GB',
-				'app' => 'Google (Quick Search Box)',
+				'app' => 'Google',
+				'appname' => 'com.google.android.googlequicksearchbox',
 				'appversion' => '301265987'
 			]
 		];
@@ -236,6 +249,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'language' => 'en-GB',
 				'app' => 'Facebook',
+				'appname' => 'FBIOS',
 				'appversion' => '343.1.0.53.117'
 			],
 			'[FBAN/FB4A;FBAV/302.0.0.45.119;FBBV/268946150;FBDM/{density=2.55,width=1080,height=1808};FBLC/fr_FR;FBRV/270254211;FBCR/Togocel;FBMF/HUAWEI;FBBD/HUAWEI;FBPN/com.facebook.katana;FBDV/MHA-L29;FBSV/9;FBOP/1;FBCA/armeabi-v7a:armeabi;]' => [
@@ -249,6 +263,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '9',
 				'language' => 'fr-FR',
 				'app' => 'Facebook',
+				'appname' => 'FB4A',
 				'appversion' => '302.0.0.45.119',
 				'width' => 1080,
 				'height' => 1808,
@@ -272,6 +287,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '83.0.4103.122',
 				'language' => 'fr-FR',
 				'app' => 'Facebook Messenger',
+				'appname' => 'MessengerDesktop',
 				'appversion' => '97.11.116'
 			],
 			'Mozilla/5.0 (Linux; Android 10; SM-G9600 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/393.0.0.18.92;FB_FW/2;FBAN/FB4A]' => [
@@ -289,6 +305,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '108.0.5359.128',
 				'app' => 'Facebook',
+				'appname' => 'FB4A',
 				'appversion' => '393.0.0.18.92'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/20C65 [FBAN/FBIOS;FBDV/iPhone12,3;FBMD/iPhone;FBSN/iOS;FBSV/16.2;FBSS/3;FBID/phone;FBLC/en_Qaau_GB;FBOP/5]' => [
@@ -306,7 +323,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'language' => 'en-GB',
-				'app' => 'Facebook'
+				'app' => 'Facebook',
+				'appname' => 'FBIOS'
 			],
 			'Mozilla/5.0 (Linux; Android 7.0; SM-G930F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 SamsungBrowser/CrossApp/0.1.130' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 7.0; SM-G930F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 SamsungBrowser/CrossApp/0.1.130',
@@ -323,6 +341,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Samsung Browser',
 				'browserversion' => '0.1.130',
 				'app' => 'CrossApp',
+				'appname' => 'CrossApp',
 				'appversion' => '0.1.130'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 CanvasFrame/1.21.6907.27509 Safari/537.36 FacebookCanvasDesktop FBAN/GamesWindowsDesktopApp FBAV/1.21.6907.27509' => [
@@ -339,6 +358,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '63.0.3239.132',
 				'app' => 'Facebook Gamesroom',
+				'appname' => 'GamesWindowsDesktopApp',
 				'appversion' => '1.21.6907.27509'
 			]
 		];
@@ -365,6 +385,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'language' => 'zh-HK',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '263.1.0.14.103',
 				'width' => 1170,
 				'height' => 2532,
@@ -386,6 +407,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.5359.128',
 				'language' => 'en-US',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '264.0.0.22.106',
 				'width' => 1080,
 				'height' => 2123,
@@ -407,6 +429,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'language' => 'zh-HK',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '264.3.0.19.104',
 				'width' => 1334,
 				'height' => 750,
@@ -427,6 +450,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.5359.128',
 				'language' => 'zh-CN',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '264.0.0.22.106',
 				'width' => 1080,
 				'height' => 2166,
@@ -441,6 +465,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'language' => 'ar-EG',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '301.1.0.33.110',
 				'width' => 1080,
 				'height' => 2156,
@@ -454,6 +479,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'language' => 'en-US',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '302.0.0.34.111',
 				'width' => 720,
 				'height' => 1448,
@@ -475,6 +501,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '420+',
 				'language' => 'en-US',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '301.1.0.24.111',
 				'width' => 1242,
 				'height' => 2688,
@@ -496,6 +523,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '420+',
 				'language' => 'en-HK',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '300.0.0.15.103',
 				'width' => 780,
 				'height' => 1688,
@@ -509,6 +537,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'language' => 'in-ID',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '301.1.0.33.110',
 				'width' => 1080,
 				'height' => 2167,
@@ -522,6 +551,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'language' => 'ar-EG',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '301.1.0.33.110',
 				'width' => 720,
 				'height' => 1464,
@@ -551,6 +581,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'language' => 'en',
 				'app' => 'TikTok',
+				'appname' => 'musical_ly',
 				'appversion' => '27.4.0',
 				'nettype' => 'WIFI',
 				'darkmode' => false
@@ -570,6 +601,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.5359.128',
 				'language' => 'en',
 				'app' => 'TikTok',
+				'appname' => 'musical_ly',
 				'appversion' => '27.6.3',
 				'nettype' => 'WIFI'
 			],
@@ -589,6 +621,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '65.0.3325.109',
 				'language' => 'en',
 				'app' => 'TikTok',
+				'appname' => 'musical_ly',
 				'appversion' => '27.9.41',
 				'nettype' => '4G'
 			],
@@ -608,6 +641,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '109.0.5414.118',
 				'language' => 'en',
 				'app' => 'TikTok',
+				'appname' => 'musical_ly',
 				'appversion' => '28.1.3',
 				'nettype' => 'WIFI'
 			],
@@ -627,6 +661,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'language' => 'ar',
 				'app' => 'TikTok',
+				'appname' => 'musical_ly',
 				'appversion' => '27.9.0',
 				'nettype' => '4G',
 				'darkmode' => false
@@ -649,6 +684,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'x86',
 				'bits' => 64,
 				'app' => 'Yandex',
+				'appname' => 'YaBrowser',
 				'appversion' => '23.7.0.2564',
 				'browser' => 'Chrome',
 				'browserversion' => '115.0.0.0',
@@ -667,6 +703,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'processor' => 'Intel',
 				'architecture' => 'x86',
 				'app' => 'Yandex',
+				'appname' => 'YaBrowser',
 				'appversion' => '23.7.0.2564',
 				'browser' => 'Chrome',
 				'browserversion' => '115.0.0.0',
@@ -688,6 +725,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'app' => 'Yandex',
+				'appname' => 'YaBrowser',
 				'appversion' => '23.7.4.478',
 				'browser' => 'Safari',
 				'browserversion' => '604.1'
@@ -704,6 +742,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'arm',
 				'bits' => 64,
 				'app' => 'Yandex',
+				'appname' => 'YaBrowser',
 				'appversion' => '21.3.4.59',
 				'browser' => 'Chrome',
 				'browserversion' => '115.0.5790.136',
@@ -722,12 +761,14 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Microsoft Office Excel 2014',
 				'type' => 'human',
 				'app' => 'Microsoft Office Excel',
+				'appname' => 'Microsoft Office Excel 2014',
 				'appversion' => '2014'
 			],
 			'Microsoft Office Word 2014' => [
 				'string' => 'Microsoft Office Word 2014',
 				'type' => 'human',
 				'app' => 'Microsoft Office Word',
+				'appname' => 'Microsoft Office Word 2014',
 				'appversion' => '2014'
 			],
 			'Microsoft Office/16.0 (Windows NT 10.0; Microsoft Outlook 16.0.16130; Pro)' => [
@@ -738,6 +779,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Windows',
 				'platformversion' => '10',
 				'app' => 'Microsoft Outlook',
+				'appname' => 'Microsoft Outlook',
 				'appversion' => '16.0.16130'
 			],
 			'Microsoft Office Word/2.70.210 (iOS/16.3.1; Phone; en-GB; AppStore; Apple/iPhone13,2)' => [
@@ -751,6 +793,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '16.3.1',
 				'language' => 'en-GB',
 				'app' => 'Microsoft Office Word',
+				'appname' => 'Microsoft Office Word',
 				'appversion' => '2.70.210'
 			]
 		];

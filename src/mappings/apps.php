@@ -27,18 +27,21 @@ class apps {
 						'[LinkedInApp]' => 'LinkedIn',
 						'GoogleApp' => 'Google',
 						'com.zhiliaoapp.musically' => 'TikTok',
-						'com.google.android.apps.searchlite' => 'Google (Lite)',
-						'com.google.android.googlequicksearchbox' => 'Google (Quick Search Box)',
+						'com.google.android.apps.searchlite' => 'Google',
+						'com.google.android.googlequicksearchbox' => 'Google',
 						'com.google.photos' => 'Google Photos',
 						'com.google.ios.youtube' => 'YouTube',
 						'com.google.GoogleMobile' => 'Google',
-						'AlohaBrowserApp' => 'Aloha'
+						'AlohaBrowserApp' => 'Aloha',
+						'OculusBrowser' => 'Oculus Browser',
+						'AndroidDownloadManager' => 'Android Download Manager'
 					];
 					$app = $parts[0 + $offset];
 					if (\mb_stripos($app, \rtrim($match, '/')) !== false) { // check the match is before the slash
 						return [
 							'type' => 'human',
 							'app' => $map[$app] ?? $app,
+							'appname' => \trim($app, '[]'),
 							'appversion' => $parts[1 + $offset] ?? null
 						];
 					}
@@ -54,23 +57,25 @@ class apps {
 			}
 		];
 		return [
-			'OcIdWebView' => new props('exact', function (string $value) : array {
-				$data = [
-					'app' => $value
-				];
-				return $data;
-			}),
 			'com.google.GoogleMobile/' => new props('start', function (string $value, int $i, array $tokens, string $match) use ($fn) : array {
 				return \array_merge($fn['appslash']($value, $i, $tokens, $match), [
 					'category' => 'mobile'
 				]);
 			}),
 			'com.google.' => new props('start', $fn['appslash']),
+			'OcIdWebView' => new props('exact', function (string $value) : array {
+				$data = [
+					'app' => 'Google App Web View',
+					'appname' => $value
+				];
+				return $data;
+			}),
 			'Instagram' => new props('any', function (string $value, int $i, array $tokens) : array {
 				$parts = \explode(' ', $value, 4);
 				$data = [
 					'type' => 'human',
 					'app' => 'Instagram',
+					'appname' => 'Instagram',
 					'appversion' => $parts[1] ?? null,
 					'platform' => empty($parts[2]) ? null : platforms::getPlatform($parts[2])
 				];
@@ -117,6 +122,7 @@ class apps {
 				isset($tokens[$i + 3]) ? devices::getDevice($tokens[$i + 3]) : [],
 				[
 					'app' => 'imo',
+					'appname' => 'imoAndroid',
 					'appversion' => ($ver = \mb_strstr($value, '/')) === false ? $value : \ltrim($ver, '/'),
 					'platform' => 'Android',
 					'platformversion' => $tokens[$i + 1] ?? null,
@@ -126,6 +132,7 @@ class apps {
 			)),
 			'GSA/' => new props('any', fn (string $value) : array => [
 				'app' => 'Google',
+				'appname' => 'GSA',
 				'appversion' => \mb_substr($value, 4)
 			]),
 			'DuckDuckGo/' => new props('start', $fn['appslash']),
@@ -134,10 +141,12 @@ class apps {
 			'AndroidDownloadManager/' => new props('start', $fn['appslash']),
 			'Google-Read-Aloud' => new props('exact', [
 				'type' => 'human',
-				'app' => 'Google-Read-Aloud'
+				'app' => 'Google-Read-Aloud',
+				'appname' => 'Google-Read-Aloud'
 			]),
 			'Zoom ' => new props('start', fn (string $value) : array => [
 				'app' => 'Zoom',
+				'appname' => 'Zoom',
 				'appversion' => \mb_substr($value, 5)
 			]),
 			'OculusBrowser/' => new props('start', $fn['appslash']),
@@ -147,6 +156,7 @@ class apps {
 			'Quora ' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
 				'app' => 'Quora',
+				'appname' => 'Quora',
 				'appversion' => \explode(' ', $value, 3)[1]
 			]),
 			'AmazonKidsBrowser/' => new props('start', $fn['appslash']),
@@ -188,13 +198,15 @@ class apps {
 						'app' => 'Facebook Gamesroom'
 					]
 				];
-				return $map[$value] ?? [
+				return \array_merge([
+					'type' => 'human',
 					'app' => 'Facebook',
-					'type' => 'human'
-				];
+					'appname' => \explode('/', $value, 2)[1]
+				], $map[$value] ?? []);
 			}),
-			'FB_IAB/' => new props('start', [
-				'app' => 'Facebook'
+			'FB_IAB/' => new props('start', fn (string $value) : array => [
+				'app' => 'Facebook',
+				'appname' => \mb_substr($value, 7)
 			]),
 			'FBAV/' => new props('start', fn (string $value) : array => [
 				'appversion' => \mb_substr($value, 5)
@@ -245,16 +257,50 @@ class apps {
 			'NetType/' => new props('start', fn (string $value) : array => [
 				'nettype' => \mb_convert_case(\mb_substr($value, 8), MB_CASE_UPPER)
 			]),
+			'Microsoft Office' => new props('start', function (string $value, int $i, array $tokens) : array {
+				$data = [
+					'type' => 'human'
+				];
+				if (\str_contains($value, '/')) {
+					foreach (\array_slice($tokens, $i + 1) AS $item) {
+						if (\str_starts_with($item, 'Microsoft ')) {
+							$parts = \explode(' ', $item);
+							$data['app'] = $parts[0].' '.$parts[1];
+							$data['appname'] = $parts[0].' '.$parts[1];
+							if (isset($parts[2])) {
+								$data['appversion'] = $parts[2];
+							}
+							break;
+						}
+					}
+					if (!isset($data['app'])) {
+						$parts = \explode('/', $value, 2);
+						$data['app'] = $parts[0];
+						$data['appname'] = $parts[0];
+						if (!isset($data['appversion'])) {
+							$data['appversion'] = $parts[1];
+						}
+					}
+				} else {
+					$parts = \explode(' ', $value);
+					$data['app'] = \rtrim($parts[0].' '.($parts[1] ?? '').' '.($parts[2] ?? ''));
+					$data['appname'] = $value;
+					$data['appversion'] = $parts[3] ?? null;
+				}
+				return $data;
+			}),
 
 			// other
 			'MAUI' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
-				'app' => $value
+				'app' => 'MAUI Runtime',
+				'appname' => $value
 			]),
 
 			// TikTok
 			'AppName/' => new props('start', fn(string $value) : array => [
-				'app' => $value === 'AppName/musical_ly' ? 'TikTok' : \mb_substr($value, 8)
+				'app' => $value === 'AppName/musical_ly' ? 'TikTok' : \mb_substr($value, 8),
+				'appname' => \mb_substr($value, 8)
 			]),
 			'app_version/' => new props('start', fn(string $value) : array => [
 				'appversion' => \mb_substr($value, 12)
@@ -264,6 +310,7 @@ class apps {
 			]),
 			'musical_ly' => new props('start', fn(string $value) : array => [
 				'app' => 'TikTok',
+				'appname' => 'musical_ly',
 				'appversion' => \str_replace('_', '.', \mb_substr(\explode(' ', $value, 2)[0], 11))
 			]),
 				

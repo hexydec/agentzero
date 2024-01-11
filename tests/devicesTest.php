@@ -32,6 +32,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/243.0.495136164 Mobile/15E148 Safari/604.1' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/243.0.495136164 Mobile/15E148 Safari/604.1',
 				'app' => 'Google',
+				'appname' => 'GSA',
 				'appversion' => '243.0.495136164',
 				'type' => 'human',
 				'category' => 'mobile',
@@ -63,6 +64,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'app' => 'Facebook',
+				'appname' => 'FBIOS',
 				'language' => 'en-GB'
 			]
 		];
@@ -93,6 +95,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (iPad; CPU OS 15_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.7 Mobile/15E148 DuckDuckGo/7 Safari/605.1.15' => [
 				'string' => 'Mozilla/5.0 (iPad; CPU OS 15_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.7 Mobile/15E148 DuckDuckGo/7 Safari/605.1.15',
 				'app' => 'DuckDuckGo',
+				'appname' => 'DuckDuckGo',
 				'appversion' => '7',
 				'type' => 'human',
 				'category' => 'tablet',
@@ -198,6 +201,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 9; Intel Braswell Chromebook Build/R103-14816.131.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Safari/537.36 Instagram 290.0.0.13.76 Android (28/9; 160dpi; 1366x688; Google/google; Intel Braswell Chromebook; wizpig_cheets; cheets; pt_BR; 491057560)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 9; Intel Braswell Chromebook Build/R103-14816.131.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Safari/537.36 Instagram 290.0.0.13.76 Android (28/9; 160dpi; 1366x688; Google/google; Intel Braswell Chromebook; wizpig_cheets; cheets; pt_BR; 491057560)',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '290.0.0.13.76',
 				'vendor' => 'Intel',
 				'device' => 'Braswell',
@@ -223,6 +227,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Linux; Android 9; Samsung Chromebook 3 Build/R103-14816.131.5; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.147 Safari/537.36 Instagram 289.0.0.25.49 Android (28/9; 160dpi; 1366x688; Google/google; Samsung Chromebook 3; celes_cheets; cheets; en_US; 488780873)',
 				'vendor' => 'Samsung',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '289.0.0.25.49',
 				'device' => 'Chromebook',
 				'model' => '3',
@@ -245,6 +250,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Linux; Android 9; Acer Chromebook 11 (C740) Build/R91-13904.97.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Safari/537.36 Instagram 290.0.0.13.76 Android (28/9; 160dpi; 1366x688; Google/google; Acer Chromebook 11 (C740); paine_cheets; cheets; es_ES; 491057560)',
 				'vendor' => 'Acer',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '290.0.0.13.76',
 				'device' => 'Chromebook',
 				'model' => '11',
@@ -348,6 +354,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Nintendo Switch; WebApplet) AppleWebKit/609.4 (KHTML, like Gecko) NF/6.0.2.21.3 NintendoBrowser/5.1.0.22474' => [
 				'string' => 'Mozilla/5.0 (Nintendo Switch; WebApplet) AppleWebKit/609.4 (KHTML, like Gecko) NF/6.0.2.21.3 NintendoBrowser/5.1.0.22474',
 				'app' => 'WebApplet',
+				'appname' => 'WebApplet',
 				'vendor' => 'Nintendo',
 				'device' => 'Switch',
 				'type' => 'human',
@@ -360,6 +367,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Nintendo Switch; WifiWebAuthApplet) AppleWebKit/609.4 (KHTML, like Gecko) NF/6.0.2.20.5 NintendoBrowser/5.1.0.22023' => [
 				'string' => 'Mozilla/5.0 (Nintendo Switch; WifiWebAuthApplet) AppleWebKit/609.4 (KHTML, like Gecko) NF/6.0.2.20.5 NintendoBrowser/5.1.0.22023',
 				'app' => 'WifiWebAuthApplet',
+				'appname' => 'WifiWebAuthApplet',
 				'vendor' => 'Nintendo',
 				'device' => 'Switch',
 				'type' => 'human',
@@ -372,6 +380,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Nintendo Switch; ShareApplet) AppleWebKit/601.6 (KHTML, like Gecko) NF/4.0.0.5.9 NintendoBrowser/5.1.0.13341' => [
 				'string' => 'Mozilla/5.0 (Nintendo Switch; ShareApplet) AppleWebKit/601.6 (KHTML, like Gecko) NF/4.0.0.5.9 NintendoBrowser/5.1.0.13341',
 				'app' => 'ShareApplet',
+				'appname' => 'ShareApplet',
 				'vendor' => 'Nintendo',
 				'device' => 'Switch',
 				'type' => 'human',
@@ -633,6 +642,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '90.0.4430.225',
 				'app' => 'Chromecast',
+				'appname' => 'CrKey',
 				'appversion' => '1.56.500000',
 			],
 			'Mozilla/5.0 (Linux; Android) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.109 Safari/537.36 CrKey/1.54.248666' => [
@@ -640,6 +650,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'tv',
 				'app' => 'Chromecast',
+				'appname' => 'CrKey',
 				'appversion' => '1.54.248666',
 				'platform' => 'Android',
 				'kernel' => 'Linux',
@@ -696,6 +707,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'tv',
 				'vendor' => 'Sony',
 				'app' => 'Facebook',
+				'appname' => 'FB4A',
 				'appversion' => '402.1.0.24.84',
 				'device' => 'Bravia',
 				'model' => '4K GB ATV3',
@@ -728,6 +740,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '116.0.0.0',
 				'device' => 'GoogleTV',
 				'app' => 'Chromecast',
+				'appname' => 'CrKey',
 				'appversion' => '1.56.500000'
 			],
 			'Mozilla/5.0 (Windows Phone 8.1; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 635) like Gecko' => [
@@ -750,6 +763,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 11; Nokia C01 Plus Build/RP1A.201005.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36[FBAN/EMA;FBLC/en_GB;FBAV/338.0.0.10.102;]' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 11; Nokia C01 Plus Build/RP1A.201005.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36[FBAN/EMA;FBLC/en_GB;FBAV/338.0.0.10.102;]',
 				'app' => 'Facebook',
+				'appname' => 'EMA',
 				'language' => 'en-GB',
 				'appversion' => '338.0.0.10.102',
 				'type' => 'human',
@@ -802,6 +816,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.5359.128',
 				'language' => 'en-GB',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '292.0.0.31.110',
 				'width' => '1080',
 				'height' => '2067',

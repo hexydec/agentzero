@@ -57,6 +57,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Opera/9.80 (MAUI Runtime; Opera Mini/4.4.33576/191.308; U; en) Presto/2.12.423 Version/12.16',
 				'type' => 'human',
 				'app' => 'MAUI Runtime',
+				'appname' => 'MAUI Runtime',
 				'platformversion' => '12.16',
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
@@ -148,6 +149,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 10; SM-G770F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/397.0.0.23.404;]' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; SM-G770F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/397.0.0.23.404;]',
 				'app' => 'Facebook',
+				'appname' => 'FB4A',
 				'appversion' => '397.0.0.23.404',
 				'vendor' => 'Samsung',
 				'model' => 'SM-G770F',
@@ -341,7 +343,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'Applebot',
+				'app' => 'AppleBot',
+				'appname' => 'Applebot',
 				'appversion' => '0.1',
 				'url' => 'http://www.apple.com/go/applebot',
 				'device' => 'Macintosh',
@@ -360,6 +363,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/243.0.495136164 Mobile/15E148 Safari/604.1' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/243.0.495136164 Mobile/15E148 Safari/604.1',
 				'app' => 'Google',
+				'appname' => 'GSA',
 				'appversion' => '243.0.495136164',
 				'type' => 'human',
 				'category' => 'mobile',
@@ -1190,7 +1194,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'browser' => 'Samsung Browser',
 				'browserversion' => '4.0',
-				'app' => 'OculusBrowser',
+				'app' => 'Oculus Browser',
+				'appname' => 'OculusBrowser',
 				'appversion' => '13.0.0.2.16.259832224',
 				'engine' => 'Blink',
 				'engineversion' => '87.0.4280.66'
@@ -1206,7 +1211,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'browser' => 'Samsung Browser',
 				'browserversion' => '4.0',
-				'app' => 'OculusBrowser',
+				'app' => 'Oculus Browser',
+				'appname' => 'OculusBrowser',
 				'appversion' => '19.1.0.1.50.350517500',
 				'engine' => 'Blink',
 				'engineversion' => '96.0.4664.174'
@@ -1222,7 +1228,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'browser' => 'Samsung Browser',
 				'browserversion' => '4.0',
-				'app' => 'OculusBrowser',
+				'app' => 'Oculus Browser',
+				'appname' => 'OculusBrowser',
 				'appversion' => '9.2.0.2.122.217074189',
 				'engine' => 'Blink',
 				'engineversion' => '81.0.4044.117'
@@ -1298,6 +1305,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Nintendo Switch; WifiWebAuthApplet) AppleWebKit/601.6 (KHTML, like Gecko) NF/4.0.0.12.4 NintendoBrowser/5.1.0.19293' => [
 				'string' => 'Mozilla/5.0 (Nintendo Switch; WifiWebAuthApplet) AppleWebKit/601.6 (KHTML, like Gecko) NF/4.0.0.12.4 NintendoBrowser/5.1.0.19293',
 				'app' => 'WifiWebAuthApplet',
+				'appname' => 'WifiWebAuthApplet',
 				'vendor' => 'Nintendo',
 				'device' => 'Switch',
 				'type' => 'human',

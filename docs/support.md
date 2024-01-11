@@ -149,4 +149,4 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 
 ## Languages
 
-Captures all 2 and 4 character languages (Where specified in the UA string), e.g. en or en-GB.
+Captures all 2 and 4 character languages (Where specified in the UA string), e.g. `en`` or `en-GB`.

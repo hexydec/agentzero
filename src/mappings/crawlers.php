@@ -26,6 +26,7 @@ class crawlers {
 			return \array_merge([
 				'type' => 'robot',
 				'app' => $parts[0],
+				'appname' => $parts[0],
 				'appversion' => empty($parts[1]) ? null : $parts[1]
 			], $data);
 		}
@@ -42,7 +43,14 @@ class crawlers {
 			'search' => fn (string $value) : array => self::getApp($value, ['category' => 'search']),
 			'ads' => fn (string $value) : array => self::getApp($value, ['category' => 'ads']),
 			'validator' => fn (string $value) : array => self::getApp($value, ['category' => 'validator']),
-			'feed' => fn (string $value) : array => self::getApp($value, ['category' => 'feed']),
+			'feed' => fn (string $value) : array => self::getApp($value, \array_merge(
+				\str_contains($value, 'WhatsApp/') ? [
+					'app' => 'WhatsApp'
+				] : [],
+				[
+					'category' => 'feed'
+				]
+			)),
 			'crawler' => function (string $value) : array {
 				$parts = \explode('/', $value, 2);
 				$map = [
@@ -63,66 +71,198 @@ class crawlers {
 				if (!\str_contains($value, '://') && \strcasecmp('Cubot', $value) !== 0 && \strcasecmp('Power bot', $value) !== 0) { // bot will be in the URL
 					$parts = \explode('/', $value, 2);
 					$category = [
-						'yacybot' => 'search',
-						'Googlebot' => 'search',
-						'Googlebot-Mobile' => 'search',
-						'Googlebot-Image' => 'search',
-						'Googlebot-Video' => 'search',
-						'Googlebot-News' => 'search',
-						'Storebot-Google' => 'search',
-						'AdsBot-Google' => 'ads',
-						'AdsBot-Google-Mobile' => 'ads',
-						'Bingbot' => 'search',
-						'bingbot' => 'search',
-						'adidxbot' => 'ads',
-						'DuckDuckBot' => 'search',
-						'DuckDuckGo-Favicons-Bot' => 'search',
-						'coccocbot-image' => 'search',
-						'coccocbot-web' => 'search',
-						'Applebot' => 'search',
-						'YandexBot' => 'search',
-						'MJ12bot' => 'search',
-						'Mail.RU_Bot' => 'search',
-						'Exabot' => 'search',
-						'UptimeRobot' => 'monitor',
-						'PetalBot' => 'search',
-						'Twitterbot' => 'feed',
-						'Xbot' => 'feed',
-						'Discordbot' => 'feed',
-						'PRTGCloudBot' => 'monitor',
-						'SematextSyntheticsRobot' => 'monitor',
-						'LinkedInBot' => 'feed',
-						'PaperLiBot' => 'feed',
-						'bitlybot' => 'feed',
-						'TinEye-bot' => 'search',
-						'Pinterestbot' => 'feed',
-						'WebCrawler' => 'crawler',
-						'webprosbot' => 'crawler',
-						'GuzzleHttp' => 'scraper',
-						'TelegramBot' => 'feed',
-						'Ruby' => 'scraper',
-						'SEMrushBot' => 'crawler',
-						'Mediatoolkitbot' => 'crawler',
-						'IPLoggerBot' => 'monitor'
+						'yacybot' => [
+							'category' => 'search',
+							'app' => 'YacyBot'
+						],
+						'Googlebot' => [
+							'category' => 'search',
+							'app' => 'GoogleBot'
+						],
+						'Googlebot-Mobile' => [
+							'category' => 'search',
+							'app' => 'GoogleBot'
+						],
+						'Googlebot-Image' => [
+							'category' => 'search',
+							'app' => 'GoogleBot'
+						],
+						'Googlebot-Video' => [
+							'category' => 'search',
+							'app' => 'GoogleBot'
+						],
+						'Googlebot-News' => [
+							'category' => 'search',
+							'app' => 'GoogleBot'
+						],
+						'Storebot-Google' => [
+							'category' => 'search',
+							'app' => 'GoogleBot'
+						],
+						'AdsBot-Google' => [
+							'category' => 'ads',
+							'app' => 'GoogleBot'
+						],
+						'AdsBot-Google-Mobile' => [
+							'category' => 'ads',
+							'app' => 'GoogleBot'
+						],
+						'Bingbot' => [
+							'category' => 'search',
+							'app' => 'BingBot'
+						],
+						'bingbot' => [
+							'category' => 'search',
+							'app' => 'BingBot'
+						],
+						'adidxbot' => [
+							'category' => 'ads',
+							'app' => 'AdidxBot'
+						],
+						'DuckDuckBot' => [
+							'category' => 'search',
+							'app' => 'DuckDuckBot'
+						],
+						'DuckDuckGo-Favicons-Bot' => [
+							'category' => 'search',
+							'app' => 'DuckDuckBot'
+						],
+						'coccocbot-image' => [
+							'category' => 'search',
+							'app' => 'CoccocBot'
+						],
+						'coccocbot-web' => [
+							'category' => 'search',
+							'app' => 'CoccocBot'
+						],
+						'Applebot' => [
+							'category' => 'search',
+							'app' => 'AppleBot'
+						],
+						'YandexBot' => [
+							'category' => 'search'
+						],
+						'MJ12bot' => [
+							'category' => 'search',
+							'app' => 'MJ12 Bot'
+						],
+						'Mail.RU_Bot' => [
+							'category' => 'search',
+							'app' => 'Mail.ru Bot'
+						],
+						'Exabot' => [
+							'category' => 'search',
+							'app' => 'ExaBot'
+						],
+						'UptimeRobot' => [
+							'category' => 'monitor'
+						],
+						'PetalBot' => [
+							'category' => 'search'
+						],
+						'Twitterbot' => [
+							'category' => 'feed',
+							'app' => 'TwitterBot'
+						],
+						'Xbot' => [
+							'category' => 'feed'
+						],
+						'Discordbot' => [
+							'category' => 'feed',
+							'app' => 'DiscordBot'
+						],
+						'SematextSyntheticsRobot' => [
+							'category' => 'monitor',
+							'app' => 'Sematext Synthetics Robot'
+						],
+						'LinkedInBot' => [
+							'category' => 'feed'
+						],
+						'PaperLiBot' => [
+							'category' => 'feed'
+						],
+						'bitlybot' => [
+							'category' => 'feed',
+							'app' => 'Bit.ly Bot'
+						],
+						'TinEye-bot' => [
+							'category' => 'search',
+							'app' => 'TinEye Bot'
+						],
+						'Pinterestbot' => [
+							'category' => 'feed',
+							'app' => 'PinterestBot'
+						],
+						'WebCrawler' => [
+							'category' => 'crawler'
+						],
+						'webprosbot' => [
+							'category' => 'crawler',
+							'app' => 'WebprosBot'
+						],
+						'GuzzleHttp' => [
+							'category' => 'scraper'
+						],
+						'TelegramBot' => [
+							'category' => 'feed'
+						],
+						'Ruby' => [
+							'category' => 'scraper'
+						],
+						'SEMrushBot' => [
+							'category' => 'crawler'
+						],
+						'Mediatoolkitbot' => [
+							'category' => 'crawler',
+							'app' => 'MediaToolkitBot'
+						],
+						'IPLoggerBot' => [
+							'category' => 'monitor'
+						],
+						'CFNetwork' => [
+							'category' => 'feed',
+							'app' => 'Apple Core Foundation Network'
+						],
+						'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => [
+							'category' => 'monitor',
+							'app' => 'NCSC Web Check'
+						],
+						'Google-Site-Verification' => [
+							'category' => 'validator',
+							'app' => 'Google Site Verification'
+						],
+						'Google-InspectionTool' => [
+							'category' => 'validator',
+							'app' => 'Google Inspection Tool'
+						],
+						'PingdomTMS' => [
+							'category' => 'monitor',
+							'app' => 'Pingdom.com'
+						],
+						'facebookexternalhit' => [
+							'category' => 'feed',
+							'app' => 'Facebook URL Preview'
+						]
 					];
-					return self::getApp($value, [
-						'category' => $category[$parts[0]] ?? (\mb_stripos($value, 'crawler') !== false ? 'crawler' : null),
-						'app' => $parts[0]
-					]);
+					return self::getApp($value, \array_merge([
+						'category' => \mb_stripos($value, 'crawler') !== false ? 'crawler' : null,
+						'app' => $parts[0],
+						'appname' => $parts[0],
+					], $category[$parts[0]] ?? []));
 				}
 				return null;
 			}
 		];
 		return [
 			'Yahoo! Slurp' => new props('exact', $fn['search']),
-			'facebookexternalhit/' => new props('start', $fn['feed']),
-			'Google-Site-Verification/' => new props('start', $fn['validator']),
-			'Google-InspectionTool/' => new props('start', $fn['search']),
+			'facebookexternalhit/' => new props('start', $fn['map']),
+			'Google-Site-Verification/' => new props('start', $fn['map']),
+			'Google-InspectionTool/' => new props('start', $fn['map']),
 			'Mediapartners-Google' => new props('start', $fn['search']),
 			'FeedFetcher-Google' => new props('exact', $fn['feed']),
 			'GoogleProducer' => new props('exact', $fn['feed']),
 			'Google-adstxt' => new props('exact', $fn['ads']),
-			'CFNetwork/' => new props('start', $fn['feed']),
+			'CFNetwork/' => new props('start', $fn['map']),
 			'Siteimprove.com' => new props('any', $fn['crawler']),
 			'CyotekWebCopy' => new props('start', $fn['scraper']),
 			'Google Page Speed Insights' => new props('exact', $fn['validator']),
@@ -133,7 +273,7 @@ class crawlers {
 			'Nessus' => new props('start', $fn['monitor']),
 			'Chrome-Lighthouse' => new props('start', $fn['validator']),
 			'Siege/' => new props('start', $fn['validator']),
-			'PingdomTMS/' => new props('start', $fn['monitor']),
+			'PingdomTMS/' => new props('start', $fn['map']),
 			'DynGate' => new props('exact', $fn['monitor']),
 			'Datadog/Synthetics' => new props('exact', [
 				'type' => 'robot',
@@ -144,26 +284,29 @@ class crawlers {
 			'Checkly/' => new props('start', $fn['monitor']),
 			'Uptime/' => new props('start', $fn['monitor']),
 			'HostTracker/' => new props('start', $fn['monitor']),
-			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => new props('exact', $fn['monitor']),
+			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => new props('exact', $fn['map']),
 			'Pingdom.com' => new props('start', function (string $value) : array {
 				$version = \explode('_', \trim($value, '_'));
 				return [
 					'type' => 'robot',
 					'category' => 'monitor',
-					'app' => 'Pingdom.com Bot',
+					'app' => 'Pingdom.com',
+					'appname' => \trim($value, '_'),
 					'appversion' => \end($version)
 				];
 			}),
 			'proximic' => new props('exact', $fn['ads']),
 			'WordPress' => new props('start', $fn['monitor']),
 			'PRTG Network Monitor' => new props('exact', $fn['monitor']),
+			'PRTGCloudBot/' => new props('start', $fn['monitor']),
 			'Site24x7' => new props('exact', $fn['monitor']),
 			'StatusCake' => new props('exact', $fn['monitor']),
 			'adbeat.com' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'ads',
 				'app' => 'Adbeat',
-				'url' => $value
+				'appname' => 'Adbeat',
+				'url' => 'https://'.$value
 			]),
 			'MicrosoftPreview/' => new props('start', $fn['feed']),
 			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
@@ -176,35 +319,6 @@ class crawlers {
 			'Rogerbot/' => new props('start', $fn['crawler']),
 			'Go-http-client/' => new props('start', $fn['scraper']),
 			'DashLinkPreviews/' => new props('start', $fn['feed']),
-			'Microsoft Office' => new props('start', function (string $value, int $i, array $tokens) : array {
-				$data = [
-					'type' => 'human'
-				];
-				if (\str_contains($value, '/')) {
-					foreach (\array_slice($tokens, $i + 1) AS $item) {
-						if (\str_starts_with($item, 'Microsoft ')) {
-						$parts = \explode(' ', $item);
-						$data['app'] = $parts[0].' '.$parts[1];
-						if (isset($parts[2])) {
-							$data['appversion'] = $parts[2];
-						}
-						break;
-						}
-					}
-					if (!isset($data['app'])) {
-						$parts = \explode('/', $value, 2);
-						$data['app'] = $parts[0];
-						if (!isset($data['appversion'])) {
-						$data['appversion'] = $parts[1];
-						}
-					}
-				} else {
-					$parts = \explode(' ', $value);
-					$data['app'] = \rtrim($parts[0].' '.($parts[1] ?? '').' '.($parts[2] ?? ''));
-					$data['appversion'] = $parts[3] ?? null;
-				}
-				return $data;
-			}),
 			'PycURL/' => new props('start', $fn['scraper']),
 			'lua-resty-http/' => new props('start', $fn['scraper']),
 			'Snapchat/' => new props('start', $fn['feed']),

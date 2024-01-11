@@ -48,6 +48,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '107.0.5304.141',
 				'app' => 'Facebook',
+				'appname' => 'FB4A',
 				'appversion' => '396.0.0.21.104'
 			],
 			'Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; HM NOTE 1W Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/11.0.5.850 U3/0.8.0 Mobile Safari/534.30' => [
@@ -136,6 +137,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Internet Explorer',
 				'browserversion' => '7.0',
 				'app' => 'Zoom',
+				'appname' => 'Zoom',
 				'appversion' => '3.6.0'
 			],
 			'Mozilla/5.0 (Linux; Android 10.0; tablet Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.130 Safari/537.36 [FB_IAB/FB4A;FBAV/419.0.0.37.71;]' => [
@@ -151,6 +153,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '114.0.5735.130',
 				'app' => 'Facebook',
+				'appname' => 'FB4A',
 				'appversion' => '419.0.0.37.71'
 			]
 		];
@@ -176,7 +179,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '108.0.5359.179',
 				'browser' => 'Samsung Browser',
 				'browserversion' => '4.0',
-				'app' => 'OculusBrowser',
+				'app' => 'Oculus Browser',
+				'appname' => 'OculusBrowser',
 				'appversion' => '25.3.0.4.30.438623098'
 			]
 		];
@@ -254,6 +258,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '83.0.4103.120',
 				'language' => 'tr-TR',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '288.1.0.22.66',
 				'width' => 1920,
 				'height' => 1080,
@@ -274,6 +279,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '66.0.3359.158',
 				'language' => 'en-US',
 				'app' => 'Facebook',
+				'appname' => 'EMA',
 				'appversion' => '340.0.0.9.76'
 			],
 			'Mozilla/5.0 (SMART-TV; Linux; Tizen 5.5) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.0 Chrome/69.0.3497.106 TV Safari/537.36' => [

@@ -49,6 +49,9 @@ class other {
 						foreach ($fields AS $item) {
 							if (isset($data[$item])) {
 								$cat[$map[$item] ?? $item] = $values[$data[$item]] ?? $data[$item];
+								if ($item === 'app') {
+									$cat['appname'] = $data[$item];
+								}
 							}
 						}
 						return $cat;

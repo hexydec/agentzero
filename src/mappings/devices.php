@@ -129,6 +129,7 @@ class devices {
 				'type' => 'human',
 				'category' => 'tv',
 				'app' => 'Chromecast',
+				'appname' => 'CrKey',
 				'appversion' => \explode(',', \mb_substr($value, 6), 2)[0]
 			]),
 			'ChromeBook' => new props('any', [

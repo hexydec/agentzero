@@ -10,6 +10,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'feed',
 				'app' => 'LinkedInBot',
+				'appname' => 'LinkedInBot',
 				'appversion' => '1.0',
 				'url' => 'http://www.linkedin.com',
 				'host' => 'linkedin.com'

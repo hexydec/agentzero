@@ -60,7 +60,8 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Safari/13609.3.5.1.5 CFNetwork/902.6 Darwin/17.7.0 (x86_64)',
 				'type' => 'robot',
 				'category' => 'feed',
-				'app' => 'CFNetwork',
+				'app' => 'Apple Core Foundation Network',
+				'appname' => 'CFNetwork',
 				'appversion' => '902.6',
 				'kernel' => 'Linux',
 				'platform' => 'Darwin',
@@ -296,7 +297,8 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'yacybot (/global; amd64 Windows 7 6.1; java 17.0.6; Europe/pl) http://yacy.net/bot.html',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'yacybot',
+				'app' => 'YacyBot',
+				'appname' => 'yacybot',
 				'url' => 'http://yacy.net/bot.html',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
@@ -367,6 +369,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/104.0.5112.97 DuckDuckGo/5 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/104.0.5112.97 DuckDuckGo/5 Safari/537.36',
 				'app' => 'DuckDuckGo',
+				'appname' => 'DuckDuckGo',
 				'appversion' => '5',
 				'type' => 'human',
 				'category' => 'desktop',
@@ -396,6 +399,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/109.0.5414.117 DuckDuckGo/5 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/109.0.5414.117 DuckDuckGo/5 Safari/537.36',
 				'app' => 'DuckDuckGo',
+				'appname' => 'DuckDuckGo',
 				'appversion' => '5',
 				'type' => 'human',
 				'category' => 'desktop',
@@ -454,6 +458,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 9; Intel Braswell Chromebook Build/R103-14816.131.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Safari/537.36 Instagram 290.0.0.13.76 Android (28/9; 160dpi; 1366x688; Google/google; Intel Braswell Chromebook; wizpig_cheets; cheets; pt_BR; 491057560)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 9; Intel Braswell Chromebook Build/R103-14816.131.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Safari/537.36 Instagram 290.0.0.13.76 Android (28/9; 160dpi; 1366x688; Google/google; Intel Braswell Chromebook; wizpig_cheets; cheets; pt_BR; 491057560)',
 				'app' => 'Instagram',
+				'appname' => 'Instagram',
 				'appversion' => '290.0.0.13.76',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -650,6 +655,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 YaApp_Android/23.12.1 YaSearchBrowser/23.12.1 BroPP/1.0 SA/3 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 YaApp_Android/23.12.1 YaSearchBrowser/23.12.1 BroPP/1.0 SA/3 Mobile Safari/537.36',
 				'app' => 'Yandex',
+				'appname' => 'YaApp_Android',
 				'appversion' => '23.12.1',
 				'platform' => 'Android',
 				'platformversion' => '10',
@@ -667,6 +673,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaSearchBrowser/23.51.1 BroPP/1.0 YaSearchApp/23.51.1 webOmni SA/3 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 YaSearchBrowser/23.51.1 BroPP/1.0 YaSearchApp/23.51.1 webOmni SA/3 Mobile Safari/537.36',
 				'app' => 'Yandex',
+				'appname' => 'YaSearchApp',
 				'appversion' => '23.51.1',
 				'platform' => 'Android',
 				'platformversion' => '10',

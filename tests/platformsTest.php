@@ -346,6 +346,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '112.0.0.0',
 				'app' => 'Yandex',
+				'appname' => 'YaBrowser',
 				'appversion' => '23.5.2.625',
 				'engine' => 'Blink',
 				'engineversion' => '112.0.0.0',
@@ -677,6 +678,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'app' => 'Facebook',
+				'appname' => 'FB4A',
 				'appversion' => '396.1.0.28.104'
 			],
 			'Mozilla/5.0 (Linux; Android 11; motorola one 5G ace) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36' => [
@@ -713,6 +715,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 10; ART-L29 Build/HUAWEIART-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 trill_2022707020 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/27.7.2 ByteLocale/en ByteFullLocale/en Region/IQ BytedanceWebview/d8a21c6' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; ART-L29 Build/HUAWEIART-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 trill_2022707020 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/27.7.2 ByteLocale/en ByteFullLocale/en Region/IQ BytedanceWebview/d8a21c6',
 				'app' => 'TikTok',
+				'appname' => 'musical_ly',
 				'appversion' => '27.7.2',
 				'kernel' => 'Linux',
 				'platform' => 'Android',
@@ -983,7 +986,8 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'vr',
 				'browser' => 'Samsung Browser',
 				'browserversion' => '4.0',
-				'app' => 'OculusBrowser',
+				'app' => 'Oculus Browser',
+				'appname' => 'OculusBrowser',
 				'appversion' => '24.4.0.22.60.426469926',
 				'engine' => 'Blink',
 				'engineversion' => '106.0.5249.181',

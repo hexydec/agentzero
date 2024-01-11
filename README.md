@@ -64,6 +64,7 @@ The returned value will be something like:
 
 	// app
 	public readonly ?string 'app' => string 'Instagram';
+	public readonly ?string 'appname' => string 'Instagram';
 	public readonly ?string 'appversion' => string '301.1.0.33.110';
 	public readonly ?string 'url' => null;
 
