@@ -42,7 +42,6 @@ class browsers {
 				$data = ['type' => 'human'];
 				$browser = \mb_strtolower(\array_shift($parts));
 				$data['browser'] = $map[$browser] ?? \mb_convert_case($browser, MB_CASE_TITLE);
-				$data['browserversion'] = null;
 				foreach ($parts AS $item) {
 					if (\strpbrk($item, '1234567890') !== false) {
 						$data['browserversion'] = $item;
@@ -70,7 +69,23 @@ class browsers {
 					'browserversion' => $parts[1] ?? null,
 					'engineversion' => isset($parts[1]) && \strspn($parts[1], '1234567890.') === \strlen($parts[1]) ? $parts[1] : null
 				];
-			}
+			},
+			'safari' => function (string $value, int $i, array $tokens) : array {
+				$version = null;
+				foreach ($tokens AS $item) {
+					if (\mb_stripos($item, 'Version/') === 0) {
+						$version = \mb_substr($item, 8);
+					}
+				}
+				$parts = \explode('/', $value, 2);
+				return [
+					'type' => 'human',
+					'browser' => 'Safari',
+					'browserversion' => $version ?? $parts[1] ?? null,
+					'engine' => 'WebKit',
+					'engineversion' => $parts[1] ?? null
+				];
+			},
 		];
 		return [
 			'HeadlessChrome/' => new props('start', fn (string $value) : array => [
@@ -194,7 +209,7 @@ class browsers {
 			'Cronet/' => new props('start', $fn['chromium']),
 			'Chromium/' => new props('start', $fn['chromium']),
 			'Chrome/' => new props('start', $fn['chromium']),
-			'Safari/' => new props('start', $fn['browserslash']),
+			'Safari/' => new props('start', $fn['safari']),
 			'Mozilla/' => new props('start', $fn['browserslash']),
 			'rv:' => new props('start', fn (string $value) : array => [
 				'browserversion' => \mb_substr($value, 3)

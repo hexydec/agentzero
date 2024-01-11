@@ -19,7 +19,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '600.8.9',
 				'browser' => 'Safari',
-				'browserversion' => '537.85.17'
+				'browserversion' => '6.2.8'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -69,7 +69,9 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'x86',
 				'bits' => 64,
 				'browser' => 'Safari',
-				'browserversion' => '13609.3.5.1.5'
+				'browserversion' => '13609.3.5.1.5',
+				'engine' => 'WebKit',
+				'engineversion' => '13609.3.5.1.5'
 			],
 		];
 		foreach ($strings AS $ua => $item) {
@@ -341,7 +343,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '531.2+',
 				'browser' => 'Safari',
-				'browserversion' => '533.2+',
+				'browserversion' => '5.0',
 				'language' => 'en-US'
 			]
 		];

@@ -27,7 +27,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '604.1'
+				'browserversion' => '16.2'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/243.0.495136164 Mobile/15E148 Safari/604.1' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/243.0.495136164 Mobile/15E148 Safari/604.1',
@@ -110,7 +110,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15'
+				'browserversion' => '15.7'
 			],
 			'Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 Mobile/14G60 Safari/602.1' => [
 				'string' => 'Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 Mobile/14G60 Safari/602.1',
@@ -127,7 +127,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '603.3.8',
 				'browser' => 'Safari',
-				'browserversion' => '602.1'
+				'browserversion' => '10.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -152,7 +152,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '420.1',
 				'browser' => 'Safari',
-				'browserversion' => '419.3',
+				'browserversion' => '3.0',
 				'language' => 'en'
 			],
 			'Mozilla/5.0 (iPod touch; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Mobile/15E148 Safari/604.1' => [
@@ -170,7 +170,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '604.1'
+				'browserversion' => '15.6'
 			],
 			'Mozilla/5.0 (iPod; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B118 Safari/6531.22.7' => [
 				'string' => 'Mozilla/5.0 (iPod; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B118 Safari/6531.22.7',
@@ -187,7 +187,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '532.9',
 				'browser' => 'Safari',
-				'browserversion' => '6531.22.7',
+				'browserversion' => '4.0.5',
 				'language' => 'en-US'
 			]
 		];
@@ -521,7 +521,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15'
+				'browserversion' => '15.4'
 			],
 			'Mozilla/5.0 (PlayStation; PlayStation 5/2.70) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15' => [
 				'string' => 'Mozilla/5.0 (PlayStation; PlayStation 5/2.70) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15',
@@ -539,7 +539,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15'
+				'browserversion' => '13.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

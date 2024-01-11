@@ -120,7 +120,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '534.13',
 				'browser' => 'Safari',
-				'browserversion' => '534.13',
+				'browserversion' => '4.0',
 				'language' => 'en-US'
 			],
 			'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; Win64; x64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0; HCTE; Zoom 3.6.0; ms-office; MSOffice 16)' => [

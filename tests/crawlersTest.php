@@ -108,7 +108,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Mac OS X',
 				'platformversion' => '10.10.1',
 				'browser' => 'Safari',
-				'browserversion' => '600.2.5',
+				'browserversion' => '8.0.2',
 				'engine' => 'WebKit',
 				'engineversion' => '600.2.5'
 			],
@@ -131,7 +131,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15'
+				'browserversion' => '13.1.1'
 			],
 			'Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +https://help.mail.ru/webmaster/indexing/robots)' => [
 				'string' => 'Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +https://help.mail.ru/webmaster/indexing/robots)',
@@ -257,7 +257,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '537.51.1',
 				'browser' => 'Safari',
-				'browserversion' => '9537.53'
+				'browserversion' => '7.0'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)',
@@ -278,7 +278,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '537.51.1',
 				'browser' => 'Safari',
-				'browserversion' => '9537.53'
+				'browserversion' => '7.0'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/80.0.345.0 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/80.0.345.0 Safari/537.36',
@@ -478,7 +478,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '604.1'
+				'browserversion' => '14.1.2'
 			],
 			'Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-T550 Build/LRX22G) adbeat.com/policy AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.3 Chrome/38.0.2125.102 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-T550 Build/LRX22G) adbeat.com/policy AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.3 Chrome/38.0.2125.102 Safari/537.36',
@@ -796,7 +796,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '604.1'
+				'browserversion' => '13.0.3'
 			],
 			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => [
 				'string' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk',

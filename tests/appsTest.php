@@ -728,7 +728,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'YaBrowser',
 				'appversion' => '23.7.4.478',
 				'browser' => 'Safari',
-				'browserversion' => '604.1'
+				'browserversion' => '16.5'
 			],
 			'Mozilla/5.0 (Linux; arm_64; Android 13; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.136 YaBrowser/21.3.4.59 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; arm_64; Android 13; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.136 YaBrowser/21.3.4.59 Mobile Safari/537.36',

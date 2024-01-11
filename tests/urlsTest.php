@@ -12,8 +12,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'LinkedInBot',
 				'appname' => 'LinkedInBot',
 				'appversion' => '1.0',
-				'url' => 'http://www.linkedin.com',
-				'host' => 'linkedin.com'
+				'url' => 'http://www.linkedin.com'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

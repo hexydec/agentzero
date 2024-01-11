@@ -433,7 +433,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'platformversion' => '10.15.7',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15',
+				'browserversion' => '16.5.1',
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15'
 			],
@@ -501,7 +501,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'platformversion' => '10.15.7',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15',
+				'browserversion' => '16.5',
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15'
 			],
@@ -518,7 +518,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'platformversion' => '10.15.7',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15',
+				'browserversion' => '16.5.2',
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15'
 			],
@@ -535,7 +535,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'platformversion' => '10.15.7',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15',
+				'browserversion' => '16.4',
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15'
 			],
@@ -552,7 +552,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'platformversion' => '10.15.7',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15',
+				'browserversion' => '16.3',
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15'
 			],
@@ -637,7 +637,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'platformversion' => '10.15.7',
 				'browser' => 'Safari',
-				'browserversion' => '605.1.15',
+				'browserversion' => '15.6.1',
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15'
 			],
