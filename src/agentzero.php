@@ -2,9 +2,6 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
-/**
- * @phpstan-import-type MatchValue from config
- */
 class agentzero {
 
 	// ua string

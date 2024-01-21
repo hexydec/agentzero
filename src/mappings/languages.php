@@ -2,15 +2,12 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
-/**
- * @phpstan-import-type props from config
- */
 class languages {
 
 	/**
 	 * Generates a configuration array for matching languages
 	 * 
-	 * @return props An array with keys representing the string to match, and a value of an array containing parsing and output settings
+	 * @return array<string,props> An array with keys representing the string to match, and values a props object defining how to generate the match and which properties to set
 	 */
 	public static function get() : array {
 		$languages = [

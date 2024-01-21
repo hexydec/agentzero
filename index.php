@@ -15,10 +15,22 @@ $total = \microtime(true) - $time;
 	<head>
 		<title>AgentZero - User Agent Information Test Page</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="shortcut icon" type="image/svg" href="docs/agentzero.svg" />
 		<style>
+			body, input {
+				font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+			}
 			.content {
 				max-width: 1280px;
 				margin: 0 auto;
+			}
+
+			.form__heading {
+				margin: 10px 10px 0 10px;
+				flex: 0 0 auto;
+				display: flex;
+				align-items: center;
+				gap: 0 10px;
 			}
 
 			.form__control {
@@ -27,7 +39,7 @@ $total = \microtime(true) - $time;
 			}
 
 			.form__label {
-				flex: 0 0 25%;
+				flex: 0 0 15%;
 				box-sizing: border-box;
 				padding-right: 10px;
 				text-align: right;
@@ -38,21 +50,24 @@ $total = \microtime(true) - $time;
 			}
 
 			.form__submit {
-				margin-left: 25%;
+				margin-left: 15%;
 				width: 40%;
 			}
 		</style>
 	</head>
 	<body>
 		<main class="content">
-			<h1>AgentZero User Agent Information</h1>
 			<form accept-charset="<?= \htmlspecialchars(\strval(\mb_internal_encoding())); ?>" method="post">
+				<h1 class="form__heading">
+					<img src="docs/agentzero.svg" alt="AgentZero" height="50" />
+					AgentZero User Agent Parser
+				</h1>
 				<div class="form__control">
 					<label class="form__label">User Agent:</label>
 					<input type="text" class="form__input" name="ua" value="<?= \htmlspecialchars($ua); ?>" />
 				</div>
 				<div class="form__control">
-					<input type="submit" class="form__submit" value="Get Info" />
+					<input type="submit" class="form__submit" value="Parse User Agent String" />
 				</div>
 			</form>
 			<?php if ($output !== null) { ?>

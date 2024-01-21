@@ -4,15 +4,36 @@ namespace hexydec\agentzero;
 
 class props {
 
+	/**
+	 * @var string $type The type of search to use when matching - start|any|end|exact
+	 */
 	protected string $type;
+
+	/**
+	 * @var array<string,string|int|bool>|\Closure $props An array of properties to set when matched, or a closure that generates the properties
+	 */
 	protected array|\Closure $props;
 
+	/**
+	 * Creates a props object
+	 * 
+	 * @param string $type The type of search to use when matching - start|any|end|exact
+	 * @param array<string,string|int|bool>|\Closure $props An array of properties to set when matched, or a closure that generates the properties
+	 */
 	public function __construct(string $type, array|\Closure $props) {
 		$this->type = $type;
 		$this->props = $props;
 	}
 
-	public function match(\stdClass $obj, string $search, array $tokens) {
+	/**
+	 * Match tokens against this property
+	 * 
+	 * @param \stdClass $obj A stdClass object to push the matched properties into
+	 * @param string $search The string to match
+	 * @param array<string> $tokens An array of tokens to match against
+	 * @return void
+	 */
+	public function match(\stdClass $obj, string $search, array $tokens) : void {
 		$type = $this->type;
 		$searchlower = \mb_strtolower($search);
 		foreach ($tokens AS $i => $token) {
@@ -55,14 +76,14 @@ class props {
 	/**
 	 * Sets parsed UA properties, and calls callbacks to generate properties and sets them to the output object
 	 * 
-	 * @param \stdClass $browser A stdClass object to which the properties will be set
-	 * @param MatchValue|\Closure $props An array of properties or a Closure to generate properties
+	 * @param \stdClass $obj A stdClass object to which the properties will be set
 	 * @param string $value The current token value
 	 * @param int $i The ID of the current token
-	 * @param array<string> &$tokens The tokens array
+	 * @param array<string> $tokens The tokens array
+	 * @param string $key The string that was matched in the token
 	 * @return void
 	 */
-	public function set(\stdClass $obj, string $value, int $i, array $tokens, string $key) : void {
+	protected function set(\stdClass $obj, string $value, int $i, array $tokens, string $key) : void {
 		$props = $this->props;
 		if ($props instanceof \Closure) {
 			$props = $props($value, $i, $tokens, $key);

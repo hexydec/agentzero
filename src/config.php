@@ -2,16 +2,12 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
-/**
- * @phpstan-type MatchValue array<string, string|int|float|bool|null>|\Closure
- * @phpstan-type MatchConfig array<string,array{match: string, categories: MatchValue}>
- */
 class config {
 
 	/**
 	 * Retrieves the configuration
 	 * 
-	 * @return array{ignore: array<int,string>, single: array<int,string>, match: MatchConfig} An array of configuration values
+	 * @return array{ignore: array<int,string>, single: array<int,string>, match: array<string,props>} An array of configuration values
 	 */
 	public static function get() : ?array {
 		static $config = [];
