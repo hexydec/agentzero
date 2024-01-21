@@ -189,7 +189,7 @@ class platforms {
 				'kernel' => 'Linux',
 				'platform' => 'Arch',
 			]),
-			'Arch' => new props('exact', fn (string $value) : array => [
+			'Arch' => new props('exact', fn () : array => [
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',
