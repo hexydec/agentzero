@@ -170,6 +170,31 @@ class platforms {
 					'platformversion' => $parts[1] ?? null
 				];
 			}),
+			'KAIOS/' => new props('start', function (string $value, int $i, array $tokens) : array {
+
+				// find device
+				foreach ($tokens AS $i => $item) {
+					if ($item === 'Mobile' && !\str_starts_with($tokens[$i++] ?? 'rv:', 'rv:')) {
+						if (\str_contains($tokens[$i], '/')) {
+							$parts = \explode('/', $tokens[$i]);
+						} else {
+							$parts = \explode(' ', \str_replace('_', ' ', $tokens[$i]), 2);
+						}
+						break;
+					}
+				}
+				return [
+					'type' => 'human',
+					'category' => 'mobile',
+					'kernel' => 'Linux',
+					'architecture' => 'arm',
+					'platform' => 'KaiOS',
+					'platformversion' => \mb_substr($value, 6),
+					'vendor' => !empty($parts[0]) ? devices::getVendor($parts[0]) : null,
+					'device' => $parts[1] ?? null,
+					'build' => $parts[2] ?? null
+				];
+	}		),
 			'Ubuntu' => new props('start', $fn['platformlinux']),
 			'Kubuntu' => new props('start', $fn['platformlinux']),
 			'Mint' => new props('start', $fn['platformlinux']),
@@ -183,6 +208,9 @@ class platforms {
 			'Alma' => new props('start', $fn['platformlinux']),
 			'Gentoo' => new props('start', $fn['platformlinux']),
 			'Slackware' => new props('start', $fn['platformlinux']),
+			'OpenSUSE' => new props('start', $fn['platformlinux']),
+			'FreeBSD' => new props('start', $fn['platformlinux']),
+			'OpenBSD' => new props('start', $fn['platformlinux']),
 			'ArchLinux' => new props('exact', fn () : array => [
 				'type' => 'human',
 				'category' => 'desktop',
@@ -311,7 +339,8 @@ class platforms {
 			'suse' => 'SUSE',
 			'freebsd' => 'FreeBSD',
 			'openbsd' => 'OpenBSD',
-			'netbsd' => 'NetBSD'
+			'netbsd' => 'NetBSD',
+			'opensuse' => 'OpenSUSE'
 		];
 		$value = \mb_strtolower($value);
 		return $map[$value] ?? \mb_convert_case($value, MB_CASE_TITLE);
