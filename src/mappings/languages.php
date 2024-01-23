@@ -146,7 +146,26 @@ class languages {
 			}
 			return null;
 		};
-		$config = [];
+		$lang = function (string $value) use ($languages): ?array {
+			$value = \str_replace('_', '-', \explode('/', $value)[1]);
+			$lang = \mb_strtolower(\mb_substr($value, 0, 2));
+			$len = \mb_strlen($value);
+			if (isset($languages[$lang]) && \in_array($len, [2, 5, 10], true)) {
+				if ($len > 2 && \mb_strpos($value, '-') === 2) {
+					if ($len === 5) {
+						$suffix = '-'.\strtoupper(\mb_substr($value, 3, 2));
+					} elseif (\mb_strpos($value, '-', 3) === 7) {
+						$suffix = '-'.\strtoupper(\mb_substr($value, 8, 2));
+					}
+				}
+				return ['language' => $lang.($suffix ?? '')];
+			}
+			return null;
+		};
+		$config = [
+			'Language/' => new props('start', $lang),
+			'ByteLocale/' => new props('start', $lang)
+		];
 		foreach (\array_keys($languages) AS $key) {
 			$config[$key] = new props('start', $fn);
 		}

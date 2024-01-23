@@ -334,7 +334,7 @@ class devices {
 			'Build/' => new props('any', fn (string $value) : array => self::getDevice($value)),
 			'x' => new props('any', function (string $value) : ?array {
 				$parts = \explode('x', $value);
-				if (!isset($parts[2]) && \is_numeric($parts[0]) && \is_numeric($parts[1])) {
+				if (!isset($parts[2]) && \is_numeric($parts[0]) && \is_numeric($parts[1]) && !empty($parts[0]) && !empty($parts[1])) {
 					return [
 						'width' => \intval($parts[0]),
 						'height' => \intval($parts[1])

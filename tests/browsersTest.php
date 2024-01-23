@@ -56,8 +56,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'Opera/9.80 (MAUI Runtime; Opera Mini/4.4.33576/191.308; U; en) Presto/2.12.423 Version/12.16' => [
 				'string' => 'Opera/9.80 (MAUI Runtime; Opera Mini/4.4.33576/191.308; U; en) Presto/2.12.423 Version/12.16',
 				'type' => 'human',
-				'app' => 'MAUI Runtime',
-				'appname' => 'MAUI Runtime',
+				'framework' => 'MAUI',
 				'platformversion' => '12.16',
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
@@ -1582,6 +1581,90 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 		}
 	}
 
+	public function testQQBrowser() : void {
+		$strings = [
+			'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E) QQBrowser/6.9.11079.201' => [
+				'string' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; .NET4.0E) QQBrowser/6.9.11079.201',
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '7',
+				'engine' => 'Trident',
+				'engineversion' => '5.0',
+				'browser' => 'QQ Browser',
+				'browserversion' => '6.9.11079.201'
+			],
+			'Mozilla/5.0 (Linux; Android 7.1.1; vivo X20A Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/044304 Mobile Safari/537.36 MicroMessenger/6.7.2.1340(0x2607023A) NetType/4G Language/zh_CN' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 7.1.1; vivo X20A Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/044304 Mobile Safari/537.36 MicroMessenger/6.7.2.1340(0x2607023A) NetType/4G Language/zh_CN',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Vivo',
+				'model' => 'X20A',
+				'build' => 'NMF26X',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '7.1.1',
+				'engine' => 'Blink',
+				'engineversion' => '57.0.2987.132',
+				'browser' => 'QQ Browser',
+				'browserversion' => '6.2',
+				'language' => 'zh-CN',
+				'app' => 'WeChat',
+				'appname' => 'MicroMessenger',
+				'appversion' => '6.7.2.1340',
+				'nettype' => '4G'
+			],
+			'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36 Core/1.94.191.400 QQBrowser/11.5.5245.400' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36 Core/1.94.191.400 QQBrowser/11.5.5245.400',
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '94.0.4606.71',
+				'browser' => 'QQ Browser',
+				'browserversion' => '11.5.5245.400'
+			],
+			'Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; SM-C7000 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.6 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; U; Android 7.0; zh-cn; SM-C7000 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/8.6 Mobile Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Samsung',
+				'model' => 'SM-C7000',
+				'build' => 'NRD90M',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '7.0',
+				'engine' => 'Blink',
+				'engineversion' => '57.0.2987.132',
+				'browser' => 'QQ Browser',
+				'browserversion' => '8.6',
+				'language' => 'zh-CN'
+			],
+			'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0) Core/1.50.1414.400 QQBrowser/9.5.9244.400' => [
+				'string' => 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0) Core/1.50.1414.400 QQBrowser/9.5.9244.400',
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '7',
+				'engine' => 'Trident',
+				'engineversion' => '5.0',
+				'browser' => 'QQ Browser',
+				'browserversion' => '9.5.9244.400'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
+
 	public function testChromium() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/64.0.3282.167 Chrome/64.0.3282.167 Safari/537.36' => [
@@ -1658,7 +1741,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Midori',
 				'browserversion' => '10.0.2',
 				'engine' => 'Blink',
-				'engineversion' => '98.0.4758.141'
+				'engineversion' => '98.0.4758.141',
+				'framework' => 'Electron',
+				'frameworkversion' => '17.4.10',
 			],
 			'Mozilla/5.0 (X11; Haiku x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Falkon/3.0.0 Chrome/83.0.4103.122 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (X11; Haiku x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Falkon/3.0.0 Chrome/83.0.4103.122 Safari/537.36',

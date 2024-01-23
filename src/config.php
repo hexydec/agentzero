@@ -26,7 +26,8 @@ class config {
 					platforms::get(),
 					architectures::get(),
 					other::get(),
-					apps::get()
+					apps::get(),
+					frameworks::get()
 				)
 			];
 		}

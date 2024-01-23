@@ -41,6 +41,8 @@ class agentzero {
 	public readonly ?string $app;
 	public readonly ?string $appname;
 	public readonly ?string $appversion;
+	public readonly ?string $framework;
+	public readonly ?string $frameworkversion;
 	public readonly ?string $url;
 
 	// network
@@ -96,6 +98,8 @@ class agentzero {
 		$this->app = $data->app ?? null;
 		$this->appname = $data->appname ?? null;
 		$this->appversion = $data->appversion ?? null;
+		$this->framework = $data->framework ?? null;
+		$this->frameworkversion = $data->frameworkversion ?? null;
 		$this->url = $data->url ?? null;
 
 		// network

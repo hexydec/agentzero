@@ -17,7 +17,7 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '7.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '11.0'
+				'browserversion' => '9.0'
 			],
 			'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729)' => [
 				'string' => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729)',

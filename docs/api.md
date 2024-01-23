@@ -116,6 +116,14 @@ The name of the app or robot as it is written in the User-Agent string
 
 The version number of the application
 
+### `framework`
+
+The app framework used to build the app
+
+### `frameworkversion`
+
+The version of tthe app framework
+
 ### `url`
 
 The URL of the robot

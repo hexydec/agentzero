@@ -215,7 +215,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '7.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '11.0'
+				'browserversion' => '9.0'
 			],
 			'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36',

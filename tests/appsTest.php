@@ -224,6 +224,67 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Google',
 				'appname' => 'com.google.android.googlequicksearchbox',
 				'appversion' => '301265987'
+			],
+			'Mozilla/5.0 (Linux; Android 10; AOSP on flame Build/QQ3A.200805.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.156 Mobile Safari/537.36 aweme_140700 JsSdk/1.0 NetType/WIFI Channel/gdt_growth21_yybtp_tengxun AppName/aweme app_version/14.7.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/black AppTheme/dark TTWebView/0751130014013' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10; AOSP on flame Build/QQ3A.200805.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.156 Mobile Safari/537.36 aweme_140700 JsSdk/1.0 NetType/WIFI Channel/gdt_growth21_yybtp_tengxun AppName/aweme app_version/14.7.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/black AppTheme/dark TTWebView/0751130014013',
+				'type' => 'human',
+				'category' => 'mobile',
+				'device' => 'AOSP',
+				'model' => 'On Flame',
+				'build' => 'QQ3A.200805.001',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '75.0.3770.156',
+				'browser' => 'Chrome',
+				'browserversion' => '75.0.3770.156',
+				'language' => 'zh-CN',
+				'app' => 'aweme',
+				'appname' => 'aweme',
+				'appversion' => '14.7.0',
+				'nettype' => 'WIFI',
+				'darkmode' => true
+			],
+			'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5_0) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.6.00.364 Chrome/96.0.4664.174 Electron/16.2.8 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5_0) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.6.00.364 Chrome/96.0.4664.174 Electron/16.2.8 Safari/537.36',
+				'type' => 'human',
+				'category' => 'desktop',
+				'vendor' => 'Apple',
+				'device' => 'Macintosh',
+				'processor' => 'Intel',
+				'architecture' => 'x86',
+				'kernel' => 'Linux',
+				'platform' => 'Mac OS X',
+				'platformversion' => '12.5.0',
+				'engine' => 'Blink',
+				'engineversion' => '96.0.4664.174',
+				'browser' => 'Chrome',
+				'browserversion' => '96.0.4664.174',
+				'app' => 'Teams',
+				'appname' => 'Teams',
+				'appversion' => '1.6.00.364',
+				'framework' => 'Electron',
+				'frameworkversion' => '16.2.8'
+			],
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.4.00.7174 Chrome/80.0.3987.163 Electron/8.5.5 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.4.00.7174 Chrome/80.0.3987.163 Electron/8.5.5 Safari/537.36',
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '80.0.3987.163',
+				'browser' => 'Chrome',
+				'browserversion' => '80.0.3987.163',
+				'app' => 'Teams',
+				'appname' => 'Teams',
+				'appversion' => '1.4.00.7174',
+				'framework' => 'Electron',
+				'frameworkversion' => '8.5.5',
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -288,7 +349,9 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'fr-FR',
 				'app' => 'Facebook Messenger',
 				'appname' => 'MessengerDesktop',
-				'appversion' => '97.11.116'
+				'appversion' => '97.11.116',
+				'framework' => 'Electron',
+				'frameworkversion' => '9.1.0',
 			],
 			'Mozilla/5.0 (Linux; Android 10; SM-G9600 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/393.0.0.18.92;FB_FW/2;FBAN/FB4A]' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; SM-G9600 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/393.0.0.18.92;FB_FW/2;FBAN/FB4A]',
@@ -665,6 +728,153 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '27.9.0',
 				'nettype' => '4G',
 				'darkmode' => false
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
+
+	public function testWechat() : void {
+		$strings = [
+			'Mozilla/5.0 (Linux; Android 10; M6 Note Build/N2G47H; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/105.0.0.0MQQBrowser/6.2 TBS/045223 Mobile Safari/537.36 MMWEBID/9551 MicroMessenger/7.0.14.1660(0x27000E37) Process/tools NetType/4G Language/zh_CN ABI/arm64 WeChat/arm64 wechatdevtools qcloudcdn-xinan' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10; M6 Note Build/N2G47H; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/105.0.0.0MQQBrowser/6.2 TBS/045223 Mobile Safari/537.36 MMWEBID/9551 MicroMessenger/7.0.14.1660(0x27000E37) Process/tools NetType/4G Language/zh_CN ABI/arm64 WeChat/arm64 wechatdevtools qcloudcdn-xinan',
+				'type' => 'human',
+				'category' => 'mobile',
+				'model' => 'M6 Note',
+				'build' => 'N2G47H',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'browser' => 'QQ Browser',
+				'browserversion' => '6.2',
+				'language' => 'zh-CN',
+				'app' => 'WeChat',
+				'appname' => 'MicroMessenger',
+				'appversion' => '7.0.14.1660',
+				'nettype' => '4G'
+			],
+			'Mozilla/5.0 (Linux; Android 10; WLZ-AN00 Build/HUAWEIWLZ-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4425 MMWEBSDK/20221206 Mobile Safari/537.36 MMWEBID/853 MicroMessenger/8.0.32.2300(0x28002059) WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10; WLZ-AN00 Build/HUAWEIWLZ-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4425 MMWEBSDK/20221206 Mobile Safari/537.36 MMWEBID/853 MicroMessenger/8.0.32.2300(0x28002059) WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Huawei',
+				'model' => 'WLZ-AN00',
+				'build' => 'HUAWEIWLZ-AN00',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '86.0.4240.99',
+				'browser' => 'Chrome',
+				'browserversion' => '86.0.4240.99',
+				'language' => 'zh-CN',
+				'app' => 'WeChat',
+				'appname' => 'MicroMessenger',
+				'appversion' => '8.0.32.2300'
+			],
+			'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 MicroMessenger/6.5.2.501 NetType/WIFI WindowsWechat QBCore/3.43.27.400 QQBrowser/9.0.2524.400' => [
+				'string' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 MicroMessenger/6.5.2.501 NetType/WIFI WindowsWechat QBCore/3.43.27.400 QQBrowser/9.0.2524.400',
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '7',
+				'engine' => 'Blink',
+				'engineversion' => '39.0.2171.95',
+				'browser' => 'QQ Browser',
+				'browserversion' => '9.0.2524.400',
+				'app' => 'WeChat',
+				'appname' => 'MicroMessenger',
+				'appversion' => '6.5.2.501',
+				'nettype' => 'WIFI'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
+
+	public function testWeibo() : void {
+		$strings = [
+			'Mozilla/5.0 (Linux; Android 13; M2011K2C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/104.0.5112.97 Mobile Safari/537.36 Weibo (Xiaomi-Mi 11__weibo__13.9.4__android__android13)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 13; M2011K2C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/104.0.5112.97 Mobile Safari/537.36 Weibo (Xiaomi-Mi 11__weibo__13.9.4__android__android13)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'model' => 'M2011K2C',
+				'build' => 'TKQ1.220829.002',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '13',
+				'engine' => 'Blink',
+				'engineversion' => '104.0.5112.97',
+				'browser' => 'Chrome',
+				'browserversion' => '104.0.5112.97',
+				'app' => 'Weibo',
+				'appname' => 'Weibo',
+				'appversion' => '13.9.4'
+			],
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone13,3__weibo__13.9.2__iphone__os16.6.1)' => [
+				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone13,3__weibo__13.9.2__iphone__os16.6.1)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '15E148',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '16.6.1',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'app' => 'Weibo',
+				'appname' => 'Weibo',
+				'appversion' => '13.9.2'
+			],
+			'Mozilla/5.0 (Linux; Android 13; Mi 10 Build/TKQ1.221114.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36Mi 10_13_WeiboIntlAndroid_6260' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 13; Mi 10 Build/TKQ1.221114.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36Mi 10_13_WeiboIntlAndroid_6260',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Xiaomi',
+				'device' => 'Mi',
+				'model' => '10',
+				'build' => 'TKQ1.221114.001',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '13',
+				'engine' => 'Blink',
+				'engineversion' => '116.0.0.0',
+				'browser' => 'Chrome',
+				'browserversion' => '116.0.0.0',
+				'app' => 'Weibo',
+				'appname' => 'WeiboIntlAndroid',
+				'appversion' => '6260'
+			],
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 WeiboIntliOS_iPhone_6290' => [
+				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 WeiboIntliOS_iPhone_6290',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '15E148',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '16.2',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'app' => 'Weibo',
+				'appname' => 'WeiboIntliOS',
+				'appversion' => '6290'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

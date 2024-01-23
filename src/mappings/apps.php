@@ -157,8 +157,29 @@ class apps {
 				'appversion' => \explode(' ', $value, 3)[1]
 			]),
 			'AmazonKidsBrowser/' => new props('start', $fn['appslash']),
+			'Teams/' => new props('start', $fn['appslash']),
 			'Viber/' => new props('start', $fn['appslash']),
 			'AppleExchangeWebServices/' => new props('start', $fn['appslash']),
+			'MicroMessenger/' => new props('start', fn (string $value) : array => [
+				'app' => 'WeChat',
+				'appname' => 'MicroMessenger',
+				'appversion' => \mb_substr($value, 15)
+			]),
+			'weibo' => new props('any', function (string $value) : array {
+				$data = [
+					'app' => 'Weibo',
+					'appname' => 'Weibo'
+				];
+				$parts = \explode('_', $value);
+				foreach ($parts AS $i => $item) {
+					if (\mb_stripos($item, 'Weibo') !== false) {
+						$data['appname'] = $item;
+						$data['appversion'] = $parts[$i + (\strspn($parts[$i + 1] ?? '', '0123456789', 0, 1) === 1 ? 1 : 2)] ?? null;
+						break;
+					}
+				}
+				return $data;
+			}),
 
 			// special parser for Facebook app because it is completely different to any other
 			'FBAN/' => new props('any', function (string $value) : array {
@@ -251,6 +272,9 @@ class apps {
 					'darkmode' => \in_array($mode, ['0', '1'], true) ? \boolval($mode) : null
 				];
 			}),
+			'AppTheme/' => new props('start', fn (string $value) : array => [
+				'darkmode' => \mb_substr($value, 9) === 'dark'
+			]),
 			'ByteFullLocale/' => new props('start', $fn['langslash']),
 			'NetType/' => new props('start', fn (string $value) : array => [
 				'nettype' => \mb_convert_case(\mb_substr($value, 8), MB_CASE_UPPER)
@@ -288,13 +312,6 @@ class apps {
 				return $data;
 			}),
 
-			// other
-			'MAUI' => new props('start', fn (string $value) : array => [
-				'type' => 'human',
-				'app' => 'MAUI Runtime',
-				'appname' => $value
-			]),
-
 			// TikTok
 			'AppName/' => new props('start', fn(string $value) : array => [
 				'app' => $value === 'AppName/musical_ly' ? 'TikTok' : \mb_substr($value, 8),
@@ -313,7 +330,7 @@ class apps {
 			]),
 				
 			// generic
-			'App' => new props('any', $fn['appslash']),
+			'App' => new props('any', $fn['appslash'])
 		];
 	}
 }

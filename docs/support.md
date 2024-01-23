@@ -36,6 +36,9 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 	- Rocky
 	- Gentoo
 	- Alma
+	- FreeBSD
+	- NetBSD
+	- OpenSUSE
 - Windows
 - Mac
 - iOS
@@ -48,6 +51,7 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - Roku
 - SunOS
 - Solaris
+- KaiOS
 
 ## Browsers
 
@@ -82,6 +86,7 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - Minimo
 - Links
 - Elinks
+- QQ Browser
 
 ## Rendering Engines
 
@@ -95,7 +100,7 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 
 ## Devices
 
-- Android Devices (Where specified in the UA string)
+- Android Devices
 - iPhone
 - iPad
 - iPod
@@ -109,6 +114,8 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - Xbox One
 - Xbox Series S
 - Xbox Series X
+- Playstation Portable
+- Playstation Vita
 - Playstation 4
 - Playstation 5
 - NVIDIA Shield
@@ -129,6 +136,12 @@ AgentZero is programmed with lists of string to match and categorise, it can cur
 - DuckDuckGo
 - Flipboard
 - Other in app browsers
+
+## App Frameworks
+
+- Electron
+- MAUI
+- Cordova
 
 ## Crawlers
 

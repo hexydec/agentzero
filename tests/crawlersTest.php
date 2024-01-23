@@ -740,6 +740,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Pingdom.com',
 				'appname' => 'PingdomTMS',
 				'appversion' => '22.1',
+				'framework' => 'Electron',
+				'frameworkversion' => '22.1.0',
 				'category' => 'monitor',
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',

@@ -10,6 +10,7 @@ declare(strict_types = 1);
 		'hexydec\\agentzero\\devices' => __DIR__.'/mappings/devices.php',
 		'hexydec\\agentzero\\engines' => __DIR__.'/mappings/engines.php',
 		'hexydec\\agentzero\\languages' => __DIR__.'/mappings/languages.php',
+		'hexydec\\agentzero\\frameworks' => __DIR__.'/mappings/frameworks.php',
 		'hexydec\\agentzero\\platforms' => __DIR__.'/mappings/platforms.php',
 		'hexydec\\agentzero\\categories' => __DIR__.'/mappings/categories.php',
 		'hexydec\\agentzero\\urls' => __DIR__.'/mappings/urls.php',

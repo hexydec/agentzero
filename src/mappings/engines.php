@@ -33,8 +33,7 @@ class engines {
 			'Trident/' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
 				'engine' => 'Trident',
-				'engineversion' => \mb_substr($value, 8),
-				'browser' => 'Internet Explorer'
+				'engineversion' => \mb_substr($value, 8)
 			]),
 			'AppleWebKit/' => new props('start', fn (string $value) : array => [
 				'type' => 'human',

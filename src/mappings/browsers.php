@@ -34,7 +34,8 @@ class browsers {
 					'bonecho' => 'BonEcho',
 					'palemoon' => 'PaleMoon',
 					'k-meleon' => 'K-Meleon',
-					'samsungbrowser' => 'Samsung Browser'
+					'samsungbrowser' => 'Samsung Browser',
+					'qqbrowser' => 'QQ Browser'
 				];
 				$data = ['type' => 'human'];
 				$browser = \mb_strtolower(\array_shift($parts));
@@ -59,12 +60,13 @@ class browsers {
 			},
 			'chromium' => function (string $value) : array {
 				$parts = \explode('/', $value, 3);
+				$engineversion = isset($parts[1]) && \strspn($parts[1], '1234567890.') === \strlen($parts[1]) ? $parts[1] : null;
 				return [
 					'type' => 'human',
 					'browser' => \mb_convert_case($parts[0], MB_CASE_TITLE),
-					'engine' => 'Blink',
+					'engine' => \intval($engineversion ?? 28) < 28 ? 'WebKit' : 'Blink',
 					'browserversion' => $parts[1] ?? null,
-					'engineversion' => isset($parts[1]) && \strspn($parts[1], '1234567890.') === \strlen($parts[1]) ? $parts[1] : null
+					'engineversion' => $engineversion
 				];
 			},
 			'safari' => function (string $value, int $i, array $tokens) : array {
@@ -91,7 +93,6 @@ class browsers {
 				'browser' => 'HeadlessChrome',
 				'browserversion' => \mb_substr($value, 15)
 			]),
-			'IEMobile/' => new props('start', $fn['browserslash']),
 			'Opera Mini/' => new props('start', $fn['presto']),
 			'Opera/' => new props('start', $fn['presto']),
 			'OPR/' => new props('start', $fn['browserslash']),
@@ -127,6 +128,7 @@ class browsers {
 			'Dooble/' => new props('start', $fn['browserslash']),
 			'Falkon/' => new props('start', $fn['browserslash']),
 			'Namoroka/' => new props('start', $fn['browserslash']),
+			'QQBrowser/' => new props('any', fn (string $value) : array => $fn['browserslash'](\mb_substr($value, \mb_stripos($value, 'QQBrowser/')))), // sometimes missing a space from previous declaration, and MQQBrowser for mobile.
 			'Lynx/' => new props('start', fn (string $value) : array => [
 				'browser' => 'Lynx',
 				'browserversion' => \explode('/', $value, 2)[1] ?? null,
@@ -202,6 +204,21 @@ class browsers {
 				'browser' => 'Internet Explorer',
 				'browserversion' => \mb_substr($value, 5),
 				'engine' => 'Trident'
+			]),
+			'BOIE9' => new props('start', [
+				'type' => 'human',
+				'browser' => 'Internet Explorer',
+				'browserversion' => '9.0',
+				'engine' => 'Trident'
+			]),
+			'IEMobile/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'browser' => 'Internet Explorer',
+				'browserversion' => \mb_substr($value, 9),
+				'engine' => 'Trident'
+			]),
+			'Trident' => new props('start', [ // infill for missing browser name
+				'browser' => 'Internet Explorer'
 			]),
 			'Cronet/' => new props('start', $fn['chromium']),
 			'Chromium/' => new props('start', $fn['chromium']),
