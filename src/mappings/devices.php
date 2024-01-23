@@ -49,14 +49,14 @@ class devices {
 					list($parts[1], $parts[2]) = \explode('/', $parts[1]);
 				}
 				$platform = [
-					4 => 'Orbis OS',
-					5 => 'FreeBSD'
+					'4' => 'Orbis OS',
+					'5' => 'FreeBSD'
 				];
 				return [
-					'device' => $parts[0],
+					'device' => 'PlayStation',
 					'model' => $parts[1] ?? null,
 					'kernel' => 'Linux',
-					'platform' => $platform[\intval($parts[1])] ?? null,
+					'platform' => $platform[$parts[1]] ?? null,
 					'platformversion' => $parts[2] ?? null,
 					'type' => 'human',
 					'category' => 'console',
@@ -116,6 +116,43 @@ class devices {
 			'Xbox' => new props('exact', $fn['xbox']),
 			'Playstation 4' => new props('start', $fn['playstation']),
 			'Playstation 5' => new props('start', $fn['playstation']),
+			'Playstation Vita' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'console',
+				'vendor' => 'Sony',
+				'device' => 'PlayStation',
+				'model' => 'Vita',
+				'architecture' => 'arm',
+				'processor' => 'MediaTek',
+				'cpu' => 'Cortex-A9 MPCore',
+				'bits' => 32,
+				'width' => 960,
+				'height' => 544,
+				'dpi' => 220,
+				'ram' => 512,
+				'kernel' => 'Linux',
+				'platform' => 'PlayStation Vita System Software',
+				'platformversion' => \mb_substr($value, 17)
+			]),
+			'Playstation Portable' => new props('start', fn (string $value, int $i, array $tokens) : array => [
+				'type' => 'human',
+				'category' => 'console',
+				'vendor' => 'Sony',
+				'device' => 'PlayStation',
+				'model' => 'PSP',
+				'architecture' => 'arm',
+				'cpu' => 'MIPS R4000',
+				'cpuclock' => 333,
+				'bits' => 64,
+				'width' => 480,
+				'height' => 272,
+				'ram' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'PlayStation Portable System Software',
+				'platformversion' => $tokens[++$i],
+				'browser' => 'NetFront',
+				'engine' => 'WebKit'
+			]),
 			'SHIELD Android TV' => new props('start', [
 				'type' => 'human',
 				'category' => 'console',
