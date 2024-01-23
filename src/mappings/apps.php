@@ -158,6 +158,7 @@ class apps {
 			]),
 			'AmazonKidsBrowser/' => new props('start', $fn['appslash']),
 			'Viber/' => new props('start', $fn['appslash']),
+			'AppleExchangeWebServices/' => new props('start', $fn['appslash']),
 
 			// special parser for Facebook app because it is completely different to any other
 			'FBAN/' => new props('any', function (string $value) : array {

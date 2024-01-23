@@ -19,6 +19,10 @@ class categories {
 				'type' => 'human',
 				'category' => 'mobile'
 			]),
+			'Moblie' => new props('exact', [ // some samsung devices mispelt it
+				'type' => 'human',
+				'category' => 'mobile'
+			]),
 			'Phone' => new props('exact', [
 				'type' => 'human',
 				'category' => 'mobile'
