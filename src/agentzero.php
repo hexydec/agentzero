@@ -192,8 +192,9 @@ class agentzero {
 
 			// extract UA info
 			$browser = new \stdClass();
+			$tokenslower = \array_map('mb_strtolower', $tokens);
 			foreach ($config['match'] AS $key => $item) {
-				$item->match($browser, $key, $tokens);
+				$item->match($browser, $key, $tokens, $tokenslower);
 			}
 			return new agentzero($ua, $browser);
 		}

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 use hexydec\agentzero\agentzero;
 
 final class browsersTest extends \PHPUnit\Framework\TestCase {

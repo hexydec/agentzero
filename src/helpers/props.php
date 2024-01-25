@@ -30,45 +30,45 @@ class props {
 	 * 
 	 * @param \stdClass $obj A stdClass object to push the matched properties into
 	 * @param string $search The string to match
-	 * @param array<string> $tokens An array of tokens to match against
+	 * @param array<string> $tokens An array of tokens
+	 * @param array<string> $tokenslower The same array of tokens, but with te values lowercased
 	 * @return void
 	 */
-	public function match(\stdClass $obj, string $search, array $tokens) : void {
+	public function match(\stdClass $obj, string $search, array $tokens, array $tokenslower) : void {
 		$type = $this->type;
 		$searchlower = \mb_strtolower($search);
-		foreach ($tokens AS $i => $token) {
-			$tokenlower = \mb_strtolower($token);
+		foreach ($tokenslower AS $i => $item) {
 			switch ($type) {
+
+				// match exact string
+				case 'exact':
+					if ($item === $searchlower) {
+						$this->set($obj, $tokens[$i], $i, $tokens, $search);
+						break 2;
+					} else {
+						break;
+					}
 
 				// match from start of string
 				case 'start':
-					if (\str_starts_with($tokenlower, $searchlower)) {
-						$this->set($obj, $token, $i, $tokens, $search);
+					if (\str_starts_with($item, $searchlower)) {
+						$this->set($obj, $tokens[$i], $i, $tokens, $search);
 					}
 					break;
 
 				// match anywhere in the string
 				case 'any':
-					if (\str_contains($tokenlower, $searchlower)) {
-						$this->set($obj, $token, $i, $tokens, $search);
+					if (\str_contains($item, $searchlower)) {
+						$this->set($obj, $tokens[$i], $i, $tokens, $search);
 					}
 					break;
 
 				// match end of token
 				case 'end':
-					if (\str_ends_with($tokenlower, $searchlower)) {
-						$this->set($obj, $token, $i, $tokens, $search);
+					if (\str_ends_with($item, $searchlower)) {
+						$this->set($obj, $tokens[$i], $i, $tokens, $search);
 					}
 					break;
-
-				// match anywhere in the string
-				case 'exact':
-					if ($tokenlower === $searchlower) {
-						$this->set($obj, $token, $i, $tokens, $search);
-						break 2;
-					} else {
-						break;
-					}
 			}
 		}
 	}

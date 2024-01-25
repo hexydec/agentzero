@@ -1,14 +1,8 @@
 <?php
+declare(strict_types = 1);
 use hexydec\agentzero\agentzero;
 
 final class devicesTest extends \PHPUnit\Framework\TestCase {
-
-	// public function testDevices() : void {
-	// 	$strings = [];
-	// 	foreach ($strings AS $ua => $item) {
-	// 		$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
-	// 	}
-	// }
 
 	public function testIphone() : void {
 		$strings = [
