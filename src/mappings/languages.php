@@ -164,7 +164,9 @@ class languages {
 		};
 		$config = [
 			'Language/' => new props('start', $lang),
-			'ByteLocale/' => new props('start', $lang)
+			'ByteLocale/' => new props('start', $lang),
+			'ByteFullLocale/' => new props('start', $lang),
+			'FBLC/' => new props('start', $lang),
 		];
 		foreach (\array_keys($languages) AS $key) {
 			$config[$key] = new props('start', $fn);

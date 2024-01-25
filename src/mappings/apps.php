@@ -15,29 +15,11 @@ class apps {
 				if (\mb_stripos($value, 'AppleWebKit') !== 0 && !\str_contains($value, '://')) {
 					$parts = \explode('/', $value, 4);
 					$offset = isset($parts[2]) ? 1 : 0;
-					$map = [
-						'YaApp_iOS' => 'Yandex',
-						'YaApp_Android' => 'Yandex',
-						'YaSearchApp' => 'Yandex',
-						'YaBrowser' => 'Yandex',
-						'LinkedInApp' => 'LinkedIn',
-						'[LinkedInApp]' => 'LinkedIn',
-						'GoogleApp' => 'Google',
-						'com.zhiliaoapp.musically' => 'TikTok',
-						'com.google.android.apps.searchlite' => 'Google',
-						'com.google.android.googlequicksearchbox' => 'Google',
-						'com.google.photos' => 'Google Photos',
-						'com.google.ios.youtube' => 'YouTube',
-						'com.google.GoogleMobile' => 'Google',
-						'AlohaBrowserApp' => 'Aloha',
-						'OculusBrowser' => 'Oculus Browser',
-						'AndroidDownloadManager' => 'Android Download Manager'
-					];
 					$app = $parts[0 + $offset];
 					if (\mb_stripos($app, \rtrim($match, '/')) !== false) { // check the match is before the slash
 						return [
 							'type' => 'human',
-							'app' => $map[$app] ?? $app,
+							'app' => self::getApp($app),
 							'appname' => \trim($app, '[]'),
 							'appversion' => $parts[1 + $offset] ?? null
 						];
@@ -45,21 +27,17 @@ class apps {
 				}
 				return [];
 			},
-			'langslash' => function (string $value) : array {
-				$parts = \explode('-', \str_replace('_', '-', \explode('/', $value, 2)[1]), 4);
-				$suffix = $parts[2] ?? $parts[1] ?? null;
-				return [
-					'language' => \strtolower($parts[0]).($suffix !== null ? '-'.\strtoupper($suffix) : '')
-				];
-			}
 		];
 		return [
-			'com.google.GoogleMobile/' => new props('start', function (string $value, int $i, array $tokens, string $match) use ($fn) : array {
-				return \array_merge($fn['appslash']($value, $i, $tokens, $match), [
-					'category' => 'mobile'
-				]);
+			'com.google.' => new props('start', function (string $value) : array {
+				$parts = \explode('/', $value, 3);
+				return [
+					'type' => 'human',
+					'app' => self::getApp($parts[0]),
+					'appname' => $parts[0],
+					'appversion' => $parts[1] ?? null
+				];
 			}),
-			'com.google.' => new props('start', $fn['appslash']),
 			'OcIdWebView' => new props('exact', function (string $value) : array {
 				$data = [
 					'app' => 'Google App Web View',
@@ -127,20 +105,12 @@ class apps {
 					'vendor' => isset($tokens[$i + 4]) ? devices::getVendor($tokens[$i + 4]) : null
 				]
 			)),
-			'GSA/' => new props('any', fn (string $value) : array => [
-				'app' => 'Google',
-				'appname' => 'GSA',
-				'appversion' => \mb_substr($value, 4)
-			]),
+			'GSA/' => new props('any', $fn['appslash']),
 			'DuckDuckGo/' => new props('start', $fn['appslash']),
 			'FlipboardProxy/' => new props('start', $fn['appslash']),
 			'Emacs/' => new props('start', $fn['appslash']),
 			'AndroidDownloadManager/' => new props('start', $fn['appslash']),
-			'Google-Read-Aloud' => new props('exact', [
-				'type' => 'human',
-				'app' => 'Google-Read-Aloud',
-				'appname' => 'Google-Read-Aloud'
-			]),
+			'Google-Read-Aloud' => new props('exact', $fn['appslash']),
 			'Zoom ' => new props('start', fn (string $value) : array => [
 				'app' => 'Zoom',
 				'appname' => 'Zoom',
@@ -160,11 +130,8 @@ class apps {
 			'Teams/' => new props('start', $fn['appslash']),
 			'Viber/' => new props('start', $fn['appslash']),
 			'AppleExchangeWebServices/' => new props('start', $fn['appslash']),
-			'MicroMessenger/' => new props('start', fn (string $value) : array => [
-				'app' => 'WeChat',
-				'appname' => 'MicroMessenger',
-				'appversion' => \mb_substr($value, 15)
-			]),
+			'Google Web Preview' => new props('start', $fn['appslash']),
+			'MicroMessenger/' => new props('start', $fn['appslash']),
 			'weibo' => new props('any', function (string $value) : array {
 				$data = [
 					'app' => 'Weibo',
@@ -237,7 +204,6 @@ class apps {
 			'FBMD/' => new props('start', fn (string $value) : array => [
 				'model' => \mb_substr($value, 5)
 			]),
-			'FBLC/' => new props('start', $fn['langslash']),
 			'FBDM/' => new props('start', function (string $value) : array {
 				$data = [];
 				foreach (\explode(',', \trim(\mb_substr($value, 5), '{}')) AS $item) {
@@ -275,7 +241,6 @@ class apps {
 			'AppTheme/' => new props('start', fn (string $value) : array => [
 				'darkmode' => \mb_substr($value, 9) === 'dark'
 			]),
-			'ByteFullLocale/' => new props('start', $fn['langslash']),
 			'NetType/' => new props('start', fn (string $value) : array => [
 				'nettype' => \mb_convert_case(\mb_substr($value, 8), MB_CASE_UPPER)
 			]),
@@ -332,5 +297,39 @@ class apps {
 			// generic
 			'App' => new props('any', $fn['appslash'])
 		];
+	}
+
+	public static function getApp(string $value) : string {
+		$map = [
+			'YaApp_iOS' => 'Yandex',
+			'YaApp_Android' => 'Yandex',
+			'YaSearchApp' => 'Yandex',
+			'YaBrowser' => 'Yandex',
+			'LinkedInApp' => 'LinkedIn',
+			'[LinkedInApp]' => 'LinkedIn',
+			'GoogleApp' => 'Google',
+			'com.zhiliaoapp.musically' => 'TikTok',
+			'com.google.android.apps.searchlite' => 'Google',
+			'com.google.android.googlequicksearchbox' => 'Google',
+			'com.google.android.gms' => 'Google',
+			'com.google.GoogleMobile' => 'Google',
+			'com.google.Maps' => 'Google Maps',
+			'com.google.photos' => 'Google Photos',
+			'com.google.ios.youtube' => 'YouTube',
+			'com.google.android.youtube' => 'YouTube',
+			'com.google.GoogleMobile' => 'Google',
+			'AlohaBrowserApp' => 'Aloha',
+			'OculusBrowser' => 'Oculus Browser',
+			'AndroidDownloadManager' => 'Android Download Manager',
+			'imoAndroid' => 'imo',
+			'MicroMessenger' => 'WeChat',
+			'GSA' => 'Google'
+		];
+		if (isset($map[$value])) {
+			return $map[$value];
+		} elseif (($pos = \mb_strrpos($value, '.')) !== false) {
+			return \mb_substr($value, $pos + 1);
+		}
+		return $value;
 	}
 }

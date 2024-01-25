@@ -141,7 +141,7 @@ class crawlers {
 						],
 						'MJ12bot' => [
 							'category' => 'search',
-							'app' => 'MJ12 Bot'
+							'app' => 'Majestic 12 Bot'
 						],
 						'Mail.RU_Bot' => [
 							'category' => 'search',
@@ -263,7 +263,16 @@ class crawlers {
 			'Siteimprove.com' => new props('any', $fn['crawler']),
 			'CyotekWebCopy' => new props('start', $fn['scraper']),
 			'Google Page Speed Insights' => new props('exact', $fn['validator']),
-			'Qwantify' => new props('start', $fn['search']),
+			'Qwantify' => new props('start', function (string $value) : array {
+				$parts = \explode('/', $value, 3);
+				return [
+					'type' => 'robot',
+					'category' => 'search',
+					'app' => 'Qwant Web Crawler',
+					'appname' => $parts[0],
+					'appversion' => $parts[1] ?? null
+				];
+			}),
 			'okhttp' => new props('start', $fn['scraper']),
 			'python' => new props('start', $fn['scraper']),
 			'jsdom/' => new props('start', $fn['scraper']),

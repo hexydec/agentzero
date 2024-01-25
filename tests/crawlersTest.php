@@ -335,6 +335,60 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '7.0',
 				'kernel' => 'Linux'
 			],
+			'Mozilla/5.0 (compatible; Qwantify/2.4w; +https://www.qwant.com/)' => [
+				'string' => 'Mozilla/5.0 (compatible; Qwantify/2.4w; +https://www.qwant.com/)',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Qwant Web Crawler',
+				'appname' => 'Qwantify',
+				'appversion' => '2.4w',
+				'url' => 'https://www.qwant.com/'
+			],
+			'Mozilla/5.0 (compatible; Qwantify-junior/1.0; +https://www.qwant.com/)' => [
+				'string' => 'Mozilla/5.0 (compatible; Qwantify-junior/1.0; +https://www.qwant.com/)',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Qwant Web Crawler',
+				'appname' => 'Qwantify-junior',
+				'appversion' => '1.0',
+				'url' => 'https://www.qwant.com/'
+			],
+			'Mozilla/5.0 (compatible; Qwantify-news/2.0; +https://www.qwant.com/)' => [
+				'string' => 'Mozilla/5.0 (compatible; Qwantify-news/2.0; +https://www.qwant.com/)',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Qwant Web Crawler',
+				'appname' => 'Qwantify-news',
+				'appversion' => '2.0',
+				'url' => 'https://www.qwant.com/'
+			],
+			'Mozilla/5.0 (compatible; Qwantify-dev/1.0; +https://help.qwant.com/bot/)' => [
+				'string' => 'Mozilla/5.0 (compatible; Qwantify-dev/1.0; +https://help.qwant.com/bot/)',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Qwant Web Crawler',
+				'appname' => 'Qwantify-dev',
+				'appversion' => '1.0',
+				'url' => 'https://help.qwant.com/bot/'
+			],
+			'Mozilla/5.0 (compatible; Qwantify-dev217/1.0; +https://help.qwant.com/bot/)' => [
+				'string' => 'Mozilla/5.0 (compatible; Qwantify-dev217/1.0; +https://help.qwant.com/bot/)',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Qwant Web Crawler',
+				'appname' => 'Qwantify-dev217',
+				'appversion' => '1.0',
+				'url' => 'https://help.qwant.com/bot/'
+			],
+			'Mozilla/5.0 (compatible; Qwantify-prod77/1.0; +https://help.qwant.com/bot/)' => [
+				'string' => 'Mozilla/5.0 (compatible; Qwantify-prod77/1.0; +https://help.qwant.com/bot/)',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Qwant Web Crawler',
+				'appname' => 'Qwantify-prod77',
+				'appversion' => '1.0',
+				'url' => 'https://help.qwant.com/bot/'
+			]
 		];
 		foreach ($strings AS $ua => $item) {
 			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
@@ -556,7 +610,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'MJ12bot/v1.1.2 (http://majestic12.co.uk/bot.php?+)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'MJ12 Bot',
+				'app' => 'Majestic 12 Bot',
 				'appname' => 'MJ12bot',
 				'appversion' => '1.1.2',
 				'url' => 'http://majestic12.co.uk/bot.php'
@@ -565,7 +619,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; MJ12bot/v1.4.8; http://mj12bot.com/)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'MJ12 Bot',
+				'app' => 'Majestic 12 Bot',
 				'appname' => 'MJ12bot',
 				'appversion' => '1.4.8',
 				'url' => 'http://mj12bot.com/'
@@ -574,7 +628,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; MJ12bot/v1.4.8 (domain ownership verifier); http://mj12bot.com)',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'MJ12 Bot',
+				'app' => 'Majestic 12 Bot',
 				'appname' => 'MJ12bot',
 				'appversion' => '1.4.8',
 				'url' => 'http://mj12bot.com'

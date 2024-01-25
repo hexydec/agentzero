@@ -36,18 +36,13 @@ class other {
 							'isdarktheme' => 'darkmode'
 						];
 						$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion', 'isdarktheme'];
-						$values = [
-							'com.google.GoogleMobile' => 'Google',
-							'com.google.android.gms' => 'Google',
-							'com.google.Gmail' => 'Gmail',
-							'com.google.photos' => 'Google Photos',
-							'com.google.ios.youtube' => 'YouTube'
-						];
 						foreach ($fields AS $item) {
 							if (isset($data[$item])) {
-								$cat[$map[$item] ?? $item] = $values[$data[$item]] ?? $data[$item];
 								if ($item === 'app') {
+									$cat['app'] = apps::getApp($data[$item]);
 									$cat['appname'] = $data[$item];
+								} else {
+									$cat[$map[$item] ?? $item] = $data[$item];
 								}
 							}
 						}

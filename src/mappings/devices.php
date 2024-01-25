@@ -14,6 +14,15 @@ class devices {
 			'ios' => function (string $value, int $i, array $tokens) : array {
 				$version = null;
 				$model = null;
+
+				// device name with slash like iPhone/16.5
+				$parts = \explode('/', $value, 3);
+				if (isset($parts[1])) {
+					$value = $parts[0];
+					$version = $parts[1];
+				}
+
+				// look at other tokens to gather info
 				foreach ($tokens AS $item) {
 					if (\str_starts_with($item, 'Mobile/')) {
 						$model = \mb_substr($item, 7);
@@ -32,7 +41,7 @@ class devices {
 					'platform' => 'iOS',
 					'platformversion' => $version,
 					'vendor' => 'Apple',
-					'device' => $value,
+					'device' => \mb_stripos($value, 'iPhone') === 0 ? 'iPhone' : $value,
 					'model' => $model
 				];
 			},
@@ -81,7 +90,7 @@ class devices {
 			}
 		];
 		return [
-			'iPhone' => new props('exact', $fn['ios']),
+			'iPhone' => new props('start', $fn['ios']),
 			'iPad' => new props('exact', $fn['ios']),
 			'iPod' => new props('exact', $fn['ios']),
 			'iPod touch' => new props('exact', $fn['ios']),
@@ -194,12 +203,6 @@ class devices {
 					'model' => \mb_substr($value, $split) ?: null
 				];
 			}),
-			'iPhone/' => new props('start', fn (string $value) : array => [
-				'platform' => 'iOS',
-				'platformversion' => \mb_substr($value, 7),
-				'vendor' => 'Apple',
-				'device' => 'iPhone'
-			]),
 			'hw/iPhone' => new props('start', fn (string $value) : array => [
 				'platform' => 'iOS',
 				'vendor' => 'Apple',

@@ -285,6 +285,22 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '1.4.00.7174',
 				'framework' => 'Electron',
 				'frameworkversion' => '8.5.5',
+			],
+			'com.google.GoogleMobile/250.0 iPhone/16.3 hw/iPhone14_3' => [
+				'string' => 'com.google.GoogleMobile/250.0 iPhone/16.3 hw/iPhone14_3',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '14.3',
+				'architecture' => 'arm',
+				'bits' => '64',
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '16.3',
+				'app' => 'Google',
+				'appname' => 'com.google.GoogleMobile',
+				'appversion' => '250.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
