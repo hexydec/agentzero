@@ -471,6 +471,41 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'PycURL',
 				'appname' => 'PycURL',
 				'appversion' => '7.45.2'
+			],
+			'Outlook-Android/2.0' => [
+				'string' => 'Outlook-Android/2.0',
+				'type' => 'robot',
+				'category' => 'feed',
+				'platform' => 'Android',
+				'app' => 'Outlook',
+				'appname' => 'Outlook-Android',
+				'appversion' => '2.0'
+			],
+			'Outlook-iOS/2.0' => [
+				'string' => 'Outlook-iOS/2.0',
+				'type' => 'robot',
+				'category' => 'feed',
+				'platform' => 'iOS',
+				'app' => 'Outlook',
+				'appname' => 'Outlook-iOS',
+				'appversion' => '2.0'
+			],
+			'OutlookMobileCloudService-Autodetect/1.0.0' => [
+				'string' => 'OutlookMobileCloudService-Autodetect/1.0.0',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Outlook',
+				'appname' => 'OutlookMobileCloudService-Autodetect',
+				'appversion' => '1.0.0'
+			],
+			'Outlook-iOS/711.2714636.prod.iphone (3.36.1)' => [
+				'string' => 'Outlook-iOS/711.2714636.prod.iphone (3.36.1)',
+				'type' => 'robot',
+				'category' => 'feed',
+				'platform' => 'iOS',
+				'app' => 'Outlook',
+				'appname' => 'Outlook-iOS',
+				'appversion' => '3.36.1'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

@@ -242,7 +242,7 @@ class crawlers {
 						]
 					];
 					return self::getApp($value, \array_merge([
-						'category' => \mb_stripos($value, 'crawler') !== false ? 'crawler' : null,
+						'category' => \mb_stripos($value, 'crawler') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper',
 						'app' => $parts[0],
 						'appname' => $parts[0],
 					], $category[$parts[0]] ?? []));
@@ -273,12 +273,17 @@ class crawlers {
 					'appversion' => $parts[1] ?? null
 				];
 			}),
+			'http-client/' => new props('any', $fn['scraper']),
+			'HttpClient/' => new props('any', $fn['scraper']),
 			'okhttp' => new props('start', $fn['scraper']),
 			'python' => new props('start', $fn['scraper']),
 			'jsdom/' => new props('start', $fn['scraper']),
 			'Nessus' => new props('start', $fn['monitor']),
 			'Chrome-Lighthouse' => new props('start', $fn['validator']),
 			'Siege/' => new props('start', $fn['validator']),
+			'Microsoft Profiling/' => new props('any', $fn['validator']),
+			'Bidtellect' => new props('start', $fn['crawler']),
+			'magpie-crawler/' => new props('start', $fn['crawler']),
 			'PingdomTMS/' => new props('start', $fn['map']),
 			'DynGate' => new props('exact', $fn['monitor']),
 			'Datadog/Synthetics' => new props('exact', [
@@ -315,7 +320,49 @@ class crawlers {
 				'url' => 'https://'.$value
 			]),
 			'MicrosoftPreview/' => new props('start', $fn['feed']),
+			'YahooMailProxy' => new props('exact', $fn['feed']),
+			'PhxBot/' => new props('start', $fn['feed']), // proton mail
+			'Pleroma' => new props('start', fn (string $value) : array => [ // mastodon
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Mastodon',
+				'appname' => 'Pleroma',
+				'appversion' => \mb_substr($value, 8)
+			]),
+			'Outlook-Android/' => new props('start', fn (string $value) : array => [ // mastodon
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Outlook',
+				'appname' => 'Outlook-Android',
+				'platform' => 'Android',
+				'appversion' => \mb_substr($value, 16)
+			]),
+			'Outlook-iOS/' => new props('start', fn (string $value, int $i, array $tokens) : array => [ // mastodon
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Outlook',
+				'appname' => 'Outlook-iOS',
+				'platform' => 'iOS',
+				'appversion' => $tokens[$i+1] ?? \mb_substr($value, 12)
+			]),
+			'OutlookMobileCloudService-Autodetect/' => new props('start', fn (string $value) : array => [ // mastodon
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Outlook',
+				'appname' => 'OutlookMobileCloudService-Autodetect',
+				'appversion' => \mb_substr($value, 37)
+			]),
+			'Chrome Privacy Preserving Prefetch Proxy' => new props('exact', $fn['feed']),
+			'ViberUrlDownloader' => new props('exact', $fn['feed']),
+			'Google-Lens' => new props('exact', $fn['feed']),
+			'ManicTime/' => new props('start', $fn['feed']),
+			'Yik Yak/' => new props('start', $fn['feed']),
+			'HubSpot-Link-Resolver' => new props('exact', $fn['feed']),
+			'W3C-checklink/' => new props('start', $fn['validator']),
+			'CSSCheck/' => new props('start', $fn['validator']),
 			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
+			'SEO-Macroscope/' => new props('exact', $fn['validator']),
+			'Electronic Frontier Foundation\'s Do Not Track Verifier' => new props('exact', $fn['validator']),
 			'Expanse' => new props('start', $fn['crawler']),
 			'Apache-HttpClient/' => new props('start', $fn['scraper']),
 			'eCairn-Grabber/' => new props('start', $fn['scraper']),
@@ -325,7 +372,6 @@ class crawlers {
 			'Rogerbot/' => new props('start', $fn['crawler']),
 			'Go-http-client/' => new props('start', $fn['scraper']),
 			'DashLinkPreviews/' => new props('start', $fn['feed']),
-			'PycURL/' => new props('start', $fn['scraper']),
 			'lua-resty-http/' => new props('start', $fn['scraper']),
 			'Snapchat/' => new props('start', $fn['feed']),
 			'HTTPClient/' => new props('start', $fn['scraper']),
@@ -335,11 +381,10 @@ class crawlers {
 			'ApacheBench/' => new props('start', $fn['validator']),
 			'Asana/' => new props('start', $fn['feed']),
 			'Java/' => new props('start', $fn['scraper']),
-			'curl/' => new props('start', $fn['scraper']),
+			'curl/' => new props('any', $fn['scraper']),
 			'Wget/' => new props('start', $fn['scraper']),
 			'rest-client/' => new props('start', $fn['scraper']),
 			'ruby/' => new props('start', $fn['scraper']),
-			'libcurl/' => new props('start', $fn['scraper']),
 			'Bun/' => new props('start', $fn['scraper']),
 			'CakePHP' => new props('start', $fn['scraper']),
 			'cpp-httplib/' => new props('start', $fn['scraper']),
@@ -349,6 +394,7 @@ class crawlers {
 			'GuzzleHttp/' => new props('start', $fn['scraper']),
 			'Cpanel-HTTP-Client/' => new props('start', $fn['scraper']),
 			'akka-http/' => new props('start', $fn['scraper']),
+			'Validator' => new props('any', $fn['validator']),
 			'feed' => new props('any', $fn['feed']),
 			'spider' => new props('any', $fn['crawler']),
 			'crawler' => new props('any', $fn['map']),
