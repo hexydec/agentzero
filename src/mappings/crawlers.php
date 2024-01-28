@@ -12,7 +12,7 @@ class crawlers {
 	 * @return array<string|int|float|null> The $data array with the processed application and version added
 	 */
 	public static function getApp(string $value, array $data = []) : array {
-		if (!\str_contains($value, '://') && !\str_starts_with($value, 'Chrome/')) { // bot will be in the URL
+		if (!\str_contains($value, '://') && !\str_starts_with($value, 'Chrome/') && \strcasecmp('Cubot', $value) !== 0 && \strcasecmp('Power bot', $value) !== 0) { // bot will be in the URL
 			$parts = \explode('/', $value, 2);
 
 			// process version
@@ -20,12 +20,187 @@ class crawlers {
 				$parts[1] = \ltrim($parts[1], 'v');
 				$parts[1] = \substr($parts[1], 0, \strspn($parts[1], '0123456789.'));
 			}
+			$category = [
+				'yacybot' => [
+					'category' => 'search',
+					'app' => 'YacyBot'
+				],
+				'googlebot' => [
+					'category' => 'search',
+					'app' => 'GoogleBot'
+				],
+				'googlebot-mobile' => [
+					'category' => 'search',
+					'app' => 'GoogleBot'
+				],
+				'googlebot-image' => [
+					'category' => 'search',
+					'app' => 'GoogleBot'
+				],
+				'googlebot-video' => [
+					'category' => 'search',
+					'app' => 'GoogleBot'
+				],
+				'googlebot-news' => [
+					'category' => 'search',
+					'app' => 'GoogleBot'
+				],
+				'storebot-google' => [
+					'category' => 'search',
+					'app' => 'GoogleBot'
+				],
+				'adsbot-google' => [
+					'category' => 'ads',
+					'app' => 'GoogleBot'
+				],
+				'adsbot-google-mobile' => [
+					'category' => 'ads',
+					'app' => 'GoogleBot'
+				],
+				'mediapartners-google' => [
+					'category' => 'ads',
+					'app' => 'GoogleBot'
+				],
+				'bingbot' => [
+					'category' => 'search',
+					'app' => 'BingBot'
+				],
+				'adidxbot' => [
+					'category' => 'ads',
+					'app' => 'AdidxBot'
+				],
+				'duckduckbot' => [
+					'category' => 'search',
+					'app' => 'DuckDuckBot'
+				],
+				'duckduckgo-favicons-bot' => [
+					'category' => 'search',
+					'app' => 'DuckDuckBot'
+				],
+				'coccocbot-image' => [
+					'category' => 'search',
+					'app' => 'CoccocBot'
+				],
+				'coccocbot-web' => [
+					'category' => 'search',
+					'app' => 'CoccocBot'
+				],
+				'applebot' => [
+					'category' => 'search',
+					'app' => 'AppleBot'
+				],
+				'yandexbot' => [
+					'category' => 'search'
+				],
+				'mj12bot' => [
+					'category' => 'search',
+					'app' => 'Majestic 12 Bot'
+				],
+				'mail.ru_bot' => [
+					'category' => 'search',
+					'app' => 'Mail.ru Bot'
+				],
+				'exabot' => [
+					'category' => 'search',
+					'app' => 'ExaBot'
+				],
+				'uptimerobot' => [
+					'category' => 'monitor'
+				],
+				'petalbot' => [
+					'category' => 'search'
+				],
+				'twitterbot' => [
+					'category' => 'feed',
+					'app' => 'TwitterBot'
+				],
+				'xbot' => [
+					'category' => 'feed'
+				],
+				'discordbot' => [
+					'category' => 'feed',
+					'app' => 'DiscordBot'
+				],
+				'sematextsyntheticsrobot' => [
+					'category' => 'monitor',
+					'app' => 'Sematext Synthetics Robot'
+				],
+				'linkedinbot' => [
+					'category' => 'feed'
+				],
+				'paperlibot' => [
+					'category' => 'feed'
+				],
+				'bitlybot' => [
+					'category' => 'feed',
+					'app' => 'Bit.ly Bot'
+				],
+				'tineye-bot' => [
+					'category' => 'search',
+					'app' => 'TinEye Bot'
+				],
+				'pinterestbot' => [
+					'category' => 'feed',
+					'app' => 'PinterestBot'
+				],
+				'webcrawler' => [
+					'category' => 'crawler'
+				],
+				'webprosbot' => [
+					'category' => 'crawler',
+					'app' => 'WebprosBot'
+				],
+				'guzzlehttp' => [
+					'category' => 'scraper'
+				],
+				'telegrambot' => [
+					'category' => 'feed'
+				],
+				'semrushbot' => [
+					'category' => 'crawler'
+				],
+				'mediatoolkitbot' => [
+					'category' => 'crawler',
+					'app' => 'MediaToolkitBot'
+				],
+				'iploggerbot' => [
+					'category' => 'monitor'
+				],
+				'cfnetwork' => [
+					'category' => 'feed',
+					'app' => 'Apple Core Foundation Network'
+				],
+				'ncsc web check feedback.webcheck@digital.ncsc.gov.uk' => [
+					'category' => 'monitor',
+					'app' => 'NCSC Web Check'
+				],
+				'google-site-verification' => [
+					'category' => 'validator',
+					'app' => 'Google Site Verification'
+				],
+				'google-inspectiontool' => [
+					'category' => 'validator',
+					'app' => 'Google Inspection Tool'
+				],
+				'pingdomtms' => [
+					'category' => 'monitor',
+					'app' => 'Pingdom.com'
+				],
+				'facebookexternalhit' => [
+					'category' => 'feed',
+					'app' => 'Facebook URL Preview'
+				],
+				'phxbot' => [
+					'app' => 'ProtonMail Bot'
+				]
+			];
 			return \array_merge([
 				'type' => 'robot',
+				'category' => \mb_stripos($value, 'crawler') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper',
 				'app' => $parts[0],
 				'appname' => $parts[0],
 				'appversion' => empty($parts[1]) ? null : $parts[1]
-			], $data);
+			], $data, $category[\mb_strtolower($parts[0])] ?? []);
 		}
 		return [];
 	}
@@ -64,191 +239,7 @@ class crawlers {
 			},
 			'monitor' => fn (string $value) : array => self::getApp($value, ['category' => 'monitor']),
 			'scraper' => fn (string $value) : array => self::getApp($value, ['category' => 'scraper']),
-			'map' => function (string $value) : ?array {
-				if (!\str_contains($value, '://') && \strcasecmp('Cubot', $value) !== 0 && \strcasecmp('Power bot', $value) !== 0) { // bot will be in the URL
-					$parts = \explode('/', $value, 2);
-					$category = [
-						'yacybot' => [
-							'category' => 'search',
-							'app' => 'YacyBot'
-						],
-						'Googlebot' => [
-							'category' => 'search',
-							'app' => 'GoogleBot'
-						],
-						'Googlebot-Mobile' => [
-							'category' => 'search',
-							'app' => 'GoogleBot'
-						],
-						'Googlebot-Image' => [
-							'category' => 'search',
-							'app' => 'GoogleBot'
-						],
-						'Googlebot-Video' => [
-							'category' => 'search',
-							'app' => 'GoogleBot'
-						],
-						'Googlebot-News' => [
-							'category' => 'search',
-							'app' => 'GoogleBot'
-						],
-						'Storebot-Google' => [
-							'category' => 'search',
-							'app' => 'GoogleBot'
-						],
-						'AdsBot-Google' => [
-							'category' => 'ads',
-							'app' => 'GoogleBot'
-						],
-						'AdsBot-Google-Mobile' => [
-							'category' => 'ads',
-							'app' => 'GoogleBot'
-						],
-						'Bingbot' => [
-							'category' => 'search',
-							'app' => 'BingBot'
-						],
-						'bingbot' => [
-							'category' => 'search',
-							'app' => 'BingBot'
-						],
-						'adidxbot' => [
-							'category' => 'ads',
-							'app' => 'AdidxBot'
-						],
-						'DuckDuckBot' => [
-							'category' => 'search',
-							'app' => 'DuckDuckBot'
-						],
-						'DuckDuckGo-Favicons-Bot' => [
-							'category' => 'search',
-							'app' => 'DuckDuckBot'
-						],
-						'coccocbot-image' => [
-							'category' => 'search',
-							'app' => 'CoccocBot'
-						],
-						'coccocbot-web' => [
-							'category' => 'search',
-							'app' => 'CoccocBot'
-						],
-						'Applebot' => [
-							'category' => 'search',
-							'app' => 'AppleBot'
-						],
-						'YandexBot' => [
-							'category' => 'search'
-						],
-						'MJ12bot' => [
-							'category' => 'search',
-							'app' => 'Majestic 12 Bot'
-						],
-						'Mail.RU_Bot' => [
-							'category' => 'search',
-							'app' => 'Mail.ru Bot'
-						],
-						'Exabot' => [
-							'category' => 'search',
-							'app' => 'ExaBot'
-						],
-						'UptimeRobot' => [
-							'category' => 'monitor'
-						],
-						'PetalBot' => [
-							'category' => 'search'
-						],
-						'Twitterbot' => [
-							'category' => 'feed',
-							'app' => 'TwitterBot'
-						],
-						'Xbot' => [
-							'category' => 'feed'
-						],
-						'Discordbot' => [
-							'category' => 'feed',
-							'app' => 'DiscordBot'
-						],
-						'SematextSyntheticsRobot' => [
-							'category' => 'monitor',
-							'app' => 'Sematext Synthetics Robot'
-						],
-						'LinkedInBot' => [
-							'category' => 'feed'
-						],
-						'PaperLiBot' => [
-							'category' => 'feed'
-						],
-						'bitlybot' => [
-							'category' => 'feed',
-							'app' => 'Bit.ly Bot'
-						],
-						'TinEye-bot' => [
-							'category' => 'search',
-							'app' => 'TinEye Bot'
-						],
-						'Pinterestbot' => [
-							'category' => 'feed',
-							'app' => 'PinterestBot'
-						],
-						'WebCrawler' => [
-							'category' => 'crawler'
-						],
-						'webprosbot' => [
-							'category' => 'crawler',
-							'app' => 'WebprosBot'
-						],
-						'GuzzleHttp' => [
-							'category' => 'scraper'
-						],
-						'TelegramBot' => [
-							'category' => 'feed'
-						],
-						'Ruby' => [
-							'category' => 'scraper'
-						],
-						'SEMrushBot' => [
-							'category' => 'crawler'
-						],
-						'Mediatoolkitbot' => [
-							'category' => 'crawler',
-							'app' => 'MediaToolkitBot'
-						],
-						'IPLoggerBot' => [
-							'category' => 'monitor'
-						],
-						'CFNetwork' => [
-							'category' => 'feed',
-							'app' => 'Apple Core Foundation Network'
-						],
-						'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => [
-							'category' => 'monitor',
-							'app' => 'NCSC Web Check'
-						],
-						'Google-Site-Verification' => [
-							'category' => 'validator',
-							'app' => 'Google Site Verification'
-						],
-						'Google-InspectionTool' => [
-							'category' => 'validator',
-							'app' => 'Google Inspection Tool'
-						],
-						'PingdomTMS' => [
-							'category' => 'monitor',
-							'app' => 'Pingdom.com'
-						],
-						'facebookexternalhit' => [
-							'category' => 'feed',
-							'app' => 'Facebook URL Preview'
-						]
-					];
-					return self::getApp($value, \array_merge([
-						'category' => \mb_stripos($value, 'crawler') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper',
-						'app' => $parts[0],
-						'appname' => $parts[0],
-					], $category[$parts[0]] ?? []));
-				}
-				return null;
-			}
+			'map' => fn (string $value) : ?array => self::getApp($value)
 		];
 		return [
 			'Yahoo! Slurp' => new props('exact', $fn['search']),
@@ -273,8 +264,6 @@ class crawlers {
 					'appversion' => $parts[1] ?? null
 				];
 			}),
-			'http-client/' => new props('any', $fn['scraper']),
-			'HttpClient/' => new props('any', $fn['scraper']),
 			'okhttp' => new props('start', $fn['scraper']),
 			'python' => new props('start', $fn['scraper']),
 			'jsdom/' => new props('start', $fn['scraper']),
@@ -364,15 +353,12 @@ class crawlers {
 			'SEO-Macroscope/' => new props('exact', $fn['validator']),
 			'Electronic Frontier Foundation\'s Do Not Track Verifier' => new props('exact', $fn['validator']),
 			'Expanse' => new props('start', $fn['crawler']),
-			'Apache-HttpClient/' => new props('start', $fn['scraper']),
 			'eCairn-Grabber/' => new props('start', $fn['scraper']),
 			'SEOkicks' => new props('exact', $fn['crawler']),
 			'PostmanRuntime/' => new props('start', $fn['scraper']),
 			'axios/' => new props('start', $fn['scraper']),
 			'Rogerbot/' => new props('start', $fn['crawler']),
-			'Go-http-client/' => new props('start', $fn['scraper']),
 			'DashLinkPreviews/' => new props('start', $fn['feed']),
-			'lua-resty-http/' => new props('start', $fn['scraper']),
 			'Snapchat/' => new props('start', $fn['feed']),
 			'HTTPClient/' => new props('start', $fn['scraper']),
 			'WhatsApp/' => new props('any', $fn['feed']),
@@ -391,9 +377,10 @@ class crawlers {
 			'Dart/' => new props('start', $fn['scraper']),
 			'Deno/' => new props('start', $fn['scraper']),
 			'libwww-perl/' => new props('start', $fn['scraper']),
-			'GuzzleHttp/' => new props('start', $fn['scraper']),
+			'http/' => new props('start', $fn['scraper']),
 			'Cpanel-HTTP-Client/' => new props('start', $fn['scraper']),
-			'akka-http/' => new props('start', $fn['scraper']),
+			'http-client/' => new props('any', $fn['scraper']),
+			'HttpClient/' => new props('any', $fn['scraper']),
 			'Validator' => new props('any', $fn['validator']),
 			'feed' => new props('any', $fn['feed']),
 			'spider' => new props('any', $fn['crawler']),
@@ -401,7 +388,7 @@ class crawlers {
 			'bot/' => new props('any', $fn['map']),
 			'bot-' => new props('any', $fn['map']),
 			' bot ' => new props('any', $fn['map']),
-			'bot' => new props('end', $fn['map']),
+			'bot' => new props('end', $fn['map'])
 		];
 	}
 }
