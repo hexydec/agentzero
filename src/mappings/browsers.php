@@ -128,6 +128,7 @@ class browsers {
 			'Dooble/' => new props('start', $fn['browserslash']),
 			'Falkon/' => new props('start', $fn['browserslash']),
 			'Namoroka/' => new props('start', $fn['browserslash']),
+			'CocCoc/' => new props('start', $fn['browserslash']),
 			'QQBrowser/' => new props('any', fn (string $value) : array => $fn['browserslash'](\mb_substr($value, \mb_stripos($value, 'QQBrowser/')))), // sometimes missing a space from previous declaration, and MQQBrowser for mobile.
 			'Lynx/' => new props('start', fn (string $value) : array => [
 				'browser' => 'Lynx',

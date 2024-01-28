@@ -1826,6 +1826,30 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '0.11.3',
 				'width' => 80,
 				'height' => 40
+			],
+			'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.157 CoRom/33.0.1750.157 CocCoc/33.0.1750.157 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.157 CoRom/33.0.1750.157 CocCoc/33.0.1750.157 Safari/537.36',
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '8.1',
+				'engine' => 'Blink',
+				'engineversion' => '33.0.1750.157',
+				'browser' => 'Coccoc',
+				'browserversion' => '33.0.1750.157'
+			],
+			'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.157 CoRom/33.0.1750.157 CocCoc/33.0.1750.157 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.157 CoRom/33.0.1750.157 CocCoc/33.0.1750.157 Safari/537.36',
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '7',
+				'engine' => 'Blink',
+				'engineversion' => '33.0.1750.157',
+				'browser' => 'Coccoc',
+				'browserversion' => '33.0.1750.157'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
