@@ -192,6 +192,12 @@ class crawlers {
 				],
 				'phxbot' => [
 					'app' => 'ProtonMail Bot'
+				],
+				'baiduspider' => [
+					'app' => 'Baidu Spider'
+				],
+				'yisouspider' => [
+					'app' => 'Yisou Spider'
 				]
 			];
 			return \array_merge([
