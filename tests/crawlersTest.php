@@ -81,7 +81,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'appversion' => '2.0',
-				'app' => 'Baiduspider',
+				'app' => 'Baidu Spider',
 				'appname' => 'Baiduspider'
 			],
 			'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)' => [

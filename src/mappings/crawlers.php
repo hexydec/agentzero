@@ -198,11 +198,14 @@ class crawlers {
 				],
 				'yisouspider' => [
 					'app' => 'Yisou Spider'
+				],
+				'google-read-aloud' => [
+					'app' => 'Google Read Aloud'
 				]
 			];
 			return \array_merge([
 				'type' => 'robot',
-				'category' => \mb_stripos($value, 'crawler') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper',
+				'category' => \mb_stripos($value, 'crawl') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper',
 				'app' => $parts[0],
 				'appname' => $parts[0],
 				'appversion' => empty($parts[1]) ? null : $parts[1]
@@ -252,6 +255,7 @@ class crawlers {
 			'facebookexternalhit/' => new props('start', $fn['map']),
 			'Google-Site-Verification/' => new props('start', $fn['map']),
 			'Google-InspectionTool/' => new props('start', $fn['map']),
+			'Google-Read-Aloud' => new props('exact', $fn['feed']),
 			'Mediapartners-Google' => new props('start', $fn['search']),
 			'FeedFetcher-Google' => new props('exact', $fn['feed']),
 			'GoogleProducer' => new props('exact', $fn['feed']),
@@ -394,7 +398,7 @@ class crawlers {
 			'bot/' => new props('any', $fn['map']),
 			'bot-' => new props('any', $fn['map']),
 			' bot ' => new props('any', $fn['map']),
-			'bot' => new props('end', $fn['map'])
+			'bot' => new props('end', $fn['map']),
 		];
 	}
 }

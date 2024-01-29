@@ -110,7 +110,6 @@ class apps {
 			'FlipboardProxy/' => new props('start', $fn['appslash']),
 			'Emacs/' => new props('start', $fn['appslash']),
 			'AndroidDownloadManager/' => new props('start', $fn['appslash']),
-			'Google-Read-Aloud' => new props('exact', $fn['appslash']),
 			'Zoom ' => new props('start', fn (string $value) : array => [
 				'app' => 'Zoom',
 				'appname' => 'Zoom',

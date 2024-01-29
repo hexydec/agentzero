@@ -45,7 +45,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)' => [
 				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)',
 				'type' => 'robot',
-				'category' => 'crawler',
+				'category' => 'feed',
 				'architecture' => 'x86',
 				'bits' => 64,
 				'kernel' => 'Linux',
@@ -54,7 +54,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '41.0.2272.118',
 				'browser' => 'Chrome',
 				'browserversion' => '41.0.2272.118',
-				'app' => 'Google-Read-Aloud',
+				'app' => 'Google Read Aloud',
 				'appname' => 'Google-Read-Aloud',
 				'url' => 'https://support.google.com/webmasters/answer/1061943'
 			],
