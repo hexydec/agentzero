@@ -21,195 +21,103 @@ class crawlers {
 				$parts[1] = \substr($parts[1], 0, \strspn($parts[1], '0123456789.'));
 			}
 			$category = [
-				'yacybot' => [
-					'category' => 'search',
-					'app' => 'YacyBot'
-				],
-				'googlebot' => [
-					'category' => 'search',
-					'app' => 'GoogleBot'
-				],
-				'googlebot-mobile' => [
-					'category' => 'search',
-					'app' => 'GoogleBot'
-				],
-				'googlebot-image' => [
-					'category' => 'search',
-					'app' => 'GoogleBot'
-				],
-				'googlebot-video' => [
-					'category' => 'search',
-					'app' => 'GoogleBot'
-				],
-				'googlebot-news' => [
-					'category' => 'search',
-					'app' => 'GoogleBot'
-				],
-				'storebot-google' => [
-					'category' => 'search',
-					'app' => 'GoogleBot'
-				],
-				'adsbot-google' => [
-					'category' => 'ads',
-					'app' => 'GoogleBot'
-				],
-				'adsbot-google-mobile' => [
-					'category' => 'ads',
-					'app' => 'GoogleBot'
-				],
-				'mediapartners-google' => [
-					'category' => 'ads',
-					'app' => 'GoogleBot'
-				],
-				'bingbot' => [
-					'category' => 'search',
-					'app' => 'BingBot'
-				],
-				'adidxbot' => [
-					'category' => 'ads',
-					'app' => 'AdidxBot'
-				],
-				'duckduckbot' => [
-					'category' => 'search',
-					'app' => 'DuckDuckBot'
-				],
-				'duckduckgo-favicons-bot' => [
-					'category' => 'search',
-					'app' => 'DuckDuckBot'
-				],
-				'coccocbot-image' => [
-					'category' => 'search',
-					'app' => 'CoccocBot'
-				],
-				'coccocbot-web' => [
-					'category' => 'search',
-					'app' => 'CoccocBot'
-				],
-				'applebot' => [
-					'category' => 'search',
-					'app' => 'AppleBot'
-				],
-				'yandexbot' => [
-					'category' => 'search'
-				],
-				'mj12bot' => [
-					'category' => 'search',
-					'app' => 'Majestic 12 Bot'
-				],
-				'mail.ru_bot' => [
-					'category' => 'search',
-					'app' => 'Mail.ru Bot'
-				],
-				'exabot' => [
-					'category' => 'search',
-					'app' => 'ExaBot'
-				],
-				'uptimerobot' => [
-					'category' => 'monitor'
-				],
-				'petalbot' => [
-					'category' => 'search'
-				],
-				'twitterbot' => [
-					'category' => 'feed',
-					'app' => 'TwitterBot'
-				],
-				'xbot' => [
-					'category' => 'feed'
-				],
-				'discordbot' => [
-					'category' => 'feed',
-					'app' => 'DiscordBot'
-				],
-				'sematextsyntheticsrobot' => [
-					'category' => 'monitor',
-					'app' => 'Sematext Synthetics Robot'
-				],
-				'linkedinbot' => [
-					'category' => 'feed'
-				],
-				'paperlibot' => [
-					'category' => 'feed'
-				],
-				'bitlybot' => [
-					'category' => 'feed',
-					'app' => 'Bit.ly Bot'
-				],
-				'tineye-bot' => [
-					'category' => 'search',
-					'app' => 'TinEye Bot'
-				],
-				'pinterestbot' => [
-					'category' => 'feed',
-					'app' => 'PinterestBot'
-				],
-				'webcrawler' => [
-					'category' => 'crawler'
-				],
-				'webprosbot' => [
-					'category' => 'crawler',
-					'app' => 'WebprosBot'
-				],
-				'guzzlehttp' => [
-					'category' => 'scraper'
-				],
-				'telegrambot' => [
-					'category' => 'feed'
-				],
-				'semrushbot' => [
-					'category' => 'crawler'
-				],
-				'mediatoolkitbot' => [
-					'category' => 'crawler',
-					'app' => 'MediaToolkitBot'
-				],
-				'iploggerbot' => [
-					'category' => 'monitor'
-				],
-				'cfnetwork' => [
-					'category' => 'feed',
-					'app' => 'Apple Core Foundation Network'
-				],
-				'ncsc web check feedback.webcheck@digital.ncsc.gov.uk' => [
-					'category' => 'monitor',
-					'app' => 'NCSC Web Check'
-				],
-				'google-site-verification' => [
-					'category' => 'validator',
-					'app' => 'Google Site Verification'
-				],
-				'google-inspectiontool' => [
-					'category' => 'validator',
-					'app' => 'Google Inspection Tool'
-				],
-				'pingdomtms' => [
-					'category' => 'monitor',
-					'app' => 'Pingdom.com'
-				],
-				'facebookexternalhit' => [
-					'category' => 'feed',
-					'app' => 'Facebook URL Preview'
-				],
-				'phxbot' => [
-					'app' => 'ProtonMail Bot'
-				],
-				'baiduspider' => [
-					'app' => 'Baidu Spider'
-				],
-				'yisouspider' => [
-					'app' => 'Yisou Spider'
-				],
-				'google-read-aloud' => [
-					'app' => 'Google Read Aloud'
-				]
+				'yacybot' => 'search',
+				'googlebot' => 'search',
+				'googlebot-mobile' => 'search',
+				'googlebot-image' => 'search',
+				'googlebot-video' => 'search',
+				'googlebot-news' => 'search',
+				'storebot-google' => 'search',
+				'adsbot-google' => 'ads',
+				'adsbot-google-mobile' => 'ads',
+				'mediapartners-google' => 'ads',
+				'bingbot' => 'search',
+				'adidxbot' => 'ads',
+				'duckduckbot' => 'search',
+				'duckduckgo-favicons-bot' => 'search',
+				'coccocbot-image' => 'search',
+				'coccocbot-web' => 'search',
+				'applebot' => 'search',
+				'yandexbot' => 'search',
+				'mj12bot' => 'search',
+				'mail.ru_bot' => 'search',
+				'exabot' => 'search',
+				'uptimerobot' => 'monitor',
+				'petalbot' => 'search',
+				'twitterbot' => 'feed',
+				'xbot' => 'feed',
+				'discordbot' => 'feed',
+				'sematextsyntheticsrobot' => 'monitor',
+				'linkedinbot' => 'feed',
+				'paperlibot' => 'feed',
+				'bitlybot' => 'feed',
+				'tineye-bot' => 'search',
+				'pinterestbot' => 'feed',
+				'webcrawler' => 'crawler',
+				'webprosbot' => 'crawler',
+				'guzzlehttp' => 'scraper',
+				'telegrambot' => 'feed',
+				'semrushbot' => 'crawler',
+				'mediatoolkitbot' => 'crawler',
+				'iploggerbot' => 'monitor'
 			];
+			$apps = [
+				'yacybot' => 'YacyBot',
+				'googlebot' => 'GoogleBot',
+				'googlebot-mobile' => 'GoogleBot',
+				'googlebot-image' => 'GoogleBot',
+				'googlebot-video' => 'GoogleBot',
+				'googlebot-news' => 'GoogleBot',
+				'storebot-google' => 'GoogleBot',
+				'adsbot-google' => 'GoogleBot',
+				'adsbot-google-mobile' => 'GoogleBot',
+				'mediapartners-google' => 'GoogleBot',
+				'bingbot' => 'BingBot',
+				'adidxbot' => 'AdidxBot',
+				'duckduckbot' => 'DuckDuckBot',
+				'duckduckgo-favicons-bot' => 'DuckDuckBot',
+				'coccocbot-image' => 'CoccocBot',
+				'coccocbot-web' => 'CoccocBot',
+				'applebot' => 'AppleBot',
+				'mj12bot' => 'Majestic 12 Bot',
+				'mail.ru_bot' => 'Mail.ru Bot',
+				'exabot' => 'ExaBot',
+				'twitterbot' => 'TwitterBot',
+				'discordbot' => 'DiscordBot',
+				'sematextsyntheticsrobot' => 'Sematext Synthetics Robot',
+				'bitlybot' =>  'Bit.ly Bot',
+				'tineye-bot' => 'TinEye Bot',
+				'pinterestbot' => 'PinterestBot',
+				'webprosbot' => 'WebprosBot',
+				'mediatoolkitbot' => 'MediaToolkitBot',
+				'cfnetwork' => 'Apple Core Foundation Network',
+				'ncsc web check feedback.webcheck@digital.ncsc.gov.uk' => 'NCSC Web Check',
+				'google-site-verification' => 'Google Site Verification',
+				'google-inspectiontool' => 'Google Inspection Tool',
+				'pingdomtms' => 'Pingdom.com',
+				'facebookexternalhit' => 'Facebook URL Preview',
+				'phxbot' => 'ProtonMail Bot',
+				'baiduspider' => 'Baidu Spider',
+				'yisouspider' => 'Yisou Spider',
+				'google-read-aloud' => 'Google Read Aloud',
+				'monitoring360bot' => '360 Monitoring',
+				'cloudflare-healthchecks' => 'Cloudflare Health Checks',
+				'cloudflare-alwaysonline' => 'Cloudflare Always Online',
+				'cloudflare-traffic-manager' => 'Cloudflare-Traffic-Manager',
+				'cloudflare-prefetch' => 'Cloudflare Prefetch',
+				'cloudflare-ssldetector' => 'Cloudflare SSL Detector',
+				'cloudflare-diagnostics' => 'Cloudflare Diagnostics',
+				'ptst' => 'Cloudflare Speed Test'
+			];
+			
+			$lower = \mb_strtolower($parts[0]);
 			return \array_merge([
 				'type' => 'robot',
-				'category' => \mb_stripos($value, 'crawl') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper',
-				'app' => $parts[0],
+				'category' => $category[$lower] ?? (\mb_stripos($value, 'crawl') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper'),
+				'app' => $apps[$lower] ?? $parts[0],
 				'appname' => $parts[0],
 				'appversion' => empty($parts[1]) ? null : $parts[1]
-			], $data, $category[\mb_strtolower($parts[0])] ?? []);
+			], $data);
 		}
 		return [];
 	}
@@ -252,15 +160,15 @@ class crawlers {
 		];
 		return [
 			'Yahoo! Slurp' => new props('exact', $fn['search']),
-			'facebookexternalhit/' => new props('start', $fn['map']),
-			'Google-Site-Verification/' => new props('start', $fn['map']),
-			'Google-InspectionTool/' => new props('start', $fn['map']),
+			'facebookexternalhit/' => new props('start', $fn['feed']),
+			'Google-Site-Verification/' => new props('start', $fn['validator']),
+			'Google-InspectionTool/' => new props('start', $fn['validator']),
 			'Google-Read-Aloud' => new props('exact', $fn['feed']),
 			'Mediapartners-Google' => new props('start', $fn['search']),
 			'FeedFetcher-Google' => new props('exact', $fn['feed']),
 			'GoogleProducer' => new props('exact', $fn['feed']),
 			'Google-adstxt' => new props('exact', $fn['ads']),
-			'CFNetwork/' => new props('start', $fn['map']),
+			'CFNetwork/' => new props('start', $fn['feed']),
 			'Siteimprove.com' => new props('any', $fn['crawler']),
 			'CyotekWebCopy' => new props('start', $fn['scraper']),
 			'Google Page Speed Insights' => new props('exact', $fn['validator']),
@@ -278,12 +186,23 @@ class crawlers {
 			'python' => new props('start', $fn['scraper']),
 			'jsdom/' => new props('start', $fn['scraper']),
 			'Nessus' => new props('start', $fn['monitor']),
+			'monitoring360bot' => new props('start', $fn['monitor']),
+			'Cloudflare' => new props('start', $fn['validator']),
+			'PTST/' => new props('start', $fn['validator']),
+			'+https://developers.cloudflare.com/security-center/' => new props('exact', $fn['monitor']),
+			'AppSignalBot/' => new props('start', $fn['monitor']),
+			'Better Uptime Bot' => new props('start', [
+				'type' => 'robot',
+				'category' => 'monitor',
+				'app' => 'Better Uptime Bot',
+				'appname' => 'Better Uptime Bot'
+			]),
 			'Chrome-Lighthouse' => new props('start', $fn['validator']),
 			'Siege/' => new props('start', $fn['validator']),
 			'Microsoft Profiling/' => new props('any', $fn['validator']),
 			'Bidtellect' => new props('start', $fn['crawler']),
 			'magpie-crawler/' => new props('start', $fn['crawler']),
-			'PingdomTMS/' => new props('start', $fn['map']),
+			'PingdomTMS/' => new props('start', $fn['monitor']),
 			'DynGate' => new props('exact', $fn['monitor']),
 			'Datadog/Synthetics' => new props('exact', [
 				'type' => 'robot',
@@ -294,7 +213,7 @@ class crawlers {
 			'Checkly/' => new props('start', $fn['monitor']),
 			'Uptime/' => new props('start', $fn['monitor']),
 			'HostTracker/' => new props('start', $fn['monitor']),
-			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => new props('exact', $fn['map']),
+			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => new props('exact', $fn['monitor']),
 			'Pingdom.com' => new props('start', function (string $value) : array {
 				$version = \explode('_', \trim($value, '_'));
 				return [

@@ -896,6 +896,79 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'monitor',
 				'app' => 'NCSC Web Check',
 				'appname' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk'
+			],
+			'Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online)' => [
+				'string' => 'Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Always Online',
+				'appname' => 'CloudFlare-AlwaysOnline',
+				'appversion' => '1.0',
+				'url' => 'http://www.cloudflare.com/always-online'
+			],
+			'Mozilla/5.0 (compatible; Cloudflare-Healthchecks/1.0; +https://www.cloudflare.com/; healthcheck-id: lksa8d89ashdhja864ad)' => [
+				'string' => 'Mozilla/5.0 (compatible; Cloudflare-Healthchecks/1.0; +https://www.cloudflare.com/; healthcheck-id: lksa8d89ashdhja864ad)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Health Checks',
+				'appname' => 'Cloudflare-Healthchecks',
+				'appversion' => '1.0',
+				'url' => 'https://www.cloudflare.com/'
+			],
+			'Mozilla/5.0 (compatible; Cloudflare-Traffic-Manager/1.0; +https://www.cloudflare.com/traffic-manager/; pool-id: 12345)' => [
+				'string' => 'Mozilla/5.0 (compatible; Cloudflare-Traffic-Manager/1.0; +https://www.cloudflare.com/traffic-manager/; pool-id: 12345)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare-Traffic-Manager',
+				'appname' => 'Cloudflare-Traffic-Manager',
+				'appversion' => '1.0',
+				'url' => 'https://www.cloudflare.com/traffic-manager/'
+			],
+			'Mozilla/5.0 (compatible; CloudFlare-Prefetch/0.1; +http://www.cloudflare.com/)' => [
+				'string' => 'Mozilla/5.0 (compatible; CloudFlare-Prefetch/0.1; +http://www.cloudflare.com/)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Prefetch',
+				'appname' => 'CloudFlare-Prefetch',
+				'appversion' => '0.1',
+				'url' => 'http://www.cloudflare.com/'
+			],
+			'Cloudflare-SSLDetector' => [
+				'string' => 'Cloudflare-SSLDetector',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare SSL Detector',
+				'appname' => 'Cloudflare-SSLDetector'
+			],
+			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 PTST/190628.140653' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 PTST/190628.140653',
+				'type' => 'robot',
+				'category' => 'validator',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Blink',
+				'engineversion' => '75.0.3770.100',
+				'browser' => 'Chrome',
+				'browserversion' => '75.0.3770.100',
+				'app' => 'Cloudflare Speed Test',
+				'appname' => 'PTST',
+				'appversion' => '190628.140653'
+			],
+			'Cloudflare-diagnostics' => [
+				'string' => 'Cloudflare-diagnostics',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Diagnostics',
+				'appname' => 'Cloudflare-diagnostics'
+			],
+			'Cloudflare Custom Hostname Verification' => [
+				'string' => 'Cloudflare Custom Hostname Verification',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Custom Hostname Verification',
+				'appname' => 'Cloudflare Custom Hostname Verification'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
