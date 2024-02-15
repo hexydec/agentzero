@@ -1850,6 +1850,19 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '33.0.1750.157',
 				'browser' => 'Coccoc',
 				'browserversion' => '33.0.1750.157'
+			],
+			'Mozilla/5.0 (Linux; Android 12; GLA-LX1; HMSCore 6.12.0.302) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 HuaweiBrowser/14.0.0.322 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 12; GLA-LX1; HMSCore 6.12.0.302) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 HuaweiBrowser/14.0.0.322 Mobile Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'model' => 'GLA-LX1',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '12',
+				'engine' => 'Blink',
+				'engineversion' => '122.0.0.0',
+				'browser' => 'Huawei Browser',
+				'browserversion' => '14.0.0.322'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

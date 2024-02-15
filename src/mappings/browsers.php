@@ -35,6 +35,7 @@ class browsers {
 					'palemoon' => 'PaleMoon',
 					'k-meleon' => 'K-Meleon',
 					'samsungbrowser' => 'Samsung Browser',
+					'huaweibrowser' => 'Huawei Browser',
 					'qqbrowser' => 'QQ Browser'
 				];
 				$data = ['type' => 'human'];
@@ -121,6 +122,7 @@ class browsers {
 			'WebPositive/' => new props('start', $fn['browserslash']),
 			'K-Ninja/' => new props('start', $fn['browserslash']),
 			'SamsungBrowser/' => new props('start', $fn['browserslash']),
+			'HuaweiBrowser/' => new props('start', $fn['browserslash']),
 			'NintendoBrowser/' => new props('start', $fn['browserslash']),
 			'Epiphany/' => new props('start', $fn['browserslash']),
 			'Silk/' => new props('start', $fn['browserslash']),
