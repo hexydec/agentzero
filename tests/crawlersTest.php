@@ -781,6 +781,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '6.0',
 				'browser' => 'Internet Explorer',
 				'browserversion' => '10.0'
+			],
+			'Mozilla/5.0 (compatible; Pro Sitemaps Generator; pro-sitemaps.com) Gecko Pro-Sitemaps/1.0' => [
+				'string' => 'Mozilla/5.0 (compatible; Pro Sitemaps Generator; pro-sitemaps.com) Gecko Pro-Sitemaps/1.0',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'engine' => 'Gecko',
+				'app' => 'Pro-Sitemaps',
+				'appname' => 'Pro-Sitemaps',
+				'appversion' => '1.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -797,7 +806,21 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'CyotekWebCopy',
 				'appname' => 'CyotekWebCopy',
 				'appversion' => '1.9'
-			]
+			],
+			'Mozilla/5.0 (Linux; Linux 4.18.0-305.3.1.el8.x86_64 #1 SMP Tue Jun 1 16:14:33 UTC 2021; en-US) PowerShell/7.3.1' => [
+				'string' => 'Mozilla/5.0 (Linux; Linux 4.18.0-305.3.1.el8.x86_64 #1 SMP Tue Jun 1 16:14:33 UTC 2021; en-US) PowerShell/7.3.1',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'platformversion' => '4.18.0-305.3.1.el8.x86_64',
+				'language' => 'en-US',
+				'app' => 'PowerShell',
+				'appname' => 'PowerShell',
+				'appversion' => '7.3.1'
+			],
 		];
 		foreach ($strings AS $ua => $item) {
 			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);

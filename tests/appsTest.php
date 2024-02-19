@@ -149,7 +149,6 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			],
 			'URL/Emacs Emacs/28.2 (X11; x86_64-pc-linux-gnu)' => [
 				'string' => 'URL/Emacs Emacs/28.2 (X11; x86_64-pc-linux-gnu)',
-				'type' => 'human',
 				'category' => 'desktop',
 				'architecture' => 'x86',
 				'bits' => 64,
@@ -158,20 +157,6 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Emacs',
 				'appname' => 'Emacs',
 				'appversion' => '28.2'
-			],
-			'Mozilla/5.0 (Linux; Linux 4.18.0-305.3.1.el8.x86_64 #1 SMP Tue Jun 1 16:14:33 UTC 2021; en-US) PowerShell/7.3.1' => [
-				'string' => 'Mozilla/5.0 (Linux; Linux 4.18.0-305.3.1.el8.x86_64 #1 SMP Tue Jun 1 16:14:33 UTC 2021; en-US) PowerShell/7.3.1',
-				'type' => 'human',
-				'category' => 'desktop',
-				'architecture' => 'x86',
-				'bits' => 64,
-				'kernel' => 'Linux',
-				'platform' => 'Linux',
-				'platformversion' => '4.18.0-305.3.1.el8.x86_64',
-				'language' => 'en-US',
-				'app' => 'PowerShell',
-				'appname' => 'PowerShell',
-				'appversion' => '7.3.1'
 			],
 			'imoAndroid/2023.05.1071; 12; REL; Redmi Note 9 Pro Max; Redmi; play; phone; arm64-v8a; excalibur; 2323MHz; 5580MB; SM7125; 8' => [
 				'string' => 'imoAndroid/2023.05.1071; 12; REL; Redmi Note 9 Pro Max; Redmi; play; phone; arm64-v8a; excalibur; 2323MHz; 5580MB; SM7125; 8',
@@ -302,6 +287,18 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Google',
 				'appname' => 'com.google.GoogleMobile',
 				'appversion' => '250.0'
+			],
+			'whisper/8.43.1 (sh.whisper.whisperapp; build:2; iOS 16.2.0) Alamofire/4.7.3' => [
+				'string' => 'whisper/8.43.1 (sh.whisper.whisperapp; build:2; iOS 16.2.0) Alamofire/4.7.3',
+				'type' => 'human',
+				'category' => 'mobile',
+				'platform' => 'iOS',
+				'platformversion' => '16.2.0',
+				'app' => 'whisper',
+				'appname' => 'whisper',
+				'appversion' => '8.43.1',
+				'framework' => 'Alamofire',
+				'frameworkversion' => '4.7.3'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

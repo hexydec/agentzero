@@ -18,7 +18,6 @@ class apps {
 					$app = $parts[0 + $offset];
 					if (\mb_stripos($app, \rtrim($match, '/')) !== false) { // check the match is before the slash
 						return [
-							'type' => 'human',
 							'app' => self::getApp($app),
 							'appname' => \trim($app, '[]'),
 							'appversion' => $parts[1 + $offset] ?? null
@@ -118,7 +117,6 @@ class apps {
 			'OculusBrowser/' => new props('start', $fn['appslash']),
 			'YaBrowser/' => new props('start', $fn['appslash']),
 			'choqok/' => new props('start', $fn['appslash']),
-			'PowerShell/' => new props('start', $fn['appslash']),
 			'Quora ' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
 				'app' => 'Quora',
@@ -126,9 +124,9 @@ class apps {
 				'appversion' => \explode(' ', $value, 3)[1]
 			]),
 			'AmazonKidsBrowser/' => new props('start', $fn['appslash']),
+			'whisper/' => new props('start', $fn['appslash']),
 			'Teams/' => new props('start', $fn['appslash']),
 			'Viber/' => new props('start', $fn['appslash']),
-			'AppleExchangeWebServices/' => new props('start', $fn['appslash']),
 			'Google Web Preview' => new props('start', $fn['appslash']),
 			'MicroMessenger/' => new props('start', $fn['appslash']),
 			'weibo' => new props('any', function (string $value) : array {

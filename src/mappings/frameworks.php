@@ -21,6 +21,10 @@ class frameworks {
 			'Cordova' => new props('start', fn (string $value) : array => [
 				'framework' => 'Cordova',
 				'frameworkversion' => \explode('/', $value, 3)[1]
+			]),
+			'Alamofire/' => new props('start', fn (string $value) : array => [
+				'framework' => 'Alamofire',
+				'frameworkversion' => \explode('/', $value, 3)[1]
 			])
 		];
 	}

@@ -145,6 +145,12 @@ class platforms {
 				'platform' => 'iOS',
 				'platformversion' => \mb_substr($value, 4)
 			]),
+			'iOS ' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'platform' => 'iOS',
+				'platformversion' => \str_replace('_', '.', \mb_substr($value, 4))
+			]),
 			'CrOS' => new props('start', function (string $value) : array {
 				$parts = \explode(' ', $value);
 				return [

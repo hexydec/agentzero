@@ -23,7 +23,7 @@ class other {
 						$data = \array_change_key_case((array) $data);
 
 						// special case for chrome - browser
-						if ($data['app'] === 'com.google.chrome.ios') {
+						if (($data['app'] ?? null) === 'com.google.chrome.ios') {
 							$cat['browser'] = 'Chrome';
 							$cat['browserversion'] = $data['appversion'] ?? null;
 							unset($data['app'], $data['appversion']);
