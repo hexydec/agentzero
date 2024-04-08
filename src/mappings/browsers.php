@@ -198,6 +198,12 @@ class browsers {
 				'browser' => $value,
 				'browserversion' => $tokens[$i + 1]
 			]),
+			'Blazer' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'browser' => 'Blazer',
+				'browserversion' => \mb_substr($value, 7),
+				'engine' => 'Proprietary'
+			]),
 			'Edg/' => new props('start', $fn['browserslash']),
 			'EdgA/' => new props('start', $fn['browserslash']),
 			'Edge/' => new props('start', $fn['browserslash']),

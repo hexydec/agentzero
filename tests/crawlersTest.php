@@ -99,7 +99,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Applebot',
 				'appversion' => '0.1',
 				'type' => 'robot',
-				'category' => 'search',
+				'category' => 'ai',
 				'architecture' => 'x86',
 				'bits' => 64,
 				'processor' => 'Intel',
@@ -116,7 +116,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)',
 				'type' => 'robot',
-				'category' => 'search',
+				'category' => 'ai',
 				'app' => 'AppleBot',
 				'appname' => 'Applebot',
 				'appversion' => '0.1',
@@ -992,6 +992,111 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'validator',
 				'app' => 'Cloudflare Custom Hostname Verification',
 				'appname' => 'Cloudflare Custom Hostname Verification'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
+
+	public function testAi() : void {
+		$strings = [
+			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML\, like Gecko) Version/8.0.2 Safari/600.2.5 (Amazonbot/0.1; +https://developer.amazon.com/support/amazonbot)' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML\, like Gecko) Version/8.0.2 Safari/600.2.5 (Amazonbot/0.1; +https://developer.amazon.com/support/amazonbot)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'vendor' => 'Apple',
+				'device' => 'Macintosh',
+				'processor' => 'Intel',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Mac OS X',
+				'platformversion' => '10.10.1',
+				'engine' => 'WebKit',
+				'engineversion' => '600.2.5',
+				'browser' => 'Safari',
+				'browserversion' => '8.0.2',
+				'app' => 'Amazonbot',
+				'appname' => 'Amazonbot',
+				'appversion' => '0.1',
+				'url' => 'https://developer.amazon.com/support/amazonbot'
+			],
+			'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729; Diffbot/0.1; +http://www.diffbot.com)' => [
+				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729; Diffbot/0.1; +http://www.diffbot.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => 'XP',
+				'engine' => 'Gecko',
+				'engineversion' => '20090729',
+				'browser' => 'Firefox',
+				'browserversion' => '3.5.2',
+				'language' => 'en-US',
+				'app' => 'Diffbot',
+				'appname' => 'Diffbot',
+				'appversion' => '0.1',
+				'url' => 'http://www.diffbot.com'
+			],
+			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15 (Applebot/0.1)' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15 (Applebot/0.1)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'vendor' => 'Apple',
+				'device' => 'Macintosh',
+				'processor' => 'Intel',
+				'architecture' => 'x86',
+				'bits' => '64',
+				'kernel' => 'Linux',
+				'platform' => 'Mac OS X',
+				'platformversion' => '10.14.5',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'browser' => 'Safari',
+				'browserversion' => '12.1.1',
+				'app' => 'AppleBot',
+				'appname' => 'Applebot',
+				'appversion' => '0.1'
+			],
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B410 Safari/600.1.4 (Applebot/0.1; +http://www.apple.com/go/applebot)' => [
+				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B410 Safari/600.1.4 (Applebot/0.1; +http://www.apple.com/go/applebot)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '12B410',
+				'architecture' => 'arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '8.1',
+				'engine' => 'WebKit',
+				'engineversion' => '600.1.4',
+				'browser' => 'Safari',
+				'browserversion' => '8.0',
+				'app' => 'AppleBot',
+				'appname' => 'Applebot',
+				'appversion' => '0.1',
+				'url' => 'http://www.apple.com/go/applebot'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'PerplexityBot',
+				'appname' => 'PerplexityBot',
+				'appversion' => '1.0',
+				'url' => 'https://perplexity.ai/perplexitybot'
+			],
+			'Mozilla/5.0 (compatible; YouBot/1.0; +https://about.you.com/youbot/)' => [
+				'string' => 'Mozilla/5.0 (compatible; YouBot/1.0; +https://about.you.com/youbot/)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'YouBot',
+				'appname' => 'YouBot',
+				'appversion' => '1.0',
+				'url' => 'https://about.you.com/youbot/'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

@@ -342,7 +342,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)',
 				'type' => 'robot',
-				'category' => 'search',
+				'category' => 'ai',
 				'app' => 'AppleBot',
 				'appname' => 'Applebot',
 				'appversion' => '0.1',
@@ -1863,6 +1863,21 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '122.0.0.0',
 				'browser' => 'Huawei Browser',
 				'browserversion' => '14.0.0.322'
+			],
+			'Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; PalmSource/hspr-H102; Blazer/4.0) 16;320x320' => [
+				'string' => 'Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; PalmSource/hspr-H102; Blazer/4.0) 16;320x320',
+				'type' => 'human',
+				'category' => 'mobile',
+				'architecture' => 'arm',
+				'bits' => 32,
+				'kernel' => 'AMX 68000',
+				'platform' => 'PalmOS',
+				'platformversion' => 'hspr-H102',
+				'engine' => 'Proprietary',
+				'browser' => 'Blazer',
+				'browserversion' => '4.0',
+				'width' => '320',
+				'height' => '320'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

@@ -1450,6 +1450,34 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '3.0.0',
 				'engine' => 'Blink',
 				'engineversion' => '83.0.4103.122'
+			],
+			'Mozilla/4.0 (PDA; PalmOS/sony/model prmr/Revision:1.1.54 (en)) NetFront/3.0' => [
+				'string' => 'Mozilla/4.0 (PDA; PalmOS/sony/model prmr/Revision:1.1.54 (en)) NetFront/3.0',
+				'type' => 'human',
+				'category' => 'mobile',
+				'architecture' => 'arm',
+				'bits' => 32,
+				'kernel' => 'AMX 68000',
+				'platform' => 'PalmOS',
+				'platformversion' => 'sony/model',
+				'browser' => 'NetFront',
+				'browserversion' => '3.0',
+				'language' => 'en'
+			],
+			'Palm680/RC1 Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; PalmSource/Palm-D053; Blazer/4.5) 16;320x320' => [
+				'string' => 'Palm680/RC1 Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; PalmSource/Palm-D053; Blazer/4.5) 16;320x320',
+				'type' => 'human',
+				'category' => 'mobile',
+				'architecture' => 'arm',
+				'bits' => 32,
+				'kernel' => 'AMX 68000',
+				'platform' => 'PalmOS',
+				'platformversion' => 'Palm-D053',
+				'engine' => 'Proprietary',
+				'browser' => 'Blazer',
+				'browserversion' => '4.5',
+				'width' => '320',
+				'height' => '320'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

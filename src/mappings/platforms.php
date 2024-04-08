@@ -77,6 +77,24 @@ class platforms {
 		return [
 
 			// platforms
+			'PalmSource' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'platform' => 'PalmOS',
+				'platformversion' => \mb_substr($value, 11) ?: null,
+				'kernel' => 'AMX 68000',
+				'architecture' => 'arm',
+				'bits' => 32,
+			]),
+			'PalmOS' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'platform' => 'PalmOS',
+				'platformversion' => \mb_substr($value, 7) ?: null,
+				'kernel' => 'AMX 68000',
+				'architecture' => 'arm',
+				'bits' => 32,
+			]),
 			'Windows NT ' => new props('any', $fn['platformwindows']),
 			'Windows Phone' => new props('start', function (string $value) : array {
 				$version = \mb_substr($value, 14);
@@ -88,15 +106,22 @@ class platforms {
 					'kernel' => \intval($version) >= 8 ? 'Windows NT' : 'Windows CE'
 				];
 			}),
-			'Win98' => new props('start', [
-				'type' => 'human',
-				'category' => 'desktop',
-				'architecture' => 'x86',
-				'bits' => 32,
-				'kernel' => 'MS-DOS',
-				'platform' => 'Windows',
-				'platformversion' => '98'
-			]),
+			'Win98' => new props('start', function (string $value, int $i, array $tokens) : array {
+				foreach ($tokens AS $item) {
+					if (\str_starts_with($item, 'PalmSource')) {
+						return [];
+					}
+				}
+				return [
+					'type' => 'human',
+					'category' => 'desktop',
+					'architecture' => 'x86',
+					'bits' => 32,
+					'kernel' => 'MS-DOS',
+					'platform' => 'Windows',
+					'platformversion' => '98'
+				];
+			}),
 			'Win32' => new props('exact', [
 				'type' => 'human',
 				'category' => 'desktop',
@@ -119,7 +144,14 @@ class platforms {
 				'platform' => 'Windows',
 				'platformversion' => \mb_substr($value, 5)
 			]),
-			'Windows' => new props('any', $fn['platformwindows']),
+			'Windows' => new props('any', function (string $value, int $i, array $tokens) use ($fn) : array {
+				foreach ($tokens AS $item) {
+					if (\str_starts_with($item, 'PalmSource')) {
+						return [];
+					}
+				}
+				return $fn['platformwindows']($value, $i, $tokens);
+			}),
 			'Mac OS X' => new props('any', function (string $value) : array {
 				$version = \str_replace('_', '.', \mb_substr($value, \mb_stripos($value, 'Mac OS X') + 9));
 				$register = $version && \intval(\explode('.', $version)[1] ?? 0) >= 6 ? 64 : null;

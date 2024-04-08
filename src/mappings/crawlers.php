@@ -132,6 +132,7 @@ class crawlers {
 			'search' => fn (string $value) : array => self::getApp($value, ['category' => 'search']),
 			'ads' => fn (string $value) : array => self::getApp($value, ['category' => 'ads']),
 			'validator' => fn (string $value) : array => self::getApp($value, ['category' => 'validator']),
+			'ai' => fn (string $value) : array => self::getApp($value, ['category' => 'ai']),
 			'feed' => fn (string $value) : array => self::getApp($value, \array_merge(
 				\str_contains($value, 'WhatsApp/') ? [
 					'app' => 'WhatsApp'
@@ -159,8 +160,17 @@ class crawlers {
 			'map' => fn (string $value) : ?array => self::getApp($value)
 		];
 		return [
+			'Mozlila/' => new props('start', [
+				'type' => 'robot',
+				'categpry' => 'scraper'
+			]),
+			'Moblie' => new props('exact', [ // some samsung devices mispelt it
+				'type' => 'robot',
+				'category' => 'scraper'
+			]),
 			'Yahoo! Slurp' => new props('exact', $fn['search']),
 			'facebookexternalhit/' => new props('start', $fn['feed']),
+			'facebookcatalog/' => new props('start', $fn['feed']),
 			'Google-Site-Verification/' => new props('start', $fn['validator']),
 			'Google-InspectionTool/' => new props('start', $fn['validator']),
 			'Google-Read-Aloud' => new props('exact', $fn['feed']),
@@ -184,6 +194,7 @@ class crawlers {
 			}),
 			'okhttp' => new props('start', $fn['scraper']),
 			'python' => new props('start', $fn['scraper']),
+			'grpc-python/' => new props('start', $fn['scraper']),
 			'jsdom/' => new props('start', $fn['scraper']),
 			'Nessus' => new props('start', $fn['monitor']),
 			'monitoring360bot' => new props('start', $fn['monitor']),
@@ -230,6 +241,7 @@ class crawlers {
 			'PRTGCloudBot/' => new props('start', $fn['monitor']),
 			'Site24x7' => new props('exact', $fn['monitor']),
 			'StatusCake' => new props('exact', $fn['monitor']),
+			'AWS Network Health' => new props('start', $fn['monitor']),
 			'adbeat.com' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'ads',
@@ -271,6 +283,8 @@ class crawlers {
 				'appversion' => \mb_substr($value, 37)
 			]),
 			'Pro-Sitemaps/' => new props('start', $fn['crawler']),
+			'omgili/' => new props('start', $fn['crawler']),
+			'CCBot/' => new props('start', $fn['crawler']),
 			'Chrome Privacy Preserving Prefetch Proxy' => new props('exact', $fn['feed']),
 			'ViberUrlDownloader' => new props('exact', $fn['feed']),
 			'Google-Lens' => new props('exact', $fn['feed']),
@@ -281,7 +295,7 @@ class crawlers {
 			'W3C-checklink/' => new props('start', $fn['validator']),
 			'CSSCheck/' => new props('start', $fn['validator']),
 			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
-			'SEO-Macroscope/' => new props('exact', $fn['validator']),
+			'SEO-Macroscope/' => new props('start', $fn['validator']),
 			'Electronic Frontier Foundation\'s Do Not Track Verifier' => new props('exact', $fn['validator']),
 			'Expanse' => new props('start', $fn['crawler']),
 			'eCairn-Grabber/' => new props('start', $fn['scraper']),
@@ -313,6 +327,14 @@ class crawlers {
 			'http-client/' => new props('any', $fn['scraper']),
 			'HttpClient/' => new props('any', $fn['scraper']),
 			'PowerShell/' => new props('start', $fn['scraper']),
+			'GPTBot/' => new props('start', $fn['ai']),
+			'Diffbot/' => new props('start', $fn['ai']),
+			'Amazonbot/' => new props('start', $fn['ai']),
+			'Applebot/' => new props('start', $fn['ai']),
+			'PerplexityBot/' => new props('start', $fn['ai']),
+			'YouBot/' => new props('start', $fn['ai']),
+			'Google-Extended' => new props('start', $fn['ai']),
+			'ChatGPT-User/' => new props('start', $fn['feed']),
 			'Validator' => new props('any', $fn['validator']),
 			'feed' => new props('any', $fn['feed']),
 			'spider' => new props('any', $fn['crawler']),
