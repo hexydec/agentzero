@@ -1051,7 +1051,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '10.0.626.0',
 				'architecture' => 'x86',
-				'bits' => '64',
+				'bits' => 64,
 				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.2) Gecko/2008091816 Red Hat/3.0.2-3.el5 Firefox/3.0.2' => [
@@ -1431,7 +1431,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Haiku',
 				'platformversion' => '11.1',
 				'architecture' => 'arm',
-				'bits' => '64',
+				'bits' => 64,
 				'processor' => 'Qualcomm',
 				'engine' => 'WebKit',
 				'engineversion' => '608.1.6',
@@ -1445,7 +1445,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Haiku',
 				'platform' => 'Haiku',
 				'architecture' => 'x86',
-				'bits' => '64',
+				'bits' => 64,
 				'browser' => 'Falkon',
 				'browserversion' => '3.0.0',
 				'engine' => 'Blink',

@@ -123,7 +123,7 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'desktop',
 				'architecture' => 'x86',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => '10',
@@ -230,6 +230,51 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '3.4.0',
 				'framework' => 'Cordova',
 				'frameworkversion' => '3.4.0'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
+
+	public function testNetClr() : void {
+		$strings = [
+			'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; TencentTraveler ; EmbeddedWB 14.52 from: http://www.bsalsa.com/ EmbeddedWB 14.52; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.590; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)' => [
+				'string' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; TencentTraveler ; EmbeddedWB 14.52 from: http://www.bsalsa.com/ EmbeddedWB 14.52; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.590; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)',
+				'type' => 'human',
+				'category' => 'desktop',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => 'XP',
+				'engine' => 'Trident',
+				'browser' => 'Tencent Traveler',
+				'browserversion' => '7.0',
+				'app' => 'Embedded Web Browser',
+				'appname' => 'EmbeddedWB',
+				'appversion' => '14.52',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.21022',
+				'url' => 'http://www.bsalsa.com/'
+			],
+			'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; QQDownload 769; EmbeddedWB 14.52 from: http://www.bsalsa.com/ EmbeddedWB 14.52; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0E; Alexa Toolbar; Shuame; .NET4.0C; SE 2.X MetaSr 1.0)' => [
+				'string' => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; QQDownload 769; EmbeddedWB 14.52 from: http://www.bsalsa.com/ EmbeddedWB 14.52; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0E; Alexa Toolbar; Shuame; .NET4.0C; SE 2.X MetaSr 1.0)',
+				'type' => 'human',
+				'category' => 'desktop',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '7',
+				'engine' => 'Trident',
+				'engineversion' => '4.0',
+				'browser' => 'Internet Explorer',
+				'browserversion' => '8.0',
+				'app' => 'QQDownload',
+				'appname' => 'QQDownload',
+				'appversion' => '769',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.30729',
+				'url' => 'http://www.bsalsa.com/'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

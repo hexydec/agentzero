@@ -613,7 +613,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '4.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '8.0'
+				'browserversion' => '8.0',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.30729'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)' => [
 				'string' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)',
@@ -639,7 +641,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '7.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '11.0'
+				'browserversion' => '11.0',
+				'framework' => '.NET Common Language Runtime',
+	   			'frameworkversion' => '3.5.30729'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
@@ -1596,7 +1600,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '5.0',
 				'browser' => 'QQ Browser',
-				'browserversion' => '6.9.11079.201'
+				'browserversion' => '6.9.11079.201',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.30729'
 			],
 			'Mozilla/5.0 (Linux; Android 7.1.1; vivo X20A Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/044304 Mobile Safari/537.36 MicroMessenger/6.7.2.1340(0x2607023A) NetType/4G Language/zh_CN' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 7.1.1; vivo X20A Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/044304 Mobile Safari/537.36 MicroMessenger/6.7.2.1340(0x2607023A) NetType/4G Language/zh_CN',
@@ -1878,6 +1884,17 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '4.0',
 				'width' => '320',
 				'height' => '320'
+			],
+			'Avant Browser/1.2.789rel1 (http://www.avantbrowser.com)' => [
+				'string' => 'Avant Browser/1.2.789rel1 (http://www.avantbrowser.com)',
+				'type' => 'human',
+				'category' => 'desktop',
+				'browser' => 'Avant Browser',
+				'browserversion' => '1.2.789rel1',
+				'app' => 'Avant Browser',
+				'appname' => 'Avant Browser',
+				'appversion' => '1.2.789',
+				'url' => 'http://www.avantbrowser.com'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

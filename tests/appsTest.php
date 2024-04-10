@@ -280,7 +280,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'iPhone',
 				'model' => '14.3',
 				'architecture' => 'arm',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'iOS',
 				'platformversion' => '16.3',

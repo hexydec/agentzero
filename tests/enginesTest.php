@@ -32,7 +32,9 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '4.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '8.0'
+				'browserversion' => '8.0',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.30729'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

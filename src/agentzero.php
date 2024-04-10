@@ -149,27 +149,28 @@ class agentzero {
 	protected static function getTokens(string $ua, array $single, array $ignore) : array|false {
 
 		// prepare regexp
-		$single = \implode('|', \array_map('preg_quote', $single));
+		$single = \implode('|', \array_map('\\preg_quote', $single));
 		$pattern = '/\{[^}]++\}|[^()\[\];,\/  _-](?:(?<!'.$single.') (?!https?:\/\/)|(?<=[a-z])\([^)]+\)|[^()\[\];,\/ ]*)*[^()\[\];,\/  _-](?:\/[^;,()\[\]  ]++)?|[0-9]/i';
 
 		// split up ua string
 		if (\preg_match_all($pattern, $ua, $match)) {
 
-			// remove ignore values
-			$tokens = \array_diff($match[0], $ignore);
+			// userland token processing
+			$tokens = [];
+			foreach ($match[0] AS $key => $item) {
+				$lower = \mb_strtolower($item);
 
-			// special case for handling like
-			foreach ($tokens AS $key => $item) {
-				if (\str_starts_with($item, 'like ')) {
+				// special case for handling like
+				if (\str_starts_with($lower, 'like ')) {
 
 					// chop off words up to a useful token e.g. Platform/Version
 					if (\str_contains($item, '/') && ($pos = \mb_strrpos($item, ' ')) !== false) {
 						$tokens[$key] = \mb_substr($item, $pos + 1);
-
-					// just remove the token
-					} else {
-						unset($tokens[$key]);
 					}
+
+				// check token is not ignored
+				} elseif (!\in_array($lower, $ignore)) {
+					$tokens[$key] = $item;
 				}
 			}
 

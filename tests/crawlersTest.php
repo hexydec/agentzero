@@ -90,7 +90,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'search',
 				'appversion' => '3.0',
-				'app' => 'YandexBot',
+				'app' => 'Yandex Bot',
 				'appname' => 'YandexBot'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1)' => [
@@ -389,6 +389,28 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Qwantify-prod77',
 				'appversion' => '1.0',
 				'url' => 'https://help.qwant.com/bot/'
+			],
+			'Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)' => [
+				'string' => 'Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Yandex Bot',
+				'appname' => 'YandexImages',
+				'appversion' => '3.0',
+				'url' => 'http://yandex.com/bots'
+			],
+			'Mozilla/5.0 (compatible; YandexRenderResourcesBot/1.0; +http://yandex.com/bots) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0' => [
+				'string' => 'Mozilla/5.0 (compatible; YandexRenderResourcesBot/1.0; +http://yandex.com/bots) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0',
+				'type' => 'robot',
+				'category' => 'search',
+				'engine' => 'Blink',
+				'engineversion' => '108.0.0.0',
+				'browser' => 'Chrome',
+				'browserversion' => '108.0.0.0',
+				'app' => 'Yandex Bot',
+				'appname' => 'YandexRenderResourcesBot',
+				'appversion' => '1.0',
+				'url' => 'http://yandex.com/bots'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -506,6 +528,67 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Outlook',
 				'appname' => 'Outlook-iOS',
 				'appversion' => '3.36.1'
+			],
+			'Mozilla/5.0 (compatible; GoogleDocs; documents; +http://docs.google.com)' => [
+				'string' => 'Mozilla/5.0 (compatible; GoogleDocs; documents; +http://docs.google.com)',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Google Docs (Documents)',
+				'appname' => 'GoogleDocs; documents',
+				'url' => 'http://docs.google.com'
+			],
+			'Mozilla/5.0 (compatible; GoogleDocs; apps-presentations; +http://docs.google.com)' => [
+				'string' => 'Mozilla/5.0 (compatible; GoogleDocs; apps-presentations; +http://docs.google.com)',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Google Docs (Presentations)',
+				'appname' => 'GoogleDocs; apps-presentations',
+				'url' => 'http://docs.google.com'
+			],
+			'Mozilla/5.0 (compatible; Embedly/0.2; +http://support.embed.ly/)' => [
+				'string' => 'Mozilla/5.0 (compatible; Embedly/0.2; +http://support.embed.ly/)',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Embedly',
+				'appname' => 'Embedly',
+				'appversion' => '0.2',
+				'url' => 'http://support.embed.ly/'
+			],
+			'Mozilla/5.0 (compatible; The Lounge IRC Client; +https://github.com/thelounge/thelounge) facebookexternalhit/1.1 Twitterbot/1.0' => [
+				'string' => 'Mozilla/5.0 (compatible; The Lounge IRC Client; +https://github.com/thelounge/thelounge) facebookexternalhit/1.1 Twitterbot/1.0',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'The Lounge IRC Client',
+				'appname' => 'The Lounge IRC Client',
+				'appversion' => '1.1',
+				'url' => 'https://github.com/thelounge/thelounge'
+			],
+			'HubSpot Connect 2.0 (http://dev.hubspot.com/) (namespace: domainValidationHttpClient) - BizOpsCompanies-Tq2-BizCoDomainValidationAudit' => [
+				'string' => 'HubSpot Connect 2.0 (http://dev.hubspot.com/) (namespace: domainValidationHttpClient) - BizOpsCompanies-Tq2-BizCoDomainValidationAudit',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'HubSpot Connect',
+				'appname' => 'domainValidationHttpClient - BizOpsCompanies-Tq2-BizCoDomainValidationAudit',
+				'appversion' => '2.0',
+				'url' => 'http://dev.hubspot.com/'
+			],
+			'HubSpot Connect 2.0 (http://dev.hubspot.com/) (namespace: hs_web_crawler) - RoadsModelsJobs-hubspot-53-domain-web-crawl' => [
+				'string' => 'HubSpot Connect 2.0 (http://dev.hubspot.com/) (namespace: hs_web_crawler) - RoadsModelsJobs-hubspot-53-domain-web-crawl',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'HubSpot Connect',
+				'appname' => 'hs_web_crawler - RoadsModelsJobs-hubspot-53-domain-web-crawl',
+				'appversion' => '2.0',
+				'url' => 'http://dev.hubspot.com/'
+			],
+			'HubSpot Connect 2.0 (http://dev.hubspot.com/) (namespace: filemanager.downloads.http.client) - contentfilemanagerdaemons-downloadFromUrlTq2Worke' => [
+				'string' => 'HubSpot Connect 2.0 (http://dev.hubspot.com/) (namespace: filemanager.downloads.http.client) - contentfilemanagerdaemons-downloadFromUrlTq2Worke',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'HubSpot Connect',
+				'appname' => 'filemanager.downloads.http.client - contentfilemanagerdaemons-downloadFromUrlTq2Worke',
+				'appversion' => '2.0',
+				'url' => 'http://dev.hubspot.com/'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -615,6 +698,98 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Siege',
 				'appname' => 'Siege',
 				'appversion' => '4.1.6'
+			],
+			'Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online)' => [
+				'string' => 'Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Always Online',
+				'appname' => 'CloudFlare-AlwaysOnline',
+				'appversion' => '1.0',
+				'url' => 'http://www.cloudflare.com/always-online'
+			],
+			'Mozilla/5.0 (compatible; Cloudflare-Healthchecks/1.0; +https://www.cloudflare.com/; healthcheck-id: lksa8d89ashdhja864ad)' => [
+				'string' => 'Mozilla/5.0 (compatible; Cloudflare-Healthchecks/1.0; +https://www.cloudflare.com/; healthcheck-id: lksa8d89ashdhja864ad)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Health Checks',
+				'appname' => 'Cloudflare-Healthchecks',
+				'appversion' => '1.0',
+				'url' => 'https://www.cloudflare.com/'
+			],
+			'Mozilla/5.0 (compatible; Cloudflare-Traffic-Manager/1.0; +https://www.cloudflare.com/traffic-manager/; pool-id: 12345)' => [
+				'string' => 'Mozilla/5.0 (compatible; Cloudflare-Traffic-Manager/1.0; +https://www.cloudflare.com/traffic-manager/; pool-id: 12345)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare-Traffic-Manager',
+				'appname' => 'Cloudflare-Traffic-Manager',
+				'appversion' => '1.0',
+				'url' => 'https://www.cloudflare.com/traffic-manager/'
+			],
+			'Mozilla/5.0 (compatible; CloudFlare-Prefetch/0.1; +http://www.cloudflare.com/)' => [
+				'string' => 'Mozilla/5.0 (compatible; CloudFlare-Prefetch/0.1; +http://www.cloudflare.com/)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Prefetch',
+				'appname' => 'CloudFlare-Prefetch',
+				'appversion' => '0.1',
+				'url' => 'http://www.cloudflare.com/'
+			],
+			'Cloudflare-SSLDetector' => [
+				'string' => 'Cloudflare-SSLDetector',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare SSL Detector',
+				'appname' => 'Cloudflare-SSLDetector'
+			],
+			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 PTST/190628.140653' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 PTST/190628.140653',
+				'type' => 'robot',
+				'category' => 'validator',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Blink',
+				'engineversion' => '75.0.3770.100',
+				'browser' => 'Chrome',
+				'browserversion' => '75.0.3770.100',
+				'app' => 'Cloudflare Speed Test',
+				'appname' => 'PTST',
+				'appversion' => '190628.140653'
+			],
+			'Cloudflare-diagnostics' => [
+				'string' => 'Cloudflare-diagnostics',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Diagnostics',
+				'appname' => 'Cloudflare-diagnostics'
+			],
+			'Cloudflare Custom Hostname Verification' => [
+				'string' => 'Cloudflare Custom Hostname Verification',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Cloudflare Custom Hostname Verification',
+				'appname' => 'Cloudflare Custom Hostname Verification'
+			],
+			'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Google-Safety; +http://www.google.com/bot.html)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Google-Safety; +http://www.google.com/bot.html)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'vendor' => 'Google',
+				'device' => 'Nexus',
+				'model' => '5X',
+				'build' => 'MMB29P',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '6.0.1',
+				'engine' => 'Blink',
+				'engineversion' => '41.0.2272.96',
+				'browser' => 'Chrome',
+				'browserversion' => '41.0.2272.96',
+				'app' => 'Google Safety',
+				'appname' => 'Google-Safety',
+				'url' => 'http://www.google.com/bot.html'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -790,6 +965,47 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Pro-Sitemaps',
 				'appname' => 'Pro-Sitemaps',
 				'appversion' => '1.0'
+			],
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 The National Archives UK Government Web Archive: http://www.nationalarchives.gov.uk/webarchive/; webarchive@nationalarchives.gov.uk' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 The National Archives UK Government Web Archive: http://www.nationalarchives.gov.uk/webarchive/; webarchive@nationalarchives.gov.uk',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '78.0.3904.97',
+				'browser' => 'Chrome',
+				'browserversion' => '78.0.3904.97',
+				'app' => 'UK Government National Archives',
+				'appname' => 'The National Archives UK Government Web Archive:',
+				'url' => 'http://www.nationalarchives.gov.uk/webarchive/'
+			],
+			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Google-PageRenderer Google (+https://developers.google.com/+/web/snippet/)' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Google-PageRenderer Google (+https://developers.google.com/+/web/snippet/)',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Blink',
+				'engineversion' => '56.0.2924.87',
+				'browser' => 'Chrome',
+				'browserversion' => '56.0.2924.87',
+				'app' => 'Google Page Renderer',
+				'appname' => 'Google-PageRenderer Google',
+				'url' => 'https://developers.google.com/+/web/snippet/'
+			],
+			'Citoid (Wikimedia tool; learn more at https://www.mediawiki.org/wiki/Citoid)' => [
+				'string' => 'Citoid (Wikimedia tool; learn more at https://www.mediawiki.org/wiki/Citoid)',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Wikimedia Citoid',
+				'appname' => 'Citoid',
+				'url' => 'https://www.mediawiki.org/wiki/Citoid'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -821,6 +1037,33 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'PowerShell',
 				'appversion' => '7.3.1'
 			],
+			'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 (compatible; mozilla/5.0 (macintosh; intel mac os x 10_13_5) applewebkit/537.36 (khtml, like gecko) chrome/67.0.3396.99 safari/537.36; +https://github.com/rom1504/img2dataset)' => [
+				'string' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0 (compatible; mozilla/5.0 (macintosh; intel mac os x 10_13_5) applewebkit/537.36 (khtml, like gecko) chrome/67.0.3396.99 safari/537.36; +https://github.com/rom1504/img2dataset)',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'vendor' => 'Apple',
+				'device' => 'Macintosh',
+				'processor' => 'Intel',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Mac OS X',
+				'platformversion' => '10.13.5',
+				'engine' => 'Gecko',
+				'engineversion' => '72.0',
+				'browser' => 'Firefox',
+				'browserversion' => '72.0',
+				'url' => 'https://github.com/rom1504/img2dataset'
+			],
+			'grub-client-1.5.3; (grub-client-1.5.3; Crawl your own stuff with http://grub.org)' => [
+				'string' => 'grub-client-1.5.3; (grub-client-1.5.3; Crawl your own stuff with http://grub.org)',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'app' => 'Grub Client',
+				'appname' => 'grub-client',
+				'appversion' => '1.5.3',
+				'url' => 'http://grub.org'
+			]
 		];
 		foreach ($strings AS $ua => $item) {
 			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
@@ -920,78 +1163,14 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'NCSC Web Check',
 				'appname' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk'
 			],
-			'Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online)' => [
-				'string' => 'Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online)',
+			'Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)' => [
+				'string' => 'Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)',
 				'type' => 'robot',
-				'category' => 'validator',
-				'app' => 'Cloudflare Always Online',
-				'appname' => 'CloudFlare-AlwaysOnline',
-				'appversion' => '1.0',
-				'url' => 'http://www.cloudflare.com/always-online'
-			],
-			'Mozilla/5.0 (compatible; Cloudflare-Healthchecks/1.0; +https://www.cloudflare.com/; healthcheck-id: lksa8d89ashdhja864ad)' => [
-				'string' => 'Mozilla/5.0 (compatible; Cloudflare-Healthchecks/1.0; +https://www.cloudflare.com/; healthcheck-id: lksa8d89ashdhja864ad)',
-				'type' => 'robot',
-				'category' => 'validator',
-				'app' => 'Cloudflare Health Checks',
-				'appname' => 'Cloudflare-Healthchecks',
-				'appversion' => '1.0',
-				'url' => 'https://www.cloudflare.com/'
-			],
-			'Mozilla/5.0 (compatible; Cloudflare-Traffic-Manager/1.0; +https://www.cloudflare.com/traffic-manager/; pool-id: 12345)' => [
-				'string' => 'Mozilla/5.0 (compatible; Cloudflare-Traffic-Manager/1.0; +https://www.cloudflare.com/traffic-manager/; pool-id: 12345)',
-				'type' => 'robot',
-				'category' => 'validator',
-				'app' => 'Cloudflare-Traffic-Manager',
-				'appname' => 'Cloudflare-Traffic-Manager',
-				'appversion' => '1.0',
-				'url' => 'https://www.cloudflare.com/traffic-manager/'
-			],
-			'Mozilla/5.0 (compatible; CloudFlare-Prefetch/0.1; +http://www.cloudflare.com/)' => [
-				'string' => 'Mozilla/5.0 (compatible; CloudFlare-Prefetch/0.1; +http://www.cloudflare.com/)',
-				'type' => 'robot',
-				'category' => 'validator',
-				'app' => 'Cloudflare Prefetch',
-				'appname' => 'CloudFlare-Prefetch',
-				'appversion' => '0.1',
-				'url' => 'http://www.cloudflare.com/'
-			],
-			'Cloudflare-SSLDetector' => [
-				'string' => 'Cloudflare-SSLDetector',
-				'type' => 'robot',
-				'category' => 'validator',
-				'app' => 'Cloudflare SSL Detector',
-				'appname' => 'Cloudflare-SSLDetector'
-			],
-			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 PTST/190628.140653' => [
-				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 PTST/190628.140653',
-				'type' => 'robot',
-				'category' => 'validator',
-				'architecture' => 'x86',
-				'bits' => 64,
-				'kernel' => 'Linux',
-				'platform' => 'Linux',
-				'engine' => 'Blink',
-				'engineversion' => '75.0.3770.100',
-				'browser' => 'Chrome',
-				'browserversion' => '75.0.3770.100',
-				'app' => 'Cloudflare Speed Test',
-				'appname' => 'PTST',
-				'appversion' => '190628.140653'
-			],
-			'Cloudflare-diagnostics' => [
-				'string' => 'Cloudflare-diagnostics',
-				'type' => 'robot',
-				'category' => 'validator',
-				'app' => 'Cloudflare Diagnostics',
-				'appname' => 'Cloudflare-diagnostics'
-			],
-			'Cloudflare Custom Hostname Verification' => [
-				'string' => 'Cloudflare Custom Hostname Verification',
-				'type' => 'robot',
-				'category' => 'validator',
-				'app' => 'Cloudflare Custom Hostname Verification',
-				'appname' => 'Cloudflare Custom Hostname Verification'
+				'category' => 'monitor',
+				'app' => 'Censys Inspect',
+				'appname' => 'CensysInspect',
+				'appversion' => '1.1',
+				'url' => 'https://about.censys.io/'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1037,7 +1216,9 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Diffbot',
 				'appname' => 'Diffbot',
 				'appversion' => '0.1',
-				'url' => 'http://www.diffbot.com'
+				'url' => 'http://www.diffbot.com',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.30729'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15 (Applebot/0.1)' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15 (Applebot/0.1)',
@@ -1047,7 +1228,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'Macintosh',
 				'processor' => 'Intel',
 				'architecture' => 'x86',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'Mac OS X',
 				'platformversion' => '10.14.5',

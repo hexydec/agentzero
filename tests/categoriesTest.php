@@ -139,7 +139,9 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '7.0',
 				'app' => 'Zoom',
 				'appname' => 'Zoom',
-				'appversion' => '3.6.0'
+				'appversion' => '3.6.0',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.30729'
 			],
 			'Mozilla/5.0 (Linux; Android 10.0; tablet Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.130 Safari/537.36 [FB_IAB/FB4A;FBAV/419.0.0.37.71;]' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10.0; tablet Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.130 Safari/537.36 [FB_IAB/FB4A;FBAV/419.0.0.37.71;]',

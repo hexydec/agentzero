@@ -12,7 +12,7 @@ class crawlers {
 	 * @return array<string|int|float|null> The $data array with the processed application and version added
 	 */
 	public static function getApp(string $value, array $data = []) : array {
-		if (!\str_contains($value, '://') && !\str_starts_with($value, 'Chrome/') && \strcasecmp('Cubot', $value) !== 0 && \strcasecmp('Power bot', $value) !== 0) { // bot will be in the URL
+		if (!\str_contains($value, '://') && \mb_stripos($value, 'Chrome/') !== 0 && \strcasecmp('Cubot', $value) !== 0 && \strcasecmp('Power bot', $value) !== 0) { // bot will be in the URL
 			$parts = \explode('/', $value, 2);
 
 			// process version
@@ -70,8 +70,10 @@ class crawlers {
 				'googlebot-news' => 'GoogleBot',
 				'storebot-google' => 'GoogleBot',
 				'adsbot-google' => 'GoogleBot',
+				'google-adwords-instant' => 'GoogleBot',
 				'adsbot-google-mobile' => 'GoogleBot',
 				'mediapartners-google' => 'GoogleBot',
+				'google-safety' => 'Google Safety',
 				'bingbot' => 'BingBot',
 				'adidxbot' => 'AdidxBot',
 				'duckduckbot' => 'DuckDuckBot',
@@ -92,8 +94,10 @@ class crawlers {
 				'mediatoolkitbot' => 'MediaToolkitBot',
 				'cfnetwork' => 'Apple Core Foundation Network',
 				'ncsc web check feedback.webcheck@digital.ncsc.gov.uk' => 'NCSC Web Check',
+				'the national archives uk government web archive:' => 'UK Government National Archives',
 				'google-site-verification' => 'Google Site Verification',
 				'google-inspectiontool' => 'Google Inspection Tool',
+				'google-pagerenderer google' => 'Google Page Renderer',
 				'pingdomtms' => 'Pingdom.com',
 				'facebookexternalhit' => 'Facebook URL Preview',
 				'phxbot' => 'ProtonMail Bot',
@@ -107,7 +111,11 @@ class crawlers {
 				'cloudflare-prefetch' => 'Cloudflare Prefetch',
 				'cloudflare-ssldetector' => 'Cloudflare SSL Detector',
 				'cloudflare-diagnostics' => 'Cloudflare Diagnostics',
-				'ptst' => 'Cloudflare Speed Test'
+				'ptst' => 'Cloudflare Speed Test',
+				'citoid' => 'Wikimedia Citoid',
+				'censysinspect' => 'Censys Inspect',
+				'googledocs' => 'Google Docs',
+				'user-agent: seolyt' => 'SEOlyt'
 			];
 			
 			$lower = \mb_strtolower($parts[0]);
@@ -169,18 +177,31 @@ class crawlers {
 				'category' => 'scraper'
 			]),
 			'Yahoo! Slurp' => new props('exact', $fn['search']),
-			'facebookexternalhit/' => new props('start', $fn['feed']),
-			'facebookcatalog/' => new props('start', $fn['feed']),
 			'Google-Site-Verification/' => new props('start', $fn['validator']),
 			'Google-InspectionTool/' => new props('start', $fn['validator']),
+			'Google-Safety' => new props('exact', $fn['validator']),
 			'Google-Read-Aloud' => new props('exact', $fn['feed']),
+			'Google AppsViewer' => new props('exact', $fn['feed']),
 			'Mediapartners-Google' => new props('start', $fn['search']),
 			'FeedFetcher-Google' => new props('exact', $fn['feed']),
+			'Google-PageRenderer' => new props('start', $fn['crawler']),
 			'GoogleProducer' => new props('exact', $fn['feed']),
 			'Google-adstxt' => new props('exact', $fn['ads']),
+			'Google-Adwords-Instant' => new props('exact', $fn['ads']),
 			'CFNetwork/' => new props('start', $fn['feed']),
 			'Siteimprove.com' => new props('any', $fn['crawler']),
+			'SEOlyt/' => new props('any', $fn['crawler']),
 			'CyotekWebCopy' => new props('start', $fn['scraper']),
+			'Yandex' => new props('start', function (string $value) : array {
+				$parts = \explode('/', $value, 3);
+				return [
+					'type' => 'robot',
+					'category' => 'search',
+					'app' => 'Yandex Bot',
+					'appname' => $parts[0],
+					'appversion' => $parts[1] ?? null
+				];
+			}),
 			'Google Page Speed Insights' => new props('exact', $fn['validator']),
 			'Qwantify' => new props('start', function (string $value) : array {
 				$parts = \explode('/', $value, 3);
@@ -213,8 +234,10 @@ class crawlers {
 			'Microsoft Profiling/' => new props('any', $fn['validator']),
 			'Bidtellect' => new props('start', $fn['crawler']),
 			'magpie-crawler/' => new props('start', $fn['crawler']),
+			'Web Measure/' => new props('start', $fn['crawler']),
 			'PingdomTMS/' => new props('start', $fn['monitor']),
 			'DynGate' => new props('exact', $fn['monitor']),
+			'CensysInspect/' => new props('start', $fn['monitor']),
 			'Datadog/Synthetics' => new props('exact', [
 				'type' => 'robot',
 				'category' => 'monitor',
@@ -252,6 +275,8 @@ class crawlers {
 			'MicrosoftPreview/' => new props('start', $fn['feed']),
 			'YahooMailProxy' => new props('exact', $fn['feed']),
 			'PhxBot/' => new props('start', $fn['feed']), // proton mail
+			'Embedly/' => new props('start', $fn['feed']),
+			'PayPal IPN' => new props('exact', $fn['feed']),
 			'Pleroma' => new props('start', fn (string $value) : array => [ // mastodon
 				'type' => 'robot',
 				'category' => 'feed',
@@ -275,23 +300,56 @@ class crawlers {
 				'platform' => 'iOS',
 				'appversion' => $tokens[$i+1] ?? \mb_substr($value, 12)
 			]),
-			'OutlookMobileCloudService-Autodetect/' => new props('start', fn (string $value) : array => [ // mastodon
+			'OutlookMobileCloudService-Autodetect/' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'feed',
 				'app' => 'Outlook',
 				'appname' => 'OutlookMobileCloudService-Autodetect',
 				'appversion' => \mb_substr($value, 37)
 			]),
+			'HubSpot Connect ' => new props('start', function (string $value, int $i, array $tokens) : array {
+				$app = 'HubSpot Connect';
+				for ($n = $i; $n < \count($tokens); $n++) {
+					if (\str_starts_with($tokens[$n], 'namespace: ')) {
+						$app = \mb_substr($tokens[$n], 11).' - '.$tokens[$n+1];
+						break;
+					}
+				}
+				return [
+					'type' => 'robot',
+					'category' => 'feed',
+					'app' => 'HubSpot Connect',
+					'appname' => $app,
+					'appversion' => \mb_substr($value, 16)
+				];
+			}),
 			'Pro-Sitemaps/' => new props('start', $fn['crawler']),
+			'Pandalytics/' => new props('start', $fn['crawler']),
 			'omgili/' => new props('start', $fn['crawler']),
 			'CCBot/' => new props('start', $fn['crawler']),
+			'The National Archives UK Government Web Archive' => new props('start', $fn['crawler']),
+			'Citoid' => new props('exact', $fn['crawler']),
+			'trendictionbot' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Trendicion Bot',
+				'appname' => 'trendictionbot',
+				'appversion' => \mb_substr($value, 14)
+			]),
 			'Chrome Privacy Preserving Prefetch Proxy' => new props('exact', $fn['feed']),
 			'ViberUrlDownloader' => new props('exact', $fn['feed']),
+			'GoogleDocs' => new props('exact', fn (string $value, int $i, array $tokens) : array => [
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'Google Docs ('.\mb_convert_case(\str_ireplace('apps-', '', $tokens[$i+1]), MB_CASE_TITLE).')',
+				'appname' => $value.'; '.$tokens[$i+1]
+			]),
 			'Google-Lens' => new props('exact', $fn['feed']),
 			'ManicTime/' => new props('start', $fn['feed']),
 			'Yik Yak/' => new props('start', $fn['feed']),
 			'HubSpot-Link-Resolver' => new props('exact', $fn['feed']),
 			'AppleExchangeWebServices/' => new props('start', $fn['feed']),
+			'The Lounge IRC Client' => new props('exact', $fn['feed']),
 			'W3C-checklink/' => new props('start', $fn['validator']),
 			'CSSCheck/' => new props('start', $fn['validator']),
 			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
@@ -308,7 +366,8 @@ class crawlers {
 			'HTTPClient/' => new props('start', $fn['scraper']),
 			'WhatsApp/' => new props('any', $fn['feed']),
 			'Hootsuite-Authoring/' => new props('start', $fn['feed']),
-			'Snap URL Preview Service' => new props('exact', $fn['feed']),
+			'URL Preview' => new props('any', $fn['feed']),
+			'Link Preview' => new props('any', $fn['feed']),
 			'ApacheBench/' => new props('start', $fn['validator']),
 			'Asana/' => new props('start', $fn['feed']),
 			'Java/' => new props('start', $fn['scraper']),
@@ -335,6 +394,8 @@ class crawlers {
 			'YouBot/' => new props('start', $fn['ai']),
 			'Google-Extended' => new props('start', $fn['ai']),
 			'ChatGPT-User/' => new props('start', $fn['feed']),
+			'facebookexternalhit/' => new props('start', $fn['feed']),
+			'facebookcatalog/' => new props('start', $fn['feed']),
 			'Validator' => new props('any', $fn['validator']),
 			'feed' => new props('any', $fn['feed']),
 			'spider' => new props('any', $fn['crawler']),

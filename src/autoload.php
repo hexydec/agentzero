@@ -15,6 +15,7 @@ declare(strict_types = 1);
 		'hexydec\\agentzero\\categories' => __DIR__.'/mappings/categories.php',
 		'hexydec\\agentzero\\urls' => __DIR__.'/mappings/urls.php',
 		'hexydec\\agentzero\\other' => __DIR__.'/mappings/other.php',
+		'hexydec\\agentzero\\special' => __DIR__.'/mappings/special.php',
 		'hexydec\\agentzero\\config' => __DIR__.'/config.php',
 		'hexydec\\agentzero\\props' => __DIR__.'/helpers/props.php',
 		'hexydec\\agentzero\\agentzero' => __DIR__.'/agentzero.php'
