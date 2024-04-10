@@ -176,7 +176,12 @@ class crawlers {
 				'type' => 'robot',
 				'category' => 'scraper'
 			]),
-			'Yahoo! Slurp' => new props('exact', $fn['search']),
+			'Yahoo! Slurp' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Yahoo! Slurp',
+				'appname' => $value
+			]),
 			'Google-Site-Verification/' => new props('start', $fn['validator']),
 			'Google-InspectionTool/' => new props('start', $fn['validator']),
 			'Google-Safety' => new props('exact', $fn['validator']),
