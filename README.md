@@ -93,7 +93,7 @@ AgentZero supports a wide range of architectures, browsers, rendering engines, p
 The easiest way to get up and running is to use composer:
 
 ```
-$ composer install hexydec/agentzero
+$ composer require hexydec/agentzero
 ```
 
 ## Test Suite
