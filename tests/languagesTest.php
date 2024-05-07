@@ -13,7 +13,7 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'vendor' => 'Apple',
 				'device' => 'iPhone',
 				'model' => '15E148',
-				'architecture' => 'arm',
+				'architecture' => 'Arm',
 				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'iOS',

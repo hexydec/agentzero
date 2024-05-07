@@ -65,7 +65,7 @@ class apps {
 						$data['category'] = $ipad ? 'tablet' : 'mobile';
 						$data['device'] = $iphone ? 'iPhone' : ($ipad ? 'iPad' : 'iPod');
 						$data['model'] = \str_replace(',', '.', \mb_substr($item, $iphone ? 6 : 4));
-						$data['architecture'] = 'arm';
+						$data['architecture'] = 'Arm';
 						$data['bits'] = 64;
 					} elseif (\str_starts_with($item, 'scale=')) {
 						$data['density'] = \floatval(\mb_substr($item, 6));
