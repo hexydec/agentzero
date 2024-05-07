@@ -33,23 +33,23 @@ class architectures {
 				'processor' => 'AMD'
 			]),
 			'armv7l' => new props('any', [
-				'architecture' => 'arm',
+				'architecture' => 'Arm',
 				'bits' => 32
 			]),
 			'aarch64' => new props('any', [
-				'architecture' => 'arm',
+				'architecture' => 'Arm',
 				'bits' => 64
 			]),
 			'arm64' => new props('any', [
-				'architecture' => 'arm',
+				'architecture' => 'Arm',
 				'bits' => 64
 			]),
 			'arm_64' => new props('any', [
-				'architecture' => 'arm',
+				'architecture' => 'Arm',
 				'bits' => 64
 			]),
 			'arm' => new props('any', [
-				'architecture' => 'arm',
+				'architecture' => 'Arm',
 				'bits' => 32
 			]),
 			'Intel' => new props('start', [
