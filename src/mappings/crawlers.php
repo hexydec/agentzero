@@ -37,7 +37,7 @@ class crawlers {
 				'duckduckgo-favicons-bot' => 'search',
 				'coccocbot-image' => 'search',
 				'coccocbot-web' => 'search',
-				'applebot' => 'search',
+				'applebot' => 'ai',
 				'yandexbot' => 'search',
 				'mj12bot' => 'search',
 				'mail.ru_bot' => 'search',
@@ -59,7 +59,13 @@ class crawlers {
 				'telegrambot' => 'feed',
 				'semrushbot' => 'crawler',
 				'mediatoolkitbot' => 'crawler',
-				'iploggerbot' => 'monitor'
+				'iploggerbot' => 'monitor',
+				'baiduspider' => 'search',
+				'haosouspider' => 'search',
+				'yisouspider' => 'search',
+				'360spider' => 'search',
+				'sogou web spider' => 'search',
+				'bytespider' => 'crawler'
 			];
 			$apps = [
 				'yacybot' => 'YacyBot',
@@ -94,6 +100,7 @@ class crawlers {
 				'mediatoolkitbot' => 'MediaToolkitBot',
 				'cfnetwork' => 'Apple Core Foundation Network',
 				'ncsc web check feedback.webcheck@digital.ncsc.gov.uk' => 'NCSC Web Check',
+				'enhanced webcheck feedback@digital.ncsc.gov.uk' => 'NCSC Enhanced Web Check',
 				'the national archives uk government web archive:' => 'UK Government National Archives',
 				'google-site-verification' => 'Google Site Verification',
 				'google-inspectiontool' => 'Google Inspection Tool',
@@ -115,17 +122,20 @@ class crawlers {
 				'citoid' => 'Wikimedia Citoid',
 				'censysinspect' => 'Censys Inspect',
 				'googledocs' => 'Google Docs',
-				'user-agent: seolyt' => 'SEOlyt'
+				'user-agent: seolyt' => 'SEOlyt',
+				'bytespider' => 'ByteDance Spider',
+				'spider-feedback@bytedance.com' => 'ByteDance Spider'
 			];
 			
 			$lower = \mb_strtolower($parts[0]);
 			return \array_merge([
 				'type' => 'robot',
-				'category' => $category[$lower] ?? (\mb_stripos($value, 'crawl') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper'),
 				'app' => $apps[$lower] ?? $parts[0],
 				'appname' => $parts[0],
 				'appversion' => empty($parts[1]) ? null : $parts[1]
-			], $data);
+			], $data, [
+				'category' => $category[$lower] ?? $data['category'] ?? (\mb_stripos($value, 'crawl') !== false || \mb_stripos($value, 'bot') !== false ? 'crawler' : 'scraper')
+			]);
 		}
 		return [];
 	}
@@ -150,18 +160,7 @@ class crawlers {
 				]
 			)),
 			'crawler' => function (string $value) : array {
-				$parts = \explode('/', $value, 2);
-				$map = [
-					'baiduspider' => 'search',
-					'haosouspider' => 'search',
-					'yisouspider' => 'search',
-					'360spider' => 'search',
-					'sogou web spider' => 'search',
-					'bytespider' => 'search',
-				];
-				return self::getApp($value, [
-					'category' => $map[\mb_strtolower($parts[0])] ?? 'crawler'
-				]);
+				return self::getApp($value, ['category' => 'crawler']);
 			},
 			'monitor' => fn (string $value) : array => self::getApp($value, ['category' => 'monitor']),
 			'scraper' => fn (string $value) : array => self::getApp($value, ['category' => 'scraper']),
@@ -253,6 +252,7 @@ class crawlers {
 			'Uptime/' => new props('start', $fn['monitor']),
 			'HostTracker/' => new props('start', $fn['monitor']),
 			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => new props('exact', $fn['monitor']),
+			'Enhanced WebCheck feedback@digital.ncsc.gov.uk' => new props('exact', $fn['monitor']),
 			'Pingdom.com' => new props('start', function (string $value) : array {
 				$version = \explode('_', \trim($value, '_'));
 				return [
