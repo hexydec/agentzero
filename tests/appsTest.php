@@ -809,6 +809,43 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'MicroMessenger',
 				'appversion' => '6.5.2.501',
 				'nettype' => 'WIFI'
+			],
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.5(0x17000523) NetType/WIFI Language/en' => [
+				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.5(0x17000523) NetType/WIFI Language/en',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '15E148',
+				'architecture' => 'Arm',
+				'bits' => '64',
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '12.3.1',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'language' => 'en',
+				'app' => 'WeChat',
+				'appname' => 'MicroMessenger',
+				'appversion' => '7.0.5',
+				'nettype' => 'WIFI'
+			],
+			'Mozilla/5.0 (Linux; Android 10; LIO-AN00 Build/HUAWEILIO-AN00; wv) MicroMessenger Weixin QQ AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.62 XWEB/2692 MMWEBSDK/200901 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10; LIO-AN00 Build/HUAWEILIO-AN00; wv) MicroMessenger Weixin QQ AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.62 XWEB/2692 MMWEBSDK/200901 Mobile Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Huawei',
+				'model' => 'LIO-AN00',
+				'build' => 'HUAWEILIO-AN00',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '78.0.3904.62',
+				'browser' => 'Chrome',
+				'browserversion' => '78.0.3904.62',
+				'app' => 'WeChat',
+				'appname' => 'MicroMessenger'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

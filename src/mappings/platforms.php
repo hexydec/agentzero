@@ -150,7 +150,7 @@ class platforms {
 						return [];
 					}
 				}
-				return $fn['platformwindows']($value, $i, $tokens);
+				return $fn['platformwindows']($value);
 			}),
 			'Mac OS X' => new props('any', function (string $value) : array {
 				$version = \str_replace('_', '.', \mb_substr($value, \mb_stripos($value, 'Mac OS X') + 9));

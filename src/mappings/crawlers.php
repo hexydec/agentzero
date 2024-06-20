@@ -165,7 +165,7 @@ class crawlers {
 			},
 			'monitor' => fn (string $value) : array => self::getApp($value, ['category' => 'monitor']),
 			'scraper' => fn (string $value) : array => self::getApp($value, ['category' => 'scraper']),
-			'map' => fn (string $value) : ?array => self::getApp($value)
+			'map' => fn (string $value) : array => self::getApp($value)
 		];
 		return [
 			'Mozlila/' => new props('start', [

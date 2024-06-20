@@ -149,7 +149,7 @@ class agentzero {
 	protected static function getTokens(string $ua, array $single, array $ignore) : array|false {
 
 		// prepare regexp
-		$single = \implode('|', \array_map('\\preg_quote', $single));
+		$single = \implode('|', \array_map('\\preg_quote', $single, \array_fill(0, \count($single), '/')));
 		$pattern = '/\{[^}]++\}|[^()\[\];,\/  _-](?:(?<!'.$single.') (?!https?:\/\/)|(?<=[a-z])\([^)]+\)|[^()\[\];,\/ ]*)*[^()\[\];,\/  _-](?:\/[^;,()\[\]  ]++)?|[0-9]/i';
 
 		// split up ua string
@@ -169,7 +169,7 @@ class agentzero {
 					}
 
 				// check token is not ignored
-				} elseif (!\in_array($lower, $ignore)) {
+				} elseif (!\in_array($lower, $ignore, true)) {
 					$tokens[$key] = $item;
 				}
 			}

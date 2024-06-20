@@ -13,8 +13,8 @@ class config {
 		static $config = [];
 		if (empty($config)) {
 			$config = [
-				'ignore' => ['mozilla/5.0', 'mozilla/5.0+', 'mozilla/4.0', 'applewebkit/537.36', 'applewebkit/537.36', 'khtml', 'like gecko', 'khtml', 'like gecko', 'safari/537.36', 'compatible', 'gecko/20100101', 'u', 'u', 'like', 'somewhat like gecko', 'wv', 'embeddedwb 14.52 from:'], // tokens that are meaningless and should be removed before processing
-				'single' => ['Mobile', 'Moblie', 'VR', 'Large Screen', 'Smart TV', 'Tablet', 'SmartTV', 'TV', 'DTV', 'Ubuntu', 'Touch', 'Linux', 'Gentoo', 'Gecko'], // tokens that should be matched on their own
+				'ignore' => ['mozilla/5.0', 'mozilla/5.0+', 'mozilla/4.0', 'applewebkit/537.36', 'khtml', 'like gecko', 'khtml', 'like gecko', 'safari/537.36', 'compatible', 'gecko/20100101', 'u', 'u', 'like', 'somewhat like gecko', 'wv', 'embeddedwb 14.52 from:'], // tokens that are meaningless and should be removed before processing
+				'single' => ['Mobile', 'Moblie', 'VR', 'Large Screen', 'Smart TV', 'Tablet', 'SmartTV', 'TV', 'DTV', 'Ubuntu', 'Touch', 'Linux', 'Gentoo', 'Gecko', 'AppleWebKit/537.36'], // tokens that should be matched on their own
 				'match' => \array_merge(
 					special::get(), // to override others
 					languages::get(),

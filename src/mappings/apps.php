@@ -12,7 +12,7 @@ class apps {
 	public static function get() : array {
 		$fn = [
 			'appslash' => function (string $value, int $i, array $tokens, string $match) : array {
-				if (\mb_stripos($value, 'AppleWebKit') !== 0 && !\str_contains($value, '://')) {
+				if (\mb_stripos($value, 'AppleWebKit') === false && !\str_contains($value, '://')) {
 					$parts = \explode('/', $value, 4);
 					$offset = isset($parts[2]) ? 1 : 0;
 					$app = $parts[0 + $offset];
@@ -115,6 +115,8 @@ class apps {
 				'appversion' => \mb_substr($value, 5)
 			]),
 			'OculusBrowser/' => new props('start', $fn['appslash']),
+			'BaiduBrowser/' => new props('start', $fn['appslash']),
+			'bdhonorbrowser/' => new props('start', $fn['appslash']),
 			'YaBrowser/' => new props('start', $fn['appslash']),
 			'choqok/' => new props('start', $fn['appslash']),
 			'Quora ' => new props('start', fn (string $value) : array => [
@@ -129,6 +131,10 @@ class apps {
 			'Viber/' => new props('start', $fn['appslash']),
 			'Google Web Preview' => new props('start', $fn['appslash']),
 			'MicroMessenger/' => new props('start', $fn['appslash']),
+			'MicroMessenger Weixin QQ' => new props('start', fn () : array => [
+				'app' => 'WeChat',
+				'appname' => 'MicroMessenger'
+			]),
 			'weibo' => new props('any', function (string $value) : array {
 				$data = [
 					'app' => 'Weibo',
@@ -314,13 +320,16 @@ class apps {
 			'com.google.photos' => 'Google Photos',
 			'com.google.ios.youtube' => 'YouTube',
 			'com.google.android.youtube' => 'YouTube',
-			'com.google.GoogleMobile' => 'Google',
 			'AlohaBrowserApp' => 'Aloha',
 			'OculusBrowser' => 'Oculus Browser',
 			'AndroidDownloadManager' => 'Android Download Manager',
 			'imoAndroid' => 'imo',
 			'MicroMessenger' => 'WeChat',
-			'GSA' => 'Google'
+			'GSA' => 'Google',
+			'baiduboxapp' => 'Baidu',
+			'lite baiduboxapp' => 'Baidu',
+			'baidubrowser' => 'Baidu',
+			'bdhonorbrowser' => 'Baidu'
 		];
 		if (isset($map[$value])) {
 			return $map[$value];
