@@ -317,8 +317,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)',
 				'type' => 'robot',
-				'category' => 'search',
-				'app' => 'Bytespider',
+				'category' => 'crawler',
+				'app' => 'ByteDance Spider',
 				'appname' => 'Bytespider',
 				'url' => 'https://zhanzhang.toutiao.com/',
 				'platform' => 'Android',
