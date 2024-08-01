@@ -65,7 +65,8 @@ class crawlers {
 				'yisouspider' => 'search',
 				'360spider' => 'search',
 				'sogou web spider' => 'search',
-				'bytespider' => 'crawler'
+				'bytespider' => 'crawler',
+				'claudebot' => 'ai'
 			];
 			$apps = [
 				'yacybot' => 'YacyBot',
@@ -124,7 +125,9 @@ class crawlers {
 				'googledocs' => 'Google Docs',
 				'user-agent: seolyt' => 'SEOlyt',
 				'bytespider' => 'ByteDance Spider',
-				'spider-feedback@bytedance.com' => 'ByteDance Spider'
+				'spider-feedback@bytedance.com' => 'ByteDance Spider',
+				'oai-searchbot' => 'OpenAI SearchBot',
+				'chatgpt-user' => 'ChatGPT User'
 			];
 			
 			$lower = \mb_strtolower($parts[0]);
@@ -391,6 +394,7 @@ class crawlers {
 			'http-client/' => new props('any', $fn['scraper']),
 			'HttpClient/' => new props('any', $fn['scraper']),
 			'PowerShell/' => new props('start', $fn['scraper']),
+			'OAI-SearchBot/' => new props('start', $fn['search']),
 			'GPTBot/' => new props('start', $fn['ai']),
 			'Diffbot/' => new props('start', $fn['ai']),
 			'Amazonbot/' => new props('start', $fn['ai']),
@@ -398,7 +402,7 @@ class crawlers {
 			'PerplexityBot/' => new props('start', $fn['ai']),
 			'YouBot/' => new props('start', $fn['ai']),
 			'Google-Extended' => new props('start', $fn['ai']),
-			'ChatGPT-User/' => new props('start', $fn['feed']),
+			'ChatGPT-User/' => new props('start', $fn['ai']),
 			'facebookexternalhit/' => new props('start', $fn['feed']),
 			'facebookcatalog/' => new props('start', $fn['feed']),
 			'Validator' => new props('any', $fn['validator']),

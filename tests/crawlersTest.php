@@ -411,6 +411,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'YandexRenderResourcesBot',
 				'appversion' => '1.0',
 				'url' => 'http://yandex.com/bots'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'OpenAI SearchBot',
+				'appname' => 'OAI-SearchBot',
+				'appversion' => '1.0',
+				'url' => 'https://openai.com/searchbot'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -589,6 +598,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'filemanager.downloads.http.client - contentfilemanagerdaemons-downloadFromUrlTq2Worke',
 				'appversion' => '2.0',
 				'url' => 'http://dev.hubspot.com/'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'ChatGPT User',
+				'appname' => 'ChatGPT-User',
+				'appversion' => '1.0',
+				'url' => 'https://openai.com/bot'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1278,6 +1296,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'YouBot',
 				'appversion' => '1.0',
 				'url' => 'https://about.you.com/youbot/'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; GPTBot/1.1; +https://openai.com/gptbot' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; GPTBot/1.1; +https://openai.com/gptbot',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'GPTBot',
+				'appname' => 'GPTBot',
+				'appversion' => '1.1',
+				'url' => 'https://openai.com/gptbot'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
