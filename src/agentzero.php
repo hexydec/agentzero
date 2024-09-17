@@ -59,6 +59,7 @@ class agentzero {
 	/**
 	 * Constructs a new AgentZero object, private because it can only be created internally
 	 * 
+	 * @param string $ua The user-agent string
 	 * @param \stdClass $data A stdClass object containing the UA details
 	 */
 	private function __construct(string $ua, \stdClass $data) {
