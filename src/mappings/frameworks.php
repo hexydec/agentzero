@@ -47,6 +47,10 @@ class frameworks {
 					'frameworkversion' => \implode('.', $levels)
 				];
 			}),
+			'libwww-perl/' => new props('start', fn (string $value) : array => [
+				'framework' => 'LibWWW Perl',
+				'frameworkversion' => \explode('/', $value, 3)[1]
+			])
 		];
 	}
 }

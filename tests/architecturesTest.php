@@ -300,7 +300,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'yacybot (/global; amd64 Windows 7 6.1; java 17.0.6; Europe/pl) http://yacy.net/bot.html',
 				'type' => 'robot',
 				'category' => 'search',
-				'app' => 'YacyBot',
+				'app' => 'Yacy Bot',
 				'appname' => 'yacybot',
 				'url' => 'http://yacy.net/bot.html',
 				'kernel' => 'Windows NT',
@@ -628,7 +628,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 	public function testArm() : void {
 		$strings = [
 			'Mozilla/5.0 (X11; U; OpenBSD arm; en-us) AppleWebKit/531.2  (KHTML, like Gecko) Safari/531.2  Epiphany/2.30.0' => [
-				'string' => 'Mozilla/5.0 (X11; U; OpenBSD arm; en-us) AppleWebKit/531.2  (KHTML, like Gecko) Safari/531.2  Epiphany/2.30.0',
+				'string' => 'Mozilla/5.0 (X11; U; OpenBSD arm; en-us) AppleWebKit/531.2 (KHTML, like Gecko) Safari/531.2 Epiphany/2.30.0',
 				'type' => 'human',
 				'category' => 'desktop',
 				'kernel' => 'Linux',

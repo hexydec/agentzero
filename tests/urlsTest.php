@@ -10,7 +10,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'LinkedInBot/1.0 (compatible; Mozilla/5.0; Apache-HttpClient +http://www.linkedin.com)',
 				'type' => 'robot',
 				'category' => 'feed',
-				'app' => 'LinkedInBot',
+				'app' => 'LinkedIn Bot',
 				'appname' => 'LinkedInBot',
 				'appversion' => '1.0',
 				'url' => 'http://www.linkedin.com'
@@ -19,7 +19,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; DotBot/1.2; +https://opensiteexplorer.org/dotbot; help@moz.com)',
 				'type' => 'robot',
 				'category' => 'crawler',
-				'app' => 'DotBot',
+				'app' => 'Moz DotBot',
 				'appname' => 'DotBot',
 				'appversion' => '1.2',
 				'url' => 'https://opensiteexplorer.org/dotbot'
@@ -31,7 +31,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 				'kernel' => 'Linux',
 				'platform' => 'Android',
 				'platformversion' => '7.0',
-				'app' => 'PetalBot',
+				'app' => 'Petal Bot',
 				'appname' => 'PetalBot',
 				'url' => 'https://webmaster.petalsearch.com/site/petalbot'
 			],
@@ -39,7 +39,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; VelenPublicWebCrawler/1.0; +https://velen.io)',
 				'type' => 'robot',
 				'category' => 'crawler',
-				'app' => 'VelenPublicWebCrawler',
+				'app' => 'Velen Public Web Crawler',
 				'appname' => 'VelenPublicWebCrawler',
 				'appversion' => '1.0',
 				'url' => 'https://velen.io'
@@ -48,7 +48,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; DecompilationBot/0.1; +https://torus.company/bot.html)',
 				'type' => 'robot',
 				'category' => 'crawler',
-				'app' => 'DecompilationBot',
+				'app' => 'Decompilation Bot',
 				'appname' => 'DecompilationBot',
 				'appversion' => '0.1',
 				'url' => 'https://torus.company/bot.html'
@@ -57,7 +57,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (compatible; DataForSeoBot/1.0; +https://dataforseo.com/dataforseo-bot)',
 				'type' => 'robot',
 				'category' => 'crawler',
-				'app' => 'DataForSeoBot',
+				'app' => 'DataForSeo Bot',
 				'appname' => 'DataForSeoBot',
 				'appversion' => '1.0',
 				'url' => 'https://dataforseo.com/dataforseo-bot'

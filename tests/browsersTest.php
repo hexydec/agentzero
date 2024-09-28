@@ -343,7 +343,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)',
 				'type' => 'robot',
 				'category' => 'ai',
-				'app' => 'AppleBot',
+				'app' => 'Apple Bot',
 				'appname' => 'Applebot',
 				'appversion' => '0.1',
 				'url' => 'http://www.apple.com/go/applebot',

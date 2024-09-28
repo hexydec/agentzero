@@ -61,58 +61,60 @@ class crawlers {
 				'mediatoolkitbot' => 'crawler',
 				'iploggerbot' => 'monitor',
 				'baiduspider' => 'search',
+				'baiduspider+' => 'search',
+				'baiduspider-image+' => 'search',
+				'baiduspider-ads' => 'ads',
 				'haosouspider' => 'search',
 				'yisouspider' => 'search',
 				'360spider' => 'search',
 				'sogou web spider' => 'search',
 				'bytespider' => 'crawler',
-				'claudebot' => 'ai'
+				'claudebot' => 'ai',
+				'gptbot' => 'ai',
+				'diffbot' => 'ai',
+				'amazonbot' => 'ai',
+				'applebot' => 'ai',
+				'perplexitybot' => 'ai',
+				'youbot' => 'ai',
+				'iaskbot' => 'ai',
+				'ccbot' => 'crawler',
+				'wpbot' => 'ai'
 			];
 			$apps = [
-				'yacybot' => 'YacyBot',
-				'googlebot' => 'GoogleBot',
-				'googlebot-mobile' => 'GoogleBot',
-				'googlebot-image' => 'GoogleBot',
-				'googlebot-video' => 'GoogleBot',
-				'googlebot-news' => 'GoogleBot',
-				'storebot-google' => 'GoogleBot',
-				'adsbot-google' => 'GoogleBot',
-				'google-adwords-instant' => 'GoogleBot',
-				'adsbot-google-mobile' => 'GoogleBot',
-				'mediapartners-google' => 'GoogleBot',
+				'googlebot' => 'Google Bot',
+				'googlebot-mobile' => 'Google Bot',
+				'googlebot-image' => 'Google Bot',
+				'googlebot-video' => 'Google Bot',
+				'googlebot-news' => 'Google Bot',
+				'storebot-google' => 'Google Bot',
+				'adsbot-google' => 'Google Bot',
+				'google-adwords-instant' => 'Google Bot',
+				'adsbot-google-mobile' => 'Google Bot',
+				'mediapartners-google' => 'Google Bot',
 				'google-safety' => 'Google Safety',
-				'bingbot' => 'BingBot',
-				'adidxbot' => 'AdidxBot',
-				'duckduckbot' => 'DuckDuckBot',
-				'duckduckgo-favicons-bot' => 'DuckDuckBot',
-				'coccocbot-image' => 'CoccocBot',
-				'coccocbot-web' => 'CoccocBot',
-				'applebot' => 'AppleBot',
+				'duckduckbot' => 'DuckDuck Bot',
+				'duckduckbot-https' => 'DuckDuck Bot',
+				'duckduckgo-favicons-bot' => 'DuckDuck Bot',
+				'coccocbot-image' => 'Coccoc Bot',
+				'coccocbot-web' => 'Coccoc Bot',
 				'mj12bot' => 'Majestic 12 Bot',
-				'mail.ru_bot' => 'Mail.ru Bot',
 				'exabot' => 'ExaBot',
 				'twitterbot' => 'TwitterBot',
 				'discordbot' => 'DiscordBot',
 				'sematextsyntheticsrobot' => 'Sematext Synthetics Robot',
 				'bitlybot' =>  'Bit.ly Bot',
-				'tineye-bot' => 'TinEye Bot',
-				'pinterestbot' => 'PinterestBot',
 				'webprosbot' => 'WebprosBot',
-				'mediatoolkitbot' => 'MediaToolkitBot',
+				'mediatoolkitbot' => 'MediaToolkit Bot',
 				'cfnetwork' => 'Apple Core Foundation Network',
 				'ncsc web check feedback.webcheck@digital.ncsc.gov.uk' => 'NCSC Web Check',
 				'enhanced webcheck feedback@digital.ncsc.gov.uk' => 'NCSC Enhanced Web Check',
 				'the national archives uk government web archive:' => 'UK Government National Archives',
-				'google-site-verification' => 'Google Site Verification',
 				'google-inspectiontool' => 'Google Inspection Tool',
 				'google-pagerenderer google' => 'Google Page Renderer',
-				'pingdomtms' => 'Pingdom.com',
+				'pingdomtms' => 'Pingdom Bot',
 				'facebookexternalhit' => 'Facebook URL Preview',
 				'phxbot' => 'ProtonMail Bot',
-				'baiduspider' => 'Baidu Spider',
-				'yisouspider' => 'Yisou Spider',
-				'google-read-aloud' => 'Google Read Aloud',
-				'monitoring360bot' => '360 Monitoring',
+				'monitoring360bot' => 'Monitoring360 Bot',
 				'cloudflare-healthchecks' => 'Cloudflare Health Checks',
 				'cloudflare-alwaysonline' => 'Cloudflare Always Online',
 				'cloudflare-traffic-manager' => 'Cloudflare-Traffic-Manager',
@@ -121,19 +123,56 @@ class crawlers {
 				'cloudflare-diagnostics' => 'Cloudflare Diagnostics',
 				'ptst' => 'Cloudflare Speed Test',
 				'citoid' => 'Wikimedia Citoid',
-				'censysinspect' => 'Censys Inspect',
-				'googledocs' => 'Google Docs',
 				'user-agent: seolyt' => 'SEOlyt',
 				'bytespider' => 'ByteDance Spider',
 				'spider-feedback@bytedance.com' => 'ByteDance Spider',
 				'oai-searchbot' => 'OpenAI SearchBot',
-				'chatgpt-user' => 'ChatGPT User'
+				'semrushbot' => 'Semrush Bot',
+				'semrushbot-si' => 'Semrush Bot',
+				'semrushbot-ocob' => 'Semrush Bot',
+				'semrushbot-swa' => 'Semrush Bot',
+				'semrushbot-ba' => 'Semrush Bot',
+				'siteauditbot' => 'Semrush Bot',
+				'splitsignalbot' => 'Semrush Bot',
+				'linkcheck by siteimprove.com' => 'SiteImprove Crawler',
+				'sitecheck-sitecrawl by siteimprove.com' => 'SiteImprove Crawler',
+				'image size by siteimprove.com' => 'SiteImprove Crawler',
+				'probe by siteimprove.com' => 'SiteImprove Crawler',
+				'by siteimprove.com' => 'SiteImprove Crawler',
+				'magpie-crawler' => 'Brandwatch Magpie Crawler',
+				'linkedinbot' => 'LinkedIn Bot',
+				'dotbot' => 'Moz DotBot',
+				'dataforseobot' => 'DataForSeo Bot',
+				'wordpress' => 'WordPress',
+				'prtg network monitor' => 'Paessler PRTG Bot',
+				'prtgcloudbot' => 'Paessler PRTG Bot',
+				'powershell' => 'PowerShell',
+				'ccbot' => 'CommonCrawl Bot',
+				'oncrawl' => 'OnCrawl Bot',
+				'pycurl' => 'PycURL',
+				'chatgpt-user' => 'ChatGPT User',
+				'mail.ru_bot' => 'Mail.ru Bot',
+				'wpbot' => 'Wpbot',
+				'dnbcrawler-analytics' => 'DnB Crawler Analytics',
+				'baiduspider-image+' => 'Baidu Spider',
+				'baiduspider-render' => 'Baidu Spider',
+				'baiduspider-ads' => 'Baidu Spider',
+				'amazon-kendra' => 'Amazon Bot',
+				'amazon-qbusiness' => 'Amazon Bot',
+				'amazon cloudfront' => 'Amazon Bot',
+				'amazonbot-video' => 'Amazon Bot',
+				'hubspot crawler' => 'HubSpot Crawler',
+				'wordpress.com mshots' => 'WordPress.com mShots',
+				'wordpress.com' => 'WordPress',
+				'p3p validator' => 'P3P Validator',
+				'w3c-checklink' => 'W3C Checklink',
+				'w3c_validator' => 'W3C Validator'
 			];
 			
 			$lower = \mb_strtolower($parts[0]);
 			return \array_merge([
 				'type' => 'robot',
-				'app' => $apps[$lower] ?? $parts[0],
+				'app' => $apps[$lower] ?? self::normaliseAppname($parts[0]),
 				'appname' => $parts[0],
 				'appversion' => empty($parts[1]) ? null : $parts[1]
 			], $data, [
@@ -141,6 +180,22 @@ class crawlers {
 			]);
 		}
 		return [];
+	}
+
+	protected static function normaliseAppname(string $name) {
+		$find = ['_', '-', '+', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+		$replace = [' ', ' ', '', ' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J', ' K', ' L', ' M', ' N', ' O', ' P', ' Q', ' R', ' S', ' T', ' U', ' V', ' W', ' X', ' Y', ' Z'];
+		$name = \trim(\str_replace($find, $replace, $name));
+		$output = '';
+		$single = true;
+		foreach (\explode(' ', $name) AS $key => $item) {
+			if ($item !== '') {
+				$currsingle = \mb_strlen($item) === 1;
+				$output .= ($single && ($currsingle || $key === 1) ? '' : ' ').(!$currsingle ? \ucfirst($item) : $item);
+				$single = $currsingle;
+			}
+		}
+		return \trim(\str_ireplace(['bot', 'crawler', 'spider', '  ', 'ro bot'], [' Bot', ' Crawler', ' Spider', ' ', 'Robot'], $output)); // replace afterward for where it is preceded by ACROYMN
 	}
 
 	/**
@@ -220,9 +275,14 @@ class crawlers {
 					'appversion' => $parts[1] ?? null
 				];
 			}),
+			'amazon-kendra' => new props('exact', $fn['crawler']),
+			'amazon-QBusiness' => new props('exact', $fn['ai']),
+			'amazon CloudFront' => new props('exact', $fn['validator']),
+			'Amazonbot-Video/' => new props('start', $fn['crawler']),
 			'okhttp' => new props('start', $fn['scraper']),
 			'python' => new props('start', $fn['scraper']),
 			'grpc-python/' => new props('start', $fn['scraper']),
+			'LWP::Simple/' => new props('start', $fn['scraper']),
 			'jsdom/' => new props('start', $fn['scraper']),
 			'Nessus' => new props('start', $fn['monitor']),
 			'monitoring360bot' => new props('start', $fn['monitor']),
@@ -261,13 +321,13 @@ class crawlers {
 				return [
 					'type' => 'robot',
 					'category' => 'monitor',
-					'app' => 'Pingdom.com',
+					'app' => 'Pingdom Bot',
 					'appname' => \trim($value, '_'),
 					'appversion' => \end($version)
 				];
 			}),
 			'proximic' => new props('exact', $fn['ads']),
-			'WordPress' => new props('start', $fn['monitor']),
+			'WordPress' => new props('start', $fn['feed']),
 			'PRTG Network Monitor' => new props('exact', $fn['monitor']),
 			'PRTGCloudBot/' => new props('start', $fn['monitor']),
 			'Site24x7' => new props('exact', $fn['monitor']),
@@ -285,6 +345,7 @@ class crawlers {
 			'PhxBot/' => new props('start', $fn['feed']), // proton mail
 			'Embedly/' => new props('start', $fn['feed']),
 			'PayPal IPN' => new props('exact', $fn['feed']),
+			'DropboxPreviewBot/' => new props('start', $fn['feed']),
 			'Pleroma' => new props('start', fn (string $value) : array => [ // mastodon
 				'type' => 'robot',
 				'category' => 'feed',
@@ -334,7 +395,7 @@ class crawlers {
 			'Pro-Sitemaps/' => new props('start', $fn['crawler']),
 			'Pandalytics/' => new props('start', $fn['crawler']),
 			'omgili/' => new props('start', $fn['crawler']),
-			'CCBot/' => new props('start', $fn['crawler']),
+			// 'CCBot/' => new props('start', $fn['crawler']),
 			'The National Archives UK Government Web Archive' => new props('start', $fn['crawler']),
 			'Citoid' => new props('exact', $fn['crawler']),
 			'trendictionbot' => new props('start', fn (string $value) : array => [
@@ -349,7 +410,7 @@ class crawlers {
 			'GoogleDocs' => new props('exact', fn (string $value, int $i, array $tokens) : array => [
 				'type' => 'robot',
 				'category' => 'feed',
-				'app' => 'Google Docs ('.\mb_convert_case(\str_ireplace('apps-', '', $tokens[$i+1]), MB_CASE_TITLE).')',
+				'app' => 'Google Docs',
 				'appname' => $value.'; '.$tokens[$i+1]
 			]),
 			'Google-Lens' => new props('exact', $fn['feed']),
@@ -395,24 +456,18 @@ class crawlers {
 			'HttpClient/' => new props('any', $fn['scraper']),
 			'PowerShell/' => new props('start', $fn['scraper']),
 			'OAI-SearchBot/' => new props('start', $fn['search']),
-			'GPTBot/' => new props('start', $fn['ai']),
-			'Diffbot/' => new props('start', $fn['ai']),
-			'Amazonbot/' => new props('start', $fn['ai']),
-			'Applebot/' => new props('start', $fn['ai']),
-			'PerplexityBot/' => new props('start', $fn['ai']),
-			'YouBot/' => new props('start', $fn['ai']),
 			'Google-Extended' => new props('start', $fn['ai']),
 			'ChatGPT-User/' => new props('start', $fn['ai']),
 			'facebookexternalhit/' => new props('start', $fn['feed']),
 			'facebookcatalog/' => new props('start', $fn['feed']),
 			'Validator' => new props('any', $fn['validator']),
 			'feed' => new props('any', $fn['feed']),
-			'spider' => new props('any', $fn['crawler']),
-			'crawler' => new props('any', $fn['map']),
 			'bot/' => new props('any', $fn['map']),
 			'bot-' => new props('any', $fn['map']),
 			' bot ' => new props('any', $fn['map']),
 			'bot' => new props('end', $fn['map']),
+			'spider' => new props('any', $fn['crawler']),
+			'crawler' => new props('any', $fn['map']),
 		];
 	}
 }

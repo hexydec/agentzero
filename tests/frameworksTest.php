@@ -281,4 +281,42 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
 		}
 	}
+
+	public function testLibwwwPerl() : void {
+		$strings = [
+			'W3C-checklink/4.5 [4.160] libwww-perl/5.823' => [
+				'string' => 'W3C-checklink/4.5 [4.160] libwww-perl/5.823',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'W3C Checklink',
+				'appname' => 'W3C-checklink',
+				'appversion' => '4.5',
+				'framework' => 'LibWWW Perl',
+				'frameworkversion' => '5.823'
+			],
+			'W3C_Validator/1.305.2.12 libwww-perl/5.64' => [
+				'string' => 'W3C_Validator/1.305.2.12 libwww-perl/5.64',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'W3C Validator',
+				'appname' => 'W3C_Validator',
+				'appversion' => '1.305.2.12',
+				'framework' => 'LibWWW Perl',
+				'frameworkversion' => '5.64'
+			],
+			'LWP::Simple/6.68 libwww-perl/6.68' => [
+				'string' => 'LWP::Simple/6.68 libwww-perl/6.68',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'app' => 'LW P:: Simple',
+				'appname' => 'LWP::Simple',
+				'appversion' => '6.68',
+				'framework' => 'LibWWW Perl',
+				'frameworkversion' => '6.68'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+		}
+	}
 }
