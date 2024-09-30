@@ -378,7 +378,8 @@ class crawlers {
 			]),
 			'HubSpot Connect ' => new props('start', function (string $value, int $i, array $tokens) : array {
 				$app = 'HubSpot Connect';
-				for ($n = $i; $n < \count($tokens); $n++) {
+				$count = \count($tokens);
+				for ($n = $i; $n < $count; $n++) {
 					if (\str_starts_with($tokens[$n], 'namespace: ')) {
 						$app = \mb_substr($tokens[$n], 11).' - '.$tokens[$n+1];
 						break;
