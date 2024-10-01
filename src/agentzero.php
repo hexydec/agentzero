@@ -188,10 +188,11 @@ class agentzero {
 	 * @return agentzero|false An agentzero object containing the parsed values of the input UA, or false if it could not be parsed
 	 */
 	public static function parse(string $ua) : agentzero|false {
-		$ua = \trim(\preg_replace('/\s{2,}/', ' ', $ua), ' "\'');
-		if (($config = config::get()) === null) {
+		if (($ua = \preg_replace('/\s{2,}/', ' ', $ua)) === null) {
 
-		} elseif (($tokens = self::getTokens($ua, $config['single'], $config['ignore'])) !== false) {
+		} elseif (($config = config::get()) === null) {
+
+		} elseif (($tokens = self::getTokens(\trim($ua, ' "\''), $config['single'], $config['ignore'])) !== false) {
 
 			// extract UA info
 			$browser = new \stdClass();

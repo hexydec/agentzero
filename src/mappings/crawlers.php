@@ -37,7 +37,6 @@ class crawlers {
 				'duckduckgo-favicons-bot' => 'search',
 				'coccocbot-image' => 'search',
 				'coccocbot-web' => 'search',
-				'applebot' => 'ai',
 				'yandexbot' => 'search',
 				'mj12bot' => 'search',
 				'mail.ru_bot' => 'search',
@@ -182,7 +181,7 @@ class crawlers {
 		return [];
 	}
 
-	protected static function normaliseAppname(string $name) {
+	protected static function normaliseAppname(string $name) : string {
 		$find = ['_', '-', '+', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 		$replace = [' ', ' ', '', ' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J', ' K', ' L', ' M', ' N', ' O', ' P', ' Q', ' R', ' S', ' T', ' U', ' V', ' W', ' X', ' Y', ' Z'];
 		$name = \trim(\str_replace($find, $replace, $name));
