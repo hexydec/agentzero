@@ -449,6 +449,7 @@ class crawlers {
 			'cpp-httplib/' => new props('start', $fn['scraper']),
 			'Dart/' => new props('start', $fn['scraper']),
 			'Deno/' => new props('start', $fn['scraper']),
+			'Datadog' => new props('start', $fn['scraper']),
 			'libwww-perl/' => new props('start', $fn['scraper']),
 			'http/' => new props('start', $fn['scraper']),
 			'Cpanel-HTTP-Client/' => new props('start', $fn['scraper']),

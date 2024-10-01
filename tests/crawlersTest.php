@@ -1221,6 +1221,21 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'crawler',
 				'app' => 'Mixrank Bot',
 				'appname' => 'MixrankBot'
+			],
+			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.96 Safari/537.36 DatadogSynthetics' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.96 Safari/537.36 DatadogSynthetics',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Blink',
+				'engineversion' => '116.0.5845.96',
+				'browser' => 'Chrome',
+				'browserversion' => '116.0.5845.96',
+				'app' => 'Datadog Synthetics',
+				'appname' => 'DatadogSynthetics'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
