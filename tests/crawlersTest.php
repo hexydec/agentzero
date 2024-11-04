@@ -1236,6 +1236,13 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '116.0.5845.96',
 				'app' => 'Datadog Synthetics',
 				'appname' => 'DatadogSynthetics'
+			],
+			'amazon-kendra-customer-id-78359eed0b12df1a4985067b27f154ba9cdabd0a87dad0abfea1bfce2d520d24fd3df3f70fec4eb666f51ea3967c2339' => [
+				'string' => 'amazon-kendra-customer-id-78359eed0b12df1a4985067b27f154ba9cdabd0a87dad0abfea1bfce2d520d24fd3df3f70fec4eb666f51ea3967c2339',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Amazon Bot',
+				'appname' => 'Amazon Kendra'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

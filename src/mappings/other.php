@@ -19,7 +19,9 @@ class other {
 
 					// decode JSON
 					if (($data = \json_decode($json, true)) !== null) {
-						$cat = [];
+						$cat = [
+							'type' => 'human'
+						];
 						$data = \array_change_key_case((array) $data);
 
 						// special case for chrome - browser
@@ -33,14 +35,25 @@ class other {
 						$map = [
 							'os' => 'platform',
 							'osversion' => 'platformversion',
-							'isdarktheme' => 'darkmode'
+							'isdarktheme' => 'darkmode',
+							'locale' => 'language'
 						];
-						$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion', 'isdarktheme'];
+						$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion', 'isdarktheme', 'locale', 'device'];
 						foreach ($fields AS $item) {
 							if (isset($data[$item])) {
 								if ($item === 'app') {
 									$cat['app'] = apps::getApp($data[$item]);
 									$cat['appname'] = $data[$item];
+								} elseif ($item === 'device') {
+									$cat = \array_merge($cat, devices::getDevice($data[$item]));
+								} elseif ($item === 'os') {
+									$parts = \explode(' ', $data[$item]);
+									if (\is_numeric($parts[1] ?? null)) {
+										$cat['platform'] = $parts[0];
+										$cat['platformversion'] = $parts[1];
+									} else {
+										$cat['platform'] = $data[$item];
+									}
 								} else {
 									$cat[$map[$item] ?? $item] = $data[$item];
 								}

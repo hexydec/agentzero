@@ -642,6 +642,18 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15'
 			],
+			'com.apple.WebKit.Networking/20619.2.8.11.9 Network/4277.41.2 macOS/15.1' => [
+				'string' => 'com.apple.WebKit.Networking/20619.2.8.11.9 Network/4277.41.2 macOS/15.1',
+				'type' => 'human',
+				'category' => 'desktop',
+				'vendor' => 'Apple',
+				'bits' => '64',
+				'platform' => 'MacOS',
+				'platformversion' => '15.1',
+				'app' => 'Networking',
+				'appname' => 'com.apple.WebKit.Networking',
+				'appversion' => '20619.2.8.11.9'
+			]
 		];
 		foreach ($strings AS $ua => $item) {
 			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);

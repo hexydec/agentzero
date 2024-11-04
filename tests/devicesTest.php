@@ -867,6 +867,21 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'device' => '8320',
 				'platform' => 'Blackberry OS',
 				'platformversion' => '4.2.2'
+			],
+			'Mozilla/5.0 (5567MB; 1080x2263; 394x394; 392x822; Xiaomi 2209116AG; 13) AppleWebKit/537.36 (KHTML, like Gecko) ROBLOX Android App 2.628.388 Phone Hybrid() GooglePlayStore RobloxApp/2.628.388 (GlobalDist; GooglePlayStore)' => [
+				'string' => 'Mozilla/5.0 (5567MB; 1080x2263; 394x394; 392x822; Xiaomi 2209116AG; 13) AppleWebKit/537.36 (KHTML, like Gecko) ROBLOX Android App 2.628.388 Phone Hybrid() GooglePlayStore RobloxApp/2.628.388 (GlobalDist; GooglePlayStore)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Xiaomi',
+				'model' => '2209116AG',
+				'ram' => '5567',
+				'platform' => 'Android',
+				'platformversion' => '13',
+				'app' => 'Roblox',
+				'appname' => 'RobloxApp',
+				'appversion' => '2.628.388',
+				'width' => 1080,
+				'height' => 2263
 			]
 		];
 		foreach ($strings AS $ua => $item) {

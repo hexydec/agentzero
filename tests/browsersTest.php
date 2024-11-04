@@ -64,6 +64,15 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Opera Mini',
 				'browserversion' => '4.4.33576/191.308',
 				'language' => 'en'
+			],
+			'NativeOperaMini(Spreadtrum/HW Version: sc6531efm_bar;Native Opera Mini/4.4.34868;en)' => [
+				'string' => 'NativeOperaMini(Spreadtrum/HW Version: sc6531efm_bar;Native Opera Mini/4.4.34868;en)',
+				'type' => 'human',
+				'engine' => 'Presto',
+				'engineversion' => '4.4.34868',
+				'browser' => 'Native Opera Mini',
+				'browserversion' => '4.4.34868',
+				'language' => 'en'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

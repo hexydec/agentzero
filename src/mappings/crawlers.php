@@ -156,7 +156,6 @@ class crawlers {
 				'baiduspider-image+' => 'Baidu Spider',
 				'baiduspider-render' => 'Baidu Spider',
 				'baiduspider-ads' => 'Baidu Spider',
-				'amazon-kendra' => 'Amazon Bot',
 				'amazon-qbusiness' => 'Amazon Bot',
 				'amazon cloudfront' => 'Amazon Bot',
 				'amazonbot-video' => 'Amazon Bot',
@@ -181,7 +180,7 @@ class crawlers {
 		return [];
 	}
 
-	protected static function normaliseAppname(string $name) : string {
+	public static function normaliseAppname(string $name) : string {
 		$find = ['_', '-', '+', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 		$replace = [' ', ' ', '', ' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J', ' K', ' L', ' M', ' N', ' O', ' P', ' Q', ' R', ' S', ' T', ' U', ' V', ' W', ' X', ' Y', ' Z'];
 		$name = \trim(\str_replace($find, $replace, $name));
@@ -232,6 +231,12 @@ class crawlers {
 				'type' => 'robot',
 				'category' => 'scraper'
 			]),
+			'HeadlessChrome/' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'crawler',
+				'browser' => 'HeadlessChrome',
+				'browserversion' => \mb_substr($value, 15)
+			]),
 			'Yahoo! Slurp' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'search',
@@ -274,7 +279,12 @@ class crawlers {
 					'appversion' => $parts[1] ?? null
 				];
 			}),
-			'amazon-kendra' => new props('exact', $fn['crawler']),
+			'amazon-kendra' => new props('start', fn () : array => [
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Amazon Bot',
+				'appname' => 'Amazon Kendra'
+			]),
 			'amazon-QBusiness' => new props('exact', $fn['ai']),
 			'amazon CloudFront' => new props('exact', $fn['validator']),
 			'Amazonbot-Video/' => new props('start', $fn['crawler']),
@@ -439,7 +449,13 @@ class crawlers {
 			'Link Preview' => new props('any', $fn['feed']),
 			'ApacheBench/' => new props('start', $fn['validator']),
 			'Asana/' => new props('start', $fn['feed']),
-			'Java/' => new props('start', $fn['scraper']),
+			'Java/' => new props('any', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'scraper',
+				'app' => 'Java',
+				'appname' => $value,
+				'appversion' => \explode('/', $value, 3)[1]
+			]),
 			'curl/' => new props('any', $fn['scraper']),
 			'Wget/' => new props('start', $fn['scraper']),
 			'rest-client/' => new props('start', $fn['scraper']),
@@ -450,7 +466,7 @@ class crawlers {
 			'Dart/' => new props('start', $fn['scraper']),
 			'Deno/' => new props('start', $fn['scraper']),
 			'Datadog' => new props('start', $fn['scraper']),
-			'libwww-perl/' => new props('start', $fn['scraper']),
+			// 'libwww-perl/' => new props('start', $fn['scraper']),
 			'http/' => new props('start', $fn['scraper']),
 			'Cpanel-HTTP-Client/' => new props('start', $fn['scraper']),
 			'http-client/' => new props('any', $fn['scraper']),

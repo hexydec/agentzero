@@ -32,6 +32,21 @@ class urls {
 			'https://' => new props('any', $fn),
 			'www.' => new props('start', $fn),
 			'.com' => new props('any', $fn),
+			'.' => new props('any', function (string $value) : ?array {
+				foreach (\explode(' ', $value) AS $item) {
+					if (!\str_starts_with($item, 'com.') && \substr_count($item, '.') >= 2) {
+						foreach (\explode('.', $item) AS $part) {
+							if (!\ctype_alpha(\substr($part, 0, 1)) || \strspn($part, '0123456789qwertyuiopasdfghjklzxcvbnm-') !== \strlen($part)) {
+								return null;
+							}	
+						}
+						return [
+							'url' => $item
+						];
+					}
+				}
+				return null;
+			})
 		];
 	}
 }

@@ -200,8 +200,62 @@ class agentzero {
 			foreach ($config['match'] AS $key => $item) {
 				$item->match($browser, $key, $tokens, $tokenslower);
 			}
+
+			// default information
+			$arr = (array) $browser;
+			if (empty($arr)) {
+				self::parseDefault($browser, $tokens);
+			}
+
+			// create agentzero object and return
 			return new agentzero($ua, $browser);
 		}
 		return false;
+	}
+
+	/**
+	 * Parse the UA string when no other extractions were able to be made
+	 * 
+	 * @param \stdClass $obj A standard class object to populate
+	 * @param array<string> $tokens An array of tokens
+	 * @return void
+	 */
+	protected static function parseDefault(\stdClass $obj, array $tokens) : void {
+		$obj->type = 'robot';
+		$obj->category = 'scraper';
+
+		// find app names
+		foreach ($tokens AS $item) {
+			if (\str_contains($item, '/')) {
+				$parts = \explode('/', $item);
+				$obj->app = crawlers::normaliseAppname($parts[0]);
+				$obj->appname = $parts[0];
+				if (!empty($parts[1])) {
+					$obj->appversion = \ltrim($parts[1], 'v');
+				}
+				return;
+			}
+		}
+
+		// parse the string
+		foreach ($tokens AS $token) {
+			$name = [];
+			foreach (\explode(' ', $token) AS $item) {
+				$ver = \ltrim($item, 'v'); // strip 'v' off the front of version number
+				if (\strpbrk($ver, '0123456789.') === $ver) {
+					$app = \implode(' ', $name);
+					$obj->app = crawlers::normaliseAppname($app);
+					$obj->appname = $app;
+					$obj->appversion = $ver;
+					return;
+				} else {
+					$name[] = $item;
+				}
+			}
+		}
+
+		// just use the string
+		$obj->app = crawlers::normaliseAppname($tokens[0]);
+		$obj->appname = $tokens[0];
 	}
 }

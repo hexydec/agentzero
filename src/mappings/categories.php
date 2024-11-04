@@ -19,7 +19,7 @@ class categories {
 				'type' => 'human',
 				'category' => 'mobile'
 			]),
-			'Phone' => new props('exact', [
+			'Phone' => new props('any', [
 				'type' => 'human',
 				'category' => 'mobile'
 			]),
