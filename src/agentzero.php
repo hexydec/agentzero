@@ -203,7 +203,7 @@ class agentzero {
 
 			// default information
 			$arr = (array) $browser;
-			if (empty($arr)) {
+			if (empty($arr) && !empty($tokens)) {
 				self::parseDefault($browser, $tokens);
 			}
 
