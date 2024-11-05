@@ -48,6 +48,8 @@ class frameworks {
 				];
 			}),
 			'libwww-perl/' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'scraper',
 				'app' => 'LibWWW Perl',
 				'appname' => 'libwww-perl',
 				'appversion' => \explode('/', $value, 3)[1],
