@@ -101,7 +101,7 @@ class crawlers {
 				'twitterbot' => 'TwitterBot',
 				'discordbot' => 'DiscordBot',
 				'sematextsyntheticsrobot' => 'Sematext Synthetics Robot',
-				'bitlybot' =>  'Bit.ly Bot',
+				'bitlybot' => 'Bit.ly Bot',
 				'webprosbot' => 'WebprosBot',
 				'mediatoolkitbot' => 'MediaToolkit Bot',
 				'cfnetwork' => 'Apple Core Foundation Network',

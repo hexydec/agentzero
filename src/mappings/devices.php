@@ -311,7 +311,7 @@ class devices {
 				'vendor' => 'Sony',
 				'device' => 'Bravia'
 			]),
-			'TECNO' => new props('start', fn (string $value) : array =>  [
+			'TECNO' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Tecno',
