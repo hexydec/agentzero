@@ -361,10 +361,16 @@ class apps {
 			}),
 
 			// TikTok
-			'AppName/' => new props('start', fn(string $value) : array => [
-				'app' => $value === 'AppName/musical_ly' ? 'TikTok' : \mb_substr($value, 8),
-				'appname' => \mb_substr($value, 8)
-			]),
+			'AppName/' => new props('start', function (string $value) : array {
+				$map = [
+					'AppName/musical_ly' => 'TikTok',
+					'AppName/aweme' => 'Douyin'
+				];
+				return [
+					'app' => $map[$value] ?? \mb_substr($value, 8),
+					'appname' => \mb_substr($value, 8)
+				];
+			}),
 			'app_version/' => new props('start', fn(string $value) : array => [
 				'appversion' => \mb_substr($value, 12)
 			]),

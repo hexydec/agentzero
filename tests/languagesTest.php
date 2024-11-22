@@ -54,8 +54,8 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '6.0.1',
 				'engine' => 'Blink',
 				'engineversion' => '79.0.3945.147',
-				'browser' => 'Chrome',
-				'browserversion' => '79.0.3945.147',
+				'browser' => 'MIUI Browser',
+				'browserversion' => '12.10.5-go',
 				'language' => 'en-GB'
 			],
 			'com.zhiliaoapp.musically/2022706030 (Linux; U; Android 10; en; TECNO KE5; Build/QP1A.190711.020; Cronet/TTNetVersion:07232c86 2022-12-15 QuicVersion:5f23035d 2022-11-23)' => [

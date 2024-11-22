@@ -772,6 +772,22 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'language' => 'en-US'
+			],
+			'Mozilla/5.0 (Linux; U; Android 7.0; zh-CN; SM-G9550 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.7.0.953 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; U; Android 7.0; zh-CN; SM-G9550 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.7.0.953 Mobile Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Samsung',
+				'model' => 'SM-G9550',
+				'build' => 'NRD90M',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '7.0',
+				'engine' => 'Blink',
+				'engineversion' => '40.0.2214.89',
+				'browser' => 'UCBrowser',
+				'browserversion' => '11.7.0.953',
+				'language' => 'zh-CN'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1904,6 +1920,23 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Avant Browser',
 				'appversion' => '1.2.789',
 				'url' => 'http://www.avantbrowser.com'
+			],
+			'Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; MI 4LTE Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 XiaoMi/MiuiBrowser/2.1.1' => [
+				'string' => 'Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; MI 4LTE Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 XiaoMi/MiuiBrowser/2.1.1',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Xiaomi',
+				'device' => 'MI',
+				'model' => '4LTE',
+				'build' => 'KTU84P',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '4.4.4',
+				'engine' => 'Blink',
+				'engineversion' => '39.0.0.0',
+				'browser' => 'MIUI Browser',
+				'browserversion' => '2.1.1',
+				'language' => 'zh-CN'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
