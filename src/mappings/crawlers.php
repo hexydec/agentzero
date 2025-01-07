@@ -168,7 +168,8 @@ class crawlers {
 				'wordpress.com' => 'WordPress',
 				'p3p validator' => 'P3P Validator',
 				'w3c-checklink' => 'W3C Checklink',
-				'w3c_validator' => 'W3C Validator'
+				'w3c_validator' => 'W3C Validator',
+				'omgili' => 'Webz.io'
 			];
 			
 			$lower = \mb_strtolower($parts[0]);
@@ -452,6 +453,7 @@ class crawlers {
 			'URL Preview' => new props('any', $fn['feed']),
 			'Link Preview' => new props('any', $fn['feed']),
 			'ApacheBench/' => new props('start', $fn['validator']),
+			'Wheregoes.com Redirect Checker/' => new props('start', $fn['validator']),
 			'Asana/' => new props('start', $fn['feed']),
 			'Java/' => new props('any', fn (string $value) : array => [
 				'type' => 'robot',

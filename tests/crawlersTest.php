@@ -845,6 +845,14 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Google Safety',
 				'appname' => 'Google-Safety',
 				'url' => 'http://www.google.com/bot.html'
+			],
+			'Wheregoes.com Redirect Checker/1.0' => [
+				'string' => 'Wheregoes.com Redirect Checker/1.0',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Wheregoes.com Redirect Checker',
+				'appname' => 'Wheregoes.com Redirect Checker',
+				'appversion' => '1.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1232,6 +1240,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'crawler',
 				'app' => 'Amazon Bot',
 				'appname' => 'Amazon Kendra'
+			],
+			'omgili/0.5 +https://omgili.com' => [
+				'string' => 'omgili/0.5 +https://omgili.com',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Webz.io',
+				'appname' => 'omgili',
+				'appversion' => '0.5',
+				'url' => 'https://omgili.com'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1581,6 +1598,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'framework' => '.NET Common Language Runtime',
 				'frameworkversion' => '3.5.30729',
 				'url' => 'http://www.diffbot.com'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Perplexity Bot',
+				'appname' => 'PerplexityBot',
+				'appversion' => '1.0',
+				'url' => 'https://perplexity.ai/perplexitybot'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
