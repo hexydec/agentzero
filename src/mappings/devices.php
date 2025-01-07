@@ -349,6 +349,10 @@ class devices {
 					'platformversion' => $parts[1] ?? null
 				];
 			}),
+			'CUBOT' => new props('exact', fn () : array => [
+				'type' => 'human',
+				'vendor' => 'Cubot'
+			]),
 			'Model/' => new props('start', fn (string $value) : array => [
 				'model' => \mb_substr($value, 6)
 			]),
@@ -422,6 +426,7 @@ class devices {
 			'Infinix' => 'Infinix',
 			'Poco' => 'Poco',
 			'Cubot' => 'Cubot',
+			'Kingkong' => 'Cubot',
 			'Nokia' => 'Nokia'
 		];
 
@@ -438,7 +443,7 @@ class devices {
 				break;
 			}
 		}
-		$model = \explode(' ', $parts[0], 2);
+		$model = \explode(' ', \str_replace('_', ' ', $parts[0]), 2);
 		$device = $model[0] !== '' && \ctype_alpha($model[0]) ? \ucfirst($model[0]) : null; // device name if only letters
 		$model = $device === null ? \implode(' ', $model) : ($model[1] ?? null); // reconstruct remainder of device name
 

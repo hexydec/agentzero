@@ -31,6 +31,14 @@ class categories {
 				'type' => 'human',
 				'category' => 'tablet'
 			]),
+			'TAB ' => new props('start', [
+				'type' => 'human',
+				'category' => 'tablet'
+			]),
+			'TAB_' => new props('start', [
+				'type' => 'human',
+				'category' => 'tablet'
+			]),
 			'Large Screen' => new props('exact', [
 				'type' => 'human',
 				'category' => 'tv'

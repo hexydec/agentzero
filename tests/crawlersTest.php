@@ -354,17 +354,6 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '80.0.345.0',
 				'engineversion' => '80.0.345.0'
 			],
-			'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)' => [
-				'string' => 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)',
-				'type' => 'robot',
-				'category' => 'crawler',
-				'app' => 'ByteDance Spider',
-				'appname' => 'Bytespider',
-				'url' => 'https://zhanzhang.toutiao.com/',
-				'platform' => 'Android',
-				'platformversion' => '5.0',
-				'kernel' => 'Linux'
-			],
 			'Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; PetalBot;+https://webmaster.petalsearch.com/site/petalbot)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; PetalBot;+https://webmaster.petalsearch.com/site/petalbot)',
 				'type' => 'robot',
@@ -1546,6 +1535,52 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'ChatGPT-User',
 				'appversion' => '1.0',
 				'url' => 'https://openai.com/bot'
+			],
+			'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'ByteDance Spider',
+				'appname' => 'Bytespider',
+				'url' => 'https://zhanzhang.toutiao.com/',
+				'platform' => 'Android',
+				'platformversion' => '5.0',
+				'kernel' => 'Linux'
+			],
+			'Mozilla/5.0 (compatible; ImagesiftBot; +imagesift.com)' => [
+				'string' => 'Mozilla/5.0 (compatible; ImagesiftBot; +imagesift.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Imagesift Bot',
+				'appname' => 'ImagesiftBot'
+			],
+			'meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)' => [
+				'string' => 'meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Meta External Agent',
+				'appname' => 'meta-externalagent',
+				'appversion' => '1.1',
+				'url' => 'https://developers.facebook.com/docs/sharing/webmasters/crawler'
+			],
+			'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729; Diffbot/0.1; +http://www.diffbot.com)' => [
+				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729; Diffbot/0.1; +http://www.diffbot.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => 'XP',
+				'engine' => 'Gecko',
+				'engineversion' => '20090729',
+				'browser' => 'Firefox',
+				'browserversion' => '3.5.2',
+				'language' => 'en-US',
+				'app' => 'Diff Bot',
+				'appname' => 'Diffbot',
+				'appversion' => '0.1',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.30729',
+				'url' => 'http://www.diffbot.com'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

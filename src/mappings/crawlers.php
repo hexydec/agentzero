@@ -67,7 +67,7 @@ class crawlers {
 				'yisouspider' => 'search',
 				'360spider' => 'search',
 				'sogou web spider' => 'search',
-				'bytespider' => 'crawler',
+				'bytespider' => 'ai',
 				'claudebot' => 'ai',
 				'gptbot' => 'ai',
 				'diffbot' => 'ai',
@@ -77,7 +77,8 @@ class crawlers {
 				'youbot' => 'ai',
 				'iaskbot' => 'ai',
 				'ccbot' => 'crawler',
-				'wpbot' => 'ai'
+				'wpbot' => 'ai',
+				'imagesiftbot' => 'ai'
 			];
 			$apps = [
 				'googlebot' => 'Google Bot',
@@ -112,6 +113,9 @@ class crawlers {
 				'google-pagerenderer google' => 'Google Page Renderer',
 				'pingdomtms' => 'Pingdom Bot',
 				'facebookexternalhit' => 'Facebook URL Preview',
+				'facebookcatalog' => 'Facebook',
+				'meta-externalagent' => 'Meta External Agent',
+				'meta-externalfetcher' => 'Meta External Fetcher',
 				'phxbot' => 'ProtonMail Bot',
 				'monitoring360bot' => 'Monitoring360 Bot',
 				'cloudflare-healthchecks' => 'Cloudflare Health Checks',
@@ -475,8 +479,11 @@ class crawlers {
 			'OAI-SearchBot/' => new props('start', $fn['search']),
 			'Google-Extended' => new props('start', $fn['ai']),
 			'ChatGPT-User/' => new props('start', $fn['ai']),
+			'Cohere' => new props('start', $fn['ai']),
 			'facebookexternalhit/' => new props('start', $fn['feed']),
-			'facebookcatalog/' => new props('start', $fn['feed']),
+			'facebookcatalog/' => new props('start', $fn['crawler']),
+			'meta-externalagent' => new props('start', $fn['ai']),
+			'meta-externalfetcher' => new props('start', $fn['feed']),
 			'Validator' => new props('any', $fn['validator']),
 			'feed' => new props('any', $fn['feed']),
 			'bot/' => new props('any', $fn['map']),

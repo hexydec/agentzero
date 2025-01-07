@@ -14,7 +14,7 @@ class apps {
 			'appslash' => function (string $value, int $i, array $tokens, string $match) : array {
 				if (\mb_stripos($value, 'AppleWebKit') === false && !\str_contains($value, '://')) {
 					$parts = \explode('/', $value, 4);
-					$offset = isset($parts[2]) ? 1 : 0;
+					$offset = isset($parts[2]) && !\is_numeric($parts[1]) ? 1 : 0;
 					$app = \str_replace('GooglePlayStore ', '', $parts[0 + $offset]);
 					if (\mb_stripos($app, \rtrim($match, '/')) !== false) { // check the match is before the slash
 						return [
@@ -137,6 +137,8 @@ class apps {
 			'BaiduBrowser/' => new props('start', $fn['appslash']),
 			'bdhonorbrowser/' => new props('start', $fn['appslash']),
 			'YaBrowser/' => new props('start', $fn['appslash']),
+			'YaApp_iOS/' => new props('start', $fn['appslash']),
+			'YaApp_Android/' => new props('start', $fn['appslash']),
 			'choqok/' => new props('start', $fn['appslash']),
 			'Quora ' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
@@ -204,6 +206,7 @@ class apps {
 				return null;
 			}),
 			'RobloxApp/' => new props('any', $fn['appslash']),
+			'Nexo/' => new props('start', $fn['appslash']),
 			'nu.nl/' => new props('any', fn (string $value) : array => [
 				'app' => 'nu.nl',
 				'appname' => 'nu.nl',
@@ -398,6 +401,7 @@ class apps {
 			'YaApp_Android' => 'Yandex',
 			'YaSearchApp' => 'Yandex',
 			'YaBrowser' => 'Yandex',
+			'YaSearchBrowser' => 'Yandex',
 			'LinkedInApp' => 'LinkedIn',
 			'[LinkedInApp]' => 'LinkedIn',
 			'GoogleApp' => 'Google',
