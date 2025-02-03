@@ -47,7 +47,7 @@ class special {
 				'app' => 'Grub Client',
 				'appname' => 'grub-client',
 				'appversion' => \mb_substr($value, 12) ?: null
-			]),
+			])
 		];
 	}
 }

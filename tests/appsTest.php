@@ -58,6 +58,24 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Google-Read-Aloud',
 				'url' => 'https://support.google.com/webmasters/answer/1061943'
 			],
+			'Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)',
+				'type' => 'robot',
+				'category' => 'feed',
+				'vendor' => 'Samsung',
+				'model' => 'SM-G930V',
+				'build' => 'NRD90M',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '7.0',
+				'engine' => 'Blink',
+				'engineversion' => '59.0.3071.125',
+				'browser' => 'Chrome',
+				'browserversion' => '59.0.3071.125',
+				'app' => 'Google Read Aloud',
+				'appname' => 'Google-Read-Aloud',
+				'url' => 'https://support.google.com/webmasters/answer/1061943'
+			],
 			'AndroidDownloadManager/11 (Linux; U; Android 11; ONEPLUS A6013 Build/RKQ1.201217.002)' => [
 				'string' => 'AndroidDownloadManager/11 (Linux; U; Android 11; ONEPLUS A6013 Build/RKQ1.201217.002)',
 				'type' => 'human',

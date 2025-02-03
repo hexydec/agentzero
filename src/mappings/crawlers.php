@@ -439,6 +439,7 @@ class crawlers {
 			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
 			'SEO-Macroscope/' => new props('start', $fn['validator']),
 			'Electronic Frontier Foundation\'s Do Not Track Verifier' => new props('exact', $fn['validator']),
+			'Barracuda Sentinel' => new props('start', $fn['validator']),
 			'Expanse' => new props('start', $fn['crawler']),
 			'eCairn-Grabber/' => new props('start', $fn['scraper']),
 			'SEOkicks' => new props('exact', $fn['crawler']),
