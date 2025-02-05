@@ -1,6 +1,5 @@
 <?php
 declare(strict_types = 1);
-use hexydec\agentzero\agentzero;
 
 final class categoriesTest extends \PHPUnit\Framework\TestCase {
 
@@ -20,7 +19,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '52.0.1296.98',
 				'browser' => 'Chrome',
-				'browserversion' => '52.0.1296.98'
+				'browserversion' => '52.0.1296.98',
+				'browserreleased' => '2016-08-03'
 			],
 			'Mozilla/5.0 (Android 13; Mobile; rv:108.0) Gecko/108.0 Firefox/108.0' => [
 				'string' => 'Mozilla/5.0 (Android 13; Mobile; rv:108.0) Gecko/108.0 Firefox/108.0',
@@ -31,7 +31,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Gecko',
 				'engineversion' => '108.0',
 				'browser' => 'Firefox',
-				'browserversion' => '108.0'
+				'browserversion' => '108.0',
+				'browserreleased' => '2022-12-13'
 			],
 			'Mozilla/5.0 (Linux; Android 7.0; Redmi Note 4 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.141 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/396.0.0.21.104;]' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 7.0; Redmi Note 4 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/107.0.5304.141 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/396.0.0.21.104;]',
@@ -50,7 +51,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '107.0.5304.141',
 				'app' => 'Facebook',
 				'appname' => 'FB4A',
-				'appversion' => '396.0.0.21.104'
+				'appversion' => '396.0.0.21.104',
+				'browserreleased' => '2022-11-29'
 			],
 			'Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; HM NOTE 1W Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/11.0.5.850 U3/0.8.0 Mobile Safari/534.30' => [
 				'string' => 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; HM NOTE 1W Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/11.0.5.850 U3/0.8.0 Mobile Safari/534.30',
@@ -67,7 +69,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '534.30',
 				'browser' => 'UCBrowser',
 				'browserversion' => '11.0.5.850',
-				'language' => 'en-US'
+				'language' => 'en-US',
+				'browserreleased' => '2016-09-10'
 			],
 			'Mozilla/5.0 (Linux; Android 8.0.0; moto e5 play Build/ODPS27.91-121-2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.79 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 8.0.0; moto e5 play Build/ODPS27.91-121-2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.79 Mobile Safari/537.36',
@@ -83,11 +86,12 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '108.0.5359.79',
 				'browser' => 'Chrome',
-				'browserversion' => '108.0.5359.79'
+				'browserversion' => '108.0.5359.79',
+				'browserreleased' => '2022-12-02'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -105,7 +109,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '7.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '7.0'
+				'browserversion' => '7.0',
+				'browserreleased' => '2006-10-18'
 			],
 			'Mozilla/5.0 (Windows; U; Windows NT 5.1 ; en-us; ThinkPad Tablet Build/ThinkPadTablet_A310_02) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13' => [
 				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1 ; en-us; ThinkPad Tablet Build/ThinkPadTablet_A310_02) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13',
@@ -122,7 +127,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '534.13',
 				'browser' => 'Safari',
 				'browserversion' => '4.0',
-				'language' => 'en-US'
+				'language' => 'en-US',
+				'browserreleased' => '2009-11-11'
 			],
 			'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; Win64; x64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0; HCTE; Zoom 3.6.0; ms-office; MSOffice 16)' => [
 				'string' => 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; Win64; x64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0; HCTE; Zoom 3.6.0; ms-office; MSOffice 16)',
@@ -141,7 +147,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Zoom',
 				'appversion' => '3.6.0',
 				'framework' => '.NET Common Language Runtime',
-				'frameworkversion' => '3.5.30729'
+				'frameworkversion' => '3.5.30729',
+				'browserreleased' => '2006-10-18'
 			],
 			'Mozilla/5.0 (Linux; Android 10.0; tablet Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.130 Safari/537.36 [FB_IAB/FB4A;FBAV/419.0.0.37.71;]' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10.0; tablet Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.130 Safari/537.36 [FB_IAB/FB4A;FBAV/419.0.0.37.71;]',
@@ -157,11 +164,12 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '114.0.5735.130',
 				'app' => 'Facebook',
 				'appname' => 'FB4A',
-				'appversion' => '419.0.0.37.71'
+				'appversion' => '419.0.0.37.71',
+				'browserreleased' => '2023-06-26'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -180,15 +188,16 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Linux',
 				'engine' => 'Blink',
 				'engineversion' => '108.0.5359.179',
-				'browser' => 'Samsung Browser',
+				'browser' => 'Samsung Internet',
 				'browserversion' => '4.0',
 				'app' => 'Oculus Browser',
 				'appname' => 'OculusBrowser',
-				'appversion' => '25.3.0.4.30.438623098'
+				'appversion' => '25.3.0.4.30.438623098',
+				'browserreleased' => '2021-01-11'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -205,7 +214,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '534.24',
 				'browser' => 'Chrome',
-				'browserversion' => '90.0.4430.212'
+				'browserversion' => '90.0.4430.212',
+				'browserreleased' => '2021-05-10'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 OPR/89.0.4447.64 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 OPR/89.0.4447.64 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671',
@@ -221,7 +231,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '533.4',
 				'browser' => 'Opera',
 				'browserversion' => '89.0.4447.64',
-				'language' => 'en-US'
+				'language' => 'en-US',
+				'browserreleased' => '2022-07-07'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671' => [
 				'string' => 'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671',
@@ -240,7 +251,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -265,7 +276,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '288.1.0.22.66',
 				'width' => 1920,
 				'height' => 1080,
-				'dpi' => 240
+				'dpi' => 240,
+				'browserreleased' => '2020-06-22'
 			],
 			'Mozilla/5.0 (Linux; Android 9; SMART TV Build/PPR2.180905.006.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.158 Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/340.0.0.9.76;]' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 9; SMART TV Build/PPR2.180905.006.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.158 Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/340.0.0.9.76;]',
@@ -283,7 +295,8 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-US',
 				'app' => 'Facebook',
 				'appname' => 'EMA',
-				'appversion' => '340.0.0.9.76'
+				'appversion' => '340.0.0.9.76',
+				'browserreleased' => '2018-05-15'
 			],
 			'Mozilla/5.0 (SMART-TV; Linux; Tizen 5.5) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.0 Chrome/69.0.3497.106 TV Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (SMART-TV; Linux; Tizen 5.5) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.0 Chrome/69.0.3497.106 TV Safari/537.36',
@@ -294,12 +307,13 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '5.5',
 				'engine' => 'Blink',
 				'engineversion' => '69.0.3497.106',
-				'browser' => 'Samsung Browser',
-				'browserversion' => '3.0'
+				'browser' => 'Samsung Internet',
+				'browserversion' => '3.0',
+				'browserreleased' => '2017-11-09'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 

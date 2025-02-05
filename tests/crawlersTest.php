@@ -1,6 +1,5 @@
 <?php
 declare(strict_types = 1);
-use hexydec\agentzero\agentzero;
 
 final class crawlersTest extends \PHPUnit\Framework\TestCase {
 
@@ -89,7 +88,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'architecture' => 'x86',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
 				'platformversion' => '10',
@@ -99,7 +98,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '79.0.1',
 				'app' => 'Baidu Spider',
 				'appname' => 'Baiduspider-render',
-				'appversion' => '2.0'
+				'appversion' => '2.0',
+				'browserreleased' => '2020-01-16'
 			],
 			'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:17.0; Baiduspider-ads) Gecko/17.0 Firefox/17.0' => [
 				'string' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:17.0; Baiduspider-ads) Gecko/17.0 Firefox/17.0',
@@ -114,7 +114,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Firefox',
 				'browserversion' => '17.0',
 				'app' => 'Baidu Spider',
-				'appname' => 'Baiduspider-ads'
+				'appname' => 'Baiduspider-ads',
+				'browserreleased' => '2012-11-20'
 			],
 			'Baiduspider-image+(+http://www.baidu.com/search/spider.htm)' => [
 				'string' => 'Baiduspider-image+(+http://www.baidu.com/search/spider.htm)',
@@ -151,7 +152,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Safari',
 				'browserversion' => '8.0.2',
 				'engine' => 'WebKit',
-				'engineversion' => '600.2.5'
+				'engineversion' => '600.2.5',
+				'browserreleased' => '2014-06-06'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)',
@@ -172,7 +174,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '13.1.1'
+				'browserversion' => '13.1.1',
+				'browserreleased' => '2020-03-24'
 			],
 			'Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +https://help.mail.ru/webmaster/indexing/robots)' => [
 				'string' => 'Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +https://help.mail.ru/webmaster/indexing/robots)',
@@ -244,7 +247,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '81.0.4044.138',
-				'engineversion' => '81.0.4044.138'
+				'engineversion' => '81.0.4044.138',
+				'browserreleased' => '2020-05-05'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/103.0.5060.134 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/103.0.5060.134 Safari/537.36',
@@ -257,7 +261,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '103.0.5060.134',
-				'engineversion' => '103.0.5060.134'
+				'engineversion' => '103.0.5060.134',
+				'browserreleased' => '2022-07-19'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
@@ -277,7 +282,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '80.0.345.0',
-				'engineversion' => '80.0.345.0'
+				'engineversion' => '80.0.345.0',
+				'browserreleased' => '2020-04-02'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
@@ -298,7 +304,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '537.51.1',
 				'browser' => 'Safari',
-				'browserversion' => '7.0'
+				'browserversion' => '7.0',
+				'browserreleased' => '2013-10-22'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)',
@@ -319,7 +326,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '537.51.1',
 				'browser' => 'Safari',
-				'browserversion' => '7.0'
+				'browserversion' => '7.0',
+				'browserreleased' => '2013-10-22'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/80.0.345.0 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/80.0.345.0 Safari/537.36',
@@ -332,7 +340,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '80.0.345.0',
-				'engineversion' => '80.0.345.0'
+				'engineversion' => '80.0.345.0',
+				'browserreleased' => '2020-04-02'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
@@ -352,7 +361,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '80.0.345.0',
-				'engineversion' => '80.0.345.0'
+				'engineversion' => '80.0.345.0',
+				'browserreleased' => '2020-04-02'
 			],
 			'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)',
@@ -450,7 +460,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Yandex Bot',
 				'appname' => 'YandexRenderResourcesBot',
 				'appversion' => '1.0',
-				'url' => 'http://yandex.com/bots'
+				'url' => 'http://yandex.com/bots',
+				'browserreleased' => '2023-01-10'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot' => [
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot',
@@ -463,7 +474,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -505,7 +516,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '80.0.345.0',
 				'app' => 'Microsoft Preview',
 				'appname' => 'MicrosoftPreview',
-				'appversion' => '2.0'
+				'appversion' => '2.0',
+				'browserreleased' => '2020-04-02'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; MicrosoftPreview/2.0; +https://aka.ms/MicrosoftPreview)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36 (compatible; MicrosoftPreview/2.0; +https://aka.ms/MicrosoftPreview)',
@@ -525,7 +537,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '80.0.345.0',
 				'app' => 'Microsoft Preview',
 				'appname' => 'MicrosoftPreview',
-				'appversion' => '2.0'
+				'appversion' => '2.0',
+				'browserreleased' => '2020-04-02'
 			],
 			'YoFMWhatsApp/2.23.1.76 A' => [
 				'string' => 'YoFMWhatsApp/2.23.1.76 A',
@@ -658,7 +671,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -697,7 +710,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '81.0.4044.138',
-				'engineversion' => '81.0.4044.138'
+				'engineversion' => '81.0.4044.138',
+				'browserreleased' => '2020-05-05'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1 (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1 (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)',
@@ -717,7 +731,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '14.1.2'
+				'browserversion' => '14.1.2',
+				'browserreleased' => '2021-04-26'
 			],
 			'Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-T550 Build/LRX22G) adbeat.com/policy AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.3 Chrome/38.0.2125.102 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-T550 Build/LRX22G) adbeat.com/policy AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.3 Chrome/38.0.2125.102 Safari/537.36',
@@ -732,14 +747,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '5.0.2',
 				'kernel' => 'Linux',
-				'browser' => 'Samsung Browser',
+				'browser' => 'Samsung Internet',
 				'browserversion' => '3.3',
 				'engine' => 'Blink',
-				'engineversion' => '38.0.2125.102'
+				'engineversion' => '38.0.2125.102',
+				'browserreleased' => '2017-11-09'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -822,7 +838,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '75.0.3770.100',
 				'app' => 'Cloudflare Speed Test',
 				'appname' => 'PTST',
-				'appversion' => '190628.140653'
+				'appversion' => '190628.140653',
+				'browserreleased' => '2019-06-18'
 			],
 			'Cloudflare-diagnostics' => [
 				'string' => 'Cloudflare-diagnostics',
@@ -859,7 +876,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -974,7 +991,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '6.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '10.0'
+				'browserversion' => '10.0',
+				'browserreleased' => '2012-10-26'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko, Google Page Speed Insights) Chrome/114.0.0.0 Safari/537.36 OPR/100.0.0.0 Chrome-Lighthouse' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko, Google Page Speed Insights) Chrome/114.0.0.0 Safari/537.36 OPR/100.0.0.0 Chrome-Lighthouse',
@@ -990,7 +1008,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Opera',
 				'browserversion' => '100.0.0.0',
 				'engine' => 'Blink',
-				'engineversion' => '114.0.0.0'
+				'engineversion' => '114.0.0.0',
+				'browserreleased' => '2023-06-20'
 			],
 			'Screaming Frog SEO Spider/19.0 Beta 1' => [
 				'string' => 'Screaming Frog SEO Spider/19.0 Beta 1',
@@ -1021,7 +1040,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Trident',
 				'engineversion' => '6.0',
 				'browser' => 'Internet Explorer',
-				'browserversion' => '10.0'
+				'browserversion' => '10.0',
+				'browserreleased' => '2012-10-26'
 			],
 			'Mozilla/5.0 (compatible; Pro Sitemaps Generator; pro-sitemaps.com) Gecko Pro-Sitemaps/1.0' => [
 				'string' => 'Mozilla/5.0 (compatible; Pro Sitemaps Generator; pro-sitemaps.com) Gecko Pro-Sitemaps/1.0',
@@ -1047,7 +1067,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '78.0.3904.97',
 				'app' => 'UK Government National Archives',
 				'appname' => 'The National Archives UK Government Web Archive:',
-				'url' => 'http://www.nationalarchives.gov.uk/webarchive/'
+				'url' => 'http://www.nationalarchives.gov.uk/webarchive/',
+				'browserreleased' => '2019-11-06'
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Google-PageRenderer Google (+https://developers.google.com/+/web/snippet/)' => [
 				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Google-PageRenderer Google (+https://developers.google.com/+/web/snippet/)',
@@ -1063,7 +1084,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '56.0.2924.87',
 				'app' => 'Google Page Renderer',
 				'appname' => 'Google-PageRenderer Google',
-				'url' => 'https://developers.google.com/+/web/snippet/'
+				'url' => 'https://developers.google.com/+/web/snippet/',
+				'browserreleased' => '2017-02-01'
 			],
 			'Citoid (Wikimedia tool; learn more at https://www.mediawiki.org/wiki/Citoid)' => [
 				'string' => 'Citoid (Wikimedia tool; learn more at https://www.mediawiki.org/wiki/Citoid)',
@@ -1089,7 +1111,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'device' => 'iPhone',
 				'model' => '10A5376e',
 				'architecture' => 'Arm',
-				'bits' => '64',
+				'bits' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'iOS',
 				'platformversion' => '6.0',
@@ -1100,7 +1122,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Semrush Bot',
 				'appname' => 'SiteAuditBot',
 				'appversion' => '0.97',
-				'url' => 'http://www.semrush.com/bot.html'
+				'url' => 'http://www.semrush.com/bot.html',
+				'browserreleased' => '2012-07-25'
 			],
 			'Mozilla/5.0 (compatible; SiteAuditBot/0.97; +http://www.semrush.com/bot.html)' => [
 				'string' => 'Mozilla/5.0 (compatible; SiteAuditBot/0.97; +http://www.semrush.com/bot.html)',
@@ -1141,7 +1164,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Internet Explorer',
 				'browserversion' => '10.0',
 				'app' => 'SiteImprove Crawler',
-				'appname' => 'SiteCheck-sitecrawl by Siteimprove.com'
+				'appname' => 'SiteCheck-sitecrawl by Siteimprove.com',
+				'browserreleased' => '2012-10-26'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) LinkCheck by Siteimprove.com' => [
 				'string' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) LinkCheck by Siteimprove.com',
@@ -1155,7 +1179,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Internet Explorer',
 				'browserversion' => '10.0',
 				'app' => 'SiteImprove Crawler',
-				'appname' => 'LinkCheck by Siteimprove.com'
+				'appname' => 'LinkCheck by Siteimprove.com',
+				'browserreleased' => '2012-10-26'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) Image size by Siteimprove.com' => [
 				'string' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) Image size by Siteimprove.com',
@@ -1169,7 +1194,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Internet Explorer',
 				'browserversion' => '10.0',
 				'app' => 'SiteImprove Crawler',
-				'appname' => 'Image size by Siteimprove.com'
+				'appname' => 'Image size by Siteimprove.com',
+				'browserreleased' => '2012-10-26'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) Probe by Siteimprove.com' => [
 				'string' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) Probe by Siteimprove.com',
@@ -1183,7 +1209,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Internet Explorer',
 				'browserversion' => '10.0',
 				'app' => 'SiteImprove Crawler',
-				'appname' => 'Probe by Siteimprove.com'
+				'appname' => 'Probe by Siteimprove.com',
+				'browserreleased' => '2012-10-26'
 			],
 			'INetBot/2.0 (http://www.inetdex.com; bot@inetdex.com)' => [
 				'string' => 'INetBot/2.0 (http://www.inetdex.com; bot@inetdex.com)',
@@ -1213,7 +1240,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Amazon Bot',
 				'appname' => 'Amazonbot-Video',
 				'appversion' => '0.1',
-				'url' => 'https://developer.amazon.com/support/amazonbot'
+				'url' => 'https://developer.amazon.com/support/amazonbot',
+				'browserreleased' => '2014-06-06'
 			],
 			'Mozilla/5.0 (compatible; MixrankBot; crawler@mixrank.com)' => [
 				'string' => 'Mozilla/5.0 (compatible; MixrankBot; crawler@mixrank.com)',
@@ -1224,7 +1252,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -1268,7 +1296,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '72.0',
 				'browser' => 'Firefox',
 				'browserversion' => '72.0',
-				'url' => 'https://github.com/rom1504/img2dataset'
+				'url' => 'https://github.com/rom1504/img2dataset',
+				'browserreleased' => '2020-01-07'
 			],
 			'grub-client-1.5.3; (grub-client-1.5.3; Crawl your own stuff with http://grub.org)' => [
 				'string' => 'grub-client-1.5.3; (grub-client-1.5.3; Crawl your own stuff with http://grub.org)',
@@ -1281,7 +1310,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -1322,7 +1351,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'engine' => 'Blink',
 				'browserversion' => '108.0.5359.179',
-				'engineversion' => '108.0.5359.179'
+				'engineversion' => '108.0.5359.179',
+				'browserreleased' => '2023-01-10'
 			],
 			'Mozilla/5.0 (compatible; PRTG Network Monitor (www.paessler.com); Windows)' => [
 				'string' => 'Mozilla/5.0 (compatible; PRTG Network Monitor (www.paessler.com); Windows)',
@@ -1360,7 +1390,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '605.1.15',
 				'browser' => 'Safari',
-				'browserversion' => '13.0.3'
+				'browserversion' => '13.0.3',
+				'browserreleased' => '2020-03-24'
 			],
 			'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk' => [
 				'string' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk',
@@ -1380,7 +1411,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -1405,7 +1436,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Amazon Bot',
 				'appname' => 'Amazonbot',
 				'appversion' => '0.1',
-				'url' => 'https://developer.amazon.com/support/amazonbot'
+				'url' => 'https://developer.amazon.com/support/amazonbot',
+				'browserreleased' => '2014-06-06'
 			],
 			'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729; Diffbot/0.1; +http://www.diffbot.com)' => [
 				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729; Diffbot/0.1; +http://www.diffbot.com)',
@@ -1424,7 +1456,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '0.1',
 				'url' => 'http://www.diffbot.com',
 				'framework' => '.NET Common Language Runtime',
-				'frameworkversion' => '3.5.30729'
+				'frameworkversion' => '3.5.30729',
+				'browserreleased' => '2009-06-30'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15 (Applebot/0.1)' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15 (Applebot/0.1)',
@@ -1444,7 +1477,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '12.1.1',
 				'app' => 'Apple Bot',
 				'appname' => 'Applebot',
-				'appversion' => '0.1'
+				'appversion' => '0.1',
+				'browserreleased' => '2019-03-25'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B410 Safari/600.1.4 (Applebot/0.1; +http://www.apple.com/go/applebot)' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B410 Safari/600.1.4 (Applebot/0.1; +http://www.apple.com/go/applebot)',
@@ -1465,7 +1499,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Apple Bot',
 				'appname' => 'Applebot',
 				'appversion' => '0.1',
-				'url' => 'http://www.apple.com/go/applebot'
+				'url' => 'http://www.apple.com/go/applebot',
+				'browserreleased' => '2014-06-06'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)' => [
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)',
@@ -1505,7 +1540,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'iAsk Bot',
 				'appname' => 'iAskBot',
 				'appversion' => '1.0',
-				'url' => 'https://iask.ai/'
+				'url' => 'https://iask.ai/',
+				'browserreleased' => '2023-12-20'
 			],
 			'Mozilla/5.0 (compatible; wpbot/1.0; +https://forms.gle/ajBaxygz9jSR8p8G9)' => [
 				'string' => 'Mozilla/5.0 (compatible; wpbot/1.0; +https://forms.gle/ajBaxygz9jSR8p8G9)',
@@ -1527,7 +1563,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 }

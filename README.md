@@ -59,6 +59,9 @@ The returned value will be something like:
 	public readonly ?string 'engineversion' => string '116.0.0.0';
 	public readonly ?string 'browser' => string 'Chrome';
 	public readonly ?string 'browserversion' => string '116.0.0.0';
+	public readonly ?string 'browserstatus' => 'previous';
+    public readonly ?string 'browserreleased' => '2023-09-15';
+    public readonly ?string 'browserlatest' => '133.0.6943.54';
 	public readonly ?string 'language' => string 'en-GB';
 
 	// app

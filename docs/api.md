@@ -100,6 +100,26 @@ The name of the browser, e.g. `Firefox` or `Chrome`
 
 The browser version number
 
+### `browserreleased`
+
+The date the browser version was released.
+
+### `browserstatus`
+
+The current status of the browser:
+
+- `canary`: A canary build of the browser
+- `beta`: A beta build of the browser
+- `current`: The browser is the current version
+- `previous`: The browser is a previous version
+- `legacy`: The browser was released more than 3 years ago
+
+The browser status is determined by the version number and age of the browser, if the browser is more than 3 years old, it is considered legacy.
+
+### `browserlatest`
+
+The version number of the latest browser from this vendor.
+
 ### `language`
 
 The language code, e.g. `en` or `en-GB`, this will be normalised with lowercase, dash, uppercase format

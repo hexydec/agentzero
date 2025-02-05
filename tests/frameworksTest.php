@@ -1,6 +1,5 @@
 <?php
 declare(strict_types = 1);
-use hexydec\agentzero\agentzero;
 
 final class frameworksTest extends \PHPUnit\Framework\TestCase {
 
@@ -15,7 +14,8 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Opera Mini',
 				'browserversion' => '4.4.33576/191.296',
 				'language' => 'en',
-				'framework' => 'MAUI'
+				'framework' => 'MAUI',
+				'browserreleased' => '2000-06-28'
 			],
 			'Mozilla/5.0 (Linux; Android 12; moto g play - 2023 Build/S3SGS32.39-181-5; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 298.0.0.31.110 Android (31/12; 280dpi; 720x1439; motorola; moto g play - 2023; maui; mt6765; en_US; 510206622)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 12; moto g play - 2023 Build/S3SGS32.39-181-5; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 298.0.0.31.110 Android (31/12; 280dpi; 720x1439; motorola; moto g play - 2023; maui; mt6765; en_US; 510206622)',
@@ -39,7 +39,8 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'framework' => 'MAUI',
 				'width' => 720,
 				'height' => 1439,
-				'dpi' => 280
+				'dpi' => 280,
+				'browserreleased' => '2023-09-15'
 			],
 			'Mozilla/5.0 (Linux; Android 12; moto g play - 2023 Build/S3SGS32.39-181-7; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/119.0.6045.193 Mobile Safari/537.36 Instagram 311.0.0.32.118 Android (31/12; 280dpi; 720x1439; motorola; moto g play - 2023; maui; mt6765; en_US; 545986890)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 12; moto g play - 2023 Build/S3SGS32.39-181-7; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/119.0.6045.193 Mobile Safari/537.36 Instagram 311.0.0.32.118 Android (31/12; 280dpi; 720x1439; motorola; moto g play - 2023; maui; mt6765; en_US; 545986890)',
@@ -63,7 +64,8 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'framework' => 'MAUI',
 				'width' => 720,
 				'height' => 1439,
-				'dpi' => 280
+				'dpi' => 280,
+				'browserreleased' => '2023-11-28'
 			],
 			'Mozilla/5.0 (Linux; Android 12; moto g play - 2023 Build/S3SGS32.39-181-3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Mobile Safari/537.36 Instagram 291.1.0.34.111 Android (31/12; 280dpi; 720x1439; motorola; moto g play - 2023; maui; mt6765; en_US; 494078146)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 12; moto g play - 2023 Build/S3SGS32.39-181-3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.5735.196 Mobile Safari/537.36 Instagram 291.1.0.34.111 Android (31/12; 280dpi; 720x1439; motorola; moto g play - 2023; maui; mt6765; en_US; 494078146)',
@@ -87,11 +89,12 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'framework' => 'MAUI',
 				'width' => 720,
 				'height' => 1439,
-				'dpi' => 280
+				'dpi' => 280,
+				'browserreleased' => '2023-06-26'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -116,7 +119,8 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Teams',
 				'appversion' => '1.6.00.364',
 				'framework' => 'Electron',
-				'frameworkversion' => '16.2.8'
+				'frameworkversion' => '16.2.8',
+				'browserreleased' => '2021-12-13'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.4.00.7174 Chrome/80.0.3987.163 Electron/8.5.5 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.4.00.7174 Chrome/80.0.3987.163 Electron/8.5.5 Safari/537.36',
@@ -135,7 +139,8 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Teams',
 				'appversion' => '1.4.00.7174',
 				'framework' => 'Electron',
-				'frameworkversion' => '8.5.5'
+				'frameworkversion' => '8.5.5',
+				'browserreleased' => '2020-04-02'
 			],
 			'Mozilla/5.0 (Linux; Android 9; Allure X Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 298.0.0.31.110 Android (28/9; 480dpi; 1080x2196; SPA Condor Electronics/Condor; Allure X; Allure_X; mt6771; fr_FR; 510206698)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 9; Allure X Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 298.0.0.31.110 Android (28/9; 480dpi; 1080x2196; SPA Condor Electronics/Condor; Allure X; Allure_X; mt6771; fr_FR; 510206698)',
@@ -157,7 +162,8 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '298.0.0.31.110',
 				'width' => 1080,
 				'height' => 2196,
-				'dpi' => 480
+				'dpi' => 480,
+				'browserreleased' => '2023-09-15'
 			],
 			'Mozilla/5.0 (Linux; Android 6.0; LG-X240 Build/MRA58K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 Instagram 278.0.0.22.117 Android (23/6.0; 320dpi; 720x1184; LG Electronics/lge; LG-X240; mlv3; mt6735; es_AR; 471827227)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 6.0; LG-X240 Build/MRA58K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.4638.74 Mobile Safari/537.36 Instagram 278.0.0.22.117 Android (23/6.0; 320dpi; 720x1184; LG Electronics/lge; LG-X240; mlv3; mt6735; es_AR; 471827227)',
@@ -179,11 +185,12 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '278.0.0.22.117',
 				'width' => 720,
 				'height' => 1184,
-				'dpi' => 320
+				'dpi' => 320,
+				'browserreleased' => '2021-10-28'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -208,7 +215,8 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'AmazonWebAppPlatform',
 				'appversion' => '3.4.0',
 				'framework' => 'Cordova',
-				'frameworkversion' => '3.4.0'
+				'frameworkversion' => '3.4.0',
+				'browserreleased' => '2022-04-14'
 			],
 			'Mozilla/5.0 (Linux; Android 9; KFTRWI Build/PS7327.3326N; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.160 Mobile Safari/537.36 cordova-amazon-fireos/3.4.0 AmazonWebAppPlatform/3.4.0;2.0' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 9; KFTRWI Build/PS7327.3326N; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.160 Mobile Safari/537.36 cordova-amazon-fireos/3.4.0 AmazonWebAppPlatform/3.4.0;2.0',
@@ -229,11 +237,12 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'AmazonWebAppPlatform',
 				'appversion' => '3.4.0',
 				'framework' => 'Cordova',
-				'frameworkversion' => '3.4.0'
+				'frameworkversion' => '3.4.0',
+				'browserreleased' => '2023-01-10'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -254,7 +263,8 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '14.52',
 				'framework' => '.NET Common Language Runtime',
 				'frameworkversion' => '3.5.21022',
-				'url' => 'http://www.bsalsa.com/'
+				'url' => 'http://www.bsalsa.com/',
+				'browserreleased' => '2006-10-18'
 			],
 			'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; QQDownload 769; EmbeddedWB 14.52 from: http://www.bsalsa.com/ EmbeddedWB 14.52; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0E; Alexa Toolbar; Shuame; .NET4.0C; SE 2.X MetaSr 1.0)' => [
 				'string' => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; QQDownload 769; EmbeddedWB 14.52 from: http://www.bsalsa.com/ EmbeddedWB 14.52; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0E; Alexa Toolbar; Shuame; .NET4.0C; SE 2.X MetaSr 1.0)',
@@ -274,11 +284,12 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '769',
 				'framework' => '.NET Common Language Runtime',
 				'frameworkversion' => '3.5.30729',
-				'url' => 'http://www.bsalsa.com/'
+				'url' => 'http://www.bsalsa.com/',
+				'browserreleased' => '2009-03-19'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -316,7 +327,7 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 }

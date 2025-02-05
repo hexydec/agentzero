@@ -1,6 +1,5 @@
 <?php
 declare(strict_types = 1);
-use hexydec\agentzero\agentzero;
 
 final class languagesTest extends \PHPUnit\Framework\TestCase {
 
@@ -39,7 +38,8 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '89',
 				'browser' => 'Firefox',
 				'browserversion' => '89',
-				'language' => 'en-US'
+				'language' => 'en-US',
+				'browserreleased' => '2021-06-01'
 			],
 			'Mozilla/5.0 (Linux; U; Android 6.0.1; en-gb; MI 3C Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.147 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.10.5-go' => [
 				'string' => 'Mozilla/5.0 (Linux; U; Android 6.0.1; en-gb; MI 3C Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.147 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.10.5-go',
@@ -56,7 +56,8 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '79.0.3945.147',
 				'browser' => 'Chrome',
 				'browserversion' => '79.0.3945.147',
-				'language' => 'en-GB'
+				'language' => 'en-GB',
+				'browserreleased' => '2020-01-16'
 			],
 			'com.zhiliaoapp.musically/2022706030 (Linux; U; Android 10; en; TECNO KE5; Build/QP1A.190711.020; Cronet/TTNetVersion:07232c86 2022-12-15 QuicVersion:5f23035d 2022-11-23)' => [
 				'string' => 'com.zhiliaoapp.musically/2022706030 (Linux; U; Android 10; en; TECNO KE5; Build/QP1A.190711.020; Cronet/TTNetVersion:07232c86 2022-12-15 QuicVersion:5f23035d 2022-11-23)',
@@ -78,7 +79,7 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 }

@@ -35,6 +35,9 @@ class agentzero {
 	public readonly ?string $engineversion;
 	public readonly ?string $browser;
 	public readonly ?string $browserversion;
+	public readonly ?string $browserstatus;
+	public readonly ?string $browserreleased;
+	public readonly ?string $browserlatest;
 	public readonly ?string $language;
 
 	// app
@@ -93,6 +96,9 @@ class agentzero {
 		$this->engineversion = $data->engineversion ?? null;
 		$this->browser = $data->browser ?? null;
 		$this->browserversion = $data->browserversion ?? null;
+		$this->browserstatus = $data->browserstatus ?? null;
+		$this->browserreleased = $data->browserreleased ?? null;
+		$this->browserlatest = $data->browserlatest ?? null;
 		$this->language = $data->language ?? null;
 
 		// app

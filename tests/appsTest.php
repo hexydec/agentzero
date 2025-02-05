@@ -1,6 +1,5 @@
 <?php
 declare(strict_types = 1);
-use hexydec\agentzero\agentzero;
 
 final class appsTest extends \PHPUnit\Framework\TestCase {
 
@@ -22,7 +21,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '112.0.0.0',
 				'app' => 'Yandex',
 				'appname' => 'YaSearchApp',
-				'appversion' => '23.51.1'
+				'appversion' => '23.51.1',
+				'browserreleased' => '2023-04-26'
 			],
 			'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 YaApp_Android/23.12.1 YaSearchBrowser/23.12.1 BroPP/1.0 SA/3 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; arm; Android 10; M2006C3MNG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 YaApp_Android/23.12.1 YaSearchBrowser/23.12.1 BroPP/1.0 SA/3 Mobile Safari/537.36',
@@ -40,7 +40,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.0.0',
 				'app' => 'Yandex',
 				'appname' => 'YaApp_Android',
-				'appversion' => '23.12.1'
+				'appversion' => '23.12.1',
+				'browserreleased' => '2023-01-10'
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)' => [
 				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)',
@@ -88,7 +89,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Google',
 				'appname' => 'com.google.android.gms',
 				'appversion' => '219',
-				'darkmode' => true
+				'darkmode' => true,
+				'browserreleased' => '2023-01-24'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/242.1.493995244 Mobile/15E148 Safari/604.1' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/242.1.493995244 Mobile/15E148 Safari/604.1',
@@ -128,7 +130,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '109.0.5414.118',
 				'app' => 'Google',
 				'appname' => 'GoogleApp',
-				'appversion' => '14.4.6.26.arm64'
+				'appversion' => '14.4.6.26.arm64',
+				'browserreleased' => '2023-01-24'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [LinkedInApp]/9.25.1981' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [LinkedInApp]/9.25.1981',
@@ -209,7 +212,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'en-GB',
 				'app' => 'Google',
 				'appname' => 'com.google.android.googlequicksearchbox',
-				'appversion' => '301265987'
+				'appversion' => '301265987',
+				'browserreleased' => '2023-07-12'
 			],
 			'Mozilla/5.0 (Linux; Android 10; AOSP on flame Build/QQ3A.200805.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.156 Mobile Safari/537.36 aweme_140700 JsSdk/1.0 NetType/WIFI Channel/gdt_growth21_yybtp_tengxun AppName/aweme app_version/14.7.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/black AppTheme/dark TTWebView/0751130014013' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; AOSP on flame Build/QQ3A.200805.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.156 Mobile Safari/537.36 aweme_140700 JsSdk/1.0 NetType/WIFI Channel/gdt_growth21_yybtp_tengxun AppName/aweme app_version/14.7.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/black AppTheme/dark TTWebView/0751130014013',
@@ -230,7 +234,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'aweme',
 				'appversion' => '14.7.0',
 				'nettype' => 'WIFI',
-				'darkmode' => true
+				'darkmode' => true,
+				'browserreleased' => '2019-07-15'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5_0) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.6.00.364 Chrome/96.0.4664.174 Electron/16.2.8 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5_0) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.6.00.364 Chrome/96.0.4664.174 Electron/16.2.8 Safari/537.36',
@@ -251,7 +256,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Teams',
 				'appversion' => '1.6.00.364',
 				'framework' => 'Electron',
-				'frameworkversion' => '16.2.8'
+				'frameworkversion' => '16.2.8',
+				'browserreleased' => '2021-12-13'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.4.00.7174 Chrome/80.0.3987.163 Electron/8.5.5 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.4.00.7174 Chrome/80.0.3987.163 Electron/8.5.5 Safari/537.36',
@@ -271,6 +277,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '1.4.00.7174',
 				'framework' => 'Electron',
 				'frameworkversion' => '8.5.5',
+				'browserreleased' => '2020-04-02'
 			],
 			'com.google.GoogleMobile/250.0 iPhone/16.3 hw/iPhone14_3' => [
 				'string' => 'com.google.GoogleMobile/250.0 iPhone/16.3 hw/iPhone14_3',
@@ -302,7 +309,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -366,6 +373,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '97.11.116',
 				'framework' => 'Electron',
 				'frameworkversion' => '9.1.0',
+				'browserreleased' => '2020-06-22'
 			],
 			'Mozilla/5.0 (Linux; Android 10; SM-G9600 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/393.0.0.18.92;FB_FW/2;FBAN/FB4A]' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; SM-G9600 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/393.0.0.18.92;FB_FW/2;FBAN/FB4A]',
@@ -383,7 +391,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.5359.128',
 				'app' => 'Facebook',
 				'appname' => 'FB4A',
-				'appversion' => '393.0.0.18.92'
+				'appversion' => '393.0.0.18.92',
+				'browserreleased' => '2023-01-10'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/20C65 [FBAN/FBIOS;FBDV/iPhone12,3;FBMD/iPhone;FBSN/iOS;FBSV/16.2;FBSS/3;FBID/phone;FBLC/en_Qaau_GB;FBOP/5]' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/20C65 [FBAN/FBIOS;FBDV/iPhone12,3;FBMD/iPhone;FBSN/iOS;FBSV/16.2;FBSS/3;FBID/phone;FBLC/en_Qaau_GB;FBOP/5]',
@@ -415,11 +424,12 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '7.0',
 				'engine' => 'Blink',
 				'engineversion' => '116.0.0.0',
-				'browser' => 'Samsung Browser',
+				'browser' => 'Samsung Internet',
 				'browserversion' => '0.1.130',
 				'app' => 'CrossApp',
 				'appname' => 'CrossApp',
-				'appversion' => '0.1.130'
+				'appversion' => '0.1.130',
+				'browserreleased' => '2023-09-15'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 CanvasFrame/1.21.6907.27509 Safari/537.36 FacebookCanvasDesktop FBAN/GamesWindowsDesktopApp FBAV/1.21.6907.27509' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 CanvasFrame/1.21.6907.27509 Safari/537.36 FacebookCanvasDesktop FBAN/GamesWindowsDesktopApp FBAV/1.21.6907.27509',
@@ -436,11 +446,12 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '63.0.3239.132',
 				'app' => 'Facebook Gamesroom',
 				'appname' => 'GamesWindowsDesktopApp',
-				'appversion' => '1.21.6907.27509'
+				'appversion' => '1.21.6907.27509',
+				'browserreleased' => '2018-01-04'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -488,7 +499,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '264.0.0.22.106',
 				'width' => 1080,
 				'height' => 2123,
-				'dpi' => 420
+				'dpi' => 420,
+				'browserreleased' => '2023-01-10'
 			],
 			'Mozilla/5.0 (iPad; CPU OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 264.3.0.19.104 (iPad11,3; iPadOS 15_5; zh_HK; zh-Hant-HK; scale=2.00; 1334x750; 432065435) NW/3' => [
 				'string' => 'Mozilla/5.0 (iPad; CPU OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 264.3.0.19.104 (iPad11,3; iPadOS 15_5; zh_HK; zh-Hant-HK; scale=2.00; 1334x750; 432065435) NW/3',
@@ -531,7 +543,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '264.0.0.22.106',
 				'width' => 1080,
 				'height' => 2166,
-				'dpi' => 440
+				'dpi' => 440,
+				'browserreleased' => '2023-01-10'
 			],
 			'Instagram 301.1.0.33.110 Android (31/12; 480dpi; 1080x2156; TECNO; TECNO KH7; TECNO-KH7; mt6769; ar_EG; 517986598)' => [
 				'string' => 'Instagram 301.1.0.33.110 Android (31/12; 480dpi; 1080x2156; TECNO; TECNO KH7; TECNO-KH7; mt6769; ar_EG; 517986598)',
@@ -636,7 +649,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -680,7 +693,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'TikTok',
 				'appname' => 'musical_ly',
 				'appversion' => '27.6.3',
-				'nettype' => 'WIFI'
+				'nettype' => 'WIFI',
+				'browserreleased' => '2023-01-10'
 			],
 			'Mozilla/5.0 (Linux; Android 8.1.0; vivo Y85A Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/65.0.3325.109 Mobile Safari/537.36 musical_ly_2022709410 JsSdk/1.0 NetType/4G Channel/googleplay AppName/musical_ly app_version/27.9.41 ByteLocale/en ByteFullLocale/en Region/PK Spark/1.2.6.1-bugfix AppVersion/27.9.41 PIA/1.5.11 BytedanceWebview/d8a21c6' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 8.1.0; vivo Y85A Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/65.0.3325.109 Mobile Safari/537.36 musical_ly_2022709410 JsSdk/1.0 NetType/4G Channel/googleplay AppName/musical_ly app_version/27.9.41 ByteLocale/en ByteFullLocale/en Region/PK Spark/1.2.6.1-bugfix AppVersion/27.9.41 PIA/1.5.11 BytedanceWebview/d8a21c6',
@@ -700,7 +714,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'TikTok',
 				'appname' => 'musical_ly',
 				'appversion' => '27.9.41',
-				'nettype' => '4G'
+				'nettype' => '4G',
+				'browserreleased' => '2018-03-20'
 			],
 			'musical_ly_2022801030 AppVersion/2022801030 JsSdk/2.0 NetType/WIFI Channel/googleplay ByteLocale/en Webcast_ByteLocale/en Region/SA App/musical_ly WebcastSDK/2720 Mozilla/5.0 (Linux; Android 13; SM-A725F Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/109.0.5414.118 Mobile Safari/537.36 musical_ly_2022801030 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/28.1.3 ByteLocale/en ByteFullLocale/en Region/SA Spark/1.2.6.1-bugfix AppVersion/28.1.3 PIA/1.5.11 BytedanceWebview/d8a21c6' => [
 				'string' => 'musical_ly_2022801030 AppVersion/2022801030 JsSdk/2.0 NetType/WIFI Channel/googleplay ByteLocale/en Webcast_ByteLocale/en Region/SA App/musical_ly WebcastSDK/2720 Mozilla/5.0 (Linux; Android 13; SM-A725F Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/109.0.5414.118 Mobile Safari/537.36 musical_ly_2022801030 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/28.1.3 ByteLocale/en ByteFullLocale/en Region/SA Spark/1.2.6.1-bugfix AppVersion/28.1.3 PIA/1.5.11 BytedanceWebview/d8a21c6',
@@ -720,7 +735,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'TikTok',
 				'appname' => 'musical_ly',
 				'appversion' => '28.1.3',
-				'nettype' => 'WIFI'
+				'nettype' => 'WIFI',
+				'browserreleased' => '2023-01-24'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 BytedanceWebview/d8a21c6 musical_ly_27.9.0 JsSdk/2.0 NetType/4G Channel/App Store ByteLocale/ar Region/EG musical_ly_27.9.0 JsSdk/2.0 NetType/MOBILE Channel/App Store AppVersion/27.9.0 AppName/musical_ly Rifle_27.9.0 musical_ly_27.9.0 JsSdk/2.0 NetType/4G Channel/App Store ByteLocale/ar Region/EG ByteFullLocale/ar  isDarkMode/0 Spark/1.2.6.2-bugfix HybridTag/EF19ACC6-C9CA-4584-AC8B-8BF5F83BD352 WKWebView/1 Bullet/1 musical_ly/27.9.0 FalconTag/1CE85414-C990-4F0F-9EE7-72B1D7ED43BE' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 BytedanceWebview/d8a21c6 musical_ly_27.9.0 JsSdk/2.0 NetType/4G Channel/App Store ByteLocale/ar Region/EG musical_ly_27.9.0 JsSdk/2.0 NetType/MOBILE Channel/App Store AppVersion/27.9.0 AppName/musical_ly Rifle_27.9.0 musical_ly_27.9.0 JsSdk/2.0 NetType/4G Channel/App Store ByteLocale/ar Region/EG ByteFullLocale/ar isDarkMode/0 Spark/1.2.6.2-bugfix HybridTag/EF19ACC6-C9CA-4584-AC8B-8BF5F83BD352 WKWebView/1 Bullet/1 musical_ly/27.9.0 FalconTag/1CE85414-C990-4F0F-9EE7-72B1D7ED43BE',
@@ -745,7 +761,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -769,7 +785,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'WeChat',
 				'appname' => 'MicroMessenger',
 				'appversion' => '7.0.14.1660',
-				'nettype' => '4G'
+				'nettype' => '4G',
+				'browserreleased' => '2022-09-27'
 			],
 			'Mozilla/5.0 (Linux; Android 10; WLZ-AN00 Build/HUAWEIWLZ-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4425 MMWEBSDK/20221206 Mobile Safari/537.36 MMWEBID/853 MicroMessenger/8.0.32.2300(0x28002059) WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; WLZ-AN00 Build/HUAWEIWLZ-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4425 MMWEBSDK/20221206 Mobile Safari/537.36 MMWEBID/853 MicroMessenger/8.0.32.2300(0x28002059) WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
@@ -790,7 +807,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'language' => 'zh-CN',
 				'app' => 'WeChat',
 				'appname' => 'MicroMessenger',
-				'appversion' => '8.0.32.2300'
+				'appversion' => '8.0.32.2300',
+				'browserreleased' => '2020-11-11'
 			],
 			'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 MicroMessenger/6.5.2.501 NetType/WIFI WindowsWechat QBCore/3.43.27.400 QQBrowser/9.0.2524.400' => [
 				'string' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 MicroMessenger/6.5.2.501 NetType/WIFI WindowsWechat QBCore/3.43.27.400 QQBrowser/9.0.2524.400',
@@ -845,11 +863,12 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '78.0.3904.62',
 				'app' => 'WeChat',
-				'appname' => 'MicroMessenger'
+				'appname' => 'MicroMessenger',
+				'browserreleased' => '2019-11-18'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -870,7 +889,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '104.0.5112.97',
 				'app' => 'Weibo',
 				'appname' => 'Weibo',
-				'appversion' => '13.9.4'
+				'appversion' => '13.9.4',
+				'browserreleased' => '2022-08-22'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone13,3__weibo__13.9.2__iphone__os16.6.1)' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone13,3__weibo__13.9.2__iphone__os16.6.1)',
@@ -907,7 +927,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '116.0.0.0',
 				'app' => 'Weibo',
 				'appname' => 'WeiboIntlAndroid',
-				'appversion' => '6260'
+				'appversion' => '6260',
+				'browserreleased' => '2023-09-15'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 WeiboIntliOS_iPhone_6290' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 WeiboIntliOS_iPhone_6290',
@@ -929,7 +950,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -950,7 +971,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '115.0.0.0',
 				'engine' => 'Blink',
-				'engineversion' => '115.0.0.0'
+				'engineversion' => '115.0.0.0',
+				'browserreleased' => '2023-08-14'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 YaBrowser/23.7.0.2564 Yowser/2.5 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 YaBrowser/23.7.0.2564 Yowser/2.5 Safari/537.36',
@@ -969,7 +991,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '115.0.0.0',
 				'engine' => 'Blink',
-				'engineversion' => '115.0.0.0'
+				'engineversion' => '115.0.0.0',
+				'browserreleased' => '2023-08-14'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 YaBrowser/23.7.4.478 Mobile/15E148 Safari/604.1' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 YaBrowser/23.7.4.478 Mobile/15E148 Safari/604.1',
@@ -989,7 +1012,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'YaBrowser',
 				'appversion' => '23.7.4.478',
 				'browser' => 'Safari',
-				'browserversion' => '16.5'
+				'browserversion' => '16.5',
+				'browserreleased' => '2023-05-18'
 			],
 			'Mozilla/5.0 (Linux; arm_64; Android 13; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.136 YaBrowser/21.3.4.59 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; arm_64; Android 13; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.136 YaBrowser/21.3.4.59 Mobile Safari/537.36',
@@ -1008,11 +1032,12 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Chrome',
 				'browserversion' => '115.0.5790.136',
 				'engine' => 'Blink',
-				'engineversion' => '115.0.5790.136'
+				'engineversion' => '115.0.5790.136',
+				'browserreleased' => '2023-08-14'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 
@@ -1059,7 +1084,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 		foreach ($strings AS $ua => $item) {
-			$this->assertEquals($item, \array_filter((array) agentzero::parse($ua), fn(mixed $item) : mixed => $item !== null), $ua);
+			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
 }

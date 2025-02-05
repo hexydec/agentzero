@@ -4,12 +4,14 @@ namespace hexydec\agentzero;
 
 class browsers {
 
+	protected static array $versions = [];
 	/**
 	 * Generates a configuration array for matching browsers
 	 * 
 	 * @return array<string,props> An array with keys representing the string to match, and values a props object defining how to generate the match and which properties to set
 	 */
-	public static function get() : array {
+	public static function get(array $versions) : array {
+		self::$versions = $versions;
 		$fn = [
 			'browserslash' => function (string $value) : array {
 				if (($browser = \mb_strrchr($value, ' ')) !== false) {
@@ -34,7 +36,7 @@ class browsers {
 					'bonecho' => 'BonEcho',
 					'palemoon' => 'PaleMoon',
 					'k-meleon' => 'K-Meleon',
-					'samsungbrowser' => 'Samsung Browser',
+					'samsungbrowser' => 'Samsung Internet',
 					'huaweibrowser' => 'Huawei Browser',
 					'qqbrowser' => 'QQ Browser'
 				];
@@ -47,44 +49,44 @@ class browsers {
 						break;
 					}
 				}
-				return $data;
+				return \array_merge($data, self::getVersionInfo($data['browser'], $data['browserversion']));
 			},
 			'presto' => function (string $value) : array {
 				$parts = \explode('/', $value, 2);
-				return [
+				return \array_merge([
 					'type' => 'human',
 					'browser' => $parts[0],
 					'browserversion' => $parts[1] ?? null,
 					'engine' => 'Presto',
 					'engineversion' => $parts[1] ?? null
-				];
+				], isset($parts[1]) ? self::getVersionInfo('opera', $parts[1]) : []);
 			},
 			'chromium' => function (string $value) : array {
 				$parts = \explode('/', $value, 3);
 				$engineversion = isset($parts[1]) && \strspn($parts[1], '1234567890.') === \strlen($parts[1]) ? $parts[1] : null;
-				return [
+				return \array_merge([
 					'type' => 'human',
 					'browser' => \mb_convert_case($parts[0], MB_CASE_TITLE),
 					'engine' => \intval($engineversion ?? 28) < 28 ? 'WebKit' : 'Blink',
 					'browserversion' => $parts[1] ?? null,
 					'engineversion' => $engineversion
-				];
+				], isset($parts[1]) ? self::getVersionInfo('chrome', $parts[1]) : []);
 			},
 			'safari' => function (string $value, int $i, array $tokens) : array {
-				$version = null;
+				$parts = \explode('/', $value, 2);
+				$version = $parts[1] ?? null;
 				foreach ($tokens AS $item) {
 					if (\mb_stripos($item, 'Version/') === 0) {
 						$version = \mb_substr($item, 8);
 					}
 				}
-				$parts = \explode('/', $value, 2);
-				return [
+				return \array_merge([
 					'type' => 'human',
 					'browser' => 'Safari',
-					'browserversion' => $version ?? $parts[1] ?? null,
+					'browserversion' => $version ?? null,
 					'engine' => 'WebKit',
 					'engineversion' => $parts[1] ?? null
-				];
+				], $version !== null ? self::getVersionInfo('safari', $version) : []);
 			},
 		];
 		return [
@@ -101,10 +103,10 @@ class browsers {
 			'Brave/' => new props('start', $fn['browserslash']),
 			'Vivaldi/' => new props('start', $fn['browserslash']),
 			'Maxthon/' => new props('start', $fn['browserslash']),
-			'Maxthon ' => new props('start', fn (string $value) : array => [
+			'Maxthon ' => new props('start', fn (string $value) : array => \array_merge([
 				'browser' => 'Maxthon',
 				'browserversion' => \mb_substr($value, 8)
-			]),
+			], self::getVersionInfo('maxathon', \mb_substr($value, 8)))),
 			'Konqueror/' => new props('start', $fn['browserslash']),
 			'K-Meleon/' => new props('start', $fn['browserslash']),
 			'UCBrowser/' => new props('start', $fn['browserslash']),
@@ -148,13 +150,13 @@ class browsers {
 				];
 			}),
 			'PrivacyBrowser/' => new props('start', $fn['browserslash']),
-			'Fennec/' => new props('start', fn (string $value) : array => [
+			'Fennec/' => new props('start', fn (string $value) : array => \array_merge([
 				'type' => 'human',
 				'browser' => 'Fennec',
 				'engine' => 'Gecko',
 				'browserversion' => \mb_substr($value, 7),
 				'engineversion' => \mb_substr($value, 7)
-			]),
+			], self::getVersionInfo('firefox', \mb_substr($value, 7)))),
 			'Firefox/' => new props('start', function (string $value) use ($fn) : array {
 				$data = $fn['browserslash']($value);
 				return \array_merge($data, [
@@ -208,24 +210,24 @@ class browsers {
 			'EdgA/' => new props('start', $fn['browserslash']),
 			'Edge/' => new props('start', $fn['browserslash']),
 			'EdgiOS/' => new props('start', $fn['browserslash']),
-			'MSIE ' => new props('start', fn (string $value) : array => [
+			'MSIE ' => new props('start', fn (string $value) : array => \array_merge([
 				'type' => 'human',
 				'browser' => 'Internet Explorer',
 				'browserversion' => \mb_substr($value, 5),
 				'engine' => 'Trident'
-			]),
-			'BOIE9' => new props('start', [
+			], self::getVersionInfo('ie', \mb_substr($value, 5)))),
+			'BOIE9' => new props('start', fn () => \array_merge([
 				'type' => 'human',
 				'browser' => 'Internet Explorer',
 				'browserversion' => '9.0',
 				'engine' => 'Trident'
-			]),
-			'IEMobile/' => new props('start', fn (string $value) : array => [
+			], self::getVersionInfo('ie', '9.0'))),
+			'IEMobile/' => new props('start', fn (string $value) : array => \array_merge([
 				'type' => 'human',
 				'browser' => 'Internet Explorer',
 				'browserversion' => \mb_substr($value, 9),
 				'engine' => 'Trident'
-			]),
+			], self::getVersionInfo('ie', \mb_substr($value, 9)))),
 			'Trident' => new props('start', [ // infill for missing browser name
 				'browser' => 'Internet Explorer'
 			]),
@@ -238,5 +240,75 @@ class browsers {
 				'browserversion' => \mb_substr($value, 3)
 			])
 		];
+	}
+
+	protected static function getVersionInfo(string $browser, string $version) : array {
+		$versions = self::$versions;
+		$map = [
+			'Samsung Internet' => 'samsung',
+			'Huawei Browser' => 'huawei',
+			'K-Meleon' => 'kmeleon'
+		];
+		$key = $map[$browser] ?? \mb_strtolower($browser);
+		$data = [];
+		if (isset($versions[$key])) {
+
+			// get current version
+			$data['browserlatest'] = \strval(\array_key_first($versions[$key]));
+			
+			// check if version is greater than latest version
+			$major = \intval($version);
+			if (\intval($data['browserlatest']) < $major) {
+				$data['browserstatus'] = 'beta';
+
+			// find closes match for version
+			} else {
+				$len = 0;
+				$i = 0;
+				$vlen = \strlen($version);
+				foreach ($versions[$key] AS $ver => $date) {
+					if (\intval($ver) === $major) {
+						$ver = \strval($ver); // cast as string to get letters, string numbers cast to int when keys
+						$match = 0;
+						for ($n = 0; $n < $vlen; $n++) {
+							if ($version[$n] === ($ver[$n] ?? null)) {
+								$match++;
+							} else {
+								break;
+							}
+						}
+						if ($match > $len) {
+							$len = $match;
+							$data['browserreleased'] = $date;
+						}
+					}
+					$i++;
+				}
+
+				// calculate status
+				if (isset($data['browserreleased'])) {
+					$current = \explode('.', $data['browserlatest'])[0] === \explode('.', $version)[0];
+					$released = new \DateTime($data['browserreleased']);
+
+					// legacy
+					if ($released < \date_create('-3 years')) {
+						$data['browserstatus'] = 'legacy';
+
+					// current
+					} elseif ($current && ($released >= \date_create('-1 year') || $data['browserlatest'] === $version)) {
+						$data['browserstatus'] = 'current';
+
+					// previous
+					} else {
+						$data['browserstatus'] = 'previous';
+					}
+
+				// version wasn't listed - ancient
+				} else {
+					$data['browserstatus'] = 'legacy';
+				}
+			}
+		}
+		return $data;
 	}
 }
