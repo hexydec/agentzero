@@ -59,6 +59,25 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Google-Read-Aloud',
 				'url' => 'https://support.google.com/webmasters/answer/1061943'
 			],
+			'Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36 (compatible; Google-Read-Aloud; +https://support.google.com/webmasters/answer/1061943)',
+				'type' => 'robot',
+				'category' => 'feed',
+				'vendor' => 'Samsung',
+				'model' => 'SM-G930V',
+				'build' => 'NRD90M',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '7.0',
+				'engine' => 'Blink',
+				'engineversion' => '59.0.3071.125',
+				'browser' => 'Chrome',
+				'browserversion' => '59.0.3071.125',
+				'app' => 'Google Read Aloud',
+				'appname' => 'Google-Read-Aloud',
+				'url' => 'https://support.google.com/webmasters/answer/1061943',
+				'browserreleased' => '2017-06-26'
+			],
 			'AndroidDownloadManager/11 (Linux; U; Android 11; ONEPLUS A6013 Build/RKQ1.201217.002)' => [
 				'string' => 'AndroidDownloadManager/11 (Linux; U; Android 11; ONEPLUS A6013 Build/RKQ1.201217.002)',
 				'type' => 'human',
@@ -215,28 +234,6 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '301265987',
 				'browserreleased' => '2023-07-12'
 			],
-			'Mozilla/5.0 (Linux; Android 10; AOSP on flame Build/QQ3A.200805.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.156 Mobile Safari/537.36 aweme_140700 JsSdk/1.0 NetType/WIFI Channel/gdt_growth21_yybtp_tengxun AppName/aweme app_version/14.7.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/black AppTheme/dark TTWebView/0751130014013' => [
-				'string' => 'Mozilla/5.0 (Linux; Android 10; AOSP on flame Build/QQ3A.200805.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.156 Mobile Safari/537.36 aweme_140700 JsSdk/1.0 NetType/WIFI Channel/gdt_growth21_yybtp_tengxun AppName/aweme app_version/14.7.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/black AppTheme/dark TTWebView/0751130014013',
-				'type' => 'human',
-				'category' => 'mobile',
-				'device' => 'AOSP',
-				'model' => 'On Flame',
-				'build' => 'QQ3A.200805.001',
-				'kernel' => 'Linux',
-				'platform' => 'Android',
-				'platformversion' => '10',
-				'engine' => 'Blink',
-				'engineversion' => '75.0.3770.156',
-				'browser' => 'Chrome',
-				'browserversion' => '75.0.3770.156',
-				'language' => 'zh-CN',
-				'app' => 'aweme',
-				'appname' => 'aweme',
-				'appversion' => '14.7.0',
-				'nettype' => 'WIFI',
-				'darkmode' => true,
-				'browserreleased' => '2019-07-15'
-			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5_0) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.6.00.364 Chrome/96.0.4664.174 Electron/16.2.8 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5_0) AppleWebKit/537.36 (KHTML, like Gecko) Teams/1.6.00.364 Chrome/96.0.4664.174 Electron/16.2.8 Safari/537.36',
 				'type' => 'human',
@@ -305,7 +302,96 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'whisper',
 				'appversion' => '8.43.1',
 				'framework' => 'Alamofire',
-				'frameworkversion' => '4.7.3'
+				'frameworkversion' => '4.7.3',
+				'url' => 'sh.whisper.whisperapp'
+			],
+			'MXPlayer/1.80.6/2001002326; Android/34' => [
+				'string' => 'MXPlayer/1.80.6/2001002326; Android/34',
+				'type' => 'human',
+				'platform' => 'Android',
+				'platformversion' => '34',
+				'app' => 'MXPlayer',
+				'appname' => 'MXPlayer',
+				'appversion' => '1.80.6'
+			],
+			'Instapaper/4.0' => [
+				'string' => 'Instapaper/4.0',
+				'type' => 'human',
+				'app' => 'Instapaper',
+				'appname' => 'Instapaper',
+				'appversion' => '4.0'
+			],
+			'Instapaper for Android 4.5' => [
+				'string' => 'Instapaper for Android 4.5',
+				'type' => 'human',
+				'platform' => 'Android',
+				'app' => 'Instapaper',
+				'appname' => 'Instapaper',
+				'appversion' => '4.5'
+			],
+			'Todoist-Android/v11542 ({"os":"Android 14","build":"release","build_id":"11542","locale":"es-ES","device":"samsung SM-A256B"})' => [
+				'string' => 'Todoist-Android/v11542 ({"os":"Android 14","build":"release","build_id":"11542","locale":"es-ES","device":"samsung SM-A256B"})',
+				'type' => 'human',
+				'vendor' => 'Samsung',
+				'model' => 'SM-A256B',
+				'platform' => 'Android',
+				'platformversion' => '14',
+				'language' => 'es-ES',
+				'app' => 'Todoist',
+				'appname' => 'Todoist-Android',
+				'appversion' => 'v11542'
+			],
+			'Trello for Android/2023.17.3.11755' => [
+				'string' => 'Trello for Android/2023.17.3.11755',
+				'type' => 'human',
+				'platform' => 'Android',
+				'app' => 'Trello',
+				'appname' => 'Trello for Android',
+				'appversion' => '2023.17.3.11755'
+			],
+			'Reddit/Version 2024.42.0/Build 1952440/Android 14' => [
+				'string' => 'Reddit/Version 2024.42.0/Build 1952440/Android 14',
+				'type' => 'human',
+				'platform' => 'Android',
+				'platformversion' => '14',
+				'app' => 'Reddit',
+				'appname' => 'Reddit',
+				'appversion' => '2024.42.0'
+			],
+			'Player/LG Player 1.0 for Android 5.0.1 (stagefright alternative)' => [
+				'string' => 'Player/LG Player 1.0 for Android 5.0.1 (stagefright alternative)',
+				'type' => 'human',
+				'vendor' => 'LG',
+				'platform' => 'Android',
+				'platformversion' => '5.0.1',
+				'app' => 'LG Player',
+				'appname' => 'LG Player',
+				'appversion' => '1.0'
+			],
+			'LM-X420/V20s Player/LG Player 1.0 for Android 9 (stagefright alternative)' => [
+				'string' => 'LM-X420/V20s Player/LG Player 1.0 for Android 9 (stagefright alternative)',
+				'type' => 'human',
+				'vendor' => 'LG',
+				'device' => 'LM-X420',
+				'model' => 'V20s',
+				'platform' => 'Android',
+				'platformversion' => '9',
+				'app' => 'LG Player',
+				'appname' => 'LG Player',
+				'appversion' => '1.0'
+			],
+			'nu.nl/10.14 (iOS,16.2;230220151223;1284x2778@3.0x)(Sanoma/app)' => [
+				'string' => 'nu.nl/10.14 (iOS,16.2;230220151223;1284x2778@3.0x)(Sanoma/app)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'platform' => 'iOS',
+				'platformversion' => '16.2',
+				'app' => 'nu.nl',
+				'appname' => 'nu.nl',
+				'appversion' => '10.14',
+				'width' => 1284,
+				'height' => 2778,
+				'density' => 3
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -528,6 +614,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Linux; Android 12; 2109119DG Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 Instagram 264.0.0.22.106 Android (31/12; 440dpi; 1080x2166; Xiaomi; 2109119DG; lisa; qcom; zh_CN; 430370703)',
 				'type' => 'human',
 				'category' => 'mobile',
+				'vendor' => 'Xiaomi',
 				'model' => '2109119DG',
 				'build' => 'SKQ1.211006.001',
 				'kernel' => 'Linux',
@@ -622,7 +709,8 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 			'Instagram 301.1.0.33.110 Android (33/13; 480dpi; 1080x2167; Xiaomi/POCO; M2102J20SG; vayu; qcom; in_ID; 517986598)' => [
 				'string' => 'Instagram 301.1.0.33.110 Android (33/13; 480dpi; 1080x2167; Xiaomi/POCO; M2102J20SG; vayu; qcom; in_ID; 517986598)',
 				'type' => 'human',
-				'vendor' => 'Poco',
+				'vendor' => 'Xiaomi',
+				'device' => 'Poco',
 				'model' => 'M2102J20SG',
 				'platform' => 'Android',
 				'language' => 'in-ID',
@@ -758,6 +846,50 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '27.9.0',
 				'nettype' => '4G',
 				'darkmode' => false
+			],
+			'Mozilla/5.0 (Linux; Android 10; AOSP on flame Build/QQ3A.200805.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.156 Mobile Safari/537.36 aweme_140700 JsSdk/1.0 NetType/WIFI Channel/gdt_growth21_yybtp_tengxun AppName/aweme app_version/14.7.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/black AppTheme/dark TTWebView/0751130014013' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10; AOSP on flame Build/QQ3A.200805.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/75.0.3770.156 Mobile Safari/537.36 aweme_140700 JsSdk/1.0 NetType/WIFI Channel/gdt_growth21_yybtp_tengxun AppName/aweme app_version/14.7.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/black AppTheme/dark TTWebView/0751130014013',
+				'type' => 'human',
+				'category' => 'mobile',
+				'device' => 'AOSP',
+				'model' => 'On Flame',
+				'build' => 'QQ3A.200805.001',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '75.0.3770.156',
+				'browser' => 'Chrome',
+				'browserversion' => '75.0.3770.156',
+				'language' => 'zh-CN',
+				'app' => 'Douyin',
+				'appname' => 'aweme',
+				'appversion' => '14.7.0',
+				'nettype' => 'WIFI',
+				'darkmode' => true,
+				'browserreleased' => '2019-07-15'
+			],
+			'Mozilla/5.0 (Linux; Android 14; KB2000 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/126.0.6478.71 Mobile Safari/537.36 aweme_320000 JsSdk/1.0 NetType/WIFI Channel/doutui_android_1128_81p6qc AppName/aweme app_version/32.0.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/white AppTheme/light BULLET/1 BytedanceWebview/d8a21c6 TTWebView/1261130062414' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 14; KB2000 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/126.0.6478.71 Mobile Safari/537.36 aweme_320000 JsSdk/1.0 NetType/WIFI Channel/doutui_android_1128_81p6qc AppName/aweme app_version/32.0.0 ByteLocale/zh-Hans-CN Region/CN AppSkin/white AppTheme/light BULLET/1 BytedanceWebview/d8a21c6 TTWebView/1261130062414',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'OnePlus',
+				'model' => 'KB2000',
+				'build' => 'AP2A.240905.003',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '14',
+				'engine' => 'Blink',
+				'engineversion' => '126.0.6478.71',
+				'browser' => 'Chrome',
+				'browserversion' => '126.0.6478.71',
+				'language' => 'zh-CN',
+				'app' => 'Douyin',
+				'appname' => 'aweme',
+				'appversion' => '32.0.0',
+				'nettype' => 'WIFI',
+				'darkmode' => false,
+				'browserreleased' => '2024-07-23'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -878,6 +1010,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Linux; Android 13; M2011K2C Build/TKQ1.220829.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/104.0.5112.97 Mobile Safari/537.36 Weibo (Xiaomi-Mi 11__weibo__13.9.4__android__android13)',
 				'type' => 'human',
 				'category' => 'mobile',
+				'vendor' => 'Xiaomi',
 				'model' => 'M2011K2C',
 				'build' => 'TKQ1.220829.002',
 				'kernel' => 'Linux',

@@ -54,8 +54,8 @@ final class languagesTest extends \PHPUnit\Framework\TestCase {
 				'platformversion' => '6.0.1',
 				'engine' => 'Blink',
 				'engineversion' => '79.0.3945.147',
-				'browser' => 'Chrome',
-				'browserversion' => '79.0.3945.147',
+				'browser' => 'MIUI Browser',
+				'browserversion' => '12.10.5-go',
 				'language' => 'en-GB',
 				'browserreleased' => '2020-01-16'
 			],

@@ -364,17 +364,6 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '80.0.345.0',
 				'browserreleased' => '2020-04-02'
 			],
-			'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)' => [
-				'string' => 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)',
-				'type' => 'robot',
-				'category' => 'crawler',
-				'app' => 'ByteDance Spider',
-				'appname' => 'Bytespider',
-				'url' => 'https://zhanzhang.toutiao.com/',
-				'platform' => 'Android',
-				'platformversion' => '5.0',
-				'kernel' => 'Linux'
-			],
 			'Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; PetalBot;+https://webmaster.petalsearch.com/site/petalbot)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; PetalBot;+https://webmaster.petalsearch.com/site/petalbot)',
 				'type' => 'robot',
@@ -873,6 +862,14 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Google Safety',
 				'appname' => 'Google-Safety',
 				'url' => 'http://www.google.com/bot.html'
+			],
+			'Wheregoes.com Redirect Checker/1.0' => [
+				'string' => 'Wheregoes.com Redirect Checker/1.0',
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'Wheregoes.com Redirect Checker',
+				'appname' => 'Wheregoes.com Redirect Checker',
+				'appversion' => '1.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1249,6 +1246,38 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'crawler',
 				'app' => 'Mixrank Bot',
 				'appname' => 'MixrankBot'
+			],
+			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.96 Safari/537.36 DatadogSynthetics' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.96 Safari/537.36 DatadogSynthetics',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Blink',
+				'engineversion' => '116.0.5845.96',
+				'browser' => 'Chrome',
+				'browserversion' => '116.0.5845.96',
+				'app' => 'Datadog Synthetics',
+				'appname' => 'DatadogSynthetics',
+				'browserreleased' => '2023-08-14'
+			],
+			'amazon-kendra-customer-id-78359eed0b12df1a4985067b27f154ba9cdabd0a87dad0abfea1bfce2d520d24fd3df3f70fec4eb666f51ea3967c2339' => [
+				'string' => 'amazon-kendra-customer-id-78359eed0b12df1a4985067b27f154ba9cdabd0a87dad0abfea1bfce2d520d24fd3df3f70fec4eb666f51ea3967c2339',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Amazon Bot',
+				'appname' => 'Amazon Kendra'
+			],
+			'omgili/0.5 +https://omgili.com' => [
+				'string' => 'omgili/0.5 +https://omgili.com',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Webz.io',
+				'appname' => 'omgili',
+				'appversion' => '0.5',
+				'url' => 'https://omgili.com'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1560,6 +1589,62 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'ChatGPT-User',
 				'appversion' => '1.0',
 				'url' => 'https://openai.com/bot'
+			],
+			'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'ByteDance Spider',
+				'appname' => 'Bytespider',
+				'url' => 'https://zhanzhang.toutiao.com/',
+				'platform' => 'Android',
+				'platformversion' => '5.0',
+				'kernel' => 'Linux'
+			],
+			'Mozilla/5.0 (compatible; ImagesiftBot; +imagesift.com)' => [
+				'string' => 'Mozilla/5.0 (compatible; ImagesiftBot; +imagesift.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Imagesift Bot',
+				'appname' => 'ImagesiftBot'
+			],
+			'meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)' => [
+				'string' => 'meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Meta External Agent',
+				'appname' => 'meta-externalagent',
+				'appversion' => '1.1',
+				'url' => 'https://developers.facebook.com/docs/sharing/webmasters/crawler'
+			],
+			'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729; Diffbot/0.1; +http://www.diffbot.com)' => [
+				'string' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729; Diffbot/0.1; +http://www.diffbot.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => 'XP',
+				'engine' => 'Gecko',
+				'engineversion' => '20090729',
+				'browser' => 'Firefox',
+				'browserversion' => '3.5.2',
+				'language' => 'en-US',
+				'app' => 'Diff Bot',
+				'appname' => 'Diffbot',
+				'appversion' => '0.1',
+				'framework' => '.NET Common Language Runtime',
+				'frameworkversion' => '3.5.30729',
+				'url' => 'http://www.diffbot.com',
+				'browserreleased' => '2009-06-30'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Perplexity Bot',
+				'appname' => 'PerplexityBot',
+				'appversion' => '1.0',
+				'url' => 'https://perplexity.ai/perplexitybot'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

@@ -67,6 +67,16 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '4.4.33576/191.308',
 				'language' => 'en',
 				'browserreleased' => '2000-06-28'
+			],
+			'NativeOperaMini(Spreadtrum/HW Version: sc6531efm_bar;Native Opera Mini/4.4.34868;en)' => [
+				'string' => 'NativeOperaMini(Spreadtrum/HW Version: sc6531efm_bar;Native Opera Mini/4.4.34868;en)',
+				'type' => 'human',
+				'engine' => 'Presto',
+				'engineversion' => '4.4.34868',
+				'browser' => 'Native Opera Mini',
+				'browserversion' => '4.4.34868',
+				'language' => 'en',
+				'browserreleased' => '2000-06-28'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -801,6 +811,23 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'mobile',
 				'language' => 'en-US',
 				'browserreleased' => '2021-11-18'
+			],
+			'Mozilla/5.0 (Linux; U; Android 7.0; zh-CN; SM-G9550 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.7.0.953 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; U; Android 7.0; zh-CN; SM-G9550 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.7.0.953 Mobile Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Samsung',
+				'model' => 'SM-G9550',
+				'build' => 'NRD90M',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '7.0',
+				'engine' => 'Blink',
+				'engineversion' => '40.0.2214.89',
+				'browser' => 'UCBrowser',
+				'browserversion' => '11.7.0.953',
+				'language' => 'zh-CN',
+				'browserreleased' => '2017-12-27'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1973,6 +2000,23 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'Avant Browser',
 				'appversion' => '1.2.789',
 				'url' => 'http://www.avantbrowser.com'
+			],
+			'Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; MI 4LTE Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 XiaoMi/MiuiBrowser/2.1.1' => [
+				'string' => 'Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; MI 4LTE Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 XiaoMi/MiuiBrowser/2.1.1',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Xiaomi',
+				'device' => 'MI',
+				'model' => '4LTE',
+				'build' => 'KTU84P',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '4.4.4',
+				'engine' => 'Blink',
+				'engineversion' => '39.0.0.0',
+				'browser' => 'MIUI Browser',
+				'browserversion' => '2.1.1',
+				'language' => 'zh-CN'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

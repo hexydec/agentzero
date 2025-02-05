@@ -38,7 +38,8 @@ class browsers {
 					'k-meleon' => 'K-Meleon',
 					'samsungbrowser' => 'Samsung Internet',
 					'huaweibrowser' => 'Huawei Browser',
-					'qqbrowser' => 'QQ Browser'
+					'qqbrowser' => 'QQ Browser',
+					'miuibrowser' => 'MIUI Browser'
 				];
 				$data = ['type' => 'human'];
 				$browser = \mb_strtolower(\array_shift($parts));
@@ -90,13 +91,8 @@ class browsers {
 			},
 		];
 		return [
-			'HeadlessChrome/' => new props('start', fn (string $value) : array => [
-				'type' => 'robot',
-				'category' => 'crawler',
-				'browser' => 'HeadlessChrome',
-				'browserversion' => \mb_substr($value, 15)
-			]),
 			'Opera Mini/' => new props('start', $fn['presto']),
+			'Native Opera Mini/' => new props('start', $fn['presto']),
 			'Opera/' => new props('start', $fn['presto']),
 			'OPR/' => new props('start', $fn['browserslash']),
 			'CriOS/' => new props('start', $fn['browserslash']),
@@ -133,7 +129,11 @@ class browsers {
 			'Falkon/' => new props('start', $fn['browserslash']),
 			'Namoroka/' => new props('start', $fn['browserslash']),
 			'CocCoc/' => new props('start', $fn['browserslash']),
+			'Obigo/' => new props('start', fn (string $value) : array => [
+				'browser' => 'Obigo'
+			]),
 			'QQBrowser/' => new props('any', fn (string $value) : array => $fn['browserslash'](\mb_substr($value, \mb_stripos($value, 'QQBrowser/') ?: 0))), // sometimes missing a space from previous declaration, and MQQBrowser for mobile.
+			'MiuiBrowser/' => new props('any', fn (string $value) : array => $fn['browserslash'](\mb_substr($value, \mb_stripos($value, 'MiuiBrowser/') ?: 0))),
 			'Lynx/' => new props('start', fn (string $value) : array => [
 				'browser' => 'Lynx',
 				'browserversion' => \explode('/', $value, 2)[1] ?? null,

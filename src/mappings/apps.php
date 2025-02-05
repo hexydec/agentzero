@@ -14,8 +14,8 @@ class apps {
 			'appslash' => function (string $value, int $i, array $tokens, string $match) : array {
 				if (\mb_stripos($value, 'AppleWebKit') === false && !\str_contains($value, '://')) {
 					$parts = \explode('/', $value, 4);
-					$offset = isset($parts[2]) ? 1 : 0;
-					$app = $parts[0 + $offset];
+					$offset = isset($parts[2]) && !\is_numeric($parts[1]) ? 1 : 0;
+					$app = \str_replace('GooglePlayStore ', '', $parts[0 + $offset]);
 					if (\mb_stripos($app, \rtrim($match, '/')) !== false) { // check the match is before the slash
 						return [
 							'app' => self::getApp($app),
@@ -114,10 +114,31 @@ class apps {
 				'appname' => 'Zoom',
 				'appversion' => \mb_substr($value, 5)
 			]),
+			'Reddit/' => new props('start', function (string $value, int $i, array $tokens) : array {
+				$os = !empty($tokens[$i+2]) ? \explode('/', $tokens[$i+2], 2) : null;
+				$parts = !empty($os[1]) ? \explode(' ', $os[1], 3) : null;
+				return [
+					'type' => 'human',
+					'app' => 'Reddit',
+					'appname' => 'Reddit',
+					'appversion' => $value === 'Reddit/Version' ? (\mb_strstr($tokens[$i+1], '/', true) ?: null) : \mb_substr($value, 7),
+					'platform' => $parts[0] ?? null,
+					'platformversion' => $tokens[$i+3] ?? null
+				];
+			}),
+			'Pinterest for ' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'app' => 'Pinterest',
+				'appname' => 'Pinterest',
+				'appversion' => \explode('/', $value, 3)[1],
+				'platform' => \mb_substr($value, 14, \mb_strpos($value, '/') - 14)
+			]),
 			'OculusBrowser/' => new props('start', $fn['appslash']),
 			'BaiduBrowser/' => new props('start', $fn['appslash']),
 			'bdhonorbrowser/' => new props('start', $fn['appslash']),
 			'YaBrowser/' => new props('start', $fn['appslash']),
+			'YaApp_iOS/' => new props('start', $fn['appslash']),
+			'YaApp_Android/' => new props('start', $fn['appslash']),
 			'choqok/' => new props('start', $fn['appslash']),
 			'Quora ' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
@@ -129,6 +150,68 @@ class apps {
 			'whisper/' => new props('start', $fn['appslash']),
 			'Teams/' => new props('start', $fn['appslash']),
 			'Viber/' => new props('start', $fn['appslash']),
+			'MXPlayer/' => new props('start', fn (string $value) : array => [
+				'app' => 'MXPlayer',
+				'appname' => 'MXPlayer',
+				'appversion' => \explode('/', $value, 3)[1] ?: null
+			]),
+			'Todoist-Android/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'platform' => 'Android',
+				'app' => 'Todoist',
+				'appname' => 'Todoist-Android',
+				'appversion' => \explode('/', $value, 3)[1] ?: null
+			]),
+			'Trello for Android/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'platform' => 'Android',
+				'app' => 'Trello',
+				'appname' => 'Trello for Android',
+				'appversion' => \explode('/', $value, 3)[1] ?: null
+			]),
+			'iPad PurpleMashApp' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'platform' => 'iOS',
+				'vendor' => 'Apple',
+				'device' => 'iPad',
+				'app' => 'Purple Mash',
+				'appname' => 'PurpleMashApp'
+			]),
+			'Instapaper for Android ' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'platform' => 'Android',
+				'app' => 'Instapaper',
+				'appname' => 'Instapaper',
+				'appversion' => \mb_substr($value, \mb_strrpos($value, ' ') + 1)
+			]),
+			'Instapaper' => new props('start', fn (string $value, int $i, array $tokens, string $match) => \array_merge([
+				'type' => 'human'
+			], $fn['appslash']($value, $i, $tokens, $match))),
+			'Player/LG' => new props('start', function (string $value, int $i, array $tokens) : ?array {
+				if (\str_starts_with($tokens[$i+1], 'Player ')) {
+					$parts = \explode(' ', $tokens[$i+1]);
+					$device = $i === 1 ? \explode('/', $tokens[0]) : null;
+					return [
+						'type' => 'human',
+						'vendor' => 'LG',
+						'device' => $device[0] ?? null,
+						'model' => $device[1] ?? null,
+						'app' => 'LG Player',
+						'appname' => 'LG Player',
+						'appversion' => $parts[1] ?? null,
+						'platform' => $parts[3] ?? null,
+						'platformversion' => $parts[4] ?? null
+					];
+				}
+				return null;
+			}),
+			'RobloxApp/' => new props('any', $fn['appslash']),
+			'Nexo/' => new props('start', $fn['appslash']),
+			'nu.nl/' => new props('any', fn (string $value) : array => [
+				'app' => 'nu.nl',
+				'appname' => 'nu.nl',
+				'appversion' => \mb_substr($value, 6)
+			]),
 			'Google Web Preview' => new props('start', $fn['appslash']),
 			'MicroMessenger/' => new props('start', $fn['appslash']),
 			'MicroMessenger Weixin QQ' => new props('start', fn () : array => [
@@ -281,10 +364,16 @@ class apps {
 			}),
 
 			// TikTok
-			'AppName/' => new props('start', fn(string $value) : array => [
-				'app' => $value === 'AppName/musical_ly' ? 'TikTok' : \mb_substr($value, 8),
-				'appname' => \mb_substr($value, 8)
-			]),
+			'AppName/' => new props('start', function (string $value) : array {
+				$map = [
+					'AppName/musical_ly' => 'TikTok',
+					'AppName/aweme' => 'Douyin'
+				];
+				return [
+					'app' => $map[$value] ?? \mb_substr($value, 8),
+					'appname' => \mb_substr($value, 8)
+				];
+			}),
 			'app_version/' => new props('start', fn(string $value) : array => [
 				'appversion' => \mb_substr($value, 12)
 			]),
@@ -295,6 +384,10 @@ class apps {
 				'app' => 'TikTok',
 				'appname' => 'musical_ly',
 				'appversion' => \str_replace('_', '.', \mb_substr(\explode(' ', $value, 2)[0], 11))
+			]),
+			'Android App' => new props('any', [
+				'type' => 'human',
+				'platform' => 'Android'
 			]),
 				
 			// generic
@@ -308,6 +401,7 @@ class apps {
 			'YaApp_Android' => 'Yandex',
 			'YaSearchApp' => 'Yandex',
 			'YaBrowser' => 'Yandex',
+			'YaSearchBrowser' => 'Yandex',
 			'LinkedInApp' => 'LinkedIn',
 			'[LinkedInApp]' => 'LinkedIn',
 			'GoogleApp' => 'Google',
@@ -329,7 +423,8 @@ class apps {
 			'baiduboxapp' => 'Baidu',
 			'lite baiduboxapp' => 'Baidu',
 			'baidubrowser' => 'Baidu',
-			'bdhonorbrowser' => 'Baidu'
+			'bdhonorbrowser' => 'Baidu',
+			'RobloxApp' => 'Roblox'
 		];
 		if (isset($map[$value])) {
 			return $map[$value];

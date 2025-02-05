@@ -19,7 +19,7 @@ class categories {
 				'type' => 'human',
 				'category' => 'mobile'
 			]),
-			'Phone' => new props('exact', [
+			'Phone' => new props('any', [
 				'type' => 'human',
 				'category' => 'mobile'
 			]),
@@ -28,6 +28,14 @@ class categories {
 				'category' => 'mobile'
 			]),
 			'Tablet' => new props('exact', [
+				'type' => 'human',
+				'category' => 'tablet'
+			]),
+			'TAB ' => new props('start', [
+				'type' => 'human',
+				'category' => 'tablet'
+			]),
+			'TAB_' => new props('start', [
 				'type' => 'human',
 				'category' => 'tablet'
 			]),

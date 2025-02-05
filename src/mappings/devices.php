@@ -123,6 +123,7 @@ class devices {
 			'Xbox One' => new props('exact', $fn['xbox']),
 			'Xbox 360' => new props('exact', $fn['xbox']),
 			'Xbox' => new props('exact', $fn['xbox']),
+			'Playstation 3' => new props('start', $fn['playstation']),
 			'Playstation 4' => new props('start', $fn['playstation']),
 			'Playstation 5' => new props('start', $fn['playstation']),
 			'Playstation Vita' => new props('start', fn (string $value) : array => [
@@ -284,13 +285,21 @@ class devices {
 					'vendor' => 'LG'
 				];
 			}),
-			'NOKIA' => new props('start', function (string $value) : array {
-				return \array_merge(devices::getDevice($value), [
+			'LG-' => new props('start', function (string $value) : array {
+				$parts = \explode('/', \mb_substr($value, 3), 3);
+				return [
 					'type' => 'human',
 					'category' => 'mobile',
-					'vendor' => 'Nokia',
-				]);
+					'vendor' => 'LG',
+					'model' => \explode(' ', $parts[0])[0],
+					'build' => $parts[1] ?? null
+				];
 			}),
+			'NOKIA' => new props('start', fn (string $value) : array => \array_merge(devices::getDevice($value), [
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Nokia',
+			])),
 			'Lumia' => new props('start', fn (string $value) : array => \array_merge(devices::getDevice($value), [
 				'type' => 'human',
 				'category' => 'mobile',
@@ -302,12 +311,21 @@ class devices {
 				'vendor' => 'Sony',
 				'device' => 'Bravia'
 			]),
-			'TECNO' => new props('start', fn (string $value) : array =>  [
+			'TECNO' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
 				'category' => 'mobile',
 				'vendor' => 'Tecno',
 				'model' => \explode(' ', \str_replace('-', ' ', $value), 2)[1] ?? null
 			]),
+			'Xiaomi' => new props('start', function (string $value, int $i, array $tokens) : array {
+				return [
+					'type' => 'human',
+					'vendor' => 'Xiaomi',
+					'device' => \mb_stripos($value, 'Poco') !== false ? 'Poco' : null,
+					'model' => \mb_stripos($value, 'Xiaomi-Mi') !== 0 ? (\explode(' ', $value)[1] ?? null) : null,
+					'platformversion' => \is_numeric($tokens[$i+1] ?? null) ? $tokens[$i+1] : null
+				];
+			}),
 			'ThinkPad' => new props('start', function (string $value, int $i, array $tokens) : array {
 				if (\mb_strpos($tokens[++$i] ?? '', 'Build/') === 0) {
 					$device = \explode('_', \mb_substr($tokens[$i], 6));
@@ -331,16 +349,25 @@ class devices {
 					'platformversion' => $parts[1] ?? null
 				];
 			}),
+			'CUBOT' => new props('exact', fn () : array => [
+				'type' => 'human',
+				'vendor' => 'Cubot'
+			]),
 			'Model/' => new props('start', fn (string $value) : array => [
 				'model' => \mb_substr($value, 6)
 			]),
 			'Build/' => new props('any', fn (string $value) : array => self::getDevice($value)),
 			'x' => new props('any', function (string $value) : ?array {
+				if (\str_contains($value, '@')) {
+					$dpi = \explode('@', $value);
+					$value = $dpi[0];
+				}
 				$parts = \explode('x', $value);
 				if (!isset($parts[2]) && \is_numeric($parts[0]) && \is_numeric($parts[1]) && !empty($parts[0]) && !empty($parts[1])) {
 					return [
 						'width' => \intval($parts[0]),
-						'height' => \intval($parts[1])
+						'height' => \intval($parts[1]),
+						'density' => isset($dpi[1]) ? \floatval(\rtrim($dpi[1], 'x')) : null
 					];
 				}
 				return null;
@@ -375,6 +402,7 @@ class devices {
 			'SM-' => 'Samsung',
 			'LM-' => 'LG',
 			'LG' => 'LG',
+			'LG-' => 'LG',
 			'RealMe' => 'RealMe',
 			'RMX' => 'RealMe',
 			'HTC' => 'HTC',
@@ -398,6 +426,7 @@ class devices {
 			'Infinix' => 'Infinix',
 			'Poco' => 'Poco',
 			'Cubot' => 'Cubot',
+			'Kingkong' => 'Cubot',
 			'Nokia' => 'Nokia'
 		];
 
@@ -414,7 +443,7 @@ class devices {
 				break;
 			}
 		}
-		$model = \explode(' ', $parts[0], 2);
+		$model = \explode(' ', \str_replace('_', ' ', $parts[0]), 2);
 		$device = $model[0] !== '' && \ctype_alpha($model[0]) ? \ucfirst($model[0]) : null; // device name if only letters
 		$model = $device === null ? \implode(' ', $model) : ($model[1] ?? null); // reconstruct remainder of device name
 

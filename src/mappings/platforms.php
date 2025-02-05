@@ -152,6 +152,14 @@ class platforms {
 				}
 				return $fn['platformwindows']($value);
 			}),
+			'MacOS/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'desktop',
+				'vendor' => 'Apple',
+				'platform' => 'MacOS',
+				'platformversion' => \mb_substr($value, 6),
+				'bits' => 64
+			]),
 			'Mac OS X' => new props('any', function (string $value) : array {
 				$version = \str_replace('_', '.', \mb_substr($value, \mb_stripos($value, 'Mac OS X') + 9));
 				$register = $version && \intval(\explode('.', $version)[1] ?? 0) >= 6 ? 64 : null;
@@ -182,6 +190,12 @@ class platforms {
 				'category' => 'mobile',
 				'platform' => 'iOS',
 				'platformversion' => \str_replace('_', '.', \mb_substr($value, 4))
+			]),
+			'iOS' => new props('exact', fn (string $value, int $i, array $tokens) : array => [
+				'type' => 'human',
+				'category' => 'mobile',
+				'platform' => 'iOS',
+				'platformversion' => $tokens[$i+1]
 			]),
 			'CrOS' => new props('start', function (string $value) : array {
 				$parts = \explode(' ', $value);
@@ -341,6 +355,11 @@ class platforms {
 				];
 			}),
 			'Android' => new props('exact', $fn['android']),
+			'Android/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'platform' => 'Android',
+				'platformversion' => \explode('/', $value, 3)[1] ?: null
+			]),
 			'Android ' => new props('start', $fn['android']),
 			'Linux' => new props('any', function (string $value, int $i, array $tokens) : array {
 				return [

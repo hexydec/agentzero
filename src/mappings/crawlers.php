@@ -37,7 +37,6 @@ class crawlers {
 				'duckduckgo-favicons-bot' => 'search',
 				'coccocbot-image' => 'search',
 				'coccocbot-web' => 'search',
-				'applebot' => 'ai',
 				'yandexbot' => 'search',
 				'mj12bot' => 'search',
 				'mail.ru_bot' => 'search',
@@ -68,7 +67,7 @@ class crawlers {
 				'yisouspider' => 'search',
 				'360spider' => 'search',
 				'sogou web spider' => 'search',
-				'bytespider' => 'crawler',
+				'bytespider' => 'ai',
 				'claudebot' => 'ai',
 				'gptbot' => 'ai',
 				'diffbot' => 'ai',
@@ -78,7 +77,8 @@ class crawlers {
 				'youbot' => 'ai',
 				'iaskbot' => 'ai',
 				'ccbot' => 'crawler',
-				'wpbot' => 'ai'
+				'wpbot' => 'ai',
+				'imagesiftbot' => 'ai'
 			];
 			$apps = [
 				'googlebot' => 'Google Bot',
@@ -102,7 +102,7 @@ class crawlers {
 				'twitterbot' => 'TwitterBot',
 				'discordbot' => 'DiscordBot',
 				'sematextsyntheticsrobot' => 'Sematext Synthetics Robot',
-				'bitlybot' =>  'Bit.ly Bot',
+				'bitlybot' => 'Bit.ly Bot',
 				'webprosbot' => 'WebprosBot',
 				'mediatoolkitbot' => 'MediaToolkit Bot',
 				'cfnetwork' => 'Apple Core Foundation Network',
@@ -113,6 +113,9 @@ class crawlers {
 				'google-pagerenderer google' => 'Google Page Renderer',
 				'pingdomtms' => 'Pingdom Bot',
 				'facebookexternalhit' => 'Facebook URL Preview',
+				'facebookcatalog' => 'Facebook',
+				'meta-externalagent' => 'Meta External Agent',
+				'meta-externalfetcher' => 'Meta External Fetcher',
 				'phxbot' => 'ProtonMail Bot',
 				'monitoring360bot' => 'Monitoring360 Bot',
 				'cloudflare-healthchecks' => 'Cloudflare Health Checks',
@@ -157,7 +160,6 @@ class crawlers {
 				'baiduspider-image+' => 'Baidu Spider',
 				'baiduspider-render' => 'Baidu Spider',
 				'baiduspider-ads' => 'Baidu Spider',
-				'amazon-kendra' => 'Amazon Bot',
 				'amazon-qbusiness' => 'Amazon Bot',
 				'amazon cloudfront' => 'Amazon Bot',
 				'amazonbot-video' => 'Amazon Bot',
@@ -166,7 +168,8 @@ class crawlers {
 				'wordpress.com' => 'WordPress',
 				'p3p validator' => 'P3P Validator',
 				'w3c-checklink' => 'W3C Checklink',
-				'w3c_validator' => 'W3C Validator'
+				'w3c_validator' => 'W3C Validator',
+				'omgili' => 'Webz.io'
 			];
 			
 			$lower = \mb_strtolower($parts[0]);
@@ -182,7 +185,7 @@ class crawlers {
 		return [];
 	}
 
-	protected static function normaliseAppname(string $name) {
+	public static function normaliseAppname(string $name) : string {
 		$find = ['_', '-', '+', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 		$replace = [' ', ' ', '', ' A', ' B', ' C', ' D', ' E', ' F', ' G', ' H', ' I', ' J', ' K', ' L', ' M', ' N', ' O', ' P', ' Q', ' R', ' S', ' T', ' U', ' V', ' W', ' X', ' Y', ' Z'];
 		$name = \trim(\str_replace($find, $replace, $name));
@@ -233,6 +236,12 @@ class crawlers {
 				'type' => 'robot',
 				'category' => 'scraper'
 			]),
+			'HeadlessChrome/' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'crawler',
+				'browser' => 'HeadlessChrome',
+				'browserversion' => \mb_substr($value, 15)
+			]),
 			'Yahoo! Slurp' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'search',
@@ -275,7 +284,12 @@ class crawlers {
 					'appversion' => $parts[1] ?? null
 				];
 			}),
-			'amazon-kendra' => new props('exact', $fn['crawler']),
+			'amazon-kendra' => new props('start', fn () : array => [
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Amazon Bot',
+				'appname' => 'Amazon Kendra'
+			]),
 			'amazon-QBusiness' => new props('exact', $fn['ai']),
 			'amazon CloudFront' => new props('exact', $fn['validator']),
 			'Amazonbot-Video/' => new props('start', $fn['crawler']),
@@ -425,6 +439,7 @@ class crawlers {
 			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
 			'SEO-Macroscope/' => new props('start', $fn['validator']),
 			'Electronic Frontier Foundation\'s Do Not Track Verifier' => new props('exact', $fn['validator']),
+			'Barracuda Sentinel' => new props('start', $fn['validator']),
 			'Expanse' => new props('start', $fn['crawler']),
 			'eCairn-Grabber/' => new props('start', $fn['scraper']),
 			'SEOkicks' => new props('exact', $fn['crawler']),
@@ -439,8 +454,15 @@ class crawlers {
 			'URL Preview' => new props('any', $fn['feed']),
 			'Link Preview' => new props('any', $fn['feed']),
 			'ApacheBench/' => new props('start', $fn['validator']),
+			'Wheregoes.com Redirect Checker/' => new props('start', $fn['validator']),
 			'Asana/' => new props('start', $fn['feed']),
-			'Java/' => new props('start', $fn['scraper']),
+			'Java/' => new props('any', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'scraper',
+				'app' => 'Java',
+				'appname' => $value,
+				'appversion' => \explode('/', $value, 3)[1]
+			]),
 			'curl/' => new props('any', $fn['scraper']),
 			'Wget/' => new props('start', $fn['scraper']),
 			'rest-client/' => new props('start', $fn['scraper']),
@@ -450,7 +472,8 @@ class crawlers {
 			'cpp-httplib/' => new props('start', $fn['scraper']),
 			'Dart/' => new props('start', $fn['scraper']),
 			'Deno/' => new props('start', $fn['scraper']),
-			'libwww-perl/' => new props('start', $fn['scraper']),
+			'Datadog' => new props('start', $fn['scraper']),
+			// 'libwww-perl/' => new props('start', $fn['scraper']),
 			'http/' => new props('start', $fn['scraper']),
 			'Cpanel-HTTP-Client/' => new props('start', $fn['scraper']),
 			'http-client/' => new props('any', $fn['scraper']),
@@ -459,8 +482,11 @@ class crawlers {
 			'OAI-SearchBot/' => new props('start', $fn['search']),
 			'Google-Extended' => new props('start', $fn['ai']),
 			'ChatGPT-User/' => new props('start', $fn['ai']),
+			'Cohere' => new props('start', $fn['ai']),
 			'facebookexternalhit/' => new props('start', $fn['feed']),
-			'facebookcatalog/' => new props('start', $fn['feed']),
+			'facebookcatalog/' => new props('start', $fn['crawler']),
+			'meta-externalagent' => new props('start', $fn['ai']),
+			'meta-externalfetcher' => new props('start', $fn['feed']),
 			'Validator' => new props('any', $fn['validator']),
 			'feed' => new props('any', $fn['feed']),
 			'bot/' => new props('any', $fn['map']),
