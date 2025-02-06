@@ -12,10 +12,10 @@ final class frameworksTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
 				'browser' => 'Opera Mini',
-				'browserversion' => '4.4.33576/191.296',
+				'browserversion' => '4.4.33576',
 				'language' => 'en',
 				'framework' => 'MAUI',
-				'browserreleased' => '2000-06-28'
+				'browserreleased' => '2008-10-08'
 			],
 			'Mozilla/5.0 (Linux; Android 12; moto g play - 2023 Build/S3SGS32.39-181-5; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 298.0.0.31.110 Android (31/12; 280dpi; 720x1439; motorola; moto g play - 2023; maui; mt6765; en_US; 510206622)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 12; moto g play - 2023 Build/S3SGS32.39-181-5; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 298.0.0.31.110 Android (31/12; 280dpi; 720x1439; motorola; moto g play - 2023; maui; mt6765; en_US; 510206622)',

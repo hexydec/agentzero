@@ -32,9 +32,10 @@ class props {
 	 * @param string $search The string to match
 	 * @param array<string> $tokens An array of tokens
 	 * @param array<string> $tokenslower The same array of tokens, but with te values lowercased
+	 * @param array<mixed> $config A configuration array
 	 * @return void
 	 */
-	public function match(\stdClass $obj, string $search, array $tokens, array $tokenslower) : void {
+	public function match(\stdClass $obj, string $search, array $tokens, array $tokenslower, array $config = []) : void {
 		$type = $this->type;
 		$searchlower = \mb_strtolower($search);
 		foreach ($tokenslower AS $i => $item) {
@@ -43,7 +44,7 @@ class props {
 				// match exact string
 				case 'exact':
 					if ($item === $searchlower) {
-						$this->set($obj, $tokens[$i], $i, $tokens, $search);
+						$this->set($obj, $tokens[$i], $i, $tokens, $search, $config);
 						break 2;
 					} else {
 						break;
@@ -52,21 +53,21 @@ class props {
 				// match from start of string
 				case 'start':
 					if (\str_starts_with($item, $searchlower)) {
-						$this->set($obj, $tokens[$i], $i, $tokens, $search);
+						$this->set($obj, $tokens[$i], $i, $tokens, $search, $config);
 					}
 					break;
 
 				// match anywhere in the string
 				case 'any':
 					if (\str_contains($item, $searchlower)) {
-						$this->set($obj, $tokens[$i], $i, $tokens, $search);
+						$this->set($obj, $tokens[$i], $i, $tokens, $search, $config);
 					}
 					break;
 
 				// match end of token
 				case 'end':
 					if (\str_ends_with($item, $searchlower)) {
-						$this->set($obj, $tokens[$i], $i, $tokens, $search);
+						$this->set($obj, $tokens[$i], $i, $tokens, $search, $config);
 					}
 					break;
 			}
@@ -83,10 +84,10 @@ class props {
 	 * @param string $key The string that was matched in the token
 	 * @return void
 	 */
-	protected function set(\stdClass $obj, string $value, int $i, array $tokens, string $key) : void {
+	protected function set(\stdClass $obj, string $value, int $i, array $tokens, string $key, array $config = []) : void {
 		$props = $this->props;
 		if ($props instanceof \Closure) {
-			$props = $props($value, $i, $tokens, $key);
+			$props = $props($value, $i, $tokens, $key, $config);
 		}
 		if (\is_array($props)) {
 			foreach ($props AS $key => $item) {

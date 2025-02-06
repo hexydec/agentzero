@@ -358,7 +358,7 @@ final class architecturesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Safari',
 				'browserversion' => '5.0',
 				'language' => 'en-US',
-				'browserreleased' => '2010-06-31'
+				'browserreleased' => '2010-07-01'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

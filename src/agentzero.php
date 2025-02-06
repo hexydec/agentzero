@@ -191,12 +191,13 @@ class agentzero {
 	 * Parses a User Agent string
 	 * 
 	 * @param string $ua The User Agent string to be parsed
+	 * @param array $config An array of configuration keys 
 	 * @return agentzero|false An agentzero object containing the parsed values of the input UA, or false if it could not be parsed
 	 */
-	public static function parse(string $ua) : agentzero|false {
+	public static function parse(string $ua, array $config = []) : agentzero|false {
 		if (($ua = \preg_replace('/\s{2,}/', ' ', $ua)) === null) {
 
-		} elseif (($config = config::get()) === null) {
+		} elseif (($config = config::get($config)) === null) {
 
 		} elseif (($tokens = self::getTokens(\trim($ua, ' "\''), $config['single'], $config['ignore'])) !== false) {
 
@@ -204,7 +205,7 @@ class agentzero {
 			$browser = new \stdClass();
 			$tokenslower = \array_map('mb_strtolower', $tokens);
 			foreach ($config['match'] AS $key => $item) {
-				$item->match($browser, $key, $tokens, $tokenslower);
+				$item->match($browser, $key, $tokens, $tokenslower, $config);
 			}
 
 			// default information

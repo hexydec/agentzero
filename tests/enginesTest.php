@@ -118,9 +118,9 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
 				'browser' => 'Opera Mini',
-				'browserversion' => '4.2.13918/191.286',
+				'browserversion' => '4.2.13918',
 				'language' => 'en',
-				'browserreleased' => '2000-06-28'
+				'browserreleased' => '2008-10-08'
 			],
 			'Opera/9.80 (Windows NT 6.1; U; en-GB) Presto/2.7.62 Version/11.00' => [
 				'string' => 'Opera/9.80 (Windows NT 6.1; U; en-GB) Presto/2.7.62 Version/11.00',
@@ -145,9 +145,9 @@ final class enginesTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
 				'browser' => 'Opera Mini',
-				'browserversion' => '4.4.32739/191.293',
+				'browserversion' => '4.4.32739',
 				'language' => 'en',
-				'browserreleased' => '2000-06-28'
+				'browserreleased' => '2008-10-08'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

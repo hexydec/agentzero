@@ -40,9 +40,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
 				'browser' => 'Opera Mini',
-				'browserversion' => '4.4.33961/191.286',
+				'browserversion' => '4.4.33961',
 				'language' => 'en',
-				'browserreleased' => '2000-06-28'
+				'browserreleased' => '2008-10-08'
 			],
 			'Opera/9.80 (Android; Opera Mini/7.7.40394/191.293; U; en) Presto/2.12.423 Version/12.16' => [
 				'string' => 'Opera/9.80 (Android; Opera Mini/7.7.40394/191.293; U; en) Presto/2.12.423 Version/12.16',
@@ -52,9 +52,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '2.12.423',
 				'type' => 'human',
 				'browser' => 'Opera Mini',
-				'browserversion' => '7.7.40394/191.293',
+				'browserversion' => '7.7.40394',
 				'language' => 'en',
-				'browserreleased' => '2004-05-12'
+				'browserreleased' => '2008-10-08'
 			],
 			'Opera/9.80 (MAUI Runtime; Opera Mini/4.4.33576/191.308; U; en) Presto/2.12.423 Version/12.16' => [
 				'string' => 'Opera/9.80 (MAUI Runtime; Opera Mini/4.4.33576/191.308; U; en) Presto/2.12.423 Version/12.16',
@@ -64,9 +64,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
 				'browser' => 'Opera Mini',
-				'browserversion' => '4.4.33576/191.308',
+				'browserversion' => '4.4.33576',
 				'language' => 'en',
-				'browserreleased' => '2000-06-28'
+				'browserreleased' => '2008-10-08'
 			],
 			'NativeOperaMini(Spreadtrum/HW Version: sc6531efm_bar;Native Opera Mini/4.4.34868;en)' => [
 				'string' => 'NativeOperaMini(Spreadtrum/HW Version: sc6531efm_bar;Native Opera Mini/4.4.34868;en)',
@@ -109,9 +109,9 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Presto',
 				'engineversion' => '2.12.423',
 				'browser' => 'Opera Mini',
-				'browserversion' => '4.2.13918/191.286',
+				'browserversion' => '4.2.13918',
 				'language' => 'en',
-				'browserreleased' => '2000-06-28'
+				'browserreleased' => '2008-10-08'
 			],
 			'Opera/9.80 (X11; Linux zvav; U; en) Presto/2.12.423 Version/12.16' => [
 				'string' => 'Opera/9.80 (X11; Linux zvav; U; en) Presto/2.12.423 Version/12.16',
