@@ -442,7 +442,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '110.0.100.0',
 				'engine' => 'Blink',
 				'engineversion' => '109.0.0.0',
-				'browserreleased' => '2023-02-09'
+				'browserreleased' => '2023-03-23'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Xbox; Xbox 360) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Xbox; Xbox 360) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
@@ -477,7 +477,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '114.0.1823.67',
 				'engine' => 'Blink',
 				'engineversion' => '114.0.0.0',
-				'browserreleased' => '2023-06-02'
+				'browserreleased' => '2023-06-29'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -674,7 +674,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '112.5.1',
 				'engine' => 'Blink',
 				'engineversion' => '112.0.5615.213',
-				'browserreleased' => '2023-06-12'
+				'browserreleased' => '2023-04-26'
 			],
 			'Mozilla/5.0 (Linux; Android 9; AFTKA) AppleWebKit/537.36 (KHTML, like Gecko) Silk/112.5.1 like Chrome/112.0.5615.213 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 9; AFTKA) AppleWebKit/537.36 (KHTML, like Gecko) Silk/112.5.1 like Chrome/112.0.5615.213 Safari/537.36',
@@ -690,7 +690,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '112.5.1',
 				'engine' => 'Blink',
 				'engineversion' => '112.0.5615.213',
-				'browserreleased' => '2023-06-12'
+				'browserreleased' => '2023-04-26'
 			],
 			'Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.225 Safari/537.36 CrKey/1.56.500000,gzip(gfe),gzip(gfe)' => [
 				'string' => 'Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.225 Safari/537.36 CrKey/1.56.500000,gzip(gfe),gzip(gfe)',

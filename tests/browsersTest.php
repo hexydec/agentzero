@@ -1637,7 +1637,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '108.0.1462.76',
 				'engine' => 'Blink',
 				'engineversion' => '108.0.0.0',
-				'browserreleased' => '2022-12-05'
+				'browserreleased' => '2023-01-05'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) EdgiOS/108.0.1462.62 Version/16.0 Mobile/15E148 Safari/604.1' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) EdgiOS/108.0.1462.62 Version/16.0 Mobile/15E148 Safari/604.1',
@@ -1655,7 +1655,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'browser' => 'Edge',
 				'browserversion' => '108.0.1462.62',
-				'browserreleased' => '2022-12-05'
+				'browserreleased' => '2023-01-26'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.22621' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.22621',

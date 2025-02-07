@@ -97,7 +97,7 @@ class agentzero {
 		$this->browser = $data->browser ?? null;
 		$this->browserversion = $data->browserversion ?? null;
 		$this->browserstatus = $data->browserstatus ?? null;
-		$this->browserreleased = $data->browserreleased ?? null;
+		$this->browserreleased = !empty($data->browserreleased) ? $data->browserreleased : null;
 		$this->browserlatest = $data->browserlatest ?? null;
 		$this->language = $data->language ?? null;
 

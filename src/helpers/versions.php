@@ -37,14 +37,20 @@ class versions {
 		return $data ?? false;
 	}
 
-	protected static function latest(array $versions, ?\DateTime $now = null) : string {
+	protected static function latest(array $versions, ?\DateTime $now = null) : ?string {
 
 		// no date restriction
 		if ($now === null) {
 			return \strval(\array_key_first($versions));
 		} else {
-
+			$date = \intval($now->format('Ymd'));
+			foreach ($versions AS $key => $item) {
+				if ($date < $item) {
+					return \strval($key);
+				}
+			}
 		}
+		return null;
 	}
 
 	protected static function released(array $data, string $version) : ?string {
@@ -85,6 +91,7 @@ class versions {
 				// check if version is greater than latest version
 				$major = \intval($version);
 				$latest = \intval($data['browserlatest']);
+				$first = \intval(\array_key_last($versions[$browser]));
 
 				// version is way out of bounds (This happens sometimes, for example if the safari engine version is reported instead of the browser version)
 				if ($latest + 3 < $major) {
@@ -101,6 +108,10 @@ class versions {
 				// beta release
 				} elseif ($latest + 1 === $major) {
 					$data['browserstatus'] = 'beta';
+
+				// so old we don't have data for it
+				} elseif ($major < $first) {
+					$data['browserstatus'] = 'legacy';
 
 				// find closes match for version
 				} else {
@@ -129,10 +140,6 @@ class versions {
 						} else {
 							$data['browserstatus'] = 'previous';
 						}
-
-					// version wasn't listed - ancient
-					} else {
-						$data['browserstatus'] = 'legacy';
 					}
 				}
 			}

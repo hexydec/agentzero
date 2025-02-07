@@ -93,7 +93,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '114.0.0.0',
 				'bits' => 64,
-				'browserreleased' => '2023-06-02'
+				'browserreleased' => '2023-06-22'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/99.0.0.0' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 OPR/99.0.0.0',
@@ -123,7 +123,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '114.0.0.0',
 				'bits' => 64,
-				'browserreleased' => '2023-06-02'
+				'browserreleased' => '2023-07-13'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
@@ -166,7 +166,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '114.0.0.0',
 				'bits' => 64,
-				'browserreleased' => '2023-06-02'
+				'browserreleased' => '2023-06-29'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; rv:114.0) Gecko/20100101 Firefox/114.0' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; rv:114.0) Gecko/20100101 Firefox/114.0',
@@ -224,7 +224,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '114.0.0.0',
 				'bits' => 64,
-				'browserreleased' => '2023-06-02'
+				'browserreleased' => '2023-06-15'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.79' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.79',
@@ -239,7 +239,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '114.0.0.0',
 				'bits' => 64,
-				'browserreleased' => '2023-06-02'
+				'browserreleased' => '2023-08-07'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0',
