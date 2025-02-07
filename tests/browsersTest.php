@@ -2017,6 +2017,20 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'MIUI Browser',
 				'browserversion' => '2.1.1',
 				'language' => 'zh-CN'
+			],
+			'Mozilla/5.0 (Linux; Android 14; V2202; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.141 Mobile Safari/537.36 VivoBrowser/12.2.0.2' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 14; V2202; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.141 Mobile Safari/537.36 VivoBrowser/12.2.0.2',
+				'type' => 'human',
+				'category' => 'mobile',
+				'model' => 'V2202',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '14',
+				'engine' => 'Blink',
+				'engineversion' => '87.0.4280.141',
+				'browser' => 'Vivo Browser',
+				'browserversion' => '12.2.0.2',
+				'browserreleased' => '2021-01-06'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

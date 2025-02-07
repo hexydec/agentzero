@@ -30,7 +30,8 @@ class browsers {
 			'samsungbrowser' => 'Samsung Internet',
 			'huaweibrowser' => 'Huawei Browser',
 			'qqbrowser' => 'QQ Browser',
-			'miuibrowser' => 'MIUI Browser'
+			'miuibrowser' => 'MIUI Browser',
+			'vivobrowser' => 'Vivo Browser'
 		];
 		$data = ['type' => 'human'];
 		$browser = \mb_strtolower(\array_shift($parts));
@@ -144,6 +145,7 @@ class browsers {
 			'Namoroka/' => new props('start', $fn['browserslash']),
 			'CocCoc/' => new props('start', $fn['browserslash']),
 			'Obigo/' => new props('start', $fn['browserslash']),
+			'VivoBrowser/' => new props('start', $fn['browserslash']),
 			'QQBrowser/' => new props('any', function (string $value, int $i, array $tokens, string $key, array $config = []) use ($fn) : array {
 				return $fn['browserslash'](\mb_substr($value, \mb_stripos($value, 'QQBrowser/') ?: 0), $i, $tokens, $key, $config); // sometimes missing a space from previous declaration, and MQQBrowser for mobile.
 			}),

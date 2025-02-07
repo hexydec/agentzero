@@ -114,8 +114,12 @@ class versions {
 						$released = new \DateTime($data['browserreleased']);
 
 						// legacy
-						if ($released < \date_create('-3 years')) {
+						if ($released < \date_create('-5 years')) {
 							$data['browserstatus'] = 'legacy';
+
+						// outdated
+						} elseif ($released < \date_create('-2 years')) {
+							$data['browserstatus'] = 'outdated';
 
 						// current
 						} elseif ($current && ($released >= \date_create('-1 year') || $data['browserlatest'] === $version)) {

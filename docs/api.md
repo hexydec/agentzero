@@ -112,7 +112,8 @@ The current status of the browser:
 - `beta`: A beta build of the browser
 - `current`: The browser is the current version
 - `previous`: The browser is a previous version
-- `legacy`: The browser was released more than 3 years ago
+- `outdated`: The browser was release 2 or more years ago
+- `legacy`: The browser was released more than 5 years ago
 
 The browser status is determined by the version number and age of the browser, if the browser is more than 3 years old, it is considered legacy.
 
