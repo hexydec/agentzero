@@ -194,7 +194,7 @@ class agentzero {
 	 * @param array $config An array of configuration keys 
 	 * @return agentzero|false An agentzero object containing the parsed values of the input UA, or false if it could not be parsed
 	 */
-	public static function parse(string $ua, array $config = []) : agentzero|false {
+	public static function parse(string $ua, array $hints = [], array $config = []) : agentzero|false {
 		if (($ua = \preg_replace('/\s{2,}/', ' ', $ua)) === null) {
 
 		} elseif (($config = config::get($config)) === null) {
@@ -202,8 +202,8 @@ class agentzero {
 		} elseif (($tokens = self::getTokens(\trim($ua, ' "\''), $config['single'], $config['ignore'])) !== false) {
 
 			// extract UA info
-			$browser = new \stdClass();
-			$tokenslower = \array_map('mb_strtolower', $tokens);
+			$browser = hints::parse($hints);
+			$tokenslower = \array_map('\\mb_strtolower', $tokens);
 			foreach ($config['match'] AS $key => $item) {
 				$item->match($browser, $key, $tokens, $tokenslower, $config);
 			}

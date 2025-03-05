@@ -1,13 +1,45 @@
 <?php
 require(__DIR__.'/src/autoload.php');
 
-if (!empty($_POST['ua'])) {
-	$ua = $_POST['ua'];
-} else {
-	$ua = $_SERVER['HTTP_USER_AGENT'];
-}
+// fetch UA string
+$ua = $_POST['ua'] ?? $_SERVER['HTTP_USER_AGENT'] ?? '';
+
+// client hints
+$hints = [
+	'sec-ch-ua-mobile' => $_POST['mobile'] ?? $_SERVER['HTTP_SEC_CH_UA_MOBILE'] ?? '',
+	'sec-ch-ua-platform' => \trim($_POST['platform'] ?? $_SERVER['HTTP_SEC_CH_UA_PLATFORM'] ?? '', '"'),
+	'sec-ch-ua-platform-version' => \trim($_POST['platformversion'] ?? $_SERVER['HTTP_SEC_CH_UA_PLATFORM_VERSION'] ?? '', '"'),
+	'sec-ch-ua-model' => \trim($_POST['model'] ?? $_SERVER['HTTP_SEC_CH_UA_MODEL'] ?? '', '"'),
+	'device-memory' => $_POST['memory'] ?? $_SERVER['HTTP_DEVICE_MEMORY'] ?? '',
+	'width' => $_POST['width'] ?? $_SERVER['HTTP_WIDTH'] ?? '',
+	'ect' => $_POST['ect'] ?? $_SERVER['HTTP_ECT'] ?? ''
+];
+$memsizes = [
+	'0.25' => '256Mb',
+	'0.5' => '512Mb',
+	'1' => '1Gb',
+	'2' => '2Gb',
+	'4' => '4Gb',
+	'8' => '8Gb'
+];
+$conns = [
+	'slow-2g' => 'Slow 2G',
+	'2g' => '2G',
+	'3g' => '3G',
+	'4g' => '4G'
+];
+$devices = [
+	'?1' => 'Yes',
+	'?0' => 'No'
+];
+
+// request client hints
+\header('Accept-CH: Width, ECT, Device-Memory, Sec-CH-UA-Platform-Version, Sec-CH-UA-Model');
+
+// timing variables
 $time = \microtime(true);
-$output = \hexydec\agentzero\agentzero::parse($ua);
+var_dump(\array_filter($hints));
+$output = \hexydec\agentzero\agentzero::parse($ua, \array_filter($hints));
 $total = \microtime(true) - $time;
 ?>
 <!DOCTYPE html>
@@ -48,6 +80,9 @@ $total = \microtime(true) - $time;
 			.form__input {
 				flex: 1 1 auto;
 			}
+			.form__input {
+				flex: 1 0 30%;
+			}
 
 			.form__submit {
 				margin-left: 15%;
@@ -65,6 +100,50 @@ $total = \microtime(true) - $time;
 				<div class="form__control">
 					<label class="form__label">User Agent:</label>
 					<input type="text" class="form__input" name="ua" value="<?= \htmlspecialchars($ua); ?>" />
+				</div>
+				<h3>Client Hints</h3>
+				<div class="form__control">
+					<label class="form__label">Mobile:</label>
+					<select name="mobile">
+						<option value="">-- Select Mobile --</option>
+						<?php foreach ($devices AS $key => $item) { ?>
+							<option value="<?= \htmlspecialchars($key); ?>"<?= $hints['sec-ch-ua-mobile'] === $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
+						<?php } ?>
+					</select>
+				</div>
+				<div class="form__control">
+					<label class="form__label">Platform:</label>
+					<input type="text" class="form__input--short" name="platform" value="<?= \htmlspecialchars($hints['sec-ch-ua-platform']); ?>" />
+				</div>
+				<div class="form__control">
+					<label class="form__label">Platform Version:</label>
+					<input type="text" class="form__input--short" name="platformversion" value="<?= \htmlspecialchars($hints['sec-ch-ua-platform-version']); ?>" />
+				</div>
+				<div class="form__control">
+					<label class="form__label">Model:</label>
+					<input type="text" class="form__input--short" name="model" value="<?= \htmlspecialchars($hints['sec-ch-ua-model']); ?>" />
+				</div>
+				<div class="form__control">
+					<label class="form__label">Memory:</label>
+					<select name="memory">
+						<option value="">-- Select Memory --</option>
+						<?php foreach ($memsizes AS $key => $item) { ?>
+							<option value="<?= \htmlspecialchars($key); ?>"<?= $hints['device-memory'] === $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
+						<?php } ?>
+					</select>
+				</div>
+				<div class="form__control">
+					<label class="form__label">Width:</label>
+					<input type="number" class="form__input--short" name="width" value="<?= \htmlspecialchars($hints['width']); ?>" />
+				</div>
+				<div class="form__control">
+					<label class="form__label">Connection:</label>
+					<select name="ect">
+						<option value="">-- Select Connection --</option>
+						<?php foreach ($conns AS $key => $item) { ?>
+							<option value="<?= \htmlspecialchars($key); ?>"<?= $hints['ect'] === $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
+						<?php } ?>
+					</select>
 				</div>
 				<div class="form__control">
 					<input type="submit" class="form__submit" value="Parse User Agent String" />

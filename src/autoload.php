@@ -19,6 +19,7 @@ declare(strict_types = 1);
 		'hexydec\\agentzero\\config' => __DIR__.'/config.php',
 		'hexydec\\agentzero\\props' => __DIR__.'/helpers/props.php',
 		'hexydec\\agentzero\\versions' => __DIR__.'/helpers/versions.php',
+		'hexydec\\agentzero\\hints' => __DIR__.'/helpers/hints.php',
 		'hexydec\\agentzero\\agentzero' => __DIR__.'/agentzero.php'
 	];
 	if (isset($classes[$class])) {

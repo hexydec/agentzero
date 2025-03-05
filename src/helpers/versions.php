@@ -13,7 +13,7 @@ class versions {
 		if ($data === null) {
 
 			// fetch from cache
-			if (\file_exists($cache) && \filemtime($cache) > \time() - $life && ($json = \file_get_contents($cache)) !== false) {
+			if (\file_exists($cache) && \filemtime($cache) < \time() - $life && ($json = \file_get_contents($cache)) !== false) {
 
 			// fetch from server
 			} elseif (($json = \file_get_contents($source)) === false) {
@@ -32,7 +32,7 @@ class versions {
 			}
 
 			// decode JSON
-			$data = \json_decode($json, true);
+			self::$versions = $data = \json_decode($json, true);
 		}
 		return $data ?? false;
 	}
