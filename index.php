@@ -38,7 +38,6 @@ $devices = [
 
 // timing variables
 $time = \microtime(true);
-var_dump(\array_filter($hints));
 $output = \hexydec\agentzero\agentzero::parse($ua, \array_filter($hints));
 $total = \microtime(true) - $time;
 ?>
