@@ -7,15 +7,16 @@ class hints {
 	public static function parse(array $hints) : \stdClass {
 		$map = [
 			'sec-ch-ua-mobile' => fn (\stdClass $obj, string $value) : string => $obj->category = $value === '?1' ? 'mobile' : 'desktop',
-			'sec-ch-ua-platform' => fn (\stdClass $obj, string $value) : string => $obj->platform = $value,
-			// 'Sec-CH-UA' => fn (\stdClass $obj, string $value) : string => $obj->type = $value === '?1' ? 'mobile' : 'desktop',
-			'sec-ch-ua-platform-version' => fn (\stdClass $obj, string $value) : string => $obj->platformversion = $value,
-			'sec-ch-ua-model' => fn (\stdClass $obj, string $value) : string => $obj->model = $value ?: null,
-			// 'Sec-CH-UA-Full-Version-List' => fn (\stdClass $obj, string $value) : string => $obj->type = $value === '?1' ? 'mobile' : 'desktop',
+			'sec-ch-ua-platform' => fn (\stdClass $obj, string $value) : ?string => $obj->platform = \trim($value, '"') ?: null,
+			'sec-ch-ua-platform-version' => fn (\stdClass $obj, string $value) : ?string => $obj->platformversion = \trim($value, '"') ?: null,
+			'sec-ch-ua-model' => fn (\stdClass $obj, string $value) : ?string => $obj->model = \trim($value, '"') ?: null,
+			'sec-ch-ua-full-version-list' => function (\stdClass $obj, string $value) : void {
+				$brands = self::parseBrands($value);
+				$item = \array_key_first($brands);
+				$obj->browserversion = $brands[$item];
+			},
 			'device-memory' => fn (\stdClass $obj, string $value) : int => $obj->ram = \intval(\floatval($value) * 1024),
 			'width' => fn (\stdClass $obj, string $value) : int => $obj->width = \intval($value),
-			// 'RTT' => fn (\stdClass $obj, string $value) : string => $obj->type = $value === '?1' ? 'mobile' : 'desktop',
-			// 'Downlink' => fn (\stdClass $obj, string $value) : string => $obj->type = $value === '?1' ? 'mobile' : 'desktop',
 			'ect' => fn (\stdClass $obj, string $value) : string => $obj->nettype = $value
 		];
 		$obj = new \stdClass();
@@ -28,7 +29,7 @@ class hints {
 		return $obj;
 	}
 
-	protected function parseBrands(string $brand) : array {
+	protected static function parseBrands(string $brand) : array {
 
 		// parse the brands in the string
 		$items = [];

@@ -7,9 +7,10 @@ $ua = $_POST['ua'] ?? $_SERVER['HTTP_USER_AGENT'] ?? '';
 // client hints
 $hints = [
 	'sec-ch-ua-mobile' => $_POST['mobile'] ?? $_SERVER['HTTP_SEC_CH_UA_MOBILE'] ?? '',
-	'sec-ch-ua-platform' => \trim($_POST['platform'] ?? $_SERVER['HTTP_SEC_CH_UA_PLATFORM'] ?? '', '"'),
-	'sec-ch-ua-platform-version' => \trim($_POST['platformversion'] ?? $_SERVER['HTTP_SEC_CH_UA_PLATFORM_VERSION'] ?? '', '"'),
-	'sec-ch-ua-model' => \trim($_POST['model'] ?? $_SERVER['HTTP_SEC_CH_UA_MODEL'] ?? '', '"'),
+	'sec-ch-ua-full-version-list' => $_POST['browser'] ?? $_SERVER['HTTP_SEC_CH_UA_FULL_VERSION_LIST'] ?? '',
+	'sec-ch-ua-platform' => $_POST['platform'] ?? $_SERVER['HTTP_SEC_CH_UA_PLATFORM'] ?? '',
+	'sec-ch-ua-platform-version' => $_POST['platformversion'] ?? $_SERVER['HTTP_SEC_CH_UA_PLATFORM_VERSION'] ?? '',
+	'sec-ch-ua-model' => $_POST['model'] ?? $_SERVER['HTTP_SEC_CH_UA_MODEL'] ?? '',
 	'device-memory' => $_POST['memory'] ?? $_SERVER['HTTP_DEVICE_MEMORY'] ?? '',
 	'width' => $_POST['width'] ?? $_SERVER['HTTP_WIDTH'] ?? '',
 	'ect' => $_POST['ect'] ?? $_SERVER['HTTP_ECT'] ?? ''
@@ -34,7 +35,7 @@ $devices = [
 ];
 
 // request client hints
-\header('Accept-CH: Width, ECT, Device-Memory, Sec-CH-UA-Platform-Version, Sec-CH-UA-Model');
+\header('Accept-CH: Width, ECT, Device-Memory, Sec-CH-UA-Platform-Version, Sec-CH-UA-Model, Sec-CH-UA-Full-Version-List');
 
 // timing variables
 $time = \microtime(true);
@@ -111,8 +112,12 @@ $total = \microtime(true) - $time;
 					</select>
 				</div>
 				<div class="form__control">
+					<label class="form__label">Browser:</label>
+					<input type="text" class="form__input" name="browser" value="<?= \htmlspecialchars($hints['sec-ch-ua-full-version-list']); ?>" />	
+				</div>
+				<div class="form__control">
 					<label class="form__label">Platform:</label>
-					<input type="text" class="form__input--short" name="platform" value="<?= \htmlspecialchars($hints['sec-ch-ua-platform']); ?>" />
+					<input type="text" class="form__input--short" name="platform" value="<?= \htmlspecialchars($hints['sec-ch-ua-platform']); ?>" />	
 				</div>
 				<div class="form__control">
 					<label class="form__label">Platform Version:</label>
@@ -127,7 +132,7 @@ $total = \microtime(true) - $time;
 					<select name="memory">
 						<option value="">-- Select Memory --</option>
 						<?php foreach ($memsizes AS $key => $item) { ?>
-							<option value="<?= \htmlspecialchars($key); ?>"<?= $hints['device-memory'] === $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
+							<option value="<?= \htmlspecialchars($key); ?>"<?= $hints['device-memory'] == $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
 						<?php } ?>
 					</select>
 				</div>

@@ -8,8 +8,9 @@ final class clientHintsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36' => [
 				'hints' => [
 					'sec-ch-ua-mobile' => '?0',
-					'sec-ch-ua-platform' => 'Windows',
-					'sec-ch-ua-platform-version' => '19.0.0',
+					'sec-ch-ua-platform' => '"Windows"',
+					'sec-ch-ua-platform-version' => '"19.0.0"',
+					'sec-ch-ua-full-version-list' => '"Not(A:Brand";v="99.0.0.0", "Google Chrome";v="133.0.6943.142", "Chromium";v="133.0.6943.142"',
 					'device-memory' => '8',
 					'ect' => '4g'
 				],
@@ -25,8 +26,8 @@ final class clientHintsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '133.0.0.0',
 				'browser' => 'Chrome',
-				'browserversion' => '133.0.0.0',
-				'browserreleased' => '2025-02-04',
+				'browserversion' => '133.0.6943.142',
+				'browserreleased' => '2025-02-26',
 				'nettype' => '4g'
 			]
 		];
