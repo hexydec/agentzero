@@ -249,7 +249,7 @@ class agentzero {
 			$name = [];
 			foreach (\explode(' ', $token) AS $item) {
 				$ver = \ltrim($item, 'v'); // strip 'v' off the front of version number
-				if (\strpbrk($ver, '0123456789.') === $ver) {
+				if (\strspn($ver, '0123456789.') === \strlen($ver)) {
 					$app = \implode(' ', $name);
 					$obj->app = crawlers::normaliseAppname($app);
 					$obj->appname = $app;
