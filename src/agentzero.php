@@ -215,7 +215,10 @@ class agentzero {
 			}
 
 			// create agentzero object and return
-			return new agentzero($ua, $browser);
+			$arr = (array) $browser;
+			if (!empty($arr)) {
+				return new agentzero($ua, $browser);
+			}
 		}
 		return false;
 	}
