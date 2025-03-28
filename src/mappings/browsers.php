@@ -236,7 +236,7 @@ class browsers {
 			]),
 			'Cronet/' => new props('start', $fn['chromium']),
 			'Chromium/' => new props('start', $fn['chromium']),
-			'Chrome/' => new props('start', $fn['chromium']),
+			'Chrome/' => new props('any', $fn['chromium']),
 			'Safari/' => new props('start', $fn['safari']),
 			'Mozilla/' => new props('start', $fn['browserslash']),
 			'rv:' => new props('start', fn (string $value) : array => [

@@ -4,20 +4,25 @@ namespace hexydec\agentzero;
 
 class versions {
 
-	protected static ?array $versions = null;
+	protected static array|false|null $versions = null;
 
-	protected static function load(string $source, ?string $cache, int $life = 604800) : array|false {
+	protected static function load(string $source, ?string $cache = null, ?int $life = 604800) : array|false {
 
 		// cache for this session
 		$data = self::$versions;
 		if ($data === null) {
 
 			// fetch from cache
-			if (\file_exists($cache) && \filemtime($cache) < \time() - $life && ($json = \file_get_contents($cache)) !== false) {
+			if (\file_exists($cache) && \filemtime($cache) > \time() - $life && ($json = \file_get_contents($cache)) !== false) {
 
 			// fetch from server
 			} elseif (($json = \file_get_contents($source)) === false) {
-				return false;
+
+				// get stale cache
+				if ($cache !== null && ($json = \file_get_contents($cache)) !== false) {
+					self::$versions = false;
+					return false;
+				}
 
 			// update cache
 			} elseif ($cache !== null) {

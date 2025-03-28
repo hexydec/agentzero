@@ -195,14 +195,19 @@ class agentzero {
 	 * @return agentzero|false An agentzero object containing the parsed values of the input UA, or false if it could not be parsed
 	 */
 	public static function parse(string $ua, array $hints = [], array $config = []) : agentzero|false {
-		if (($ua = \preg_replace('/\s{2,}/', ' ', $ua)) === null) {
+		$ua = \preg_replace('/\s{2,}/', ' ', $ua);
 
-		} elseif (($config = config::get($config)) === null) {
+		// parse client hints
+		$hinted = $ua;
+		$browser = hints::parse($hinted, $hints);
 
-		} elseif (($tokens = self::getTokens(\trim($ua, ' "\''), $config['single'], $config['ignore'])) !== false) {
+		// get config
+		if (($config = config::get($config)) === null) {
+
+		// get tokens
+		} elseif (($tokens = self::getTokens(\trim($hinted, ' "\''), $config['single'], $config['ignore'])) !== false) {
 
 			// extract UA info
-			$browser = hints::parse($hints);
 			$tokenslower = \array_map('\\mb_strtolower', $tokens);
 			foreach ($config['match'] AS $key => $item) {
 				$item->match($browser, $key, $tokens, $tokenslower, $config);
