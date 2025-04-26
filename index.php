@@ -153,7 +153,7 @@ $total = \microtime(true) - $time;
 					<input type="submit" class="form__submit" value="Parse User Agent String" />
 				</div>
 			</form>
-			<?php if ($output !== null) { ?>
+			<?php if ($output !== false) { ?>
 				<pre><?= htmlspecialchars(\strval(\print_r(\array_filter((array) $output, fn(mixed $value) => $value !== null), true))); ?></pre>
 				<p>Generated in <?= \number_format($total, 5); ?></p>
 			<?php } ?>
