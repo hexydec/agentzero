@@ -195,7 +195,7 @@ class platforms {
 				'type' => 'human',
 				'category' => 'mobile',
 				'platform' => 'iOS',
-				'platformversion' => $tokens[$i+1]
+				'platformversion' => $tokens[$i+1] ?? null
 			]),
 			'CrOS' => new props('start', function (string $value) : array {
 				$parts = \explode(' ', $value);
