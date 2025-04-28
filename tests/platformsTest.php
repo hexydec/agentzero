@@ -787,7 +787,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'human',
 				'category' => 'mobile',
 				'language' => 'en',
-				'nettype' => 'WIFI',
+				'nettype' => 'WiFi',
 				'browserreleased' => '2021-01-19'
 			],
 			'Mozilla/5.0 (linux; u; android 9; zh-cn; v1816a build/pkq1.180819.001) applewebkit/537.36 (khtml, like gecko) version/4.0 chrome/57' => [
@@ -1578,6 +1578,77 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'width' => 320,
 				'height' => 320,
 				'browserreleased' => '2001-08-24'
+			],
+			'Look & Cook/1.15.0 (Roku 14.0.4; en_US; TCL 32S3750; Build/12221)' => [
+				'string' => 'Look & Cook/1.15.0 (Roku 14.0.4; en_US; TCL 32S3750; Build/12221)',
+				'type' => 'human',
+				'category' => 'tv',
+				'vendor' => 'TCL',
+				'model' => '32S3750',
+				'build' => '12221',
+				'platform' => 'Roku',
+				'platformversion' => '14.0.4',
+				'language' => 'en-US',
+				'app' => 'Look & Cook',
+				'appname' => 'Look & Cook',
+				'appversion' => '1.15.0'
+			],
+			'Just Dance/1.15.0 (Roku 14.0.4; en_US; Roku Express 4K; Build/12221)' => [
+				'string' => 'Just Dance/1.15.0 (Roku 14.0.4; en_US; Roku Express 4K; Build/12221)',
+				'type' => 'human',
+				'category' => 'tv',
+				'vendor' => 'Roku',
+				'device' => 'Express',
+				'model' => '4K',
+				'build' => '12221',
+				'platform' => 'Roku',
+				'platformversion' => '14.0.4',
+				'language' => 'en-US',
+				'app' => 'Just Dance',
+				'appname' => 'Just Dance',
+				'appversion' => '1.15.0'
+			],
+			'Just Dance/1.15.0 (Roku 14.0.4; en_US; Roku Express+; Build/12221)' => [
+				'string' => 'Just Dance/1.15.0 (Roku 14.0.4; en_US; Roku Express+; Build/12221)',
+				'type' => 'human',
+				'category' => 'tv',
+				'vendor' => 'Roku',
+				'model' => 'Express+',
+				'build' => '12221',
+				'platform' => 'Roku',
+				'platformversion' => '14.0.4',
+				'language' => 'en-US',
+				'app' => 'Just Dance',
+				'appname' => 'Just Dance',
+				'appversion' => '1.15.0'
+			],
+			'Just Dance/1.15.0 (Roku 14.0.4; en_US; WR43UX4210; Build/12221)' => [
+				'string' => 'Just Dance/1.15.0 (Roku 14.0.4; en_US; WR43UX4210; Build/12221)',
+				'type' => 'human',
+				'category' => 'tv',
+				'vendor' => 'Westinghouse',
+				'model' => 'WR43UX4210',
+				'build' => '12221',
+				'platform' => 'Roku',
+				'platformversion' => '14.0.4',
+				'language' => 'en-US',
+				'app' => 'Just Dance',
+				'appname' => 'Just Dance',
+				'appversion' => '1.15.0'
+			],
+			'Just Dance/1.15.0 (Roku 14.0.4; es_MX; HKP32R01; Build/12221)' => [
+				'string' => 'Just Dance/1.15.0 (Roku 14.0.4; es_MX; HKP32R01; Build/12221)',
+				'type' => 'human',
+				'category' => 'tv',
+				'vendor' => 'Hkpro',
+				'model' => 'HKP32R01',
+				'build' => '12221',
+				'platform' => 'Roku',
+				'platformversion' => '14.0.4',
+				'language' => 'es-MX',
+				'app' => 'Just Dance',
+				'appname' => 'Just Dance',
+				'appversion' => '1.15.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

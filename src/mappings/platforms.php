@@ -197,6 +197,14 @@ class platforms {
 				'platform' => 'iOS',
 				'platformversion' => $tokens[$i+1] ?? null
 			]),
+			'iPadOS' => new props('exact', fn (string $value, int $i, array $tokens) : array => [
+				'type' => 'human',
+				'category' => 'tablet',
+				'vendor' => 'Apple',
+				'device' => 'iPad',
+				'platform' => 'iOS',
+				'platformversion' => $tokens[$i+1] ?? null
+			]),
 			'CrOS' => new props('start', function (string $value) : array {
 				$parts = \explode(' ', $value);
 				return [
@@ -289,6 +297,21 @@ class platforms {
 				'platform' => 'WebOS',
 				'platformversion' => \mb_substr($value, 5)
 			]),
+			'Roku ' => new props('start', function (string $value, int $i, array $tokens) : array {
+				$app = \str_contains($tokens[$i - 1] ?? '', '/') ? \explode('/', $tokens[$i - 1], 2) : null;
+				return \array_merge(
+					[
+						'type' => 'human',
+						'category' => 'tv',
+						'platform' => 'Roku',
+						'platformversion' => \mb_substr($value, 5),
+						'app' => $app[0] ?? null,
+						'appname' => $app[0] ?? null,
+						'appversion' => $app[1] ?? null,
+					],
+					isset($tokens[$i + 2]) ? devices::getDevice($tokens[$i + 2]) : []
+				);
+			}),
 			'SunOS' => new props('start', [
 				'type' => 'human',
 				'category' => 'desktop',
@@ -361,6 +384,7 @@ class platforms {
 				'platformversion' => \explode('/', $value, 3)[1] ?: null
 			]),
 			'Android ' => new props('start', $fn['android']),
+			'Android-' => new props('start', $fn['android']),
 			'Linux' => new props('any', function (string $value, int $i, array $tokens) : array {
 				return [
 					'kernel' => 'Linux',
@@ -383,7 +407,10 @@ class platforms {
 			]),
 			'Version/' => new props('start', fn (string $value) : array => [
 				'platformversion' => \mb_substr($value, 8)
-			])
+			]),
+			'platformVersion/' => new props('start', fn (string $value) : array => [
+				'platformversion' => \mb_substr($value, 16)
+			]),
 		];
 	}
 
@@ -397,7 +424,8 @@ class platforms {
 			'freebsd' => 'FreeBSD',
 			'openbsd' => 'OpenBSD',
 			'netbsd' => 'NetBSD',
-			'opensuse' => 'OpenSUSE'
+			'opensuse' => 'OpenSUSE',
+			'iphone' => 'iOS'
 		];
 		$value = \mb_strtolower($value);
 		return $map[$value] ?? \mb_convert_case($value, MB_CASE_TITLE);

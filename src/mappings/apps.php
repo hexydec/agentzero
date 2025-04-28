@@ -12,7 +12,7 @@ class apps {
 	public static function get() : array {
 		$fn = [
 			'appslash' => function (string $value, int $i, array $tokens, string $match) : array {
-				if (\mb_stripos($value, 'AppleWebKit') === false && !\str_contains($value, '://')) {
+				if (\mb_stripos($value, 'AppleWebKit') === false && !\str_contains($value, '://') && !\str_starts_with($value, 'appid/')) {
 					$parts = \explode('/', $value, 4);
 					$offset = isset($parts[2]) && !\is_numeric($parts[1]) ? 1 : 0;
 					$app = \str_replace('GooglePlayStore ', '', $parts[0 + $offset]);
@@ -212,6 +212,11 @@ class apps {
 				'appname' => 'nu.nl',
 				'appversion' => \mb_substr($value, 6)
 			]),
+			'Sanoma/app' => new props('exact', fn () : array => [
+				'type' => 'human',
+				'app' => 'Sanoma',
+				'appname' => 'Sanoma'
+			]),
 			'Google Web Preview' => new props('start', $fn['appslash']),
 			'MicroMessenger/' => new props('start', $fn['appslash']),
 			'MicroMessenger Weixin QQ' => new props('start', fn () : array => [
@@ -220,15 +225,26 @@ class apps {
 			]),
 			'weibo' => new props('any', function (string $value) : array {
 				$data = [
+					'type' => 'human',
 					'app' => 'Weibo',
 					'appname' => 'Weibo'
 				];
-				$parts = \explode('_', $value);
-				foreach ($parts AS $i => $item) {
-					if (\mb_stripos($item, 'Weibo') !== false) {
-						$data['appname'] = $item;
-						$data['appversion'] = $parts[$i + (\strspn($parts[$i + 1] ?? '', '0123456789', 0, 1) === 1 ? 1 : 2)] ?? null;
-						break;
+				if (\str_contains($value, '__')) {
+					$parts = \explode('__', $value);
+					$data = \array_merge($data, devices::getDevice($parts[0]), [
+						'appname' => $parts[1],
+						'appversion' => $parts[2] ?? null,
+						'platform' => isset($parts[3]) ? platforms::getPlatform($parts[3]) : null,
+						'platformversion' => isset($parts[4]) ? \substr($parts[4], \strcspn($parts[4], '0123456789.')) : null
+					]);
+				} else {
+					$parts = \explode('_', $value);
+					foreach ($parts AS $i => $item) {
+						if (\mb_stripos($item, 'Weibo') !== false) {
+							$data['appname'] = $item;
+							$data['appversion'] = $parts[$i + (\strspn($parts[$i + 1] ?? '', '0123456789', 0, 1) === 1 ? 1 : 2)] ?? null;
+							break;
+						}
 					}
 				}
 				return $data;
@@ -240,34 +256,40 @@ class apps {
 					'FBAN/MessengerLiteForiOS' => [
 						'type' => 'human',
 						'app' => 'Facebook Messenger',
+						'appname' => 'MessengerLiteForiOS',
 						'platform' => 'iOS'
 					],
 					'FBAN/FB4A' => [
 						'type' => 'human',
 						'app' => 'Facebook',
+						'appname' => 'FB4A',
 						'platform' => 'Android'
 					],
 					'FBAN/FBIOS' => [
 						'type' => 'human',
 						'app' => 'Facebook',
+						'appname' => 'FBIOS',
 						'platform' => 'iOS'
 					],
 					'FBAN/FB4FireTV' => [
 						'type' => 'human',
 						'category' => 'tv',
 						'app' => 'Facebook',
+						'appname' => 'FB4FireTV',
 						'platform' => 'Android'
 					],
 					'FBAN/MessengerDesktop' => [
 						'type' => 'human',
 						'category' => 'desktop',
-						'app' => 'Facebook Messenger'
+						'app' => 'Facebook Messenger',
+						'appname' => 'MessengerDesktop'
 					],
 					'FacebookCanvasDesktop FBAN/GamesWindowsDesktopApp' => [
 						'type' => 'human',
 						'platform' => 'Windows',
 						'category' => 'desktop',
-						'app' => 'Facebook Gamesroom'
+						'app' => 'Facebook Gamesroom',
+						'appname' => 'GamesWindowsDesktopApp'
 					]
 				];
 				return \array_merge([
@@ -277,21 +299,47 @@ class apps {
 				], $map[$value] ?? []);
 			}),
 			'FB_IAB/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
 				'app' => 'Facebook',
 				'appname' => \mb_substr($value, 7)
 			]),
+			'FBPN/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'app' => 'Facebook',
+				'appname' => \mb_substr($value, 5)
+			]),
 			'FBAV/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'app' => 'Facebook',
+				'appname' => 'Facebook',
 				'appversion' => \mb_substr($value, 5)
 			]),
 			'FBMF/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'app' => 'Facebook',
+				'appname' => 'Facebook',
 				'vendor' => devices::getVendor(\mb_substr($value, 5))
 			]),
-			'FBDV/' => new props('start', fn (string $value) : array => devices::getDevice(\mb_substr($value, 5))),
+			'FBDV/' => new props('start', fn (string $value) : array => \array_merge(
+				devices::getDevice(\mb_substr($value, 5))),
+				[
+					'type' => 'human',
+					'app' => 'Facebook',
+					'appname' => 'Facebook'
+				]
+			),
 			'FBMD/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'app' => 'Facebook',
+				'appname' => 'Facebook',
 				'model' => \mb_substr($value, 5)
 			]),
 			'FBDM/' => new props('start', function (string $value) : array {
-				$data = [];
+				$data = [
+					'type' => 'human',
+					'app' => 'Facebook',
+					'appname' => 'Facebook'
+				];
 				foreach (\explode(',', \trim(\mb_substr($value, 5), '{}')) AS $item) {
 					$parts = \explode('=', $item);
 					if (!empty($parts[1])) {
@@ -303,19 +351,16 @@ class apps {
 				}
 				return $data;
 			}),
-			'width=' => new props('start', fn (string $value) : array => [
-				'width' => \intval(\mb_substr($value, 6))
-			]),
-			'height=' => new props('start', fn (string $value) : array => [
-				'height' => \intval(\mb_substr($value, 7))
-			]),
-			'dpi=' => new props('start', fn (string $value) : array => [
-				'dpi' => \mb_substr($value, 4)
-			]),
 			'FBSN/' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'app' => 'Facebook',
+				'appname' => 'Facebook',
 				'platform' => \mb_substr($value, 5)
 			]),
 			'FBSV' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'app' => 'Facebook',
+				'appname' => 'Facebook',
 				'platformversion' => \mb_substr($value, 5)
 			]),
 			'isDarkMode/' => new props('start', function (string $value) : array {
@@ -324,11 +369,9 @@ class apps {
 					'darkmode' => \in_array($mode, ['0', '1'], true) ? \boolval($mode) : null
 				];
 			}),
+			'dark-mode' => new props('exact', ['darkmode' => true]),
 			'AppTheme/' => new props('start', fn (string $value) : array => [
 				'darkmode' => \mb_substr($value, 9) === 'dark'
-			]),
-			'NetType/' => new props('start', fn (string $value) : array => [
-				'nettype' => \mb_convert_case(\mb_substr($value, 8), MB_CASE_UPPER)
 			]),
 			'Microsoft Office' => new props('start', function (string $value, int $i, array $tokens) : array {
 				$data = [

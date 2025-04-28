@@ -169,7 +169,8 @@ class crawlers {
 				'p3p validator' => 'P3P Validator',
 				'w3c-checklink' => 'W3C Checklink',
 				'w3c_validator' => 'W3C Validator',
-				'omgili' => 'Webz.io'
+				'omgili' => 'Webz.io',
+				'bluesky cardyb' => 'Bluesky'
 			];
 			
 			$lower = \mb_strtolower($parts[0]);
@@ -316,6 +317,7 @@ class crawlers {
 			'Bidtellect' => new props('start', $fn['crawler']),
 			'magpie-crawler/' => new props('start', $fn['crawler']),
 			'Web Measure/' => new props('start', $fn['crawler']),
+			'Bluesky Cardyb/' => new props('start', $fn['crawler']),
 			'PingdomTMS/' => new props('start', $fn['monitor']),
 			'DynGate' => new props('exact', $fn['monitor']),
 			'CensysInspect/' => new props('start', $fn['monitor']),

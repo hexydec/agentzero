@@ -2031,6 +2031,18 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Vivo Browser',
 				'browserversion' => '12.2.0.2',
 				'browserreleased' => '2021-01-06'
+			],
+			'ANDROID-com.vivo.browser/8.04.0.9085 netWorkType/WIFI appid/22060 deviceName/Vivo_V1818a deviceModel/V1818A OSVersion/8.1.0 protocolVersion/301 platformVersion/10 sdkVersion/232600 Oauth2Client/0.9 (Linux 4_9_82-perf+) (JAVA 0)' => [
+				'string' => 'ANDROID-com.vivo.browser/8.04.0.9085 netWorkType/WIFI appid/22060 deviceName/Vivo_V1818a deviceModel/V1818A OSVersion/8.1.0 protocolVersion/301 platformVersion/10 sdkVersion/232600 Oauth2Client/0.9 (Linux 4_9_82-perf+) (JAVA 0)',
+				'type' => 'human',
+				'vendor' => 'Vivo',
+				'model' => 'V1818a',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'browser' => 'Vivo Browser',
+				'browserversion' => '8.04.0.9085',
+				'nettype' => 'WiFi'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

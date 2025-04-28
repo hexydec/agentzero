@@ -195,17 +195,14 @@ class agentzero {
 	 * @return agentzero|false An agentzero object containing the parsed values of the input UA, or false if it could not be parsed
 	 */
 	public static function parse(string $ua, array $hints = [], array $config = []) : agentzero|false {
-		$ua = \str_replace('  ', ' ', $ua);
+		$ua = \str_replace('  ', ' ', \trim(\preg_replace( '/[^[:print:]]/', '', $ua)));
 
 		// parse client hints
 		$hinted = $ua;
 		$browser = hints::parse($hinted, $hints);
 
-		// check all printable characters
-		if (!\ctype_print($ua)) {
-
 		// get config
-		} elseif (($config = config::get($config)) === null) {
+		if (($config = config::get($config)) === null) {
 
 		// get tokens
 		} elseif (($tokens = self::getTokens(\trim($hinted, ' "\''), $config['single'], $config['ignore'])) !== false) {

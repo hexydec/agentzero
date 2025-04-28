@@ -353,10 +353,47 @@ class devices {
 				'type' => 'human',
 				'vendor' => 'Cubot'
 			]),
+			'TCL ' => new props('start', fn (string $value) : array => [
+				'type' => 'human',
+				'category' => 'tv',
+				'vendor' => 'TCL',
+				'model' => \mb_substr($value, 4)
+			]),
+			'deviceName/' => new props('start', fn (string $value) : array => self::getDevice(\mb_substr($value, 11))),
+			'deviceModel/' => new props('start', fn (string $value) : array => [
+				'model' => \mb_substr($value, 12)
+			]),
 			'Model/' => new props('start', fn (string $value) : array => [
 				'model' => \mb_substr($value, 6)
 			]),
 			'Build/' => new props('any', fn (string $value) : array => self::getDevice($value)),
+			'width=' => new props('start', fn (string $value) : array => [
+				'width' => \intval(\mb_substr($value, 6))
+			]),
+			'height=' => new props('start', fn (string $value) : array => [
+				'height' => \intval(\mb_substr($value, 7))
+			]),
+			'dpi=' => new props('start', fn (string $value) : array => [
+				'dpi' => \mb_substr($value, 4)
+			]),
+			'NetType/' => new props('start', function (string $value) : array {
+				$type = \mb_convert_case(\mb_substr($value, 8), MB_CASE_UPPER);
+				return [
+					'nettype' => \in_array($type, ['WF', 'WIFI'], true) ? 'WiFi' : $type
+				];
+			}),
+			'netWorkType/' => new props('start', function (string $value) : array {
+				$type = \mb_convert_case(\mb_substr($value, 12), MB_CASE_UPPER);
+				return [
+					'nettype' => \in_array($type, ['WF', 'WIFI'], true) ? 'WiFi' : $type
+				];
+			}),
+			'2G' => new props('exact', ['nettype' => '2g']),
+			'3G' => new props('exact', ['nettype' => '3g']),
+			'4G' => new props('exact', ['nettype' => '4g']),
+			'4.5G' => new props('exact', ['nettype' => '4g']),
+			'4.5G+' => new props('exact', ['nettype' => '4g']),
+			'5G' => new props('exact', ['nettype' => '5g']),
 			'x' => new props('any', function (string $value) : ?array {
 				if (\str_contains($value, '@')) {
 					$dpi = \explode('@', $value);
@@ -427,7 +464,11 @@ class devices {
 			'Poco' => 'Poco',
 			'Cubot' => 'Cubot',
 			'Kingkong' => 'Cubot',
-			'Nokia' => 'Nokia'
+			'Nokia' => 'Nokia',
+			'WR' => 'Westinghouse',
+			'HKP' => 'HKPro',
+			'Roku' => 'Roku',
+			'TCL' => 'TCL'
 		];
 
 		// find vendor

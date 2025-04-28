@@ -392,6 +392,21 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'width' => 1284,
 				'height' => 2778,
 				'density' => 3
+			],
+			'(iPadOS,16.3.1;230220151223;1668x2388@2.0x;dark-mode)(Sanoma/app)' => [
+				'string' => '(iPadOS,16.3.1;230220151223;1668x2388@2.0x;dark-mode)(Sanoma/app)',
+				'type' => 'human',
+				'category' => 'tablet',
+				'vendor' => 'Apple',
+				'device' => 'iPad',
+				'platform' => 'iOS',
+				'platformversion' => '16.3.1',
+				'app' => 'Sanoma',
+				'appname' => 'Sanoma',
+				'width' => 1668,
+				'height' => 2388,
+				'density' => 2,
+				'darkmode' => true
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -761,7 +776,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'TikTok',
 				'appname' => 'musical_ly',
 				'appversion' => '27.4.0',
-				'nettype' => 'WIFI',
+				'nettype' => 'WiFi',
 				'darkmode' => false
 			],
 			'musical_ly_2022706030 AppVersion/2022706030 JsSdk/2.0 NetType/WIFI Channel/googleplay ByteLocale/en Webcast_ByteLocale/en Region/NP App/musical_ly WebcastSDK/2670 Mozilla/5.0 (Linux; Android 10; M2004J19C Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 musical_ly_2022706030 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/27.6.3 ByteLocale/en ByteFullLocale/en Region/NP Spark/1.2.5.3-bugfix AppVersion/27.6.3 PIA/1.5.10 BytedanceWebview/d8a21c6' => [
@@ -781,7 +796,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'TikTok',
 				'appname' => 'musical_ly',
 				'appversion' => '27.6.3',
-				'nettype' => 'WIFI',
+				'nettype' => 'WiFi',
 				'browserreleased' => '2023-01-10'
 			],
 			'Mozilla/5.0 (Linux; Android 8.1.0; vivo Y85A Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/65.0.3325.109 Mobile Safari/537.36 musical_ly_2022709410 JsSdk/1.0 NetType/4G Channel/googleplay AppName/musical_ly app_version/27.9.41 ByteLocale/en ByteFullLocale/en Region/PK Spark/1.2.6.1-bugfix AppVersion/27.9.41 PIA/1.5.11 BytedanceWebview/d8a21c6' => [
@@ -823,7 +838,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'TikTok',
 				'appname' => 'musical_ly',
 				'appversion' => '28.1.3',
-				'nettype' => 'WIFI',
+				'nettype' => 'WiFi',
 				'browserreleased' => '2023-01-24'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 BytedanceWebview/d8a21c6 musical_ly_27.9.0 JsSdk/2.0 NetType/4G Channel/App Store ByteLocale/ar Region/EG musical_ly_27.9.0 JsSdk/2.0 NetType/MOBILE Channel/App Store AppVersion/27.9.0 AppName/musical_ly Rifle_27.9.0 musical_ly_27.9.0 JsSdk/2.0 NetType/4G Channel/App Store ByteLocale/ar Region/EG ByteFullLocale/ar  isDarkMode/0 Spark/1.2.6.2-bugfix HybridTag/EF19ACC6-C9CA-4584-AC8B-8BF5F83BD352 WKWebView/1 Bullet/1 musical_ly/27.9.0 FalconTag/1CE85414-C990-4F0F-9EE7-72B1D7ED43BE' => [
@@ -865,7 +880,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Douyin',
 				'appname' => 'aweme',
 				'appversion' => '14.7.0',
-				'nettype' => 'WIFI',
+				'nettype' => 'WiFi',
 				'darkmode' => true,
 				'browserreleased' => '2019-07-15'
 			],
@@ -887,7 +902,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Douyin',
 				'appname' => 'aweme',
 				'appversion' => '32.0.0',
-				'nettype' => 'WIFI',
+				'nettype' => 'WiFi',
 				'darkmode' => false,
 				'browserreleased' => '2024-07-23'
 			]
@@ -958,7 +973,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'WeChat',
 				'appname' => 'MicroMessenger',
 				'appversion' => '6.5.2.501',
-				'nettype' => 'WIFI'
+				'nettype' => 'WiFi'
 			],
 			'Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.5(0x17000523) NetType/WIFI Language/en' => [
 				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.5(0x17000523) NetType/WIFI Language/en',
@@ -978,7 +993,7 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'WeChat',
 				'appname' => 'MicroMessenger',
 				'appversion' => '7.0.5',
-				'nettype' => 'WIFI'
+				'nettype' => 'WiFi'
 			],
 			'Mozilla/5.0 (Linux; Android 10; LIO-AN00 Build/HUAWEILIO-AN00; wv) MicroMessenger Weixin QQ AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.62 XWEB/2692 MMWEBSDK/200901 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; LIO-AN00 Build/HUAWEILIO-AN00; wv) MicroMessenger Weixin QQ AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.62 XWEB/2692 MMWEBSDK/200901 Mobile Safari/537.36',
@@ -1080,6 +1095,24 @@ final class appsTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Weibo',
 				'appname' => 'WeiboIntliOS',
 				'appversion' => '6290'
+			],
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone14,3__weibo__13.9.2__iphone__os16.4.1)' => [
+				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Weibo (iPhone14,3__weibo__13.9.2__iphone__os16.4.1)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '15E148',
+				'architecture' => 'Arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '16.4.1',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'app' => 'Weibo',
+				'appname' => 'Weibo',
+				'appversion' => '13.9.2'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
