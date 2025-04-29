@@ -223,10 +223,9 @@ class devices {
 				'category' => 'tv',
 				'kernel' => 'Linux',
 				'platform' => 'Roku OS',
-				'platformversion' => \mb_substr($value, 5),
+				'platformversion' => $tokens[++$i] ?? null,
 				'vendor' => 'Roku',
-				'device' => 'Roku',
-				'build' => $tokens[++$i] ?? null
+				'device' => \mb_substr($value, 5)
 			]),
 			'AmigaOneX' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
