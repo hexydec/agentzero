@@ -4,13 +4,20 @@ namespace hexydec\agentzero;
 
 class hints {
 
+	/**
+	 * Parses client hints to set agentzero properties
+	 * 
+	 * @param string &$ua A reference to the User-Agent string, which may be used with brand names and versions
+	 * @param array $hints An array of client hints
+	 * @return stdClass A stdClass object containing parsed values for agentzero
+	 */
 	public static function parse(string &$ua, array $hints) : \stdClass {
 		$map = [
 			'sec-ch-ua-mobile' => fn (\stdClass $obj, string $value) : string => $obj->category = $value === '?1' ? 'mobile' : 'desktop',
 			'sec-ch-ua-platform' => fn (\stdClass $obj, string $value) : ?string => $obj->platform = \trim($value, '"') ?: null,
 			'sec-ch-ua-platform-version' => function (\stdClass $obj, string $value) : void {
 				$value = \trim($value, '"');
-				if ($obj->platform === 'Windows') {
+				if (($obj->platform ?? null) === 'Windows') {
 					$map = [
 						'8',
 						'10.1507',

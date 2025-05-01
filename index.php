@@ -1,20 +1,29 @@
 <?php
+
+use hexydec\agentzero\agentzero;
+
 require(__DIR__.'/src/autoload.php');
 
 // fetch UA string
 $ua = $_POST['ua'] ?? $_SERVER['HTTP_USER_AGENT'] ?? '';
 
 // client hints
-$hints = [
-	'sec-ch-ua-mobile' => $_POST['mobile'] ?? $_SERVER['HTTP_SEC_CH_UA_MOBILE'] ?? '',
-	'sec-ch-ua-full-version-list' => $_POST['browser'] ?? $_SERVER['HTTP_SEC_CH_UA_FULL_VERSION_LIST'] ?? '',
-	'sec-ch-ua-platform' => $_POST['platform'] ?? $_SERVER['HTTP_SEC_CH_UA_PLATFORM'] ?? '',
-	'sec-ch-ua-platform-version' => $_POST['platformversion'] ?? $_SERVER['HTTP_SEC_CH_UA_PLATFORM_VERSION'] ?? '',
-	'sec-ch-ua-model' => $_POST['model'] ?? $_SERVER['HTTP_SEC_CH_UA_MODEL'] ?? '',
-	'device-memory' => $_POST['memory'] ?? $_SERVER['HTTP_DEVICE_MEMORY'] ?? '',
-	'width' => $_POST['width'] ?? $_SERVER['HTTP_WIDTH'] ?? '',
-	'ect' => $_POST['ect'] ?? $_SERVER['HTTP_ECT'] ?? ''
+$hints = agentzero::getHints();
+$keys = [
+	'sec-ch-ua-mobile',
+	'sec-ch-ua-full-version-list',
+	'sec-ch-ua-platform',
+	'sec-ch-ua-platform-version',
+	'sec-ch-ua-model',
+	'device-memory',
+	'width',
+	'ect'
 ];
+foreach ($keys AS $item) {
+	if (!empty($_POST[$item])) {
+		$hints[$item] = $_POST[$item];
+	}
+}
 $memsizes = [
 	'0.25' => '256Mb',
 	'0.5' => '512Mb',
@@ -39,7 +48,7 @@ $devices = [
 
 // timing variables
 $time = \microtime(true);
-$output = \hexydec\agentzero\agentzero::parse($ua, \array_filter($hints));
+$output = \hexydec\agentzero\agentzero::parse($ua, \array_filter($hints), ['versionscache' => __DIR__.'/cache/versions.json']);
 $total = \microtime(true) - $time;
 ?>
 <!DOCTYPE html>
@@ -104,48 +113,48 @@ $total = \microtime(true) - $time;
 				<h3>Client Hints</h3>
 				<div class="form__control">
 					<label class="form__label">Mobile:</label>
-					<select name="mobile">
+					<select name="sec-ch-ua-mobile">
 						<option value="">-- Select Mobile --</option>
 						<?php foreach ($devices AS $key => $item) { ?>
-							<option value="<?= \htmlspecialchars($key); ?>"<?= $hints['sec-ch-ua-mobile'] === $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
+							<option value="<?= \htmlspecialchars($key); ?>"<?= ($hints['sec-ch-ua-mobile'] ?? null) === $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
 						<?php } ?>
 					</select>
 				</div>
 				<div class="form__control">
 					<label class="form__label">Browser:</label>
-					<input type="text" class="form__input" name="browser" value="<?= \htmlspecialchars($hints['sec-ch-ua-full-version-list']); ?>" />	
+					<input type="text" class="form__input" name="sec-ch-ua-full-version-list" value="<?= \htmlspecialchars($hints['sec-ch-ua-full-version-list'] ?? ''); ?>" />	
 				</div>
 				<div class="form__control">
 					<label class="form__label">Platform:</label>
-					<input type="text" class="form__input--short" name="platform" value="<?= \htmlspecialchars($hints['sec-ch-ua-platform']); ?>" />	
+					<input type="text" class="form__input--short" name="sec-ch-ua-platform" value="<?= \htmlspecialchars($hints['sec-ch-ua-platform'] ?? ''); ?>" />	
 				</div>
 				<div class="form__control">
 					<label class="form__label">Platform Version:</label>
-					<input type="text" class="form__input--short" name="platformversion" value="<?= \htmlspecialchars($hints['sec-ch-ua-platform-version']); ?>" />
+					<input type="text" class="form__input--short" name="sec-ch-ua-platform-version" value="<?= \htmlspecialchars($hints['sec-ch-ua-platform-version'] ?? ''); ?>" />
 				</div>
 				<div class="form__control">
 					<label class="form__label">Model:</label>
-					<input type="text" class="form__input--short" name="model" value="<?= \htmlspecialchars($hints['sec-ch-ua-model']); ?>" />
+					<input type="text" class="form__input--short" name="sec-ch-ua-model" value="<?= \htmlspecialchars($hints['sec-ch-ua-model'] ?? ''); ?>" />
 				</div>
 				<div class="form__control">
 					<label class="form__label">Memory:</label>
-					<select name="memory">
+					<select name="device-memory">
 						<option value="">-- Select Memory --</option>
 						<?php foreach ($memsizes AS $key => $item) { ?>
-							<option value="<?= \htmlspecialchars($key); ?>"<?= $hints['device-memory'] == $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
+							<option value="<?= \htmlspecialchars($key); ?>"<?= ($hints['device-memory'] ?? null) == $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
 						<?php } ?>
 					</select>
 				</div>
 				<div class="form__control">
 					<label class="form__label">Width:</label>
-					<input type="number" class="form__input--short" name="width" value="<?= \htmlspecialchars($hints['width']); ?>" />
+					<input type="number" class="form__input--short" name="width" value="<?= \htmlspecialchars($hints['width'] ?? ''); ?>" />
 				</div>
 				<div class="form__control">
 					<label class="form__label">Connection:</label>
 					<select name="ect">
 						<option value="">-- Select Connection --</option>
 						<?php foreach ($conns AS $key => $item) { ?>
-							<option value="<?= \htmlspecialchars($key); ?>"<?= $hints['ect'] === $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
+							<option value="<?= \htmlspecialchars($key); ?>"<?= ($hints['ect'] ?? null) === $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
 						<?php } ?>
 					</select>
 				</div>

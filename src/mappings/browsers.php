@@ -56,7 +56,7 @@ class browsers {
 		$key = $map[$data['browser']] ?? \mb_strtolower($data['browser']);
 		return \array_merge(
 			$data,
-			isset($data['browserversion']) ? versions::get($key, $data['browserversion'], $config['versions']) : []
+			isset($data['browserversion']) ? versions::get($key, $data['browserversion'], $config) : []
 		);
 	}
 	/**
@@ -103,7 +103,7 @@ class browsers {
 					'browserversion' => $version ?? null,
 					'engine' => 'WebKit',
 					'engineversion' => $parts[1] ?? null
-				], $version !== null ? versions::get('safari', $version, $config['versions']) : []);
+				], $version !== null ? versions::get('safari', $version, $config) : []);
 			},
 		];
 		return [
@@ -118,7 +118,7 @@ class browsers {
 			'Maxthon ' => new props('start', fn (string $value, int $i, array $tokens, string $key, array $config = []) : array => \array_merge([
 				'browser' => 'Maxthon',
 				'browserversion' => \mb_substr($value, 8)
-			], versions::get('maxathon', \mb_substr($value, 8), $config['versions']))),
+			], versions::get('maxathon', \mb_substr($value, 8), $config))),
 			'Konqueror/' => new props('start', $fn['browserslash']),
 			'K-Meleon/' => new props('start', $fn['browserslash']),
 			'UCBrowser/' => new props('start', $fn['browserslash']),
@@ -170,7 +170,7 @@ class browsers {
 					'browser' => 'Midori',
 					'engine' => $major >= 11 ? 'Gecko' : ($major < 9 ? 'WebKit' : 'Blink'),
 					'browserversion' => $version
-				], $version !== null ? versions::get('midori', $version, $config['versions']) : []);
+				], $version !== null ? versions::get('midori', $version, $config) : []);
 			}),
 			'PrivacyBrowser/' => new props('start', $fn['browserslash']),
 			'Fennec/' => new props('start', $fn['gecko']),
@@ -220,19 +220,19 @@ class browsers {
 				'browser' => 'Internet Explorer',
 				'browserversion' => \mb_substr($value, 5),
 				'engine' => 'Trident'
-			], versions::get('ie', \mb_substr($value, 5), $config['versions']))),
+			], versions::get('ie', \mb_substr($value, 5), $config))),
 			'BOIE9' => new props('start', fn (string $value, int $i, array $tokens, string $key, array $config = []) => \array_merge([
 				'type' => 'human',
 				'browser' => 'Internet Explorer',
 				'browserversion' => '9.0',
 				'engine' => 'Trident'
-			], versions::get('ie', '9.0', $config['versions']))),
+			], versions::get('ie', '9.0', $config))),
 			'IEMobile/' => new props('start', fn (string $value, int $i, array $tokens, string $key, array $config = []) : array => \array_merge([
 				'type' => 'human',
 				'browser' => 'Internet Explorer',
 				'browserversion' => \mb_substr($value, 9),
 				'engine' => 'Trident'
-			], versions::get('ie', \mb_substr($value, 9), $config['versions']))),
+			], versions::get('ie', \mb_substr($value, 9), $config))),
 			'Trident' => new props('start', [ // infill for missing browser name
 				'browser' => 'Internet Explorer'
 			]),

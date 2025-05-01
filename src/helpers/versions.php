@@ -4,9 +4,20 @@ namespace hexydec\agentzero;
 
 class versions {
 
+	/**
+	 * @var array|false|null An array of browser version numbers
+	 */
 	protected static array|false|null $versions = null;
 
-	protected static function load(string $source, ?string $cache = null, ?int $life = 604800) : array|false {
+	/**
+	 * Loads browser version information from an external source
+	 * 
+	 * @param string $source The URL of the source JSON containing the version information
+	 * @param string $cache The absolute file address of the cache file
+	 * @param ?int $life The maximum life of the cache file in seconds
+	 * @return array<string,array<string,string>> An array of browser versioning information, or false if the data source not be retrieved
+	 */
+	protected static function load(string $source, string $cache, ?int $life = 604800) : array|false {
 
 		// cache for this session
 		$data = self::$versions;
@@ -25,13 +36,11 @@ class versions {
 				}
 
 			// update cache
-			} elseif ($cache !== null) {
+			} else {
 
-				// create directory
+				// create directory and cache file
 				$dir = \dirname($cache);
-				if (!\is_dir($dir) && \mkdir($dir, 0755)) {
-
-					// cache file
+				if (\is_dir($dir) || \mkdir($dir, 0755)) {
 					\file_put_contents($cache, $json);
 				}
 			}
@@ -42,6 +51,11 @@ class versions {
 		return $data ?? false;
 	}
 
+	/**
+	 * Determines the latest version of a browser, optionally capped by the supplied date
+	 * 
+	 * @param array<string,string> $versions An array of browser versions, where the key is the version number and the value is the release date (In Ymd format)
+	 */
 	protected static function latest(array $versions, ?\DateTime $now = null) : ?string {
 
 		// no date restriction
@@ -86,12 +100,15 @@ class versions {
 	}
 
 	public static function get(string $browser, string $version, array $config) : array {
-		if (($versions = self::load($config['source'], $config['cache'])) !== false) {
+		$source = $config['versionssource'];
+		$cache = $config['versionscache'];
+		$life = $config['versionscachelife'];
+		if ($cache !== null && ($versions = self::load($source, $cache, $life)) !== false) {
 			$data = [];
 			if (isset($versions[$browser])) {
 
 				// get latest version of the browser
-				$data['browserlatest'] = self::latest($versions[$browser]);
+				$data['browserlatest'] = self::latest($versions[$browser], $config['currentdate']);
 				
 				// check if version is greater than latest version
 				$major = \intval($version);

@@ -30,12 +30,10 @@ class config {
 					apps::get(),
 					frameworks::get()
 				),
-				'versions' => [
-					'source' => 'https://raw.githubusercontent.com/hexydec/versions/refs/heads/main/dist/versions.json', // browser version data source
-					'cache' => \dirname(__DIR__).'/cache/versions.json', // location of the cache file
-					'cachelife' => 604800, // how long to cache for
-					'currentdate' => null // the point in time to calculate the browser data from, may be in the past (DateTime object)
-				]
+				'versionssource' => 'https://raw.githubusercontent.com/hexydec/versions/refs/heads/main/dist/versions.json', // browser version data source
+				'versionscache' => null, // location of the cache file, null to not fetch version data
+				'versionscachelife' => 604800, // how long to cache for
+				'currentdate' => null // the point in time to calculate the browser data from, may be in the past (DateTime object)
 			];
 		}
 		return \array_replace_recursive($default, $config);
