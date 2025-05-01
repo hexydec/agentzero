@@ -77,9 +77,9 @@ The returned value will be something like:
 	public readonly ?string 'proxy' => null;
 
 	// screen
-	public readonly ?int 'width' => int 1080
-	public readonly ?int 'height' => int 2116
-	public readonly ?int 'dpi' => int 420
+	public readonly ?int 'width' => int 1080;
+	public readonly ?int 'height' => int 2116;
+	public readonly ?int 'dpi' => int 420;
 	public readonly ?float 'density' => null;
 	public readonly ?bool 'darkmode' => null;;
 );
@@ -103,7 +103,7 @@ $hints = \hexydec\agentzero\agentzero::getHints();
 $az = \hexydec\agentzero\agentzero::parse($_SERVER['HTTP_USER_AGENT'], $hints);
 ```
 
-Note that by using the `Accept-CH` header, you may receive client hints on subsequent requests, if you need the client hints on first call, use the `Critical-CH` header instead.
+Note that by using the `Accept-CH` header, you may receive client hints on subsequent requests, if you need the client hints on first call, use the `Critical-CH` header instead (Warning: This will cause an extra round trip as the browser must re-request the first page).
 
 ### Browser Versions
 
