@@ -303,7 +303,8 @@ class platforms {
 					[
 						'type' => 'human',
 						'category' => 'tv',
-						'platform' => 'Roku',
+						'kernel' => 'Linux',
+						'platform' => 'Roku OS',
 						'platformversion' => \mb_substr($value, 5),
 						'app' => $app[0] ?? null,
 						'appname' => $app[0] ?? null,

@@ -655,10 +655,9 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'tv',
 				'kernel' => 'Linux',
 				'platform' => 'Roku OS',
-				'platformversion' => 'DVP-12.0',
+				'platformversion' => '12.0.0.4186-55',
 				'vendor' => 'Roku',
-				'device' => 'Roku',
-				'build' => '12.0.0.4186-55'
+				'device' => 'DVP-12.0'
 			],
 			'Mozilla/5.0 (Linux; Android 7.1.2; AFTMM) AppleWebKit/537.36 (KHTML, like Gecko) Silk/112.5.1 like Chrome/112.0.5615.213 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 7.1.2; AFTMM) AppleWebKit/537.36 (KHTML, like Gecko) Silk/112.5.1 like Chrome/112.0.5615.213 Safari/537.36',

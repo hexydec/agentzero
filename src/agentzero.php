@@ -146,6 +146,32 @@ class agentzero {
 	}
 
 	/**
+	 * Fetch the client hints sent by the browser
+	 * 
+	 * @return array<string,string> An array containing relevant client hints sent by the client
+	 */
+	public static function getHints() : array {
+		$hints = [
+			'sec-ch-ua-mobile',
+			'sec-ch-ua-full-version-list',
+			'sec-ch-ua-platform',
+			'sec-ch-ua-platform-version',
+			'sec-ch-ua-model',
+			'device-memory',
+			'width',
+			'ect'
+		];
+		$data = [];
+		foreach ($hints AS $item) {
+			$upper = \strtoupper(\str_replace('-', '_', $item));
+			if (!empty($_SERVER['HTTP_'.$upper])) {
+				$data[$item] = $_SERVER['HTTP_'.$upper];
+			}
+		}
+		return $data;
+	}
+
+	/**
 	 * Extracts tokens from a UA string
 	 * 
 	 * @param string $ua The User Agent string to be tokenised

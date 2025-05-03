@@ -60,8 +60,8 @@ The returned value will be something like:
 	public readonly ?string 'browser' => string 'Chrome';
 	public readonly ?string 'browserversion' => string '116.0.0.0';
 	public readonly ?string 'browserstatus' => 'previous';
-    public readonly ?string 'browserreleased' => '2023-09-15';
-    public readonly ?string 'browserlatest' => '133.0.6943.54';
+	public readonly ?string 'browserreleased' => '2023-09-15';
+	public readonly ?string 'browserlatest' => '133.0.6943.54';
 	public readonly ?string 'language' => string 'en-GB';
 
 	// app
@@ -77,15 +77,52 @@ The returned value will be something like:
 	public readonly ?string 'proxy' => null;
 
 	// screen
-	public readonly ?int 'width' => int 1080
-	public readonly ?int 'height' => int 2116
-	public readonly ?int 'dpi' => int 420
+	public readonly ?int 'width' => int 1080;
+	public readonly ?int 'height' => int 2116;
+	public readonly ?int 'dpi' => int 420;
 	public readonly ?float 'density' => null;
 	public readonly ?bool 'darkmode' => null;;
 );
 ```
 
 You can read the [full list of properties here](docs/api.md).
+
+### Client Hints
+
+AgentZero now supports processing client hints for improved user-agent information. You must request the client hints to improve the information delivered through the user-agent string:
+
+```php
+
+// request client hints
+\header('Accept-CH: Width, ECT, Device-Memory, Sec-CH-UA-Platform-Version, Sec-CH-UA-Model, Sec-CH-UA-Full-Version-List');
+
+// retrieve client hints
+$hints = \hexydec\agentzero\agentzero::getHints();
+
+// parse
+$az = \hexydec\agentzero\agentzero::parse($_SERVER['HTTP_USER_AGENT'], $hints);
+```
+
+Note that by using the `Accept-CH` header, you may receive client hints on subsequent requests, if you need the client hints on first call, use the `Critical-CH` header instead (Warning: This will cause an extra round trip as the browser must re-request the first page).
+
+### Browser Versions
+
+You can determine the date the browser was released, latest version, and status, by setting where the version file should be cached:
+
+```php
+$config = [
+	'versionscache' => __DIR__.'/cache/versions.json'
+];
+$az = \hexydec\agentzero\agentzero::parse($_SERVER['HTTP_USER_AGENT'], [], $config);
+var_dump(
+	$ua->browserstatus, // either "canary", "beta", "latest", "previous", "legacy", legacy means released over 5 years ago
+	$ua->browserreleased, // the date the browser was released
+	$us->browserlatest // the latest version number of the browser
+);
+
+```
+
+The browser version information is sourced from [my browser versions project](https://github.com/hexydec/versions).
 
 ## Supported Features
 
