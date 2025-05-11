@@ -115,7 +115,7 @@ $config = [
 ];
 $az = \hexydec\agentzero\agentzero::parse($_SERVER['HTTP_USER_AGENT'], [], $config);
 var_dump(
-	$ua->browserstatus, // either "canary", "beta", "latest", "previous", "legacy", legacy means released over 5 years ago
+	$ua->browserstatus, // either "canary", "beta", "latest", "previous", "outdated" (release over 2 years ago), "legacy" (released over 5 years ago)
 	$ua->browserreleased, // the date the browser was released
 	$us->browserlatest // the latest version number of the browser
 );
