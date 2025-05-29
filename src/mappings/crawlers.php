@@ -261,7 +261,9 @@ class crawlers {
 			'Google-adstxt' => new props('exact', $fn['ads']),
 			'Google-Adwords-Instant' => new props('exact', $fn['ads']),
 			'CFNetwork/' => new props('start', $fn['feed']),
-			'Siteimprove.com' => new props('any', $fn['crawler']),
+			'Siteimprove.com' => new props('any', fn (string $value) : array => \array_merge([
+				'url' => 'https://siteimprove.com'
+			], $fn['crawler']($value))),
 			'SEOlyt/' => new props('any', $fn['crawler']),
 			'CyotekWebCopy' => new props('start', $fn['scraper']),
 			'Yandex' => new props('start', function (string $value) : array {

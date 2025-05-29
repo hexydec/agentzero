@@ -1162,6 +1162,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '10.0',
 				'app' => 'SiteImprove Crawler',
 				'appname' => 'SiteCheck-sitecrawl by Siteimprove.com',
+				'url' => 'https://siteimprove.com',
 				'browserreleased' => '2012-10-26'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) LinkCheck by Siteimprove.com' => [
@@ -1177,6 +1178,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '10.0',
 				'app' => 'SiteImprove Crawler',
 				'appname' => 'LinkCheck by Siteimprove.com',
+				'url' => 'https://siteimprove.com',
 				'browserreleased' => '2012-10-26'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) Image size by Siteimprove.com' => [
@@ -1192,6 +1194,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '10.0',
 				'app' => 'SiteImprove Crawler',
 				'appname' => 'Image size by Siteimprove.com',
+				'url' => 'https://siteimprove.com',
 				'browserreleased' => '2012-10-26'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) Probe by Siteimprove.com' => [
@@ -1207,6 +1210,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '10.0',
 				'app' => 'SiteImprove Crawler',
 				'appname' => 'Probe by Siteimprove.com',
+				'url' => 'https://siteimprove.com',
 				'browserreleased' => '2012-10-26'
 			],
 			'INetBot/2.0 (http://www.inetdex.com; bot@inetdex.com)' => [
