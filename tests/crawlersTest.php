@@ -1441,6 +1441,23 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'CensysInspect',
 				'appversion' => '1.1',
 				'url' => 'https://about.censys.io/'
+			],
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 (StatusCake)' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 (StatusCake)',
+				'type' => 'robot',
+				'category' => 'monitor',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '129.0.0.0',
+				'browser' => 'Chrome',
+				'browserversion' => '129.0.0.0',
+				'browserreleased' => '2024-10-15',
+				'app' => 'Status Cake',
+				'appname' => 'StatusCake'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
