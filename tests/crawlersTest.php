@@ -460,6 +460,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'OAI-SearchBot',
 				'appversion' => '1.0',
 				'url' => 'https://openai.com/searchbot'
+			],
+			'iaskspider/2.0(+http://iask.com/help/help_index.html)' => [
+				'string' => 'iaskspider/2.0(+http://iask.com/help/help_index.html)',
+				'type' => 'robot',
+				'category' => 'search',
+				'app' => 'Iask Spider',
+				'appname' => 'iaskspider',
+				'appversion' => '2.0',
+				'url' => 'http://iask.com/help/help_index.html'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -657,6 +666,15 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'WordPress',
 				'appversion' => '6.1.1',
 				'url' => 'https://www.getsafeonline.org'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot',
+				'type' => 'robot',
+				'category' => 'feed',
+				'app' => 'ChatGPT User',
+				'appname' => 'ChatGPT-User',
+				'appversion' => '1.0',
+				'url' => 'https://openai.com/bot'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -739,8 +757,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Samsung Internet',
 				'browserversion' => '3.3',
 				'engine' => 'Blink',
-				'engineversion' => '38.0.2125.102',
-				'browserreleased' => '2017-11-09'
+				'engineversion' => '38.0.2125.102'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1282,6 +1299,50 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'omgili',
 				'appversion' => '0.5',
 				'url' => 'https://omgili.com'
+			],
+			'MeltwaterNews www.meltwater.com' => [
+				'string' => 'MeltwaterNews www.meltwater.com',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Meltwater News',
+				'appname' => 'MeltwaterNews',
+				'url' => 'www.meltwater.com'
+			],
+			'Mozilla/5.0 (compatible; AwarioBot/1.0; +https://awario.com/bots.html)' => [
+				'string' => 'Mozilla/5.0 (compatible; AwarioBot/1.0; +https://awario.com/bots.html)',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Awario Bot',
+				'appname' => 'AwarioBot',
+				'appversion' => '1.0',
+				'url' => 'https://awario.com/bots.html'
+			],
+			'AwarioSmartBot/1.0 (+https://awario.com/bots.html; bots@awario.com)' => [
+				'string' => 'AwarioSmartBot/1.0 (+https://awario.com/bots.html; bots@awario.com)',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Awario Smart Bot',
+				'appname' => 'AwarioSmartBot',
+				'appversion' => '1.0',
+				'url' => 'https://awario.com/bots.html'
+			],
+			'AwarioRssBot/1.0 (+https://awario.com/bots.html; bots@awario.com)' => [
+				'string' => 'AwarioRssBot/1.0 (+https://awario.com/bots.html; bots@awario.com)',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Awario Rss Bot',
+				'appname' => 'AwarioRssBot',
+				'appversion' => '1.0',
+				'url' => 'https://awario.com/bots.html'
+			],
+			'ICC-Crawler/3.0 (Mozilla-compatible; ; https://ucri.nict.go.jp/en/icccrawler.html)' => [
+				'string' => 'ICC-Crawler/3.0 (Mozilla-compatible; ; https://ucri.nict.go.jp/en/icccrawler.html)',
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'ICC Crawler',
+				'appname' => 'ICC-Crawler',
+				'appversion' => '3.0',
+				'url' => 'https://ucri.nict.go.jp/en/icccrawler.html'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1602,15 +1663,6 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '1.0',
 				'url' => 'https://forms.gle/ajBaxygz9jSR8p8G9'
 			],
-			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot' => [
-				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot',
-				'type' => 'robot',
-				'category' => 'ai',
-				'app' => 'ChatGPT User',
-				'appname' => 'ChatGPT-User',
-				'appversion' => '1.0',
-				'url' => 'https://openai.com/bot'
-			],
 			'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; https://zhanzhang.toutiao.com/)',
 				'type' => 'robot',
@@ -1666,6 +1718,176 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'PerplexityBot',
 				'appversion' => '1.0',
 				'url' => 'https://perplexity.ai/perplexitybot'
+			],
+			'Timpibot/0.8 (+http://www.timpi.io)' => [
+				'string' => 'Timpibot/0.8 (+http://www.timpi.io)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Timpi Bot',
+				'appname' => 'Timpibot',
+				'appversion' => '0.8',
+				'url' => 'http://www.timpi.io'
+			],
+			'Mozilla/5.0 (compatible) AI2Bot (+https://www.allenai.org/crawler)' => [
+				'string' => 'Mozilla/5.0 (compatible) AI2Bot (+https://www.allenai.org/crawler)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'AI2 Bot',
+				'appname' => 'AI2Bot',
+				'url' => 'https://www.allenai.org/crawler'
+			],
+			'Mozilla/5.0 (compatible; aiHitBot/1.0; +http://www.aihit.com/)' => [
+				'string' => 'Mozilla/5.0 (compatible; aiHitBot/1.0; +http://www.aihit.com/)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Ai Hit Bot',
+				'appname' => 'aiHitBot',
+				'appversion' => '1.0',
+				'url' => 'http://www.aihit.com/'
+			],
+			'Brightbot 1.0' => [
+				'string' => 'Brightbot 1.0',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Bright Bot',
+				'appname' => 'BrightBot',
+				'appversion' => '1.0'
+			],
+			'Mozilla/5.0 (compatible; AddSearchBot/1.0; +http://www.addsearch.com/bot/)' => [
+				'string' => 'Mozilla/5.0 (compatible; AddSearchBot/1.0; +http://www.addsearch.com/bot/)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Add Search Bot',
+				'appname' => 'AddSearchBot',
+				'appversion' => '1.0',
+				'url' => 'http://www.addsearch.com/bot/'
+			],
+			'Mozilla/5.0 (compatible; anthropic-ai/1.0; +http://www.anthropic.com/bot.html)' => [
+				'string' => 'Mozilla/5.0 (compatible; anthropic-ai/1.0; +http://www.anthropic.com/bot.html)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Anthropic Ai',
+				'appname' => 'anthropic-ai',
+				'appversion' => '1.0',
+				'url' => 'http://www.anthropic.com/bot.html'
+			],
+			'bigsur.ai (+https://www.bigsur.ai)' => [
+				'string' => 'bigsur.ai (+https://www.bigsur.ai)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Bigsur.ai',
+				'appname' => 'bigsur.ai',
+				'url' => 'https://www.bigsur.ai'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Claude Bot',
+				'appname' => 'ClaudeBot',
+				'appversion' => '1.0'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-User/1.0; +Claude-User@anthropic.com)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-User/1.0; +Claude-User@anthropic.com)',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'app' => 'Claude User',
+				'appname' => 'Claude-User',
+				'appversion' => '1.0'
+			],
+			'Google-CloudVertexBot' => [
+				'string' => 'Google-CloudVertexBot',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Google Cloud Vertex Bot',
+				'appname' => 'Google-CloudVertexBot'
+			],
+			'Mozilla/5.0 (compatible; cohere-ai/1.0; +http://www.cohere.ai/bot.html)' => [
+				'string' => 'Mozilla/5.0 (compatible; cohere-ai/1.0; +http://www.cohere.ai/bot.html)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Cohere Ai',
+				'appname' => 'cohere-ai',
+				'appversion' => '1.0',
+				'url' => 'http://www.cohere.ai/bot.html'
+			],
+			'DuckAssistBot/1.2; (+http://duckduckgo.com/duckassistbot.html)' => [
+				'string' => 'DuckAssistBot/1.2; (+http://duckduckgo.com/duckassistbot.html)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Duck Assist Bot',
+				'appname' => 'DuckAssistBot',
+				'appversion' => '1.2',
+				'url' => 'http://duckduckgo.com/duckassistbot.html'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Gemini-Deep-Research; +https://gemini.google/overview/deep-research/) Chrome/135.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Gemini-Deep-Research; +https://gemini.google/overview/deep-research/) Chrome/135.0.0.0 Safari/537.36',
+				'type' => 'robot',
+				'category' => 'ai',
+				'engine' => 'Blink',
+				'engineversion' => '135.0.0.0',
+				'browser' => 'Chrome',
+				'browserversion' => '135.0.0.0',
+				'browserreleased' => '2025-05-06',
+				'app' => 'Gemini Deep Research',
+				'appname' => 'Gemini-Deep-Research',
+				'url' => 'https://gemini.google/overview/deep-research/'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Mistral AI User',
+				'appname' => 'MistralAI-User',
+				'appversion' => '1.0',
+				'url' => 'https://docs.mistral.ai/robots'
+			],
+			'Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; PanguBot;pangubot@huawei.com)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; PanguBot;pangubot@huawei.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '7.0',
+				'app' => 'Pangu Bot',
+				'appname' => 'PanguBot'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Perplexity User',
+				'appname' => 'Perplexity-User',
+				'appversion' => '1.0',
+				'url' => 'https://perplexity.ai/perplexity-user'
+			],
+			'Mozilla/5.0 (compatible; QualifiedBot/1.0; +https://www.qualified.com/legal/qualified-crawler-user-agent)' => [
+				'string' => 'Mozilla/5.0 (compatible; QualifiedBot/1.0; +https://www.qualified.com/legal/qualified-crawler-user-agent)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Qualified Bot',
+				'appname' => 'QualifiedBot',
+				'appversion' => '1.0',
+				'url' => 'https://www.qualified.com/legal/qualified-crawler-user-agent'
+			],
+			'Mozilla/5.0 (compatible; SBIntuitionsBot/0.1; +https://www.sbintuitions.co.jp/en/bot/)' => [
+				'string' => 'Mozilla/5.0 (compatible; SBIntuitionsBot/0.1; +https://www.sbintuitions.co.jp/en/bot/)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'SB Intuitions Bot',
+				'appname' => 'SBIntuitionsBot',
+				'appversion' => '0.1',
+				'url' => 'https://www.sbintuitions.co.jp/en/bot/'
+			],
+			'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; TikTokSpider; ttspider-feedback@tiktok.com)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; TikTokSpider; ttspider-feedback@tiktok.com)',
+				'type' => 'robot',
+				'category' => 'feed',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '5.0',
+				'app' => 'Tik Tok Spider',
+				'appname' => 'TikTokSpider'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

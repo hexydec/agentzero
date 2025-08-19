@@ -37,7 +37,7 @@ final class urlsTest extends \PHPUnit\Framework\TestCase {
 			'Mozilla/5.0 (compatible; VelenPublicWebCrawler/1.0; +https://velen.io)' => [
 				'string' => 'Mozilla/5.0 (compatible; VelenPublicWebCrawler/1.0; +https://velen.io)',
 				'type' => 'robot',
-				'category' => 'crawler',
+				'category' => 'ai',
 				'app' => 'Velen Public Web Crawler',
 				'appname' => 'VelenPublicWebCrawler',
 				'appversion' => '1.0',

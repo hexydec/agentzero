@@ -78,7 +78,32 @@ class crawlers {
 				'iaskbot' => 'ai',
 				'ccbot' => 'crawler',
 				'wpbot' => 'ai',
-				'imagesiftbot' => 'ai'
+				'imagesiftbot' => 'ai',
+				'aihitbot' => 'ai',
+				'andibot' => 'ai',
+				'bedrockbot' => 'ai',
+				'addsearchbot' => 'ai',
+				'ai2bot' => 'ai',
+				'google-cloudvertexbot' => 'ai',
+				'duckassistbot' => 'ai',
+				'echobot bot' => 'ai',
+				'EchoboxBot' => 'ai',
+				'factset_spyderbot' => 'ai',
+				'kangaroo bot' => 'ai',
+				'linerbot' => 'ai',
+				'mycentralaiscraperbot' => 'ai',
+				'omgilibot' => 'crawler', // webz.io
+				'Webzio' => 'crawler',
+				'pangubot' => 'ai', // huawei
+				'phindbot' => 'ai',
+				'qualifiedbot' => 'ai',
+				'quillbot' => 'ai',
+				'sbintuitionsbot' => 'ai',
+				'sidetradebot' => 'ai',
+				'thinkbot' => 'ai',
+				'ai2bot' => 'ai',
+				'timpibot' => 'ai',
+				'wardbot' => 'monitor'
 			];
 			$apps = [
 				'googlebot' => 'Google Bot',
@@ -221,9 +246,7 @@ class crawlers {
 					'category' => 'feed'
 				]
 			)),
-			'crawler' => function (string $value) : array {
-				return self::getApp($value, ['category' => 'crawler']);
-			},
+			'crawler' => fn (string $value) : array => self::getApp($value, ['category' => 'crawler']),
 			'monitor' => fn (string $value) : array => self::getApp($value, ['category' => 'monitor']),
 			'scraper' => fn (string $value) : array => self::getApp($value, ['category' => 'scraper']),
 			'map' => fn (string $value) : array => self::getApp($value)
@@ -260,12 +283,15 @@ class crawlers {
 			'GoogleProducer' => new props('exact', $fn['feed']),
 			'Google-adstxt' => new props('exact', $fn['ads']),
 			'Google-Adwords-Instant' => new props('exact', $fn['ads']),
+			'Gemini-Deep-Research' => new props('exact', $fn['ai']),
+			'GoogleAgent-Mariner' => new props('exact', $fn['ai']),
 			'CFNetwork/' => new props('start', $fn['feed']),
 			'Siteimprove.com' => new props('any', fn (string $value) : array => \array_merge([
 				'url' => 'https://siteimprove.com'
 			], $fn['crawler']($value))),
 			'SEOlyt/' => new props('any', $fn['crawler']),
 			'CyotekWebCopy' => new props('start', $fn['scraper']),
+			'scrapy' => new props('start', $fn['scraper']),
 			'Yandex' => new props('start', function (string $value) : array {
 				$parts = \explode('/', $value, 3);
 				return [
@@ -372,7 +398,7 @@ class crawlers {
 				'appname' => 'Pleroma',
 				'appversion' => \mb_substr($value, 8)
 			]),
-			'Outlook-Android/' => new props('start', fn (string $value) : array => [ // mastodon
+			'Outlook-Android/' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'feed',
 				'app' => 'Outlook',
@@ -380,7 +406,7 @@ class crawlers {
 				'platform' => 'Android',
 				'appversion' => \mb_substr($value, 16)
 			]),
-			'Outlook-iOS/' => new props('start', fn (string $value, int $i, array $tokens) : array => [ // mastodon
+			'Outlook-iOS/' => new props('start', fn (string $value, int $i, array $tokens) : array => [
 				'type' => 'robot',
 				'category' => 'feed',
 				'app' => 'Outlook',
@@ -409,13 +435,17 @@ class crawlers {
 					'category' => 'feed',
 					'app' => 'HubSpot Connect',
 					'appname' => $app,
-					'appversion' => \mb_substr($value, 16)
+					'appversion' => \mb_substr($value, 16) ?: null
 				];
 			}),
+			'TikTokSpider' => new props('start', $fn['feed']),
 			'Pro-Sitemaps/' => new props('start', $fn['crawler']),
 			'Pandalytics/' => new props('start', $fn['crawler']),
 			'omgili/' => new props('start', $fn['crawler']),
-			// 'CCBot/' => new props('start', $fn['crawler']),
+			'AwarioBot/' => new props('start', $fn['crawler']),
+			'AwarioSmartBot/' => new props('start', $fn['crawler']),
+			'AwarioRssBot/' => new props('start', $fn['crawler']),
+			'ICC-Crawler/' => new props('start', $fn['crawler']),
 			'The National Archives UK Government Web Archive' => new props('start', $fn['crawler']),
 			'Citoid' => new props('exact', $fn['crawler']),
 			'trendictionbot' => new props('start', fn (string $value) : array => [
@@ -423,7 +453,7 @@ class crawlers {
 				'category' => 'crawler',
 				'app' => 'Trendicion Bot',
 				'appname' => 'trendictionbot',
-				'appversion' => \mb_substr($value, 14)
+				'appversion' => \mb_substr($value, 14) ?: null
 			]),
 			'Chrome Privacy Preserving Prefetch Proxy' => new props('exact', $fn['feed']),
 			'ViberUrlDownloader' => new props('exact', $fn['feed']),
@@ -453,7 +483,6 @@ class crawlers {
 			'Rogerbot/' => new props('start', $fn['crawler']),
 			'DashLinkPreviews/' => new props('start', $fn['feed']),
 			'Snapchat/' => new props('start', $fn['feed']),
-			'HTTPClient/' => new props('start', $fn['scraper']),
 			'WhatsApp/' => new props('any', $fn['feed']),
 			'Hootsuite-Authoring/' => new props('start', $fn['feed']),
 			'URL Preview' => new props('any', $fn['feed']),
@@ -485,13 +514,46 @@ class crawlers {
 			'HttpClient/' => new props('any', $fn['scraper']),
 			'PowerShell/' => new props('start', $fn['scraper']),
 			'OAI-SearchBot/' => new props('start', $fn['search']),
+			'iaskspider/' => new props('start', $fn['search']),
+			'MeltwaterNews' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'crawler',
+				'app' => 'Meltwater News',
+				'appname' => 'MeltwaterNews',
+				'url' => \mb_substr($value, 14) ?: null
+			]),
 			'Google-Extended' => new props('start', $fn['ai']),
-			'ChatGPT-User/' => new props('start', $fn['ai']),
+			'ChatGPT-User/' => new props('start', $fn['feed']),
 			'Cohere' => new props('start', $fn['ai']),
 			'facebookexternalhit/' => new props('start', $fn['feed']),
 			'facebookcatalog/' => new props('start', $fn['crawler']),
 			'meta-externalagent' => new props('start', $fn['ai']),
 			'meta-externalfetcher' => new props('start', $fn['feed']),
+			'BrightBot ' => new props('start', fn (string $value) : array => [
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Bright Bot',
+				'appname' => 'BrightBot',
+				'appversion' => \mb_substr($value, 10) ?: null
+			]),
+			'anthropic-ai' => new props('start', $fn['ai']),
+			'bigsur.ai' => new props('start', $fn['ai']),
+			'Claude User' => new props('start', $fn['ai']),
+			'Claude Web' => new props('start', $fn['ai']),
+			'cohere-ai' => new props('start', $fn['ai']),
+			'cohere-training-data-crawler' => new props('start', $fn['ai']),
+			'Cotoyogi' => new props('start', $fn['ai']),
+			'Crawlspace' => new props('start', $fn['ai']),
+			'Datenbank Crawler' => new props('start', $fn['ai']),
+			'Devin' => new props('start', $fn['ai']),
+			'FirecrawlAgent' => new props('start', $fn['ai']),
+			'FriendlyCrawler' => new props('start', $fn['ai']),
+			'MistralAI-User' => new props('start', $fn['ai']),
+			'NovaAct' => new props('start', $fn['ai']), // amazon
+			'Panscient' => new props('start', $fn['ai']),
+			'pantest' => new props('start', $fn['ai']),
+			'Perplexity' => new props('start', $fn['ai']),
+			'VelenPublicWebCrawler' => new props('start', $fn['ai']),
 			'Validator' => new props('any', $fn['validator']),
 			'feed' => new props('any', $fn['feed']),
 			'bot/' => new props('any', $fn['map']),

@@ -1068,7 +1068,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '106.0.5249.181',
 				'architecture' => 'x86',
 				'bits' => 64,
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2022-10-25'
 			],
 			'Mozilla/5.0 (X11; U; Linux x86_64; fr; rv:1.9.2.14pre) Gecko/20101224 Ubuntu/10.04 (lucid) Namoroka/3.6.14pre' => [
 				'string' => 'Mozilla/5.0 (X11; U; Linux x86_64; fr; rv:1.9.2.14pre) Gecko/20101224 Ubuntu/10.04 (lucid) Namoroka/3.6.14pre',
