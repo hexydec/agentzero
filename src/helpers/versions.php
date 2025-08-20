@@ -105,10 +105,9 @@ class versions {
 		$life = $config['versionscachelife'];
 		if ($cache !== null && ($versions = self::load($source, $cache, $life)) !== false) {
 			$data = [];
-			if (isset($versions[$browser])) {
 
-				// get latest version of the browser
-				$data['browserlatest'] = self::latest($versions[$browser], $config['currentdate']);
+			// get latest version of the browser
+			if (isset($versions[$browser]) && ($data['browserlatest'] = self::latest($versions[$browser], $config['currentdate'])) !== null) {
 				
 				// check if version is greater than latest version
 				$major = \intval($version);
@@ -142,7 +141,7 @@ class versions {
 					$data['browserreleased'] = self::released($versions[$browser], $version);
 
 					// calculate status
-					if (isset($data['browserreleased'])) {
+					if (isset($data['browserreleased'], $data['browserlatest'])) {
 						$current = \explode('.', $data['browserlatest'])[0] === \explode('.', $version)[0];
 						$released = new \DateTime($data['browserreleased']);
 

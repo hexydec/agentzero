@@ -1649,6 +1649,59 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'PerplexityBot',
 				'appversion' => '1.0',
 				'url' => 'https://perplexity.ai/perplexitybot'
+			],
+			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; ClaudeBot/1.0; +claudebot@anthropic.com)' => [
+				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; ClaudeBot/1.0; +claudebot@anthropic.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'vendor' => 'Apple',
+				'device' => 'Macintosh',
+				'processor' => 'Intel',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Mac OS X',
+				'platformversion' => '10.15.7',
+				'engine' => 'Blink',
+				'engineversion' => '131.0.0.0',
+				'browser' => 'Chrome',
+				'browserversion' => '131.0.0.0',
+				'browserreleased' => '2025-01-22',
+				'app' => 'Claude Bot',
+				'appname' => 'ClaudeBot',
+				'appversion' => '1.0'
+			],
+			'ClaudeBot/1.0 (web crawler; +https://www.anthropic.com/; claudebot@anthropic.com)' => [
+				'string' => 'ClaudeBot/1.0 (web crawler; +https://www.anthropic.com/; claudebot@anthropic.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Claude Bot',
+				'appname' => 'ClaudeBot',
+				'appversion' => '1.0',
+				'url' => 'https://www.anthropic.com/'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +support@anthropic.com)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +support@anthropic.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Claude Bot',
+				'appname' => 'ClaudeBot',
+				'appversion' => '1.0'
+			],
+			'ClaudeBot' => [
+				'string' => 'ClaudeBot',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Claude Bot',
+				'appname' => 'ClaudeBot'
+			],
+			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)' => [
+				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)',
+				'type' => 'robot',
+				'category' => 'ai',
+				'app' => 'Claude Bot',
+				'appname' => 'ClaudeBot',
+				'appversion' => '1.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
