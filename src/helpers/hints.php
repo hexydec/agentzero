@@ -9,7 +9,7 @@ class hints {
 	 * 
 	 * @param string &$ua A reference to the User-Agent string, which may be used with brand names and versions
 	 * @param array $hints An array of client hints
-	 * @return stdClass A stdClass object containing parsed values for agentzero
+	 * @return \stdClass A stdClass object containing parsed values for agentzero
 	 */
 	public static function parse(string &$ua, array $hints) : \stdClass {
 		$map = [

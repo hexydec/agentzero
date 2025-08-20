@@ -29,59 +29,59 @@ The returned value will be something like:
 ```php
 \hexydec\agentzero\agentzero (
 
-	public readonly string 'string' => string 'Mozilla/5.0 (Linux; Android 13; Pixel 7 Pro Build/TD1A.220804.031; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 301.1.0.33.110 Android (33/13; 420dpi; 1080x2116; Google/google; Pixel 7 Pro; cheetah; cheetah; en_GB; 517986703)';
+	public readonly string $string => string 'Mozilla/5.0 (Linux; Android 13; Pixel 7 Pro Build/TD1A.220804.031; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 301.1.0.33.110 Android (33/13; 420dpi; 1080x2116; Google/google; Pixel 7 Pro; cheetah; cheetah; en_GB; 517986703)';
 
 	// categories
-	public readonly ?string 'type' => string 'human';
-	public readonly ?string 'category' => string 'mobile';
+	public readonly ?string $type => string 'human';
+	public readonly ?string $category => string 'mobile';
 
 	// device
-	public readonly ?string 'vendor' => string 'Google';
-	public readonly ?string 'device' => string 'Pixel';
-	public readonly ?string 'model' => string '7 Pro';
-	public readonly ?string 'build' => string 'TD1A.220804.031';
-	public readonly ?int 'ram' => null;
+	public readonly ?string $vendor => string 'Google';
+	public readonly ?string $device => string 'Pixel';
+	public readonly ?string $model => string '7 Pro';
+	public readonly ?string $build => string 'TD1A.220804.031';
+	public readonly ?int $ram => null;
 
 	// architecture
-	public readonly ?string 'processor' => null;
-	public readonly ?string 'architecture' => null;
-	public readonly ?int 'bits' => null;
-	public readonly ?string 'cpu' => null;
-	public readonly ?int 'cpuclock' => null;
+	public readonly ?string $processor => null;
+	public readonly ?string $architecture => null;
+	public readonly ?int $bits => null;
+	public readonly ?string $cpu => null;
+	public readonly ?int $cpuclock => null;
 
 	// platform
-	public readonly ?string 'kernel' => string 'Linux';
-	public readonly ?string 'platform' => string 'Android';
-	public readonly ?string 'platformversion' => string '13';
+	public readonly ?string $kernel => string 'Linux';
+	public readonly ?string $platform => string 'Android';
+	public readonly ?string $platformversion => string '13';
 
 	// browser
-	public readonly ?string 'engine' => string 'Blink';
-	public readonly ?string 'engineversion' => string '116.0.0.0';
-	public readonly ?string 'browser' => string 'Chrome';
-	public readonly ?string 'browserversion' => string '116.0.0.0';
-	public readonly ?string 'browserstatus' => 'previous';
-	public readonly ?string 'browserreleased' => '2023-09-15';
-	public readonly ?string 'browserlatest' => '133.0.6943.54';
-	public readonly ?string 'language' => string 'en-GB';
+	public readonly ?string $engine => string 'Blink';
+	public readonly ?string $engineversion => string '116.0.0.0';
+	public readonly ?string $browser => string 'Chrome';
+	public readonly ?string $browserversion => string '116.0.0.0';
+	public readonly ?string $browserstatus => 'previous';
+	public readonly ?string $browserreleased => '2023-09-15';
+	public readonly ?string $browserlatest => '133.0.6943.54';
+	public readonly ?string $language => string 'en-GB';
 
 	// app
-	public readonly ?string 'app' => string 'Instagram';
-	public readonly ?string 'appname' => string 'Instagram';
-	public readonly ?string 'appversion' => string '301.1.0.33.110';
-	public readonly ?string 'framework' => null;
-	public readonly ?string 'frameworkversion' => null;
-	public readonly ?string 'url' => null;
+	public readonly ?string $app => string 'Instagram';
+	public readonly ?string $appname => string 'Instagram';
+	public readonly ?string $appversion => string '301.1.0.33.110';
+	public readonly ?string $framework => null;
+	public readonly ?string $frameworkversion => null;
+	public readonly ?string $url => null;
 
 	// network
-	public readonly ?string 'nettype' => null;
-	public readonly ?string 'proxy' => null;
+	public readonly ?string $nettype => null;
+	public readonly ?string $proxy => null;
 
 	// screen
-	public readonly ?int 'width' => int 1080;
-	public readonly ?int 'height' => int 2116;
-	public readonly ?int 'dpi' => int 420;
-	public readonly ?float 'density' => null;
-	public readonly ?bool 'darkmode' => null;;
+	public readonly ?int $width => int 1080;
+	public readonly ?int $height => int 2116;
+	public readonly ?int $dpi => int 420;
+	public readonly ?float $density => null;
+	public readonly ?bool $darkmode => null;
 );
 ```
 

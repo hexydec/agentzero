@@ -14,6 +14,7 @@ class browsers {
 			'crios' => 'Chrome',
 			'edg' => 'Edge',
 			'edgios' => 'Edge',
+			'fxios' => 'Firefox',
 			'edga' => 'Edge',
 			'webpositive' => 'WebPositive',
 			'nintendobrowser' => 'NintendoBrowser',
@@ -49,7 +50,6 @@ class browsers {
 			'Samsung Internet' => 'samsung',
 			'Huawei Browser' => 'huawei',
 			'K-Meleon' => 'kmeleon',
-			'Fennec' => 'firefox',
 			'Native Opera Mini' => 'opera',
 			'Cronet' => 'chrome'
 		];
@@ -215,6 +215,7 @@ class browsers {
 			'EdgA/' => new props('start', $fn['browserslash']),
 			'Edge/' => new props('start', $fn['browserslash']),
 			'EdgiOS/' => new props('start', $fn['browserslash']),
+			'FxiOS/' => new props('start', $fn['browserslash']),
 			'MSIE ' => new props('start', fn (string $value, int $i, array $tokens, string $key, array $config = []) : array => \array_merge([
 				'type' => 'human',
 				'browser' => 'Internet Explorer',
