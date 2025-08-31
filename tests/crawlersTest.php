@@ -757,7 +757,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Samsung Internet',
 				'browserversion' => '3.3',
 				'engine' => 'Blink',
-				'engineversion' => '38.0.2125.102'
+				'engineversion' => '38.0.2125.102',
+				'browserreleased' => '2017-11-09'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

@@ -75,7 +75,6 @@ class versions {
 	protected static function released(array $data, string $version) : ?string {
 		$major = \intval($version);
 		$len = 0;
-		$i = 0;
 		$vlen = \strlen($version);
 		$released = null;
 		foreach ($data AS $ver => $date) {
@@ -89,14 +88,13 @@ class versions {
 						break;
 					}
 				}
-				if ($match > $len) {
+				if ($match && $match > $len && ($released === null || $released > $date)) {
 					$len = $match;
 					$released = $date;
 				}
 			}
-			$i++;
 		}
-		return $released !== null ? (new \DateTime(\strval($released)))->format('Y-m-d') : null;
+		return !empty($released) ? (new \DateTime(\strval($released)))->format('Y-m-d') : null;
 	}
 
 	public static function get(string $browser, string $version, array $config) : array {
