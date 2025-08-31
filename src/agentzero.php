@@ -161,6 +161,7 @@ class agentzero {
 			foreach ($headers AS $key => $item) {
 				$values[\strtoupper(\str_replace('-', '_', $key))] = $item;
 			}
+			$prefix = '';
 		}
 		$hints = [
 			'sec-ch-ua-mobile',
