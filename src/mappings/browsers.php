@@ -50,7 +50,6 @@ class browsers {
 			'Samsung Internet' => 'samsung',
 			'Huawei Browser' => 'huawei',
 			'K-Meleon' => 'kmeleon',
-			'Fennec' => 'firefox',
 			'Native Opera Mini' => 'opera',
 			'Cronet' => 'chrome'
 		];

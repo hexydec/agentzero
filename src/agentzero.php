@@ -150,7 +150,19 @@ class agentzero {
 	 * 
 	 * @return array<string,string> An array containing relevant client hints sent by the client
 	 */
-	public static function getHints() : array {
+	public static function getHints(?array $headers = null) : array {
+
+		// get from $_SERVER
+		if ($headers === null) {
+			$values = $_SERVER;
+			$prefix = 'HTTP_';
+		} else {
+			$values = [];
+			foreach ($headers AS $key => $item) {
+				$values[\strtoupper(\str_replace('-', '_', $key))] = $item;
+			}
+			$prefix = '';
+		}
 		$hints = [
 			'sec-ch-ua-mobile',
 			'sec-ch-ua-full-version-list',
@@ -164,8 +176,8 @@ class agentzero {
 		$data = [];
 		foreach ($hints AS $item) {
 			$upper = \strtoupper(\str_replace('-', '_', $item));
-			if (!empty($_SERVER['HTTP_'.$upper])) {
-				$data[$item] = $_SERVER['HTTP_'.$upper];
+			if (!empty($values[$prefix.$upper])) {
+				$data[$item] = $values[$prefix.$upper];
 			}
 		}
 		return $data;

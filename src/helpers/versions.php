@@ -75,7 +75,6 @@ class versions {
 	protected static function released(array $data, string $version) : ?string {
 		$major = \intval($version);
 		$len = 0;
-		$i = 0;
 		$vlen = \strlen($version);
 		$released = null;
 		foreach ($data AS $ver => $date) {
@@ -89,14 +88,13 @@ class versions {
 						break;
 					}
 				}
-				if ($match > $len) {
+				if ($match && $match > $len && ($released === null || $released > $date)) {
 					$len = $match;
 					$released = $date;
 				}
 			}
-			$i++;
 		}
-		return $released !== null ? (new \DateTime(\strval($released)))->format('Y-m-d') : null;
+		return !empty($released) ? (new \DateTime(\strval($released)))->format('Y-m-d') : null;
 	}
 
 	public static function get(string $browser, string $version, array $config) : array {
@@ -105,10 +103,9 @@ class versions {
 		$life = $config['versionscachelife'];
 		if ($cache !== null && ($versions = self::load($source, $cache, $life)) !== false) {
 			$data = [];
-			if (isset($versions[$browser])) {
 
-				// get latest version of the browser
-				$data['browserlatest'] = self::latest($versions[$browser], $config['currentdate']);
+			// get latest version of the browser
+			if (isset($versions[$browser]) && ($data['browserlatest'] = self::latest($versions[$browser], $config['currentdate'])) !== null) {
 				
 				// check if version is greater than latest version
 				$major = \intval($version);
@@ -142,7 +139,7 @@ class versions {
 					$data['browserreleased'] = self::released($versions[$browser], $version);
 
 					// calculate status
-					if (isset($data['browserreleased'])) {
+					if (isset($data['browserreleased'], $data['browserlatest'])) {
 						$current = \explode('.', $data['browserlatest'])[0] === \explode('.', $version)[0];
 						$released = new \DateTime($data['browserreleased']);
 
