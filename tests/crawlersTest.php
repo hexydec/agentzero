@@ -1401,6 +1401,38 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'appname' => 'grub-client',
 				'appversion' => '1.5.3',
 				'url' => 'http://grub.org'
+			],
+			'node-fetch' => [
+				'string' => 'node-fetch',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'app' => 'Node Fetch',
+				'appname' => 'node-fetch'
+			],
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/13.0.0' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/13.0.0',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'app' => 'Jsdom',
+				'appname' => 'jsdom',
+				'appversion' => '13.0.0'
+			],
+			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/13.0.0' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/13.0.0',
+				'type' => 'robot',
+				'category' => 'scraper',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'app' => 'Jsdom',
+				'appname' => 'jsdom',
+				'appversion' => '13.0.0'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

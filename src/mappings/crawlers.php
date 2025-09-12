@@ -513,6 +513,7 @@ class crawlers {
 			'http-client/' => new props('any', $fn['scraper']),
 			'HttpClient/' => new props('any', $fn['scraper']),
 			'PowerShell/' => new props('start', $fn['scraper']),
+			'node-fetch' => new props('exact', $fn['scraper']),
 			'OAI-SearchBot/' => new props('start', $fn['search']),
 			'iaskspider/' => new props('start', $fn['search']),
 			'MeltwaterNews' => new props('start', fn (string $value) : array => [
