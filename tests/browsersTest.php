@@ -500,7 +500,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '601.1.46',
 				'browser' => 'Brave',
 				'browserversion' => '1.2.11',
-				'browserreleased' => '2025-08-26'
+				'browserreleased' => '2025-11-18'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Brave/115.0.0.0 Safari/605.1.15' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Brave/115.0.0.0 Safari/605.1.15',
