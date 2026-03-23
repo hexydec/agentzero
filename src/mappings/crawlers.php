@@ -195,7 +195,8 @@ class crawlers {
 				'w3c-checklink' => 'W3C Checklink',
 				'w3c_validator' => 'W3C Validator',
 				'omgili' => 'Webz.io',
-				'bluesky cardyb' => 'Bluesky'
+				'bluesky cardyb' => 'Bluesky',
+				'appid: s~virustotalcloud' => 'Virus Total Cloud'
 			];
 			
 			$lower = \mb_strtolower($parts[0]);
@@ -290,6 +291,7 @@ class crawlers {
 				'url' => 'https://siteimprove.com'
 			], $fn['crawler']($value))),
 			'SEOlyt/' => new props('any', $fn['crawler']),
+			'Turnitin' => new props('exact', $fn['crawler']),
 			'CyotekWebCopy' => new props('start', $fn['scraper']),
 			'scrapy' => new props('start', $fn['scraper']),
 			'Yandex' => new props('start', function (string $value) : array {
@@ -331,8 +333,10 @@ class crawlers {
 			'monitoring360bot' => new props('start', $fn['monitor']),
 			'Cloudflare' => new props('start', $fn['validator']),
 			'PTST/' => new props('start', $fn['validator']),
+			'virustotalcloud' => new props('end', $fn['validator']),
 			'+https://developers.cloudflare.com/security-center/' => new props('exact', $fn['monitor']),
 			'AppSignalBot/' => new props('start', $fn['monitor']),
+			'InternetMeasurement/' => new props('start', $fn['monitor']),
 			'Better Uptime Bot' => new props('start', [
 				'type' => 'robot',
 				'category' => 'monitor',
@@ -372,6 +376,7 @@ class crawlers {
 			}),
 			'proximic' => new props('exact', $fn['ads']),
 			'WordPress' => new props('start', $fn['feed']),
+			'eMClient/' => new props('start', $fn['feed']),
 			'PRTG Network Monitor' => new props('exact', $fn['monitor']),
 			'PRTGCloudBot/' => new props('start', $fn['monitor']),
 			'Site24x7' => new props('exact', $fn['monitor']),
@@ -391,6 +396,8 @@ class crawlers {
 			'Embedly/' => new props('start', $fn['feed']),
 			'PayPal IPN' => new props('exact', $fn['feed']),
 			'DropboxPreviewBot/' => new props('start', $fn['feed']),
+			'Iframely/' => new props('start', $fn['feed']),
+			'StartpagePrivateImageProxy/' => new props('start', $fn['feed']),
 			'Pleroma' => new props('start', fn (string $value) : array => [ // mastodon
 				'type' => 'robot',
 				'category' => 'feed',
@@ -446,8 +453,12 @@ class crawlers {
 			'AwarioSmartBot/' => new props('start', $fn['crawler']),
 			'AwarioRssBot/' => new props('start', $fn['crawler']),
 			'ICC-Crawler/' => new props('start', $fn['crawler']),
+			'Barkrowler/' => new props('start', $fn['crawler']),
+			'Archive-It' => new props('exact', $fn['crawler']),
+			'GeedoProductSearch' => new props('exact', $fn['crawler']),
 			'The National Archives UK Government Web Archive' => new props('start', $fn['crawler']),
 			'Citoid' => new props('exact', $fn['crawler']),
+			'CheckMarkNetwork/' => new props('start', $fn['crawler']),
 			'trendictionbot' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'crawler',
@@ -474,10 +485,12 @@ class crawlers {
 			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
 			'SEO-Macroscope/' => new props('start', $fn['validator']),
 			'Electronic Frontier Foundation\'s Do Not Track Verifier' => new props('exact', $fn['validator']),
+			'TruffleHog' => new props('exact', $fn['validator']),
 			'Barracuda Sentinel' => new props('start', $fn['validator']),
 			'Expanse' => new props('start', $fn['crawler']),
 			'eCairn-Grabber/' => new props('start', $fn['scraper']),
 			'SEOkicks' => new props('exact', $fn['crawler']),
+			'TinEye-Web/' => new props('start', $fn['crawler']),
 			'PostmanRuntime/' => new props('start', $fn['scraper']),
 			'axios/' => new props('start', $fn['scraper']),
 			'Rogerbot/' => new props('start', $fn['crawler']),
@@ -516,6 +529,7 @@ class crawlers {
 			'node-fetch' => new props('exact', $fn['scraper']),
 			'OAI-SearchBot/' => new props('start', $fn['search']),
 			'iaskspider/' => new props('start', $fn['search']),
+			'Yeti/' => new props('start', $fn['search']),
 			'MeltwaterNews' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'crawler',
@@ -530,6 +544,7 @@ class crawlers {
 			'facebookcatalog/' => new props('start', $fn['crawler']),
 			'meta-externalagent' => new props('start', $fn['ai']),
 			'meta-externalfetcher' => new props('start', $fn['feed']),
+			'FlipBoard' => new props('start', $fn['feed']),
 			'BrightBot ' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'ai',
