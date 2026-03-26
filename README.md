@@ -22,8 +22,12 @@ To use AgentZero:
 ```php
 $ua = $_SERVER['HTTP_USER_AGENT']; // or whatever UA you want e.g:
 $ua = 'Mozilla/5.0 (Linux; Android 13; Pixel 7 Pro Build/TD1A.220804.031; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 Instagram 301.1.0.33.110 Android (33/13; 420dpi; 1080x2116; Google/google; Pixel 7 Pro; cheetah; cheetah; en_GB; 517986703)';
-$browser = \hexydec\agentzero\agentzero::parse($ua);
+if (($browser = \hexydec\agentzero\agentzero::parse($ua)) !== false) {
+	// use $browser
+}
 ```
+
+`parse()` returns `false` if the string is empty, longer than 2000 characters, or produces no recognisable tokens. Always check the return value before using the object.
 The returned value will be something like:
 
 ```php
@@ -115,9 +119,9 @@ $config = [
 ];
 $az = \hexydec\agentzero\agentzero::parse($_SERVER['HTTP_USER_AGENT'], [], $config);
 var_dump(
-	$ua->browserstatus, // either "canary", "beta", "latest", "previous", "outdated" (release over 2 years ago), "legacy" (released over 5 years ago)
-	$ua->browserreleased, // the date the browser was released
-	$us->browserlatest // the latest version number of the browser
+	$az->browserstatus,  // "nightly", "canary", "beta", "current", "previous", "outdated" (2+ years old), or "legacy" (5+ years old)
+	$az->browserreleased, // date the browser version was released, e.g. "2024-01-15"
+	$az->browserlatest   // latest known version number of the browser
 );
 
 ```

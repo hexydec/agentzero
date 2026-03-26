@@ -196,9 +196,12 @@ class agentzero {
 		// prepare regexp
 		$single = \implode('|', \array_map('\\preg_quote', $single, \array_fill(0, \count($single), '/')));
 		$pattern = '/\{[^}]++\}|[^()\[\];,\/  _-](?:(?<!'.$single.') (?!https?:\/\/)|(?<=[a-z])\([^)]+\)|[^()\[\];,\/ ]*)*[^()\[\];,\/  _-](?:\/[^;,()\[\]  ]++)?|[0-9]/i';
+		
+		// only allow strings up to a certain length
+		if (\strlen($ua) > 2000) {
 
 		// split up ua string
-		if (\preg_match_all($pattern, $ua, $match)) {
+		} elseif (\preg_match_all($pattern, $ua, $match)) {
 
 			// userland token processing
 			$tokens = [];

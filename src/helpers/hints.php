@@ -88,7 +88,7 @@ class hints {
 		$obj = new \stdClass();
 		foreach ($hints AS $key => $item) {
 			$key = \strtolower($key);
-			if (isset($map[$key])) {
+			if (isset($map[$key]) && \strlen($item) <= 500) {
 				$map[$key]($obj, $item, $ua);
 			}
 		}

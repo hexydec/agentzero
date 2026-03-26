@@ -9,7 +9,7 @@ final class defaultTest extends \PHPUnit\Framework\TestCase {
 			'eMClient/10.0.3266.0' => [
 				'string' => 'eMClient/10.0.3266.0',
 				'type' => 'robot',
-				'category' => 'scraper',
+				'category' => 'feed',
 				'app' => 'eM Client',
 				'appname' => 'eMClient',
 				'appversion' => '10.0.3266.0'
