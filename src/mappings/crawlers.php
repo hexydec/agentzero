@@ -101,7 +101,6 @@ class crawlers {
 				'sbintuitionsbot' => 'ai',
 				'sidetradebot' => 'ai',
 				'thinkbot' => 'ai',
-				'ai2bot' => 'ai',
 				'timpibot' => 'ai',
 				'wardbot' => 'monitor'
 			];
@@ -388,7 +387,6 @@ class crawlers {
 			'Site24x7' => new props('exact', $fn['monitor']),
 			'StatusCake' => new props('exact', $fn['monitor']),
 			'AWS Network Health' => new props('start', $fn['monitor']),
-			'StatusCake' => new props('exact', $fn['monitor']),
 			'adbeat.com' => new props('start', fn (string $value) : array => [
 				'type' => 'robot',
 				'category' => 'ads',

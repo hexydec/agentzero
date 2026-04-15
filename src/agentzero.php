@@ -248,8 +248,13 @@ class agentzero {
 		// get tokens
 		} elseif (($tokens = self::getTokens(\trim($hinted, ' "\''), $config['single'], $config['ignore'])) !== false) {
 
+			// lowercase the tokens
+			$tokenslower = [];
+			foreach ($tokens AS $key => $item) {
+				$tokenslower[$key] = $item;
+			}
+
 			// extract UA info
-			$tokenslower = \array_map('\\mb_strtolower', $tokens);
 			foreach ($config['match'] AS $key => $item) {
 				$item->match($browser, $key, $tokens, $tokenslower, $config);
 			}

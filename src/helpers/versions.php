@@ -139,7 +139,7 @@ class versions {
 					$data['browserreleased'] = self::released($versions[$browser], $version);
 
 					// calculate status
-					if (isset($data['browserreleased'], $data['browserlatest'])) {
+					if ($data['browserreleased'] !== null) {
 						$current = \explode('.', $data['browserlatest'])[0] === \explode('.', $version)[0];
 						$released = new \DateTime($data['browserreleased']);
 

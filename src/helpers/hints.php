@@ -35,9 +35,7 @@ class hints {
 						'10.21H2'
 					];
 					$major = \intval($value);
-					if (isset($map[$major])) {
-						$value = $map[$major] ?? '11';
-					}
+					$value = $map[$major] ?? '11';
 				}
 				$obj->platformversion = $value ?: null;
 			},
