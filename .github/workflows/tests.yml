@@ -18,7 +18,7 @@ jobs:
       - name: Install Composer
         uses: php-actions/composer@v6
         with:
-            php_version: 8.2
+            php_version: 8.4
             php_extensions: mbstring xdebug
 
       - name: PHPUnit Tests
