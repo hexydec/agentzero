@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 use hexydec\agentzero\agentzero;
 
 require(__DIR__.'/src/autoload.php');
@@ -141,7 +141,7 @@ $total = \microtime(true) - $time;
 					<select name="device-memory">
 						<option value="">-- Select Memory --</option>
 						<?php foreach ($memsizes AS $key => $item) { ?>
-							<option value="<?= \htmlspecialchars($key); ?>"<?= ($hints['device-memory'] ?? null) == $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
+							<option value="<?= $key; ?>"<?= ($hints['device-memory'] ?? null) == $key ? ' selected="selected"' : ''; ?>><?= \htmlspecialchars($item); ?></option>
 						<?php } ?>
 					</select>
 				</div>

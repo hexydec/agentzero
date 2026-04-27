@@ -89,13 +89,13 @@ class agentzero {
 		// platform
 		$this->kernel = $data->kernel ?? null;
 		$this->platform = $data->platform ?? null;
-		$this->platformversion = $data->platformversion ?? null;
+		$this->platformversion = !empty($data->platformversion) ? \strval($data->platformversion) : null;
 
 		// browser
 		$this->engine = $data->engine ?? null;
-		$this->engineversion = $data->engineversion ?? null;
+		$this->engineversion = !empty($data->engineversion) ? \strval($data->engineversion) : null;
 		$this->browser = $data->browser ?? null;
-		$this->browserversion = $data->browserversion ?? null;
+		$this->browserversion = !empty($data->browserversion) ? \strval($data->browserversion) : null;
 		$this->browserstatus = $data->browserstatus ?? null;
 		$this->browserreleased = !empty($data->browserreleased) ? $data->browserreleased : null;
 		$this->browserlatest = $data->browserlatest ?? null;
@@ -104,9 +104,9 @@ class agentzero {
 		// app
 		$this->app = $data->app ?? null;
 		$this->appname = $data->appname ?? null;
-		$this->appversion = $data->appversion ?? null;
+		$this->appversion = !empty($data->appversion) ? \strval($data->appversion) : null;
 		$this->framework = $data->framework ?? null;
-		$this->frameworkversion = $data->frameworkversion ?? null;
+		$this->frameworkversion = !empty($data->frameworkversion) ? \strval($data->frameworkversion) : null;
 		$this->url = $data->url ?? null;
 
 		// network
@@ -196,9 +196,12 @@ class agentzero {
 		// prepare regexp
 		$single = \implode('|', \array_map('\\preg_quote', $single, \array_fill(0, \count($single), '/')));
 		$pattern = '/\{[^}]++\}|[^()\[\];,\/  _-](?:(?<!'.$single.') (?!https?:\/\/)|(?<=[a-z])\([^)]+\)|[^()\[\];,\/ ]*)*[^()\[\];,\/  _-](?:\/[^;,()\[\]  ]++)?|[0-9]/i';
+		
+		// only allow strings up to a certain length
+		if (\strlen($ua) > 2000) {
 
 		// split up ua string
-		if (\preg_match_all($pattern, $ua, $match)) {
+		} elseif (\preg_match_all($pattern, $ua, $match)) {
 
 			// userland token processing
 			$tokens = [];
@@ -245,8 +248,13 @@ class agentzero {
 		// get tokens
 		} elseif (($tokens = self::getTokens(\trim($hinted, ' "\''), $config['single'], $config['ignore'])) !== false) {
 
+			// lowercase the tokens
+			$tokenslower = [];
+			foreach ($tokens AS $key => $item) {
+				$tokenslower[$key] = \mb_strtolower($item);
+			}
+
 			// extract UA info
-			$tokenslower = \array_map('\\mb_strtolower', $tokens);
 			foreach ($config['match'] AS $key => $item) {
 				$item->match($browser, $key, $tokens, $tokenslower, $config);
 			}

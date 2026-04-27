@@ -321,13 +321,13 @@ class apps {
 				'vendor' => devices::getVendor(\mb_substr($value, 5))
 			]),
 			'FBDV/' => new props('start', fn (string $value) : array => \array_merge(
-				devices::getDevice(\mb_substr($value, 5))),
+				devices::getDevice(\mb_substr($value, 5)),
 				[
 					'type' => 'human',
 					'app' => 'Facebook',
 					'appname' => 'Facebook'
 				]
-			),
+			)),
 			'FBMD/' => new props('start', fn (string $value) : array => [
 				'type' => 'human',
 				'app' => 'Facebook',

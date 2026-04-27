@@ -1,10 +1,12 @@
 # AgentZero API Documentation
 
-User agents can be parsed using the following static function:
+## `agentzero::parse(string $ua, array $hints = [], array $config = []) : agentzero|false`
 
-## `agentzero::parse(string $ua) : agentzero|false`
+Parses a User Agent string and returns a `\hexydec\agentzero\agentzero` object on success, or `false` if the string could not be parsed (e.g. empty string, longer than 2000 characters, or produces no recognisable tokens).
 
-Parses a User Agent string, and returns a `\hexydec\agentzero\agentzero` object with the following properties:
+The optional `$hints` parameter accepts an array of [Client Hint](#client-hints) header values. The optional `$config` parameter accepts an [array of configuration options](#configuration).
+
+The returned object has the following properties:
 
 ### `type`
 
@@ -47,6 +49,10 @@ The device model number.
 
 The build number of the device software.
 
+### `ram`
+
+The amount of RAM in the device in megabytes, as reported by the `Device-Memory` client hint.
+
 ### `processor`
 
 The vendor name of the processor manufacturer.
@@ -63,7 +69,15 @@ The system architecture, possible values are:
 
 ### `bits`
 
-The number of bit, either `32` or `64`
+The number of bits, either `32` or `64`.
+
+### `cpu`
+
+The CPU model identifier as reported in the UA string.
+
+### `cpuclock`
+
+The CPU clock speed in MHz as reported in the UA string.
 
 ### `kernel`
 
@@ -108,14 +122,15 @@ The date the browser version was released.
 
 The current status of the browser:
 
-- `canary`: A canary build of the browser
-- `beta`: A beta build of the browser
+- `nightly`: A nightly build (3 major versions ahead of latest)
+- `canary`: A canary build (2 major versions ahead of latest)
+- `beta`: A beta build (1 major version ahead of latest)
 - `current`: The browser is the current version
 - `previous`: The browser is a previous version
-- `outdated`: The browser was release 2 or more years ago
+- `outdated`: The browser was released 2 or more years ago
 - `legacy`: The browser was released more than 5 years ago
 
-The browser status is determined by the version number and age of the browser, if the browser is more than 3 years old, it is considered legacy.
+Requires `versionscache` to be set in `$config`. Returns `null` if version data is unavailable.
 
 ### `browserlatest`
 
@@ -147,7 +162,11 @@ The version of tthe app framework
 
 ### `url`
 
-The URL of the robot
+The URL of the robot.
+
+### `nettype`
+
+The network connection type as reported by the `ECT` client hint, e.g. `4g`, `3g`, `2g`, `slow-2g`.
 
 ### `proxy`
 
@@ -163,17 +182,41 @@ The height of the device screen.
 
 ### `density`
 
-The density of the device screen.
+The pixel density of the device screen.
+
 ### `dpi`
 
 The dots per inch of the device screen.
 
-### Dynamic Properties
+### `darkmode`
 
-You can also access the following dynamic properties:
+`true` if the device is in dark mode, as reported in the UA string. `null` if unknown.
 
-- `platformmajorversion` Returns the major version of the platform
-- `enginemajorversion` Returns the major version of the rendering engine
-- `browsermajorversion` Returns the major version of the browser
-- `appmajorversion` Returns the major version of the app
-- `host` The hostname extracted from the `url` properties
+## Dynamic Properties
+
+The following read-only properties are calculated on access via `__get()` and return `int|null`:
+
+| Property | Returns |
+|---|---|
+| `browsermajorversion` | Integer major version of `browserversion` |
+| `enginemajorversion` | Integer major version of `engineversion` |
+| `platformmajorversion` | Integer major version of `platformversion` |
+| `appmajorversion` | Integer major version of `appversion` |
+| `host` | Hostname from `url`, with any `www.` prefix stripped. Returns `null` if `url` is `null`. |
+
+## Client Hints
+
+Use `agentzero::getHints(?array $headers = null) : array` to extract relevant client hint headers. Pass `null` (or omit the argument) to read from `$_SERVER`, or pass an associative array of HTTP header name → value pairs for testing or non-`$_SERVER` environments. Header names are matched case-insensitively.
+
+Recognised hint headers: `Sec-CH-UA-Mobile`, `Sec-CH-UA-Full-Version-List`, `Sec-CH-UA-Platform`, `Sec-CH-UA-Platform-Version`, `Sec-CH-UA-Model`, `Device-Memory`, `Width`, `ECT`.
+
+## Configuration
+
+The `$config` array passed to `parse()` supports the following keys:
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `versionscache` | `string\|null` | `null` | Absolute path to the local JSON cache file for browser version data. Version properties (`browserstatus`, `browserreleased`, `browserlatest`) are `null` unless this is set. |
+| `versionssource` | `string` | GitHub URL | URL of the remote versions JSON file. Only fetched when the cache is missing or stale. |
+| `versionscachelife` | `int` | `604800` | Cache TTL in seconds (default: 7 days). |
+| `currentdate` | `\DateTime\|null` | `null` | Pin the "current date" used when calculating `browserstatus`. Useful for reproducible tests or historical analysis. |
