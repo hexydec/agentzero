@@ -24,7 +24,7 @@ final class clientHintsTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'kernel' => 'Windows NT',
 				'platform' => 'Windows',
-				'platformversion' => '19.0.0',
+				'platformversion' => '11',
 				'engine' => 'Blink',
 				'engineversion' => '133.0.6943.142',
 				'browser' => 'Chrome',

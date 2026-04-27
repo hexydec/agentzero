@@ -499,8 +499,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '601.1.46',
 				'browser' => 'Brave',
-				'browserversion' => '1.2.11',
-				'browserreleased' => '2026-04-08'
+				'browserversion' => '1.2.11'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Brave/115.0.0.0 Safari/605.1.15' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Brave/115.0.0.0 Safari/605.1.15',
@@ -660,8 +659,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Kubuntu',
 				'browser' => 'Konqueror',
 				'browserversion' => '3.5',
-				'language' => 'en-US',
-				'browserreleased' => '2007-12-04'
+				'language' => 'en-US'
 			],
 			'Mozilla/5.0 (compatible; Konqueror/3.1; i686 Linux; 20021102)' => [
 				'string' => 'Mozilla/5.0 (compatible; Konqueror/3.1; i686 Linux; 20021102)',
@@ -672,8 +670,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'architecture' => 'x86',
 				'bits' => 32,
 				'browser' => 'Konqueror',
-				'browserversion' => '3.1',
-				'browserreleased' => '2007-12-04'
+				'browserversion' => '3.1'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1573,6 +1570,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'browser' => 'Silk',
 				'browserversion' => '148.0.5259.39',
+				'browserreleased' => '2026-04-23',
 				'engine' => 'Blink',
 				'engineversion' => '148.0.5259.39'
 			]

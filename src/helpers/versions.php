@@ -97,6 +97,27 @@ class versions {
 		return !empty($released) ? (new \DateTime(\strval($released)))->format('Y-m-d') : null;
 	}
 
+	protected static function legacy(array $browsers, string $version) : bool {
+		$earliest = \strval(\array_key_last($browsers));
+
+		// check if we have a version in range
+		$parts = \explode('.', $version);
+		foreach (\explode('.', $earliest) AS $key => $item) {
+			if (isset($parts[$key])) {
+
+				// older than earlier version we have a date for
+				if ($item > $parts[$key]) {
+					return true;
+
+				// newer than the earlier version we have a date for
+				} elseif ($item < $parts[$key]) {
+					return false;
+				}
+			}
+		}
+		return false;
+	}
+
 	public static function get(string $browser, string $version, array $config) : array {
 		$source = $config['versionssource'];
 		$cache = $config['versionscache'];
@@ -110,10 +131,13 @@ class versions {
 				// check if version is greater than latest version
 				$major = \intval($version);
 				$latest = \intval($data['browserlatest']);
-				$first = \intval(\array_key_last($versions[$browser]));
+
+				// check if we have a version in range
+				if (self::legacy($versions[$browser], $version)) {
+					$data['browserstatus'] = 'legacy';
 
 				// version is way out of bounds (This happens sometimes, for example if the safari engine version is reported instead of the browser version)
-				if ($latest + 3 < $major) {
+				} elseif ($latest + 3 < $major) {
 					return [];
 
 				// nightly build?
@@ -127,10 +151,6 @@ class versions {
 				// beta release
 				} elseif ($latest + 1 === $major) {
 					$data['browserstatus'] = 'beta';
-
-				// so old we don't have data for it
-				} elseif ($major < $first) {
-					$data['browserstatus'] = 'legacy';
 
 				// find closes match for version
 				} else {
