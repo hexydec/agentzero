@@ -89,13 +89,13 @@ class agentzero {
 		// platform
 		$this->kernel = $data->kernel ?? null;
 		$this->platform = $data->platform ?? null;
-		$this->platformversion = $data->platformversion ?? null;
+		$this->platformversion = !empty($data->platformversion) ? \strval($data->platformversion) : null;
 
 		// browser
 		$this->engine = $data->engine ?? null;
-		$this->engineversion = $data->engineversion ?? null;
+		$this->engineversion = !empty($data->engineversion) ? \strval($data->engineversion) : null;
 		$this->browser = $data->browser ?? null;
-		$this->browserversion = $data->browserversion ?? null;
+		$this->browserversion = !empty($data->browserversion) ? \strval($data->browserversion) : null;
 		$this->browserstatus = $data->browserstatus ?? null;
 		$this->browserreleased = !empty($data->browserreleased) ? $data->browserreleased : null;
 		$this->browserlatest = $data->browserlatest ?? null;
@@ -104,9 +104,9 @@ class agentzero {
 		// app
 		$this->app = $data->app ?? null;
 		$this->appname = $data->appname ?? null;
-		$this->appversion = $data->appversion ?? null;
+		$this->appversion = !empty($data->appversion) ? \strval($data->appversion) : null;
 		$this->framework = $data->framework ?? null;
-		$this->frameworkversion = $data->frameworkversion ?? null;
+		$this->frameworkversion = !empty($data->frameworkversion) ? \strval($data->frameworkversion) : null;
 		$this->url = $data->url ?? null;
 
 		// network
@@ -251,7 +251,7 @@ class agentzero {
 			// lowercase the tokens
 			$tokenslower = [];
 			foreach ($tokens AS $key => $item) {
-				$tokenslower[$key] = $item;
+				$tokenslower[$key] = \mb_strtolower($item);
 			}
 
 			// extract UA info
