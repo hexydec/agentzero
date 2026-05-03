@@ -19,6 +19,9 @@
 	"autoload": {
 		"classmap": ["src/", "tests/"]
 	},
+    "scripts": {
+        "analyse": "phpstan analyse --memory-limit=512M"
+    },
     "require-dev": {
         "phpunit/phpunit": "^12.5.8",
         "phpstan/phpstan": "^1.10"
