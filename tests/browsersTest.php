@@ -1570,7 +1570,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'browser' => 'Silk',
 				'browserversion' => '148.0.5259.39',
-				'browserreleased' => '2026-04-23',
+				'browserreleased' => '2026-04-29',
 				'engine' => 'Blink',
 				'engineversion' => '148.0.5259.39'
 			]
