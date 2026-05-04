@@ -393,9 +393,7 @@ class apps {
 						$parts = \explode('/', $value, 2);
 						$data['app'] = $parts[0];
 						$data['appname'] = $parts[0];
-						if (!isset($data['appversion'])) {
-							$data['appversion'] = $parts[1];
-						}
+						$data['appversion'] = $parts[1];
 					}
 				} else {
 					$parts = \explode(' ', $value);

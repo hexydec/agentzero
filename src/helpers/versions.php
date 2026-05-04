@@ -30,7 +30,7 @@ class versions {
 			} elseif (($json = \file_get_contents($source)) === false) {
 
 				// get stale cache
-				if ($cache !== null && ($json = \file_get_contents($cache)) !== false) {
+				if (($json = \file_get_contents($cache)) !== false) {
 					self::$versions = false;
 					return false;
 				}

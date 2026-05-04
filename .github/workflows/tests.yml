@@ -9,19 +9,35 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+            php-version: '8.4'
+            extensions: mbstring xdebug
+            coverage: xdebug
+
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-dir)" >> $GITHUB_OUTPUT
+
       - name: Cache Composer dependencies
         uses: actions/cache@v3
         with:
-            path: /tmp/composer-cache
+            path: ${{ steps.composer-cache.outputs.dir }}
             key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
-      - name: Install Composer
-        uses: php-actions/composer@v6
-        with:
-            php_version: 8.4
-            php_extensions: mbstring xdebug
+      - run: composer install --no-interaction --prefer-dist
+
+      - name: PHPStan Analysis
+        run: ./vendor/bin/phpstan analyse --memory-limit=512M
 
       - name: PHPUnit Tests
         run: ./vendor/bin/phpunit
         env:
-            XDEBUG_MODE: coverage
+          XDEBUG_MODE: coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+            files: ./coverage/result.xml
+            token: ${{ secrets.CODECOV_TOKEN }}
