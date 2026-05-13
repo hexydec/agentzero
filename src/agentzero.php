@@ -2,6 +2,13 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
+/**
+ * @property-read string|null $host
+ * @property-read int|null $browsermajorversion
+ * @property-read int|null $enginemajorversion
+ * @property-read int|null $platformmajorversion
+ * @property-read int|null $appmajorversion
+ */
 class agentzero {
 
 	// ua string
