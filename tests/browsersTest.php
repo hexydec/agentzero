@@ -460,7 +460,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'browser' => 'Edge',
 				'browserversion' => '135.0.7049.50',
-				'browserreleased' => '2023-07-24'
+				'browserreleased' => '2025-04-24'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -499,7 +499,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '601.1.46',
 				'browser' => 'Brave',
-				'browserversion' => '1.2.11'
+				'browserversion' => '1.2.11',
+				'browserreleased' => '2020-01-17'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Brave/115.0.0.0 Safari/605.1.15' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Brave/115.0.0.0 Safari/605.1.15',
@@ -1332,7 +1333,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '13.0.0.2.16.259832224',
 				'engine' => 'Blink',
 				'engineversion' => '87.0.4280.66',
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2020-11-17'
 			],
 			'Mozilla/5.0 (Linux; Android 10; Quest) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/19.1.0.1.50.350517500 SamsungBrowser/4.0 Chrome/96.0.4664.174 Mobile VR Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; Quest) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/19.1.0.1.50.350517500 SamsungBrowser/4.0 Chrome/96.0.4664.174 Mobile VR Safari/537.36',
@@ -1350,7 +1351,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '19.1.0.1.50.350517500',
 				'engine' => 'Blink',
 				'engineversion' => '96.0.4664.174',
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2021-12-13'
 			],
 			'Mozilla/5.0 (Linux; Android 7.1.1; Pacific) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/9.2.0.2.122.217074189 SamsungBrowser/4.0 Chrome/81.0.4044.117 Mobile VR Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 7.1.1; Pacific) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/9.2.0.2.122.217074189 SamsungBrowser/4.0 Chrome/81.0.4044.117 Mobile VR Safari/537.36',
@@ -1368,7 +1369,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '9.2.0.2.122.217074189',
 				'engine' => 'Blink',
 				'engineversion' => '81.0.4044.117',
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2020-04-15'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1391,7 +1392,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				 'browserversion' => '19.0',
 				 'engine' => 'Blink',
 				 'engineversion' => '102.0.5005.125',
-				 'browserreleased' => '2023-01-07'
+				 'browserreleased' => '2022-12-29'
 			],
 			'Mozilla/5.0 (Linux; Android 8.1.0; SAMSUNG SM-A260G Build/OPR6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 SamsungBrowser/7.2 Chrome/108.0.5359.128 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 8.1.0; SAMSUNG SM-A260G Build/OPR6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 SamsungBrowser/7.2 Chrome/108.0.5359.128 Mobile Safari/537.36',
@@ -1407,7 +1408,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '7.2',
 				'engine' => 'Blink',
 				'engineversion' => '108.0.5359.128',
-				'browserreleased' => '2018-06-26'
+				'browserreleased' => '2018-06-07'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1570,7 +1571,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'browser' => 'Silk',
 				'browserversion' => '148.0.5259.39',
-				'browserreleased' => '2026-04-29',
+				'browserreleased' => '2026-05-12',
 				'engine' => 'Blink',
 				'engineversion' => '148.0.5259.39'
 			]

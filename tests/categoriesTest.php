@@ -193,7 +193,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Oculus Browser',
 				'appname' => 'OculusBrowser',
 				'appversion' => '25.3.0.4.30.438623098',
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2023-01-10'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -232,7 +232,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Opera',
 				'browserversion' => '89.0.4447.64',
 				'language' => 'en-US',
-				'browserreleased' => '2022-07-07'
+				'browserreleased' => '2022-08-03'
 			],
 			'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671' => [
 				'string' => 'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/ 162671',
@@ -309,7 +309,7 @@ final class categoriesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '69.0.3497.106',
 				'browser' => 'Samsung Internet',
 				'browserversion' => '3.0',
-				'browserreleased' => '2017-11-09'
+				'browserreleased' => '2018-09-17'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
