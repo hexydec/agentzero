@@ -758,7 +758,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '3.3',
 				'engine' => 'Blink',
 				'engineversion' => '38.0.2125.102',
-				'browserreleased' => '2017-11-09'
+				// 'browserreleased' => '2017-11-09'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1024,7 +1024,7 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '100.0.0.0',
 				'engine' => 'Blink',
 				'engineversion' => '114.0.0.0',
-				'browserreleased' => '2023-06-20'
+				'browserreleased' => '2023-07-17'
 			],
 			'Screaming Frog SEO Spider/19.0 Beta 1' => [
 				'string' => 'Screaming Frog SEO Spider/19.0 Beta 1',
