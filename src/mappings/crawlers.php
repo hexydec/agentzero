@@ -255,7 +255,7 @@ class crawlers {
 		return [
 			'Mozlila/' => new props('start', [
 				'type' => 'robot',
-				'categpry' => 'scraper'
+				'category' => 'scraper'
 			]),
 			'Moblie' => new props('exact', [ // some samsung devices mispelt it
 				'type' => 'robot',

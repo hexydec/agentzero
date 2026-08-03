@@ -130,7 +130,7 @@ class apps {
 				'type' => 'human',
 				'app' => 'Pinterest',
 				'appname' => 'Pinterest',
-				'appversion' => \explode('/', $value, 3)[1],
+				'appversion' => \explode('/', $value, 3)[1] ?? null,
 				'platform' => \mb_substr($value, 14, \mb_strpos($value, '/') - 14)
 			]),
 			'OculusBrowser/' => new props('start', $fn['appslash']),
@@ -144,7 +144,7 @@ class apps {
 				'type' => 'human',
 				'app' => 'Quora',
 				'appname' => 'Quora',
-				'appversion' => \explode(' ', $value, 3)[1]
+				'appversion' => \explode(' ', $value, 3)[1] ?? null
 			]),
 			'AmazonKidsBrowser/' => new props('start', $fn['appslash']),
 			'whisper/' => new props('start', $fn['appslash']),

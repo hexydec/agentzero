@@ -53,7 +53,7 @@ class platforms {
 					'category' => 'desktop',
 					'kernel' => 'Windows NT',
 					'platform' => 'Windows',
-					'platformversion' => $mapping[$version] ?? $version
+					'platformversion' => $mapping[$version ?? ''] ?? $version
 				];
 			},
 			'android' => function (string $value, int $i, array $tokens) : array {
@@ -233,12 +233,12 @@ class platforms {
 			'KAIOS/' => new props('start', function (string $value, int $i, array $tokens) : array {
 
 				// find device
-				foreach ($tokens AS $i => $item) {
-					if ($item === 'Mobile' && !\str_starts_with($tokens[$i++] ?? 'rv:', 'rv:')) {
-						if (\str_contains($tokens[$i], '/')) {
-							$parts = \explode('/', $tokens[$i]);
+				foreach ($tokens AS $key => $item) {
+					if ($item === 'Mobile' && !\str_starts_with($tokens[++$key] ?? 'rv:', 'rv:')) {
+						if (\str_contains($tokens[$key], '/')) {
+							$parts = \explode('/', $tokens[$key]);
 						} else {
-							$parts = \explode(' ', \str_replace('_', ' ', $tokens[$i]), 2);
+							$parts = \explode(' ', \str_replace('_', ' ', $tokens[$key]), 2);
 						}
 						break;
 					}

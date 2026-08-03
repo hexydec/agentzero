@@ -633,7 +633,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Maxthon',
 				'browserversion' => '2.0',
 				'engine' => 'Trident',
-				'browserreleased' => '2006-10-18'
+				'browserreleased' => '2007-01-01'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1571,7 +1571,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'browser' => 'Silk',
 				'browserversion' => '148.0.5259.39',
-				'browserreleased' => '2026-05-12',
+				'browserreleased' => '2026-05-29',
 				'engine' => 'Blink',
 				'engineversion' => '148.0.5259.39'
 			]

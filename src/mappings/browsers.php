@@ -118,7 +118,7 @@ class browsers {
 			'Maxthon ' => new props('start', fn (string $value, int $i, array $tokens, string $key, array $config = []) : array => \array_merge([
 				'browser' => 'Maxthon',
 				'browserversion' => \mb_substr($value, 8)
-			], versions::get('maxathon', \mb_substr($value, 8), $config))),
+			], versions::get('maxthon', \mb_substr($value, 8), $config))),
 			'Konqueror/' => new props('start', $fn['browserslash']),
 			'K-Meleon/' => new props('start', $fn['browserslash']),
 			'UCBrowser/' => new props('start', $fn['browserslash']),

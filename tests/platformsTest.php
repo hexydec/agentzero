@@ -1361,7 +1361,6 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5',
 				'type' => 'human',
 				'category' => 'mobile',
-				'vendor' => 'Rv:48.0',
 				'kernel' => 'Linux',
 				'architecture' => 'Arm',
 				'platform' => 'KaiOS',

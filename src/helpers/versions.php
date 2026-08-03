@@ -15,7 +15,7 @@ class versions {
 	 * @param string $source The URL of the source JSON containing the version information
 	 * @param string $cache The absolute file address of the cache file
 	 * @param ?int $life The maximum life of the cache file in seconds
-	 * @return array<string,array<string,string>> An array of browser versioning information, or false if the data source not be retrieved
+	 * @return array<string,array<string,string>> An array of browser versioning information, or false if the data source could not be retrieved
 	 */
 	protected static function load(string $source, string $cache, ?int $life = 604800) : array|false {
 
@@ -30,7 +30,7 @@ class versions {
 			} elseif (($json = \file_get_contents($source)) === false) {
 
 				// get stale cache
-				if (($json = \file_get_contents($cache)) !== false) {
+				if (($json = \file_get_contents($cache)) === false) {
 					self::$versions = false;
 					return false;
 				}
@@ -72,6 +72,13 @@ class versions {
 		return null;
 	}
 
+	/**
+	 * Retrieves the release date from the data using the supplied version
+	 * 
+	 * @param array $data The release data for the desired browser
+	 * @param string $version The version number of the browser
+	 * @return ?string A date string in the format Y-m-d for the browser release date, or null if not found
+	 */
 	protected static function released(array $data, string $version) : ?string {
 		$major = \intval($version);
 		$len = 0;
@@ -97,8 +104,15 @@ class versions {
 		return !empty($released) ? (new \DateTime(\strval($released)))->format('Y-m-d') : null;
 	}
 
-	protected static function legacy(array $browsers, string $version) : bool {
-		$earliest = \strval(\array_key_last($browsers));
+	/**
+	 * Determines whether the browser requested is legacy
+	 * 
+	 * @param array $data The release data for the desired browser
+	 * @param string $version The version number of the browser
+	 * @return bool Whether the requested browser is a legacy browser
+	 */
+	protected static function legacy(array $data, string $version) : bool {
+		$earliest = \strval(\array_key_last($data));
 
 		// check if we have a version in range
 		$parts = \explode('.', $version);
@@ -118,6 +132,14 @@ class versions {
 		return false;
 	}
 
+	/**
+	 * Retrieves data properties for the requested browser
+	 * 
+	 * @param string $browser The lowercase name of the browser
+	 * @param string $version The version number of the browser
+	 * @param array $config Configuration data for versions data and current date
+	 * @return array An array of browser information
+	 */
 	public static function get(string $browser, string $version, array $config) : array {
 		$source = $config['versionssource'];
 		$cache = $config['versionscache'];

@@ -48,7 +48,7 @@ class hints {
 					$parts = \explode('";v="', \trim($item, ' "'));
 		
 					// remove GREASE brands
-					if (\strcspn($parts[0], '()-./:;=?_') === \strlen($parts[0])) {
+					if (isset($parts[1]) && \strcspn($parts[0], '()-./:;=?_') === \strlen($parts[0])) {
 						$brands[$parts[0]] = $parts[1];
 					}
 				}
