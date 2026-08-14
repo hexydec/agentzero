@@ -2095,6 +2095,36 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Vivo Browser',
 				'browserversion' => '8.04.0.9085',
 				'nettype' => 'WiFi'
+			],
+			'Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML, like Gecko) Kiwi Chrome/137.0.0.0 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML, like Gecko) Kiwi Chrome/137.0.0.0 Mobile Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Samsung',
+				'model' => 'SM-S928B',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '14',
+				'engine' => 'Blink',
+				'engineversion' => '137.0.0.0',
+				'browser' => 'Kiwi Browser',
+				'browserversion' => '137.0.0.0'
+			],
+			'Mozilla/5.0 (Linux; Android 17) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/150.0.7871.47 Mobile DuckDuckGo/5 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 17) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/150.0.7871.47 Mobile DuckDuckGo/5 Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '17',
+				'engine' => 'Blink',
+				'engineversion' => '150.0.7871.47',
+				'browser' => 'Chrome',
+				'browserversion' => '150.0.7871.47',
+				'browserreleased' => '2026-06-24',
+				'app' => 'DuckDuckGo',
+				'appname' => 'DuckDuckGo',
+				'appversion' => '5'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

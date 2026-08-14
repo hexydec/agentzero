@@ -5,7 +5,7 @@ namespace hexydec\agentzero;
 class browsers {
 
 	protected static function getBrowser(string $value, int $i, array $tokens, string $key, array $config = []) : array {
-		if (!\str_contains($value, 'Opera Mini') && ($browser = \mb_strrchr($value, ' ')) !== false) {
+		if (!\str_contains($value, 'Opera Mini') &&!\str_contains($value, 'Kiwi Chrome') && ($browser = \mb_strrchr($value, ' ')) !== false) {
 			$value = \ltrim($browser);
 		}
 		$parts = \explode('/', $value); // split more incase there are more slashes
@@ -33,7 +33,9 @@ class browsers {
 			'qqbrowser' => 'QQ Browser',
 			'miuibrowser' => 'MIUI Browser',
 			'vivobrowser' => 'Vivo Browser',
-			'android-com.vivo.browser' => 'Vivo Browser'
+			'android-com.vivo.browser' => 'Vivo Browser',
+			'kiwi chrome' => 'Kiwi Browser',
+			'duckduckgo' => 'DuckDuckGo'
 		];
 		$data = ['type' => 'human'];
 		$browser = \mb_strtolower(\array_shift($parts));
@@ -51,7 +53,8 @@ class browsers {
 			'Huawei Browser' => 'huawei',
 			'K-Meleon' => 'kmeleon',
 			'Native Opera Mini' => 'opera',
-			'Cronet' => 'chrome'
+			'Cronet' => 'chrome',
+			'Kiwi Browser' => 'kiwi'
 		];
 		$key = $map[$data['browser']] ?? \mb_strtolower($data['browser']);
 		return \array_merge(
@@ -237,6 +240,8 @@ class browsers {
 			'Trident' => new props('start', [ // infill for missing browser name
 				'browser' => 'Internet Explorer'
 			]),
+			'Kiwi Chrome/' => new props('start', $fn['chromium']),
+			'DuckDuckGo/' => new props('start', $fn['chromium']),
 			'Cronet/' => new props('start', $fn['chromium']),
 			'Chromium/' => new props('start', $fn['chromium']),
 			'Chrome/' => new props('any', $fn['chromium']),
