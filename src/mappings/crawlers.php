@@ -274,6 +274,18 @@ class crawlers {
 				'appname' => $value
 			]),
 			'Google-Site-Verification/' => new props('start', $fn['validator']),
+			'Google Web Preview' => new props('start', $fn['feed']),
+			'BingPreview/' => new props('start', $fn['feed']),
+			'SkypeUriPreview' => new props('start', function (string $value) : array {
+				$parts = \explode('/', $value, 2);
+				return [
+					'type' => 'robot',
+					'category' => 'feed',
+					'app' => 'Skype URI Preview',
+					'appname' => 'SkypeUriPreview',
+					'appversion' => empty($parts[1]) ? null : \substr($parts[1], 0, \strspn($parts[1], '0123456789.'))
+				];
+			}),
 			'Google-InspectionTool/' => new props('start', $fn['validator']),
 			'Google-Safety' => new props('exact', $fn['validator']),
 			'Google-CWS' => new props('exact', $fn['validator']),
@@ -485,6 +497,12 @@ class crawlers {
 			'AppleExchangeWebServices/' => new props('start', $fn['feed']),
 			'The Lounge IRC Client' => new props('exact', $fn['feed']),
 			'W3C-checklink/' => new props('start', $fn['validator']),
+			'GOV.UK Link Checker API' => new props('exact', fn () : array => [
+				'type' => 'robot',
+				'category' => 'validator',
+				'app' => 'GOV.UK Link Checker',
+				'appname' => 'GOV.UK Link Checker API'
+			]),
 			'CSSCheck/' => new props('start', $fn['validator']),
 			'Let\'s Encrypt validation server' => new props('exact', $fn['validator']),
 			'SEO-Macroscope/' => new props('start', $fn['validator']),
@@ -558,8 +576,8 @@ class crawlers {
 			]),
 			'anthropic-ai' => new props('start', $fn['ai']),
 			'bigsur.ai' => new props('start', $fn['ai']),
-			'Claude User' => new props('start', $fn['ai']),
-			'Claude Web' => new props('start', $fn['ai']),
+			'Claude-User' => new props('start', $fn['ai']),
+			'Claude-Web' => new props('start', $fn['ai']),
 			'cohere-ai' => new props('start', $fn['ai']),
 			'cohere-training-data-crawler' => new props('start', $fn['ai']),
 			'Cotoyogi' => new props('start', $fn['ai']),

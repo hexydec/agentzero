@@ -2131,4 +2131,67 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 			$this->assertEquals($item, lib::parse($ua), $ua);
 		}
 	}
+
+	public function testEcosia() : void {
+		$strings = [
+
+			// Ecosia is a browser in its own right rather than an app wrapping another browser, so the
+			// browser field is claimed by Ecosia and not left as Chrome, unlike e.g. DuckDuckGo above.
+			// Neither form declares its own version, only repeating the wrapped engine's, e.g. this Chrome
+			// version, so the browser version and its release date are the underlying Chromium build's
+			'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36 (Ecosia android@145.0.0.0)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36 (Ecosia android@145.0.0.0)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '145.0.0.0',
+				'browser' => 'Ecosia',
+				'browserversion' => '145.0.0.0',
+				'browserreleased' => '2026-03-10'
+			],
+
+			// same shape on iOS, wrapping Safari/WebKit instead
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3.1 Mobile/15E148 Safari/605.1.15 (Ecosia ios@11.7.2.2838)' => [
+				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3.1 Mobile/15E148 Safari/605.1.15 (Ecosia ios@11.7.2.2838)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '15E148',
+				'architecture' => 'Arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '26.3.1',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'browser' => 'Ecosia',
+				'browserversion' => '26.3.1',
+				'browserreleased' => '2026-02-11'
+			],
+
+			// the app's own background networking requests use "Ecosia/build", its only self-declared
+			// version. CFNetwork is matched by an unrelated, pre-existing crawler mapping which sets
+			// type/category/app ahead of this one, so those come from that mapping, not from Ecosia
+			'Ecosia/2838 CFNetwork/3860.400.51 Darwin/25.3.0' => [
+				'string' => 'Ecosia/2838 CFNetwork/3860.400.51 Darwin/25.3.0',
+				'type' => 'robot',
+				'category' => 'feed',
+				'kernel' => 'Linux',
+				'platform' => 'Darwin',
+				'platformversion' => '25.3.0',
+				'browser' => 'Ecosia',
+				'browserversion' => '2838',
+				'app' => 'Apple Core Foundation Network',
+				'appname' => 'CFNetwork',
+				'appversion' => '3860.400.51'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, lib::parse($ua), $ua);
+		}
+	}
 }

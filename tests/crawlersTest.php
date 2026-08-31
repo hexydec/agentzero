@@ -1041,7 +1041,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Roger Bot',
 				'appname' => 'rogerbot',
 				'appversion' => '1.2',
-				'url' => 'https://moz.com/help/guides/moz-procedures/what-is-rogerbot'
+				'url' => 'https://moz.com/help/guides/moz-procedures/what-is-rogerbot',
+				'email' => 'aardwolf-production-crawler-53@moz.com'
 			],
 			'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) LinkCheck by Siteimprove.com' => [
 				'string' => 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0) LinkCheck by Siteimprove.com',
@@ -1083,7 +1084,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'UK Government National Archives',
 				'appname' => 'The National Archives UK Government Web Archive:',
 				'url' => 'http://www.nationalarchives.gov.uk/webarchive/',
-				'browserreleased' => '2019-11-06'
+				'browserreleased' => '2019-11-06',
+				'email' => 'webarchive@nationalarchives.gov.uk'
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Google-PageRenderer Google (+https://developers.google.com/+/web/snippet/)' => [
 				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Google-PageRenderer Google (+https://developers.google.com/+/web/snippet/)',
@@ -1238,7 +1240,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'INet Bot',
 				'appname' => 'INetBot',
 				'appversion' => '2.0',
-				'url' => 'http://www.inetdex.com'
+				'url' => 'http://www.inetdex.com',
+				'email' => 'bot@inetdex.com'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Amazonbot-Video/0.1; +https://developer.amazon.com/support/amazonbot)' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Amazonbot-Video/0.1; +https://developer.amazon.com/support/amazonbot)',
@@ -1267,7 +1270,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'crawler',
 				'app' => 'Mixrank Bot',
-				'appname' => 'MixrankBot'
+				'appname' => 'MixrankBot',
+				'email' => 'crawler@mixrank.com'
 			],
 			'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.96 Safari/537.36 DatadogSynthetics' => [
 				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.96 Safari/537.36 DatadogSynthetics',
@@ -1325,7 +1329,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Awario Smart Bot',
 				'appname' => 'AwarioSmartBot',
 				'appversion' => '1.0',
-				'url' => 'https://awario.com/bots.html'
+				'url' => 'https://awario.com/bots.html',
+				'email' => 'bots@awario.com'
 			],
 			'AwarioRssBot/1.0 (+https://awario.com/bots.html; bots@awario.com)' => [
 				'string' => 'AwarioRssBot/1.0 (+https://awario.com/bots.html; bots@awario.com)',
@@ -1334,7 +1339,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Awario Rss Bot',
 				'appname' => 'AwarioRssBot',
 				'appversion' => '1.0',
-				'url' => 'https://awario.com/bots.html'
+				'url' => 'https://awario.com/bots.html',
+				'email' => 'bots@awario.com'
 			],
 			'ICC-Crawler/3.0 (Mozilla-compatible; ; https://ucri.nict.go.jp/en/icccrawler.html)' => [
 				'string' => 'ICC-Crawler/3.0 (Mozilla-compatible; ; https://ucri.nict.go.jp/en/icccrawler.html)',
@@ -1525,7 +1531,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'type' => 'robot',
 				'category' => 'monitor',
 				'app' => 'NCSC Web Check',
-				'appname' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk'
+				'appname' => 'NCSC Web Check feedback.webcheck@digital.ncsc.gov.uk',
+				'email' => 'feedback.webcheck@digital.ncsc.gov.uk'
 			],
 			'Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)' => [
 				'string' => 'Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)',
@@ -1818,15 +1825,17 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'ai',
 				'app' => 'Claude Bot',
 				'appname' => 'ClaudeBot',
-				'appversion' => '1.0'
+				'appversion' => '1.0',
+				'email' => 'claudebot@anthropic.com'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-User/1.0; +Claude-User@anthropic.com)' => [
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-User/1.0; +Claude-User@anthropic.com)',
 				'type' => 'robot',
-				'category' => 'scraper',
+				'category' => 'ai',
 				'app' => 'Claude User',
 				'appname' => 'Claude-User',
-				'appversion' => '1.0'
+				'appversion' => '1.0',
+				'email' => 'Claude-User@anthropic.com'
 			],
 			'Google-CloudVertexBot' => [
 				'string' => 'Google-CloudVertexBot',
@@ -1883,7 +1892,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '7.0',
 				'app' => 'Pangu Bot',
-				'appname' => 'PanguBot'
+				'appname' => 'PanguBot',
+				'email' => 'pangubot@huawei.com'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)' => [
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)',
@@ -1920,7 +1930,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'platform' => 'Android',
 				'platformversion' => '5.0',
 				'app' => 'Tik Tok Spider',
-				'appname' => 'TikTokSpider'
+				'appname' => 'TikTokSpider',
+				'email' => 'ttspider-feedback@tiktok.com'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; ClaudeBot/1.0; +claudebot@anthropic.com)' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; ClaudeBot/1.0; +claudebot@anthropic.com)',
@@ -1941,7 +1952,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'browserreleased' => '2025-01-22',
 				'app' => 'Claude Bot',
 				'appname' => 'ClaudeBot',
-				'appversion' => '1.0'
+				'appversion' => '1.0',
+				'email' => 'claudebot@anthropic.com'
 			],
 			'ClaudeBot/1.0 (web crawler; +https://www.anthropic.com/; claudebot@anthropic.com)' => [
 				'string' => 'ClaudeBot/1.0 (web crawler; +https://www.anthropic.com/; claudebot@anthropic.com)',
@@ -1950,7 +1962,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'app' => 'Claude Bot',
 				'appname' => 'ClaudeBot',
 				'appversion' => '1.0',
-				'url' => 'https://www.anthropic.com/'
+				'url' => 'https://www.anthropic.com/',
+				'email' => 'claudebot@anthropic.com'
 			],
 			'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +support@anthropic.com)' => [
 				'string' => 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +support@anthropic.com)',
@@ -1958,7 +1971,8 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'ai',
 				'app' => 'Claude Bot',
 				'appname' => 'ClaudeBot',
-				'appversion' => '1.0'
+				'appversion' => '1.0',
+				'email' => 'support@anthropic.com'
 			],
 			'ClaudeBot' => [
 				'string' => 'ClaudeBot',
@@ -1973,7 +1987,78 @@ final class crawlersTest extends \PHPUnit\Framework\TestCase {
 				'category' => 'ai',
 				'app' => 'Claude Bot',
 				'appname' => 'ClaudeBot',
+				'appversion' => '1.0',
+				'email' => 'claudebot@anthropic.com'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, lib::parse($ua), $ua);
+		}
+	}
+
+	public function testPreviewAndLinkChecking() : void {
+		$strings = [
+			'Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5 skype-url-preview@microsoft.com' => [
+				'string' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5 skype-url-preview@microsoft.com',
+				'type' => 'robot',
+				'category' => 'feed',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '7',
+				'app' => 'Skype URI Preview',
+				'appname' => 'SkypeUriPreview',
+				'appversion' => '0.5',
+				'email' => 'skype-url-preview@microsoft.com'
+			],
+			'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b' => [
+				'string' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b',
+				'type' => 'robot',
+				'category' => 'feed',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '7',
+				'engine' => 'WebKit',
+				'engineversion' => '534+',
+				'app' => 'Bing Preview',
+				'appname' => 'BingPreview',
 				'appversion' => '1.0'
+			],
+			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36 (GOV.UK Link Checker API)' => [
+				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36 (GOV.UK Link Checker API)',
+				'type' => 'robot',
+				'category' => 'validator',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Windows NT',
+				'platform' => 'Windows',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '88.0.4324.104',
+				'browser' => 'Chrome',
+				'browserversion' => '88.0.4324.104',
+				'browserreleased' => '2021-01-21',
+				'app' => 'GOV.UK Link Checker',
+				'appname' => 'GOV.UK Link Checker API'
+			],
+			'Mozilla/5.0 (X11; Linux x86_64)  AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview)  Chrome/143.0.0.0 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview) Chrome/143.0.0.0 Safari/537.36',
+				'type' => 'robot',
+				'category' => 'feed',
+				'architecture' => 'x86',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'Linux',
+				'engine' => 'Blink',
+				'engineversion' => '143.0.0.0',
+				'browser' => 'Chrome',
+				'browserversion' => '143.0.0.0',
+				'browserreleased' => '2026-01-07',
+				'app' => 'Google Web Preview',
+				'appname' => 'Google Web Preview'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

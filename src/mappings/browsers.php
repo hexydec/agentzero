@@ -240,6 +240,12 @@ class browsers {
 			'Trident' => new props('start', [ // infill for missing browser name
 				'browser' => 'Internet Explorer'
 			]),
+			'Ecosia' => new props('start', fn (string $value) : array => \array_merge([
+				'type' => 'human',
+				'browser' => 'Ecosia'
+			], \str_starts_with($value, 'Ecosia/') ? [
+				'browserversion' => \substr($value, 7)
+			] : [])),
 			'Kiwi Chrome/' => new props('start', $fn['chromium']),
 			'DuckDuckGo/' => new props('start', $fn['chromium']),
 			'Cronet/' => new props('start', $fn['chromium']),

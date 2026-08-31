@@ -217,7 +217,6 @@ class apps {
 				'app' => 'Sanoma',
 				'appname' => 'Sanoma'
 			]),
-			'Google Web Preview' => new props('start', $fn['appslash']),
 			'MicroMessenger/' => new props('start', $fn['appslash']),
 			'MicroMessenger Weixin QQ' => new props('start', fn () : array => [
 				'app' => 'WeChat',
