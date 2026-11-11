@@ -673,7 +673,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '112.5.1',
 				'engine' => 'Blink',
 				'engineversion' => '112.0.5615.213',
-				'browserreleased' => '2023-04-26'
+				'browserreleased' => '2023-06-19'
 			],
 			'Mozilla/5.0 (Linux; Android 9; AFTKA) AppleWebKit/537.36 (KHTML, like Gecko) Silk/112.5.1 like Chrome/112.0.5615.213 Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 9; AFTKA) AppleWebKit/537.36 (KHTML, like Gecko) Silk/112.5.1 like Chrome/112.0.5615.213 Safari/537.36',
@@ -689,7 +689,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '112.5.1',
 				'engine' => 'Blink',
 				'engineversion' => '112.0.5615.213',
-				'browserreleased' => '2023-04-26'
+				'browserreleased' => '2023-06-19'
 			],
 			'Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.225 Safari/537.36 CrKey/1.56.500000,gzip(gfe),gzip(gfe)' => [
 				'string' => 'Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.225 Safari/537.36 CrKey/1.56.500000,gzip(gfe),gzip(gfe)',
@@ -870,7 +870,7 @@ final class devicesTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '74.0.3729.157',
 				'browser' => 'Silk',
 				'browserversion' => '74.3.14',
-				'browserreleased' => '2019-05-14'
+				'browserreleased' => '2022-05-09'
 			],
 			'Mozilla/5.0 (Linux; Android 10; X30 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 Instagram 292.0.0.31.110 Android (29/10; 480dpi; 1080x2067; CUBOT; X30; X30; mt6771; en_GB; 495673913)' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; X30 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.5359.128 Mobile Safari/537.36 Instagram 292.0.0.31.110 Android (29/10; 480dpi; 1080x2067; CUBOT; X30; X30; mt6771; en_GB; 495673913)',

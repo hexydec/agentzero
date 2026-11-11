@@ -109,7 +109,6 @@ class architectures {
 			'i86xpv' => new props('any', [
 				'category' => 'desktop',
 				'architecture' => 'x86',
-				'virtualised' => true,
 				'bits' => 32
 			]),
 			'Qualcomm' => new props('any', [

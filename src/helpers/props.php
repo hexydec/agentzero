@@ -90,9 +90,9 @@ class props {
 			$props = $props($value, $i, $tokens, $key, $config);
 		}
 		if (\is_array($props)) {
-			foreach ($props AS $key => $item) {
-				if ($item !== null && !isset($obj->{$key})) {
-					$obj->{$key} = $item;
+			foreach ($props AS $k => $item) {
+				if ($item !== null && !isset($obj->{$k})) {
+					$obj->{$k} = $item;
 				}
 			}
 		}

@@ -31,6 +31,28 @@ class urls {
 			'http://' => new props('any', $fn),
 			'https://' => new props('any', $fn),
 			'www.' => new props('start', $fn),
+			'@' => new props('any', function (string $value) : ?array {
+				$props = null;
+				foreach (\explode(' ', $value) AS $item) {
+					if (\str_contains($item, '@')) {
+						
+						// introduce a contact detail, e.g. "+claudebot@anthropic.com", remove angle brackets, e.g. "<user@example.com>"
+						$item = \trim($item, '+<>');
+						if (\stripos($item, 'mailto:') === 0) {
+							$item = \substr($item, 7);
+						}
+						if (($email = \filter_var($item, FILTER_VALIDATE_EMAIL)) !== false) {
+							$props = [
+								'type' => 'robot',
+								'email' => $email,
+								'category' => 'scraper'
+							];
+							break;
+						}
+					}
+				}
+				return $props;
+			}),
 			'.com' => new props('any', $fn),
 			'.' => new props('any', function (string $value) : ?array {
 				foreach (\explode(' ', $value) AS $item) {
@@ -38,7 +60,7 @@ class urls {
 						foreach (\explode('.', $item) AS $part) {
 							if (!\ctype_alpha(\substr($part, 0, 1)) || \strspn($part, '0123456789qwertyuiopasdfghjklzxcvbnm-') !== \strlen($part)) {
 								return null;
-							}	
+							}
 						}
 						return [
 							'url' => $item

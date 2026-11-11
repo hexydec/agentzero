@@ -108,7 +108,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'Blink',
 				'engineversion' => '113.0.0.0',
 				'bits' => 64,
-				'browserreleased' => '2023-05-16'
+				'browserreleased' => '2023-09-18'
 			],
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.82' => [
 				'string' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.82',
@@ -1068,7 +1068,7 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '106.0.5249.181',
 				'architecture' => 'x86',
 				'bits' => 64,
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2022-10-25'
 			],
 			'Mozilla/5.0 (X11; U; Linux x86_64; fr; rv:1.9.2.14pre) Gecko/20101224 Ubuntu/10.04 (lucid) Namoroka/3.6.14pre' => [
 				'string' => 'Mozilla/5.0 (X11; U; Linux x86_64; fr; rv:1.9.2.14pre) Gecko/20101224 Ubuntu/10.04 (lucid) Namoroka/3.6.14pre',
@@ -1361,7 +1361,6 @@ final class platformsTest extends \PHPUnit\Framework\TestCase {
 				'string' => 'Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5',
 				'type' => 'human',
 				'category' => 'mobile',
-				'vendor' => 'Rv:48.0',
 				'kernel' => 'Linux',
 				'architecture' => 'Arm',
 				'platform' => 'KaiOS',

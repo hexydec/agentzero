@@ -53,7 +53,7 @@ class platforms {
 					'category' => 'desktop',
 					'kernel' => 'Windows NT',
 					'platform' => 'Windows',
-					'platformversion' => $mapping[$version] ?? $version
+					'platformversion' => $mapping[$version ?? ''] ?? $version
 				];
 			},
 			'android' => function (string $value, int $i, array $tokens) : array {
@@ -234,8 +234,8 @@ class platforms {
 
 				// find device
 				foreach ($tokens AS $i => $item) {
-					if ($item === 'Mobile' && !\str_starts_with($tokens[$i++] ?? 'rv:', 'rv:')) {
-						$next = $tokens[$i] ?? '';
+					$next = $tokens[$i + 1] ?? '';
+					if ($item === 'Mobile' && !\str_starts_with($next, 'rv:')) {
 						if (\str_contains($next, '/')) {
 							$parts = \explode('/', $next);
 						} else {

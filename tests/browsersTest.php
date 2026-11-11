@@ -460,7 +460,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engineversion' => '605.1.15',
 				'browser' => 'Edge',
 				'browserversion' => '135.0.7049.50',
-				'browserreleased' => '2023-07-24'
+				'browserreleased' => '2025-04-24'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -499,7 +499,8 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'engine' => 'WebKit',
 				'engineversion' => '601.1.46',
 				'browser' => 'Brave',
-				'browserversion' => '1.2.11'
+				'browserversion' => '1.2.11',
+				'browserreleased' => '2020-01-17'
 			],
 			'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Brave/115.0.0.0 Safari/605.1.15' => [
 				'string' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Brave/115.0.0.0 Safari/605.1.15',
@@ -632,7 +633,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Maxthon',
 				'browserversion' => '2.0',
 				'engine' => 'Trident',
-				'browserreleased' => '2006-10-18'
+				'browserreleased' => '2007-01-01'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1332,7 +1333,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '13.0.0.2.16.259832224',
 				'engine' => 'Blink',
 				'engineversion' => '87.0.4280.66',
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2020-11-17'
 			],
 			'Mozilla/5.0 (Linux; Android 10; Quest) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/19.1.0.1.50.350517500 SamsungBrowser/4.0 Chrome/96.0.4664.174 Mobile VR Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 10; Quest) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/19.1.0.1.50.350517500 SamsungBrowser/4.0 Chrome/96.0.4664.174 Mobile VR Safari/537.36',
@@ -1350,7 +1351,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '19.1.0.1.50.350517500',
 				'engine' => 'Blink',
 				'engineversion' => '96.0.4664.174',
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2021-12-13'
 			],
 			'Mozilla/5.0 (Linux; Android 7.1.1; Pacific) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/9.2.0.2.122.217074189 SamsungBrowser/4.0 Chrome/81.0.4044.117 Mobile VR Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 7.1.1; Pacific) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/9.2.0.2.122.217074189 SamsungBrowser/4.0 Chrome/81.0.4044.117 Mobile VR Safari/537.36',
@@ -1368,7 +1369,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'appversion' => '9.2.0.2.122.217074189',
 				'engine' => 'Blink',
 				'engineversion' => '81.0.4044.117',
-				'browserreleased' => '2021-01-11'
+				'browserreleased' => '2020-04-15'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1391,7 +1392,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				 'browserversion' => '19.0',
 				 'engine' => 'Blink',
 				 'engineversion' => '102.0.5005.125',
-				 'browserreleased' => '2023-01-07'
+				 'browserreleased' => '2022-12-29'
 			],
 			'Mozilla/5.0 (Linux; Android 8.1.0; SAMSUNG SM-A260G Build/OPR6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 SamsungBrowser/7.2 Chrome/108.0.5359.128 Mobile Safari/537.36' => [
 				'string' => 'Mozilla/5.0 (Linux; Android 8.1.0; SAMSUNG SM-A260G Build/OPR6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 SamsungBrowser/7.2 Chrome/108.0.5359.128 Mobile Safari/537.36',
@@ -1407,7 +1408,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browserversion' => '7.2',
 				'engine' => 'Blink',
 				'engineversion' => '108.0.5359.128',
-				'browserreleased' => '2018-06-26'
+				'browserreleased' => '2018-06-07'
 			]
 		];
 		foreach ($strings AS $ua => $item) {
@@ -1570,7 +1571,7 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'bits' => 64,
 				'browser' => 'Silk',
 				'browserversion' => '148.0.5259.39',
-				'browserreleased' => '2026-04-29',
+				'browserreleased' => '2026-05-29',
 				'engine' => 'Blink',
 				'engineversion' => '148.0.5259.39'
 			]
@@ -2094,6 +2095,99 @@ final class browsersTest extends \PHPUnit\Framework\TestCase {
 				'browser' => 'Vivo Browser',
 				'browserversion' => '8.04.0.9085',
 				'nettype' => 'WiFi'
+			],
+			'Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML, like Gecko) Kiwi Chrome/137.0.0.0 Mobile Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 14; SM-S928B) AppleWebKit/537.36 (KHTML, like Gecko) Kiwi Chrome/137.0.0.0 Mobile Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Samsung',
+				'model' => 'SM-S928B',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '14',
+				'engine' => 'Blink',
+				'engineversion' => '137.0.0.0',
+				'browser' => 'Kiwi Browser',
+				'browserversion' => '137.0.0.0'
+			],
+			'Mozilla/5.0 (Linux; Android 17) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/150.0.7871.47 Mobile DuckDuckGo/5 Safari/537.36' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 17) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/150.0.7871.47 Mobile DuckDuckGo/5 Safari/537.36',
+				'type' => 'human',
+				'category' => 'mobile',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '17',
+				'engine' => 'Blink',
+				'engineversion' => '150.0.7871.47',
+				'browser' => 'Chrome',
+				'browserversion' => '150.0.7871.47',
+				'browserreleased' => '2026-06-24',
+				'app' => 'DuckDuckGo',
+				'appname' => 'DuckDuckGo',
+				'appversion' => '5'
+			]
+		];
+		foreach ($strings AS $ua => $item) {
+			$this->assertEquals($item, lib::parse($ua), $ua);
+		}
+	}
+
+	public function testEcosia() : void {
+		$strings = [
+
+			// Ecosia is a browser in its own right rather than an app wrapping another browser, so the
+			// browser field is claimed by Ecosia and not left as Chrome, unlike e.g. DuckDuckGo above.
+			// Neither form declares its own version, only repeating the wrapped engine's, e.g. this Chrome
+			// version, so the browser version and its release date are the underlying Chromium build's
+			'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36 (Ecosia android@145.0.0.0)' => [
+				'string' => 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36 (Ecosia android@145.0.0.0)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'kernel' => 'Linux',
+				'platform' => 'Android',
+				'platformversion' => '10',
+				'engine' => 'Blink',
+				'engineversion' => '145.0.0.0',
+				'browser' => 'Ecosia',
+				'browserversion' => '145.0.0.0',
+				'browserreleased' => '2026-03-10'
+			],
+
+			// same shape on iOS, wrapping Safari/WebKit instead
+			'Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3.1 Mobile/15E148 Safari/605.1.15 (Ecosia ios@11.7.2.2838)' => [
+				'string' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3.1 Mobile/15E148 Safari/605.1.15 (Ecosia ios@11.7.2.2838)',
+				'type' => 'human',
+				'category' => 'mobile',
+				'vendor' => 'Apple',
+				'device' => 'iPhone',
+				'model' => '15E148',
+				'architecture' => 'Arm',
+				'bits' => 64,
+				'kernel' => 'Linux',
+				'platform' => 'iOS',
+				'platformversion' => '26.3.1',
+				'engine' => 'WebKit',
+				'engineversion' => '605.1.15',
+				'browser' => 'Ecosia',
+				'browserversion' => '26.3.1',
+				'browserreleased' => '2026-02-11'
+			],
+
+			// the app's own background networking requests use "Ecosia/build", its only self-declared
+			// version. CFNetwork is matched by an unrelated, pre-existing crawler mapping which sets
+			// type/category/app ahead of this one, so those come from that mapping, not from Ecosia
+			'Ecosia/2838 CFNetwork/3860.400.51 Darwin/25.3.0' => [
+				'string' => 'Ecosia/2838 CFNetwork/3860.400.51 Darwin/25.3.0',
+				'type' => 'robot',
+				'category' => 'feed',
+				'kernel' => 'Linux',
+				'platform' => 'Darwin',
+				'platformversion' => '25.3.0',
+				'browser' => 'Ecosia',
+				'browserversion' => '2838',
+				'app' => 'Apple Core Foundation Network',
+				'appname' => 'CFNetwork',
+				'appversion' => '3860.400.51'
 			]
 		];
 		foreach ($strings AS $ua => $item) {

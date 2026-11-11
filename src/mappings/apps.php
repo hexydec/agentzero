@@ -130,7 +130,7 @@ class apps {
 				'type' => 'human',
 				'app' => 'Pinterest',
 				'appname' => 'Pinterest',
-				'appversion' => \explode('/', $value, 3)[1],
+				'appversion' => \explode('/', $value, 3)[1] ?? null,
 				'platform' => \mb_substr($value, 14, \mb_strpos($value, '/') - 14)
 			]),
 			'OculusBrowser/' => new props('start', $fn['appslash']),
@@ -144,7 +144,7 @@ class apps {
 				'type' => 'human',
 				'app' => 'Quora',
 				'appname' => 'Quora',
-				'appversion' => \explode(' ', $value, 3)[1]
+				'appversion' => \explode(' ', $value, 3)[1] ?? null
 			]),
 			'AmazonKidsBrowser/' => new props('start', $fn['appslash']),
 			'whisper/' => new props('start', $fn['appslash']),
@@ -217,7 +217,6 @@ class apps {
 				'app' => 'Sanoma',
 				'appname' => 'Sanoma'
 			]),
-			'Google Web Preview' => new props('start', $fn['appslash']),
 			'MicroMessenger/' => new props('start', $fn['appslash']),
 			'MicroMessenger Weixin QQ' => new props('start', fn () : array => [
 				'app' => 'WeChat',
@@ -344,7 +343,7 @@ class apps {
 				// the screen dimensions, each read as the type of its property
 				foreach (\explode(',', \trim(\mb_substr($value, 5), '{}')) AS $item) {
 					$parts = \explode('=', $item, 2);
-					if (isset($fields[$parts[0]]) && \is_numeric($parts[1] ?? null)) {
+					if (!isset($data[$parts[0]]) && \is_numeric($parts[1] ?? null)) {
 						$data[$parts[0]] = $parts[0] === 'density' ? \floatval($parts[1]) : \intval($parts[1]);
 					}
 				}

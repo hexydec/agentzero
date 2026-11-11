@@ -54,7 +54,7 @@ class devices {
 			],
 			'playstation' => function (string $value) : array {
 				$parts = \explode(' ', $value);
-				if (\str_contains($parts[1], '/')) {
+				if (\str_contains($parts[1] ?? '', '/')) {
 					list($parts[1], $parts[2]) = \explode('/', $parts[1]);
 				}
 				$platform = [
@@ -65,7 +65,7 @@ class devices {
 					'device' => 'PlayStation',
 					'model' => $parts[1] ?? null,
 					'kernel' => 'Linux',
-					'platform' => $platform[$parts[1]] ?? null,
+					'platform' => $platform[$parts[1] ?? ''] ?? null,
 					'platformversion' => $parts[2] ?? null,
 					'type' => 'human',
 					'category' => 'console',

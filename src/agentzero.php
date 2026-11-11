@@ -2,6 +2,13 @@
 declare(strict_types = 1);
 namespace hexydec\agentzero;
 
+/**
+ * @property-read string|null $host
+ * @property-read int|null $browsermajorversion
+ * @property-read int|null $enginemajorversion
+ * @property-read int|null $platformmajorversion
+ * @property-read int|null $appmajorversion
+ */
 class agentzero {
 
 	// ua string
@@ -47,6 +54,7 @@ class agentzero {
 	public readonly ?string $framework;
 	public readonly ?string $frameworkversion;
 	public readonly ?string $url;
+	public readonly ?string $email;
 
 	// network
 	public readonly ?string $nettype;
@@ -108,6 +116,7 @@ class agentzero {
 		$this->framework = $data->framework ?? null;
 		$this->frameworkversion = !empty($data->frameworkversion) ? \strval($data->frameworkversion) : null;
 		$this->url = $data->url ?? null;
+		$this->email = $data->email ?? null;
 
 		// network
 		$this->nettype = $data->nettype ?? null;
