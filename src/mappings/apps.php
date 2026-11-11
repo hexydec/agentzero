@@ -121,7 +121,7 @@ class apps {
 					'type' => 'human',
 					'app' => 'Reddit',
 					'appname' => 'Reddit',
-					'appversion' => $value === 'Reddit/Version' ? (\mb_strstr($tokens[$i+1], '/', true) ?: null) : \mb_substr($value, 7),
+					'appversion' => $value === 'Reddit/Version' ? (\mb_strstr($tokens[$i+1] ?? '', '/', true) ?: null) : \mb_substr($value, 7),
 					'platform' => $parts[0] ?? null,
 					'platformversion' => $tokens[$i+3] ?? null
 				];
@@ -188,7 +188,7 @@ class apps {
 				'type' => 'human'
 			], $fn['appslash']($value, $i, $tokens, $match))),
 			'Player/LG' => new props('start', function (string $value, int $i, array $tokens) : ?array {
-				if (\str_starts_with($tokens[$i+1], 'Player ')) {
+				if (\str_starts_with($tokens[$i+1] ?? '', 'Player ')) {
 					$parts = \explode(' ', $tokens[$i+1]);
 					$device = $i === 1 ? \explode('/', $tokens[0]) : null;
 					return [
@@ -339,13 +339,12 @@ class apps {
 					'app' => 'Facebook',
 					'appname' => 'Facebook'
 				];
+
+				// the screen dimensions, each read as the type of its property
 				foreach (\explode(',', \trim(\mb_substr($value, 5), '{}')) AS $item) {
-					$parts = \explode('=', $item);
-					if (!empty($parts[1])) {
-						if (\is_numeric($parts[1])) {
-							$parts[1] = \str_contains($parts[1], '.') ? \floatval($parts[1]) : \intval($parts[1]);
-						}
-						$data[$parts[0]] = $parts[1];
+					$parts = \explode('=', $item, 2);
+					if (!isset($data[$parts[0]]) && \is_numeric($parts[1] ?? null)) {
+						$data[$parts[0]] = $parts[0] === 'density' ? \floatval($parts[1]) : \intval($parts[1]);
 					}
 				}
 				return $data;

@@ -159,7 +159,7 @@ class devices {
 				'ram' => 64,
 				'kernel' => 'Linux',
 				'platform' => 'PlayStation Portable System Software',
-				'platformversion' => $tokens[++$i],
+				'platformversion' => $tokens[++$i] ?? null,
 				'browser' => 'NetFront',
 				'engine' => 'WebKit'
 			]),
@@ -373,7 +373,7 @@ class devices {
 				'height' => \intval(\mb_substr($value, 7))
 			]),
 			'dpi=' => new props('start', fn (string $value) : array => [
-				'dpi' => \mb_substr($value, 4)
+				'dpi' => \intval(\mb_substr($value, 4))
 			]),
 			'NetType/' => new props('start', function (string $value) : array {
 				$type = \mb_convert_case(\mb_substr($value, 8), MB_CASE_UPPER);

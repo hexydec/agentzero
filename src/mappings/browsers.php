@@ -200,13 +200,13 @@ class browsers {
 			'Links' => new props('exact', fn (string $value, int $i, array $tokens, string $key, array $config = []) => [
 				'type' => 'human',
 				'browser' => $value,
-				'browserversion' => $tokens[$i + 1]
+				'browserversion' => $tokens[$i + 1] ?? null
 			]),
 			'Elinks/' => new props('start', $fn['browserslash']),
 			'ELinks' => new props('exact', fn (string $value, int $i, array $tokens, string $key, array $config = []) => [
 				'type' => 'human',
 				'browser' => $value,
-				'browserversion' => $tokens[$i + 1]
+				'browserversion' => $tokens[$i + 1] ?? null
 			]),
 			'Blazer' => new props('start', fn (string $value, int $i, array $tokens, string $key, array $config = []) : array => [
 				'type' => 'human',
