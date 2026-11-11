@@ -40,22 +40,25 @@ class other {
 						];
 						$fields = ['os', 'osversion', 'platform', 'platformversion', 'app', 'appversion', 'isdarktheme', 'locale', 'device'];
 						foreach ($fields AS $item) {
-							if (isset($data[$item])) {
+							if (\is_scalar($data[$item] ?? null)) {
+								$value = \strval($data[$item]);
 								if ($item === 'app') {
-									$cat['app'] = apps::getApp($data[$item]);
-									$cat['appname'] = $data[$item];
+									$cat['app'] = apps::getApp($value);
+									$cat['appname'] = $value;
 								} elseif ($item === 'device') {
-									$cat = \array_merge($cat, devices::getDevice($data[$item]));
+									$cat = \array_merge($cat, devices::getDevice($value));
 								} elseif ($item === 'os') {
-									$parts = \explode(' ', $data[$item]);
+									$parts = \explode(' ', $value);
 									if (\is_numeric($parts[1] ?? null)) {
 										$cat['platform'] = $parts[0];
 										$cat['platformversion'] = $parts[1];
 									} else {
-										$cat['platform'] = $data[$item];
+										$cat['platform'] = $value;
 									}
+								} elseif ($item === 'isdarktheme') {
+									$cat['darkmode'] = \filter_var($data[$item], FILTER_VALIDATE_BOOL, FILTER_NULL_ON_FAILURE);
 								} else {
-									$cat[$map[$item] ?? $item] = $data[$item];
+									$cat[$map[$item] ?? $item] = $value;
 								}
 							}
 						}

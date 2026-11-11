@@ -235,10 +235,11 @@ class platforms {
 				// find device
 				foreach ($tokens AS $i => $item) {
 					if ($item === 'Mobile' && !\str_starts_with($tokens[$i++] ?? 'rv:', 'rv:')) {
-						if (\str_contains($tokens[$i], '/')) {
-							$parts = \explode('/', $tokens[$i]);
+						$next = $tokens[$i] ?? '';
+						if (\str_contains($next, '/')) {
+							$parts = \explode('/', $next);
 						} else {
-							$parts = \explode(' ', \str_replace('_', ' ', $tokens[$i]), 2);
+							$parts = \explode(' ', \str_replace('_', ' ', $next), 2);
 						}
 						break;
 					}
@@ -333,7 +334,7 @@ class platforms {
 				];
 			}),
 			'Fuchsia' => new props('exact', function (string $value, int $i, array $tokens) : array {
-				$os = \explode(' ', $tokens[++$i], 2);
+				$os = \explode(' ', $tokens[++$i] ?? '', 2);
 				return [
 					'type' => 'human',
 					'category' => 'mobile',
@@ -343,7 +344,7 @@ class platforms {
 				];
 			}),
 			'Maemo' => new props('exact', function (string $value, int $i, array $tokens) : array {
-				$os = \explode(' ', $tokens[++$i], 2);
+				$os = \explode(' ', $tokens[++$i] ?? '', 2);
 				return [
 					'type' => 'human',
 					'category' => 'mobile',

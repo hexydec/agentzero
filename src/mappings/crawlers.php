@@ -437,7 +437,7 @@ class crawlers {
 				$count = \count($tokens);
 				for ($n = $i; $n < $count; $n++) {
 					if (\str_starts_with($tokens[$n], 'namespace: ')) {
-						$app = \mb_substr($tokens[$n], 11).' - '.$tokens[$n+1];
+						$app = \mb_substr($tokens[$n], 11).' - '.($tokens[$n+1] ?? '');
 						break;
 					}
 				}
@@ -476,7 +476,7 @@ class crawlers {
 				'type' => 'robot',
 				'category' => 'feed',
 				'app' => 'Google Docs',
-				'appname' => $value.'; '.$tokens[$i+1]
+				'appname' => $value.'; '.($tokens[$i+1] ?? '')
 			]),
 			'Google-Lens' => new props('exact', $fn['feed']),
 			'ManicTime/' => new props('start', $fn['feed']),
